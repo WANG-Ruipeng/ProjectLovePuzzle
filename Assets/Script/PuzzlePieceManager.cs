@@ -34,8 +34,8 @@ public class PuzzlePieceManager : MonoBehaviour
     public Vector3 rightStartPos;
 
     [Header("Conbine animation settings")]
-    public Vector3 leftEndPos = new Vector3(-0.56f, 0, 0);
-    public Vector3 rightEndPos = new Vector3(-0.56f, 0, 0);
+    public Vector3 leftEndPos = new Vector3(-0.66f, 0, 0);
+    public Vector3 rightEndPos = new Vector3(0.66f, 0, 0);
     public AnimationCurve conbineAnimationCurve;
 
     PuzzlePiece left;
@@ -55,19 +55,6 @@ public class PuzzlePieceManager : MonoBehaviour
         conbineAnimationLength = conbineAnimationCurve.keys[conbineAnimationCurve.length - 1].time;
     }
 
-    /*
-    public void LoadPuzzle(PuzzlePiece left, PuzzlePiece right)
-    {
-        this.left.Reset(left, 0);
-        this.right.Reset(right, 0);
-        test();//从PuzzlePiece中获取边的信息
-    }
-    void test()
-    {
-        left.edgeProp = new int[] { 0, 0, 0, -1 };
-        right.edgeProp = new int[] { 0, 0, 0, 1 };
-    }
-    */
 
     /// <summary>
     /// 目前只考虑每个边有三种情况，当玩家按下Lock的时候调用
@@ -110,7 +97,7 @@ public class PuzzlePieceManager : MonoBehaviour
     private void Update()
     {
         //这里负责在每次按下固定按键以后判定是否成功，逻辑写在这里而不是PuzzlePiece里面是因为减少脚本之间的依赖关系
-        if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.P))
         {
             if (Check())
             {
