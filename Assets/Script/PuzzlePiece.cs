@@ -43,7 +43,10 @@ public class PuzzlePiece : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.W))
             {
-                LockButtonPressed();
+                if (isLocked)
+                    ReleaseLockStatus();
+                else
+                    SetLockStatus();
             }
         }
         else
@@ -58,12 +61,23 @@ public class PuzzlePiece : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.P))
             {
-                LockButtonPressed();
+                if (isLocked)
+                    ReleaseLockStatus();
+                else
+                    SetLockStatus();
             }
         }
     }
 
-    private void LockButtonPressed()
+    public void ReleaseLockStatus()
+    {
+        isLocked = false;
+        Color c = indicatorSprite.color;
+        c.a = 0;
+        indicatorSprite.color = c;
+    }
+
+    private void SetLockStatus()
     {
         isLocked = true;
         Color c = indicatorSprite.color;
@@ -113,7 +127,6 @@ public class PuzzlePiece : MonoBehaviour
     void Start()
     {
         rotateTimeLength = RotateCurve.keys[RotateCurve.length - 1].time;
-        RotateClockWise = false;
         isRotating = false;
         isLocked = false;
         indicatorSprite = LockIndicator.GetComponent<SpriteRenderer>();

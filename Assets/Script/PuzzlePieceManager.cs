@@ -30,44 +30,44 @@ public class PuzzlePieceManager : MonoBehaviour
     [Header("Basic information about two pieces")]
     public GameObject leftObj;
     public GameObject rightObj;
-    public Vector3 leftStartPos;
-    public Vector3 rightStartPos;
 
-    [Header("Conbine animation settings")]
+    [Header("Enter scene animation settings")]
+    [Tooltip("注意所有坐标都是作用在更改在全局坐标系上，如果要统一全局和局部坐标系，需要PuzzlePiecePair及以上层级的物体均位于原点。")]
+    public Vector3 leftEnterStartPos = new Vector3(-1.56f, 10, 0);
+    public Vector3 rightEnterStartPos = new Vector3(1.56f, 10, 0);
+    public AnimationCurve enterAnimationCurve;
+
+    [Header("Combine animation settings")]
+    public Vector3 leftCombineStartPos  = new Vector3(-1.56f, 0, 0);
+    public Vector3 rightCombineStartPos = new Vector3(1.56f, 0, 0);
     public Vector3 leftEndPos = new Vector3(-0.56f, 0, 0);
-    public Vector3 rightEndPos = new Vector3(-0.56f, 0, 0);
-    public AnimationCurve conbineAnimationCurve;
+    public Vector3 rightEndPos = new Vector3(0.56f, 0, 0);
+    public AnimationCurve combineAnimationCurve;
 
     PuzzlePiece left;
     PuzzlePiece right;
-    bool isPlayingConbineAnim = false;
-    float conbineAnimationLength;
-    float conbineAnimationStartTime;
+
+    bool isPlayingEnterAnim = false;
+    float enterAnimationLength = 0;
+    float enterAnimationStartTime = 0;
+    
+    bool isPlayingCombineAnim = false;
+    float combineAnimationLength = 0;
+    float combineAnimationStartTime = 0;
+
+    Animator animator;
+    //bool isPlayingMinimizeAnim = false;
 
     private void Awake()
     {
         left = leftObj.GetComponentInChildren<PuzzlePiece>();
         right = rightObj.GetComponentInChildren<PuzzlePiece>();
-        leftStartPos = leftObj.transform.position;
-        rightStartPos = rightObj.transform.position;
         left.RotateClockWise = true;
         right.RotateClockWise = false;
-        conbineAnimationLength = conbineAnimationCurve.keys[conbineAnimationCurve.length - 1].time;
+        combineAnimationLength = combineAnimationCurve.keys[combineAnimationCurve.length - 1].time;
+        enterAnimationLength = enterAnimationCurve.keys[enterAnimationCurve.length - 1].time;
+        animator = GetComponent<Animator>();
     }
-
-    /*
-    public void LoadPuzzle(PuzzlePiece left, PuzzlePiece right)
-    {
-        this.left.Reset(left, 0);
-        this.right.Reset(right, 0);
-        test();//从PuzzlePiece中获取边的信息
-    }
-    void test()
-    {
-        left.edgeProp = new int[] { 0, 0, 0, -1 };
-        right.edgeProp = new int[] { 0, 0, 0, 1 };
-    }
-    */
 
     /// <summary>
     /// 目前只考虑每个边有三种情况，当玩家按下Lock的时候调用
@@ -92,38 +92,85 @@ public class PuzzlePieceManager : MonoBehaviour
     }
 
     /// <summary>
-    /// 播放拼图合在一起的动画
+    /// 播放拼图从上方落下的动画
     /// </summary>
-    private void PlayPieceCombineAnimation()
+    private void PlayEnterSceneAnimation()
     {
-        float progress = (Time.time - conbineAnimationStartTime);
-        if (progress >= conbineAnimationLength)
-            isPlayingConbineAnim = false;
+        float progress = (Time.time - enterAnimationStartTime);
+        if (progress >= enterAnimationLength)
+            isPlayingEnterAnim = false;
 
-        float posPercent = Mathf.Clamp(conbineAnimationCurve.Evaluate(progress), 0, 1);
-        Vector3 leftNowPos = Vector3.Lerp(leftEndPos, leftStartPos, posPercent);
-        Vector3 rightNowPos = Vector3.Lerp(rightEndPos, rightStartPos, posPercent);
+        float posPercent = Mathf.Clamp(enterAnimationCurve.Evaluate(progress), 0, 1);
+        Vector3 leftNowPos = Vector3.Lerp(leftEnterStartPos, leftCombineStartPos, posPercent);
+        Vector3 rightNowPos = Vector3.Lerp(rightEnterStartPos, rightCombineStartPos, posPercent);
         leftObj.transform.position = leftNowPos;
         rightObj.transform.position = rightNowPos;
     }
 
+    /// <summary>
+    /// 播放拼图合在一起的动画
+    /// </summary>
+    private void PlayPieceCombineAnimation()
+    {
+        float progress = (Time.time - combineAnimationStartTime);
+        if (progress >= combineAnimationLength)
+        {
+            isPlayingCombineAnim = false;
+            PlayMinimizeAnimation();
+        }
+
+        float posPercent = Mathf.Clamp(combineAnimationCurve.Evaluate(progress), 0, 1);
+        Vector3 leftNowPos = Vector3.Lerp(leftCombineStartPos, leftEndPos , posPercent);
+        Vector3 rightNowPos = Vector3.Lerp(rightCombineStartPos, rightEndPos , posPercent);
+        leftObj.transform.position = leftNowPos;
+        rightObj.transform.position = rightNowPos;
+    }
+
+    /// <summary>
+    /// 播放缩小后的动画
+    /// </summary>
+    private void PlayMinimizeAnimation() 
+    {
+        animator.SetBool("isMinimized",true);
+    }
+
     private void Update()
     {
+        if (isPlayingEnterAnim)
+        {
+            PlayEnterSceneAnimation();
+            return;
+        }
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            isPlayingEnterAnim = true;
+            enterAnimationStartTime = Time.time;
+        }
+
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            PlayMinimizeAnimation();
+        }
+
         //这里负责在每次按下固定按键以后判定是否成功，逻辑写在这里而不是PuzzlePiece里面是因为减少脚本之间的依赖关系
-        if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.P))
         {
             if (Check())
             {
-                isPlayingConbineAnim = true;
-                conbineAnimationStartTime = Time.time;
+                isPlayingCombineAnim = true;
+                combineAnimationStartTime = Time.time;
             }
-            else
+            else if(left.isLocked && right.isLocked)
             {
+                //拼图失败之后
                 //Debug.Log("Failed!");
+                left.ReleaseLockStatus();
+                right.ReleaseLockStatus();
             }
         }
 
-        if (isPlayingConbineAnim)
+        if (isPlayingCombineAnim)
         {
             PlayPieceCombineAnimation();
         }
