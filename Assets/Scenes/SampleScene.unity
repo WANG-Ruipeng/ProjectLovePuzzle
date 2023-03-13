@@ -220,7 +220,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5705530688632313730, guid: 9fa4985ab7face0448351225d09578b2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.56
+      value: 0.66
       objectReference: {fileID: 0}
     - target: {fileID: 5705530688632313730, guid: 9fa4985ab7face0448351225d09578b2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -312,6 +312,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftObj: {fileID: 1723242284}
   rightObj: {fileID: 1792856103}
+  leftStartPos: {x: 0, y: 0, z: 0}
+  rightStartPos: {x: 0, y: 0, z: 0}
+  leftEndPos: {x: -0.66, y: 0, z: 0}
+  rightEndPos: {x: 0.66, y: 0, z: 0}
+  conbineAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &657210750
 Transform:
   m_ObjectHideFlags: 0
@@ -357,7 +385,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5705530688632313730, guid: 9fa4985ab7face0448351225d09578b2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.56
+      value: -0.66
       objectReference: {fileID: 0}
     - target: {fileID: 5705530688632313730, guid: 9fa4985ab7face0448351225d09578b2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -401,6 +429,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5705530689006069574, guid: 9fa4985ab7face0448351225d09578b2, type: 3}
       propertyPath: RotateClockWise
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5705530689006069576, guid: 9fa4985ab7face0448351225d09578b2, type: 3}
+      propertyPath: m_DrawMode
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -112,7 +112,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 4.22, y: 3.24}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -167,7 +167,7 @@ MonoBehaviour:
   LockIndicator: {fileID: 5705530689243263142}
   isLocked: 0
   state: 0
-  edgeProps: 00000000000000000000000000000000
+  edgeProps: 00000000010000000000000000000000
 --- !u!1 &5705530689243263142
 GameObject:
   m_ObjectHideFlags: 0
