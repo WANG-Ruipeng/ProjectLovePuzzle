@@ -13,7 +13,7 @@ public class PuzzlePiece : MonoBehaviour
     SpriteRenderer indicatorSprite;
 
     //旋转状态
-    bool isRotating = false;
+    public bool isRotating = false;
     public bool isLocked = false;
     float rotateTimeLength = 0;
     float rotateStartTime = 0;
@@ -29,46 +29,6 @@ public class PuzzlePiece : MonoBehaviour
     }//用数字直接表示边比较容易误解，这里改成枚举.0表示平，1表示凸，-1表示凹
     public edgeProp[] edgeProps = new edgeProp[edgeCount];
 
-    private void HandleInput()
-    {
-        if (RotateClockWise)
-        {
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                isRotating = true;
-                rotateStartTime = Time.time;
-                rotateStartAngle = transform.rotation.eulerAngles.z;
-                ChangeState();
-            }
-
-            if (Input.GetKeyDown(KeyCode.W))
-            {
-                if (isLocked)
-                    ReleaseLockStatus();
-                else
-                    SetLockStatus();
-            }
-        }
-        else
-        {
-            if (Input.GetKeyDown(KeyCode.O))
-            {
-                isRotating = true;
-                rotateStartTime = Time.time;
-                rotateStartAngle = transform.rotation.eulerAngles.z;
-                ChangeState();
-            }
-
-            if (Input.GetKeyDown(KeyCode.P))
-            {
-                if (isLocked)
-                    ReleaseLockStatus();
-                else
-                    SetLockStatus();
-            }
-        }
-    }
-
     public void ReleaseLockStatus()
     {
         isLocked = false;
@@ -77,7 +37,7 @@ public class PuzzlePiece : MonoBehaviour
         indicatorSprite.color = c;
     }
 
-    private void SetLockStatus()
+    public void SetLockStatus()
     {
         isLocked = true;
         Color c = indicatorSprite.color;
@@ -106,8 +66,11 @@ public class PuzzlePiece : MonoBehaviour
         transform.rotation = rotQuat;
     }
 
-    private void ChangeState()
+    public void ChangeState()
     {
+        isRotating = true;
+        rotateStartTime = Time.time;
+        rotateStartAngle = transform.rotation.eulerAngles.z;
         if (RotateClockWise)
             state = (state + edgeCount - 1) % edgeCount;//顺时针旋转，state--
         else
@@ -136,18 +99,9 @@ public class PuzzlePiece : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isLocked)
+        if (!isLocked && isRotating)
         {
-            if (!isRotating)
-            {
-                HandleInput();
-
-            }
-
-            if (isRotating)
-            {
-                PlayRotateAnimation(); 
-            }
+            PlayRotateAnimation(); 
         }
         
     }

@@ -163,11 +163,11 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  RotateClockWise: 0
+  RotateClockWise: 1
   LockIndicator: {fileID: 5705530689243263142}
   isLocked: 0
   state: 0
-  edgeProps: 00000000010000000000000000000000
+  edgeProps: ffffffffffffffffffffffffffffffff
 --- !u!1 &5705530689243263142
 GameObject:
   m_ObjectHideFlags: 0

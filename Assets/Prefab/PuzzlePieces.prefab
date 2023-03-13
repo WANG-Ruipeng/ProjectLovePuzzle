@@ -10,10 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 730040976960134050}
   - component: {fileID: 730040976960134049}
-  - component: {fileID: 1325342423045440368}
-  - component: {fileID: 4538094226293549476}
   m_Layer: 0
-  m_Name: PuzzlePiecePair
+  m_Name: PuzzlePieces
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,8 +29,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 730040978025132529}
-  - {fileID: 4976404505428437521}
+  - {fileID: 8478937521540984819}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -48,18 +45,65 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd9e1122afd84a548a654f452fe6a115, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &5798113574326460620
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8478937521540984819}
+  - component: {fileID: 1590591201645657968}
+  - component: {fileID: 3935664835197980907}
+  m_Layer: 0
+  m_Name: PuzzlePiecePair
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8478937521540984819
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5798113574326460620}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4976404505428437521}
+  - {fileID: 730040978025132529}
+  m_Father: {fileID: 730040976960134050}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1590591201645657968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5798113574326460620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a80f9ae75bd07674780742f785d582a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   leftObj: {fileID: 730040978025132528}
   rightObj: {fileID: 4976404505428437520}
-  leftEnterStartPos: {x: -1.56, y: 5, z: 0}
-  rightEnterStartPos: {x: 1.56, y: 5, z: 0}
+  leftEnterStartPos: {x: -1.56, y: 10, z: 0}
+  rightEnterStartPos: {x: 1.56, y: 10, z: 0}
   enterAnimationCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 2
-      outSlope: 2
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
@@ -67,8 +111,34 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 1
       value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  leftDownStartPos: {x: -1.56, y: 5, z: 0}
+  rightDownStartPos: {x: 1.56, y: 5, z: 0}
+  downAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
       inSlope: 0
       outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
@@ -104,29 +174,14 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!111 &1325342423045440368
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 730040976960134048}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: b407cbf0486ab3e4eb030f2b74cd28cb, type: 2}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 0
-  m_AnimatePhysics: 0
-  m_CullingType: 0
---- !u!95 &4538094226293549476
+--- !u!95 &3935664835197980907
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 730040976960134048}
+  m_GameObject: {fileID: 5798113574326460620}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: a1853335ab6ea2c439ed5912def8e844, type: 2}
@@ -144,19 +199,11 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 730040976960134050}
+    m_TransformParent: {fileID: 8478937521540984819}
     m_Modifications:
     - target: {fileID: 5705530688632313730, guid: 9fa4985ab7face0448351225d09578b2, type: 3}
       propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5705530688632313730, guid: 9fa4985ab7face0448351225d09578b2, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5705530688632313730, guid: 9fa4985ab7face0448351225d09578b2, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5705530688632313730, guid: 9fa4985ab7face0448351225d09578b2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -203,12 +250,8 @@ PrefabInstance:
       value: RightPuzzlePiece
       objectReference: {fileID: 0}
     - target: {fileID: 5705530689006069574, guid: 9fa4985ab7face0448351225d09578b2, type: 3}
-      propertyPath: edgeProps.Array.data[2]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5705530689006069574, guid: 9fa4985ab7face0448351225d09578b2, type: 3}
-      propertyPath: edgeProps.Array.data[3]
-      value: 0
+      propertyPath: edgeProps.Array.data[1]
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5705530689006069576, guid: 9fa4985ab7face0448351225d09578b2, type: 3}
       propertyPath: m_Sprite
@@ -231,18 +274,10 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 730040976960134050}
+    m_TransformParent: {fileID: 8478937521540984819}
     m_Modifications:
     - target: {fileID: 5705530688632313730, guid: 9fa4985ab7face0448351225d09578b2, type: 3}
       propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5705530688632313730, guid: 9fa4985ab7face0448351225d09578b2, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5705530688632313730, guid: 9fa4985ab7face0448351225d09578b2, type: 3}
-      propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5705530688632313730, guid: 9fa4985ab7face0448351225d09578b2, type: 3}
@@ -288,10 +323,6 @@ PrefabInstance:
     - target: {fileID: 5705530688632313731, guid: 9fa4985ab7face0448351225d09578b2, type: 3}
       propertyPath: m_Name
       value: LeftPuzzlePiece
-      objectReference: {fileID: 0}
-    - target: {fileID: 5705530689006069574, guid: 9fa4985ab7face0448351225d09578b2, type: 3}
-      propertyPath: RotateClockWise
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9fa4985ab7face0448351225d09578b2, type: 3}
