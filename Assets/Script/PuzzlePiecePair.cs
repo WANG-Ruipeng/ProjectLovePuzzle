@@ -5,6 +5,7 @@ using UnityEngine;
 public class PuzzlePiecePair : MonoBehaviour
 {
     [Header("Basic information about two pieces")]
+    public int pieceNo;
     public GameObject leftObj;
     public GameObject rightObj;
 
