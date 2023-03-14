@@ -138,7 +138,6 @@ namespace Giro
             levelGameObject.AddComponent<LevelManager>().LevelDefinition = levelDefinition;
             LevelManager levelManager = LevelManager.Instance;
 
-
             //Transform levelParent = levelGameObject.transform;
             //原代码在这里载入了场景中的所有spawnable，但是拼图游戏或许不需要
             if (puzzlePoolGO != null)
@@ -155,6 +154,8 @@ namespace Giro
 
             puzzlePoolGO = new GameObject("PuzzlePool");
             puzzlePoolGO.transform.SetParent(levelGameObject.transform);
+
+
             var stepsList = levelDefinition.puzzleSteps;
             for (int i = 0; i < stepsList.Length; i++)
             {
