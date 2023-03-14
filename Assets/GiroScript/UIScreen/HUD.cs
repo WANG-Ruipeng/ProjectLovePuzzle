@@ -19,6 +19,30 @@ namespace Giro
         public HyperCasualButton pauseButton;
         public AbstractGameEvent pauseEvent;
 
+        public bool LeftLocked
+        {
+            get => leftLocked;
+            set
+            {
+                leftLocked = value;
+                if (leftLocked) LockIndicator(leftIndicator);
+                else UnlockIndicator(leftIndicator);
+            }
+        }
+        bool leftLocked;
+        public bool RightLocked
+        {
+            get => rightLocked;
+            set
+            {
+                rightLocked = value;
+                if (rightLocked) LockIndicator(rightIndicator);
+                else UnlockIndicator(rightIndicator);
+            }
+        }
+
+        bool rightLocked;
+
         int timeLeft;
         public float TimeLeft
         {
@@ -30,6 +54,18 @@ namespace Giro
             }
         }
 
+        void LockIndicator(Image image)//具体表现形式等待美术提要求
+        {
+            Color c = image.color;
+            c.a = 255;
+            image.color = c;
+        }
 
+        void UnlockIndicator(Image image)
+        {
+            Color c = image.color;
+            c.a = 0;
+            image.color = c;
+        }
     }
 }
