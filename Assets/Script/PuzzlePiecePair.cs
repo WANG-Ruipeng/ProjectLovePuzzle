@@ -9,37 +9,36 @@ public class PuzzlePiecePair : MonoBehaviour
     public GameObject leftObj;
     public GameObject rightObj;
 
-    [Header("Enter scene animation settings")]
-    [Tooltip("注意所有坐标都是作用在更改在全局坐标系上，如果要统一全局和局部坐标系，需要PuzzlePiecePair及以上层级的物体均位于原点。")]
     public Vector3 leftEnterStartPos = new Vector3(-1.56f, 10, 0);
     public Vector3 rightEnterStartPos = new Vector3(1.56f, 10, 0);
     public AnimationCurve enterAnimationCurve;
 
-    [Header("Go down animation settings")]
     public Vector3 leftDownStartPos = new Vector3(-1.56f, 4, 0);
     public Vector3 rightDownStartPos = new Vector3(1.56f, 4, 0);
     public AnimationCurve downAnimationCurve;
 
-    [Header("Combine animation settings")]
     public Vector3 leftCombineStartPos = new Vector3(-1.56f, 0, 0);
     public Vector3 rightCombineStartPos = new Vector3(1.56f, 0, 0);
     public Vector3 leftEndPos = new Vector3(-0.56f, 0, 0);
     public Vector3 rightEndPos = new Vector3(0.56f, 0, 0);
     public AnimationCurve combineAnimationCurve;
 
+    public GameObject[] puzzlePairs;
+
+    float enterAnimationLength = 0;
+    float downAnimationLength = 0;
+    float combineAnimationLength = 0;
+
     PuzzlePiece left;
     PuzzlePiece right;
 
     bool isPlayingEnterAnim = false;
-    float enterAnimationLength = 0;
     float enterAnimationStartTime = 0;
 
     bool isPlayingDownAnim = false;
-    float downAnimationLength = 0;
     float downAnimationStartTime = 0;
 
     bool isPlayingCombineAnim = false;
-    float combineAnimationLength = 0;
     float combineAnimationStartTime = 0;
 
     Animator animator;
@@ -52,9 +51,7 @@ public class PuzzlePiecePair : MonoBehaviour
         right = rightObj.GetComponentInChildren<PuzzlePiece>();
         left.RotateClockWise = true;
         right.RotateClockWise = false;
-        combineAnimationLength = combineAnimationCurve.keys[combineAnimationCurve.length - 1].time;
-        enterAnimationLength = enterAnimationCurve.keys[enterAnimationCurve.length - 1].time;
-        downAnimationLength = downAnimationCurve.keys[downAnimationCurve.length - 1].time;
+        
         animator = GetComponent<Animator>();
     }
 
