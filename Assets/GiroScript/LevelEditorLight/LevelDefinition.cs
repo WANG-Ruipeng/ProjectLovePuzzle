@@ -14,6 +14,8 @@ namespace Giro
     public class LevelDefinition : AbstractLevelData
     {
         public Background background;
+        public GameObject puzzlePiecePoolPrefab;
+        public float maxCountdown;
         [Header("Edge Prop从上方开始顺时针记录，从0开始")]
         public PuzzleStep[] puzzleSteps;
         [System.Serializable]

@@ -31,6 +31,7 @@ namespace Giro
 
         LevelDefinition m_CurrentLevel;
 
+
         /// <summary>
         /// Returns true if the game is currently active.
         /// Returns false if the game is paused, has not yet begun,
@@ -99,7 +100,7 @@ namespace Giro
 
             if (LevelManager.Instance != null)
             {
-                LevelManager.Instance.ResetSpawnables();
+                LevelManager.Instance.ResetLevel();
             }
         }
 
@@ -138,7 +139,6 @@ namespace Giro
             levelGameObject.AddComponent<LevelManager>().LevelDefinition = levelDefinition;
             LevelManager levelManager = LevelManager.Instance;
 
-
             //Transform levelParent = levelGameObject.transform;
             //原代码在这里载入了场景中的所有spawnable，但是拼图游戏或许不需要
             if (puzzlePoolGO != null)
@@ -155,14 +155,23 @@ namespace Giro
 
             puzzlePoolGO = new GameObject("PuzzlePool");
             puzzlePoolGO.transform.SetParent(levelGameObject.transform);
+
+
             var stepsList = levelDefinition.puzzleSteps;
             for (int i = 0; i < stepsList.Length; i++)
             {
-                GameObject pzppGO = new GameObject("PuzzlePiecePair_" + i);
-                pzppGO.transform.SetParent(puzzlePoolGO.transform);
-                //GameObject.Instantiate(pzppGO, puzzlePoolGO.transform);
-                pzppGO.AddComponent<PuzzlePiecePair>();
+                GameObject pzppGO = null;
+                if (Application.isPlaying)
+                {
+                    pzppGO = GameObject.Instantiate(levelDefinition.puzzlePiecePoolPrefab);
+                }
+                else
+                {
+                    pzppGO = (GameObject)PrefabUtility.InstantiatePrefab(levelDefinition.puzzlePiecePoolPrefab);
+                }
                 PuzzlePiecePair pzpp = pzppGO.GetComponent<PuzzlePiecePair>();
+                pzppGO.transform.SetParent(puzzlePoolGO.transform);
+                pzppGO.name = ("PuzzlePair_" + i);
 
                 if (stepsList[i].lStepPrefab != null)
                 {

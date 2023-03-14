@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using HyperCasual.Core;
 namespace Giro
 {
     /// <summary>
@@ -17,6 +17,17 @@ namespace Giro
         public static LevelManager Instance => s_Instance;
 
         static LevelManager s_Instance;
+
+        public float Countdown { get => countdown; }
+        float countdown;
+        float maxCountdown;
+        float starttime;
+        bool isCountdowning;
+
+        AbstractGameEvent restartCountdownEvent;
+        AbstractGameEvent pauseCountdownEvent;
+        AbstractGameEvent continueCountdownEvent;
+        AbstractGameEvent loseEvent;
 
         /// <summary>
         /// Returns the LevelDefinition used to create this LevelManager.
@@ -36,7 +47,8 @@ namespace Giro
         }
         LevelDefinition m_LevelDefinition;
 
-        List<PuzzlePiecePair> puzzlePieceInScene;
+        public List<PuzzlePiecePair> puzzlePieceInScene;
+
 
         /// <summary>
         /// Call this method to add a Spawnable to the list of active Spawnables.
@@ -49,8 +61,10 @@ namespace Giro
         /// <summary>
         /// Calling this method calls the Reset() method on all Spawnables in this level.
         /// </summary>
-        public void ResetSpawnables()
+        public void ResetLevel()
         {
+            maxCountdown = m_LevelDefinition.maxCountdown;
+            countdown = maxCountdown;
             for (int i = 0; i < puzzlePieceInScene.Count; i++)
             {
                 puzzlePieceInScene[i].leftObj.GetComponent<PuzzlePiece>().Reset();
@@ -62,12 +76,15 @@ namespace Giro
         {
             SetupInstance();
             puzzlePieceInScene = new List<PuzzlePiecePair>();
+
         }
 
         void OnEnable()
         {
             SetupInstance();
+            puzzlePieceInScene = new List<PuzzlePiecePair>();
         }
+
 
         void SetupInstance()
         {
@@ -85,6 +102,31 @@ namespace Giro
             }
 
             s_Instance = this;
+        }
+
+        void RestartCountdown()
+        {
+            countdown = maxCountdown;
+            starttime = Time.time;
+            isCountdowning = true;
+        }
+
+        void ContinueCountdown()
+        {
+            isCountdowning = true;
+        }
+
+        void PauseCountdown()
+        {
+            isCountdowning = false;
+        }
+
+        private void Update()
+        {
+            if (isCountdowning)
+            {
+                countdown = maxCountdown - Time.time + starttime;
+            }
         }
     }
 }
