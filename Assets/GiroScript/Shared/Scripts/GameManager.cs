@@ -134,17 +134,10 @@ namespace Giro
                 }
             }
 
-            LevelManager levelManager = FindObjectOfType<LevelManager>();
-            if (levelManager == null)
-            {
-                levelGameObject = new GameObject("LevelManager");
-                levelGameObject.AddComponent<LevelManager>().LevelDefinition = levelDefinition;
-            }
-            else
-            {
-                levelGameObject = GameObject.Find("LevelManager");
-                levelManager.LevelDefinition = levelDefinition;
-            }
+            levelGameObject = new GameObject("LevelManager");
+            levelGameObject.AddComponent<LevelManager>().LevelDefinition = levelDefinition;
+            LevelManager levelManager = LevelManager.Instance;
+
 
             //Transform levelParent = levelGameObject.transform;
             //原代码在这里载入了场景中的所有spawnable，但是拼图游戏或许不需要
@@ -165,42 +158,44 @@ namespace Giro
             var stepsList = levelDefinition.puzzleSteps;
             for (int i = 0; i < stepsList.Length; i++)
             {
+                GameObject pzppGO = new GameObject("PuzzlePiecePair_" + i);
+                pzppGO.transform.SetParent(puzzlePoolGO.transform);
+                //GameObject.Instantiate(pzppGO, puzzlePoolGO.transform);
+                pzppGO.AddComponent<PuzzlePiecePair>();
+                PuzzlePiecePair pzpp = pzppGO.GetComponent<PuzzlePiecePair>();
+
                 if (stepsList[i].lStepPrefab != null)
                 {
                     GameObject go = null;
                     if (Application.isPlaying)
                     {
-                        go = GameObject.Instantiate(stepsList[i].lStepPrefab, puzzlePoolGO.transform);
+                        go = GameObject.Instantiate(stepsList[i].lStepPrefab, pzppGO.transform);
                     }
                     else
                     {
 #if UNITY_EDITOR
-                        go = (GameObject)PrefabUtility.InstantiatePrefab(stepsList[i].lStepPrefab, puzzlePoolGO.transform);
+                        go = (GameObject)PrefabUtility.InstantiatePrefab(stepsList[i].lStepPrefab, pzppGO.transform);
 #endif
                     }
-                    PuzzlePiece pzPiece = go.GetComponent<PuzzlePiece>();
-                    if (pzPiece != null)
-                    {
-                        levelManager.AddStep(pzPiece);
-                    }
-                    go.SetActive(false);
+                    pzpp.leftObj = go;
                 }
                 if (stepsList[i].rStepPrefab != null)
                 {
                     GameObject go = null;
                     if (Application.isPlaying)
                     {
-                        go = GameObject.Instantiate(stepsList[i].rStepPrefab, puzzlePoolGO.transform);
+                        go = GameObject.Instantiate(stepsList[i].rStepPrefab, pzppGO.transform);
                     }
                     else
                     {
 #if UNITY_EDITOR
-                        go = (GameObject)PrefabUtility.InstantiatePrefab(stepsList[i].rStepPrefab, puzzlePoolGO.transform);
+                        go = (GameObject)PrefabUtility.InstantiatePrefab(stepsList[i].rStepPrefab, pzppGO.transform);
 #endif
                     }
-                    go.SetActive(false);
+                    pzpp.rightObj = go;
                 }
-
+                pzppGO.SetActive(false);
+                levelManager.AddStep(pzpp);
             }
         }
 

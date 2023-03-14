@@ -15,6 +15,7 @@ namespace Giro
         /// Returns the LevelManager.
         /// </summary>
         public static LevelManager Instance => s_Instance;
+
         static LevelManager s_Instance;
 
         /// <summary>
@@ -35,14 +36,14 @@ namespace Giro
         }
         LevelDefinition m_LevelDefinition;
 
-        List<PuzzlePiece> puzzlePieceInScene;
+        List<PuzzlePiecePair> puzzlePieceInScene;
 
         /// <summary>
         /// Call this method to add a Spawnable to the list of active Spawnables.
         /// </summary>
-        public void AddStep(PuzzlePiece pzPiece)
+        public void AddStep(PuzzlePiecePair pzPiecePair)
         {
-            puzzlePieceInScene.Add(pzPiece);
+            puzzlePieceInScene.Add(pzPiecePair);
         }
 
         /// <summary>
@@ -52,7 +53,7 @@ namespace Giro
         {
             for (int i = 0; i < puzzlePieceInScene.Count; i++)
             {
-                puzzlePieceInScene[i].Reset();
+                puzzlePieceInScene[i].leftObj.GetComponent<PuzzlePiece>().Reset();
                 puzzlePieceInScene[i].gameObject.SetActive(false);
             }
         }
@@ -60,6 +61,7 @@ namespace Giro
         void Awake()
         {
             SetupInstance();
+            puzzlePieceInScene = new List<PuzzlePiecePair>();
         }
 
         void OnEnable()
