@@ -24,44 +24,64 @@ public class PuzzlePieceManager : MonoBehaviour
     public Vector3 rightEndPos = new Vector3(0.56f, 0, 0);
     public AnimationCurve combineAnimationCurve;
 
-    List<GameObject> puzzlePiecePairsObj = new List<GameObject>();
-    List<PuzzlePiecePair> puzzlePiecePairs = new List<PuzzlePiecePair>();
+    List<PuzzlePiecePair> puzzlePiecePairs;
 
-    float enterAnimationLength = 0;
-    float downAnimationLength = 0;
-    float combineAnimationLength = 0;
+    int currentPieceNo = -2;//-1代表是目前关卡刚刚开始，拼图区内部还未有任何拼图
 
     /// <summary>
-    /// 负责获取
+    /// 初始化所有拼图
     /// </summary>
-    void GetAllPiecePairs()
+    void InitPuzzles()
     {
-        
-        foreach (Transform childTransform in transform)
+        foreach (PuzzlePiecePair piecePair in puzzlePiecePairs)
         {
-            if (childTransform.name.StartsWith("PuzzlePair_"))
-            {
-                puzzlePiecePairsObj.Add(childTransform.gameObject);
-            }
-        }
-
-        foreach(GameObject piece in puzzlePiecePairsObj)
-        {
-            puzzlePiecePairs.Add(piece.GetComponent<PuzzlePiecePair>());
+            piecePair.SetAllAnimationParamters(leftEnterStartPos, rightEnterStartPos, enterAnimationCurve,
+                leftDownStartPos, rightDownStartPos, downAnimationCurve,
+                leftCombineStartPos, rightCombineStartPos,
+                leftEndPos, rightEndPos, combineAnimationCurve);
         }
     }
 
-    void InitPaint()
-    {
-
+    /// <summary>
+    /// 播放下一片拼图的动画，默认拼图数量大于5
+    /// </summary>
+    void PlayNextPuzzlePairAnimation() 
+    { 
+        if(currentPieceNo == -2)
+        {
+            puzzlePiecePairs[0].StartPlayingEnterAnimation();
+            currentPieceNo++;
+            return;
+        }
+        if (currentPieceNo == -1)
+        {
+            puzzlePiecePairs[1].StartPlayingEnterAnimation();
+            puzzlePiecePairs[0].StartPlayingDownAnimation();
+            currentPieceNo++;
+            return;
+        }
+        puzzlePiecePairs[currentPieceNo + 2].StartPlayingEnterAnimation();
+        puzzlePiecePairs[currentPieceNo + 1].StartPlayingDownAnimation();
+        puzzlePiecePairs[currentPieceNo].StartPlayingCombineAnimation();
+        currentPieceNo++;
+        if (currentPieceNo == puzzlePiecePairs.Count - 2)
+        {
+            puzzlePiecePairs[puzzlePiecePairs.Count - 1].StartPlayingDownAnimation();
+            puzzlePiecePairs[puzzlePiecePairs.Count - 2].StartPlayingCombineAnimation();
+            currentPieceNo++;
+            return;
+        }
+        if (currentPieceNo == puzzlePiecePairs.Count - 1)
+        {
+            puzzlePiecePairs[puzzlePiecePairs.Count - 1].StartPlayingCombineAnimation();
+            currentPieceNo++;
+            return;
+        }
     }
 
     private void Start()
     {
-        combineAnimationLength = combineAnimationCurve.keys[combineAnimationCurve.length - 1].time;
-        enterAnimationLength = enterAnimationCurve.keys[enterAnimationCurve.length - 1].time;
-        downAnimationLength = downAnimationCurve.keys[downAnimationCurve.length - 1].time;
-
-        GetAllPiecePairs();
+        puzzlePiecePairs = new List<PuzzlePiecePair>(LevelManager.Instance.puzzlePieceInScene);
+        InitPuzzles();
     }
 }

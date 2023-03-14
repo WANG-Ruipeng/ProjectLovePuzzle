@@ -202,6 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d21d87b5c3139ed41a68f82a9c8538e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  puzzlePieceInScene: []
 --- !u!1 &1269398665
 GameObject:
   m_ObjectHideFlags: 0
@@ -277,6 +278,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  isPlayingEnterAnim: 0
+  isPlayingDownAnim: 0
+  isPlayingCombineAnim: 0
 --- !u!1001 &1349234465
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -419,6 +423,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  isPlayingEnterAnim: 0
+  isPlayingDownAnim: 0
+  isPlayingCombineAnim: 0
 --- !u!1001 &1401742114
 PrefabInstance:
   m_ObjectHideFlags: 0
