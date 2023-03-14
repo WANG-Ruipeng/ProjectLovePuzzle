@@ -35,12 +35,14 @@ namespace Giro
         }
         LevelDefinition m_LevelDefinition;
 
+        List<PuzzlePiece> puzzlePieceInScene;
 
         /// <summary>
         /// Call this method to add a Spawnable to the list of active Spawnables.
         /// </summary>
-        public void AddStep()
+        public void AddStep(PuzzlePiece pzPiece)
         {
+            puzzlePieceInScene.Add(pzPiece);
         }
 
         /// <summary>
@@ -48,7 +50,11 @@ namespace Giro
         /// </summary>
         public void ResetSpawnables()
         {
-
+            for (int i = 0; i < puzzlePieceInScene.Count; i++)
+            {
+                puzzlePieceInScene[i].Reset();
+                puzzlePieceInScene[i].gameObject.SetActive(false);
+            }
         }
 
         void Awake()

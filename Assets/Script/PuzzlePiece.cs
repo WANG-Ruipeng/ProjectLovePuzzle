@@ -29,6 +29,14 @@ public class PuzzlePiece : MonoBehaviour
     }//用数字直接表示边比较容易误解，这里改成枚举.0表示平，1表示凸，-1表示凹
     public edgeProp[] edgeProps = new edgeProp[edgeCount];
 
+    public void Reset()
+    {
+        isRotating = false;
+        isLocked = false;
+        state = 0;
+        transform.rotation = Quaternion.Euler(0, 0, 0);
+    }
+
     public void ReleaseLockStatus()
     {
         isLocked = false;
@@ -83,7 +91,7 @@ public class PuzzlePiece : MonoBehaviour
     /// </summary>
     private void InitEdgeProp()
     {
-        edgeProps = new edgeProp[edgeCount]{ edgeProp.concave,edgeProp.concave,edgeProp.concave,edgeProp.concave};
+        edgeProps = new edgeProp[edgeCount] { edgeProp.concave, edgeProp.concave, edgeProp.concave, edgeProp.concave };
     }
 
     // Start is called before the first frame update
@@ -101,8 +109,8 @@ public class PuzzlePiece : MonoBehaviour
     {
         if (!isLocked && isRotating)
         {
-            PlayRotateAnimation(); 
+            PlayRotateAnimation();
         }
-        
+
     }
 }

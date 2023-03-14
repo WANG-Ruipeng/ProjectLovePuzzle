@@ -41,6 +41,7 @@ namespace Giro
         GameObject m_CurrentLevelGO;
         GameObject m_CurrentTerrainGO;
         GameObject m_LevelMarkersGO;
+        static GameObject puzzlePoolGO;
 
         List<Step> m_ActiveSteps = new List<Step>();
 
@@ -76,7 +77,7 @@ namespace Giro
         {
             m_CurrentLevel = levelDefinition;
             LoadLevel(m_CurrentLevel, ref m_CurrentLevelGO);
-            PlaceLevelMarkers(m_CurrentLevel, ref m_LevelMarkersGO);
+            //PlaceLevelMarkers(m_CurrentLevel, ref m_LevelMarkersGO);
             StartGame();
         }
 
@@ -133,13 +134,74 @@ namespace Giro
                 }
             }
 
-            levelGameObject = new GameObject("LevelManager");
-            LevelManager levelManager = levelGameObject.AddComponent<LevelManager>();
-            levelManager.LevelDefinition = levelDefinition;
+            LevelManager levelManager = FindObjectOfType<LevelManager>();
+            if (levelManager == null)
+            {
+                levelGameObject = new GameObject("LevelManager");
+                levelGameObject.AddComponent<LevelManager>().LevelDefinition = levelDefinition;
+            }
+            else
+            {
+                levelGameObject = GameObject.Find("LevelManager");
+                levelManager.LevelDefinition = levelDefinition;
+            }
 
             //Transform levelParent = levelGameObject.transform;
             //原代码在这里载入了场景中的所有spawnable，但是拼图游戏或许不需要
+            if (puzzlePoolGO != null)
+            {
+                if (Application.isPlaying)
+                {
+                    Destroy(puzzlePoolGO);
+                }
+                else
+                {
+                    DestroyImmediate(puzzlePoolGO);
+                }
+            }
 
+            puzzlePoolGO = new GameObject("PuzzlePool");
+            puzzlePoolGO.transform.SetParent(levelGameObject.transform);
+            var stepsList = levelDefinition.puzzleSteps;
+            for (int i = 0; i < stepsList.Length; i++)
+            {
+                if (stepsList[i].lStepPrefab != null)
+                {
+                    GameObject go = null;
+                    if (Application.isPlaying)
+                    {
+                        go = GameObject.Instantiate(stepsList[i].lStepPrefab, puzzlePoolGO.transform);
+                    }
+                    else
+                    {
+#if UNITY_EDITOR
+                        go = (GameObject)PrefabUtility.InstantiatePrefab(stepsList[i].lStepPrefab, puzzlePoolGO.transform);
+#endif
+                    }
+                    PuzzlePiece pzPiece = go.GetComponent<PuzzlePiece>();
+                    if (pzPiece != null)
+                    {
+                        levelManager.AddStep(pzPiece);
+                    }
+                    go.SetActive(false);
+                }
+                if (stepsList[i].rStepPrefab != null)
+                {
+                    GameObject go = null;
+                    if (Application.isPlaying)
+                    {
+                        go = GameObject.Instantiate(stepsList[i].rStepPrefab, puzzlePoolGO.transform);
+                    }
+                    else
+                    {
+#if UNITY_EDITOR
+                        go = (GameObject)PrefabUtility.InstantiatePrefab(stepsList[i].rStepPrefab, puzzlePoolGO.transform);
+#endif
+                    }
+                    go.SetActive(false);
+                }
+
+            }
         }
 
         public void UnloadCurrentLevel()
@@ -178,21 +240,9 @@ namespace Giro
         /// <param name="levelMarkersGameObject">
         /// A new GameObject that is created to be the parent of the start and end prefabs.
         /// </param>
-        public static void PlaceLevelMarkers(LevelDefinition levelDefinition, ref GameObject levelMarkersGameObject)
+        public static void PlaceOthers(LevelDefinition levelDefinition)
         {
-            if (levelMarkersGameObject != null)
-            {
-                if (Application.isPlaying)
-                {
-                    Destroy(levelMarkersGameObject);
-                }
-                else
-                {
-                    DestroyImmediate(levelMarkersGameObject);
-                }
-            }
 
-            levelMarkersGameObject = new GameObject("Level Markers");
 
             GameObject background = levelDefinition.background.gameObject;
 
@@ -200,7 +250,6 @@ namespace Giro
             if (background != null)
             {
                 GameObject go = GameObject.Instantiate(background, new Vector3(background.transform.position.x, background.transform.position.y, 0.0f), Quaternion.identity);
-                go.transform.SetParent(levelMarkersGameObject.transform);
             }
 
         }
