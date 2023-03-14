@@ -1,32 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
+using HyperCasual.Core;
 public class test : MonoBehaviour
 {
-    public PuzzlePieceManager manager;
-    public PuzzlePiece left, right;
-
-    private void Start()
+    Button button;
+    public AbstractGameEvent pause;
+    private void Awake()
     {
-        //manager.LoadPuzzle(left, right);
-
+        button = GetComponent<Button>();
+        button.onClick.AddListener(OnClick);
     }
 
-    private void Update()
+    void OnClick()
     {
-        /*if (Input.GetKeyDown(KeyCode.B))
-        {
-            manager.left.ChangeState();
-            Debug.Log("left puzzle state: " + manager.left.state + ",right edge: " + manager.left.edgeProps[(manager.left.state + 1) % 4]);
-            Debug.Log(manager.Check());
-        }
-        else if (Input.GetKeyDown(KeyCode.N))
-        {
-            manager.right.ChangeState();
-            Debug.Log("right puzzle state: " + manager.right.state + ",left edge: " + manager.right.edgeProps[(manager.right.state + 5) % 4]);
-            Debug.Log(manager.Check());
-        }
-        */
+        pause.Raise();
+        Debug.Log("P");
     }
 }

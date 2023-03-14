@@ -18,16 +18,6 @@ namespace Giro
 
         static LevelManager s_Instance;
 
-        public float Countdown { get => countdown; }
-        float countdown;
-        float maxCountdown;
-        float starttime;
-        bool isCountdowning;
-
-        AbstractGameEvent restartCountdownEvent;
-        AbstractGameEvent pauseCountdownEvent;
-        AbstractGameEvent continueCountdownEvent;
-        AbstractGameEvent loseEvent;
 
         /// <summary>
         /// Returns the LevelDefinition used to create this LevelManager.
@@ -63,12 +53,14 @@ namespace Giro
         /// </summary>
         public void ResetLevel()
         {
-            maxCountdown = m_LevelDefinition.maxCountdown;
-            countdown = maxCountdown;
+
             for (int i = 0; i < puzzlePieceInScene.Count; i++)
             {
-                puzzlePieceInScene[i].leftObj.GetComponent<PuzzlePiece>().Reset();
-                puzzlePieceInScene[i].gameObject.SetActive(false);
+                if (puzzlePieceInScene[i].isActiveAndEnabled)
+                {
+                    puzzlePieceInScene[i].leftObj.GetComponent<PuzzlePiece>().Reset();
+                    puzzlePieceInScene[i].gameObject.SetActive(false);
+                }
             }
         }
 
@@ -104,29 +96,6 @@ namespace Giro
             s_Instance = this;
         }
 
-        void RestartCountdown()
-        {
-            countdown = maxCountdown;
-            starttime = Time.time;
-            isCountdowning = true;
-        }
 
-        void ContinueCountdown()
-        {
-            isCountdowning = true;
-        }
-
-        void PauseCountdown()
-        {
-            isCountdowning = false;
-        }
-
-        private void Update()
-        {
-            if (isCountdowning)
-            {
-                countdown = maxCountdown - Time.time + starttime;
-            }
-        }
     }
 }

@@ -22,10 +22,13 @@ namespace Giro
         /// </summary>
         public static GameManager Instance => s_Instance;
         static GameManager s_Instance;
+        static float maxCountdown;
+        public float Countdown { get => countdown; }
+        float countdown;
+        float starttime;
 
         [SerializeField]
         AbstractGameEvent m_WinEvent;
-
         [SerializeField]
         AbstractGameEvent m_LoseEvent;
 
@@ -46,10 +49,17 @@ namespace Giro
 
         List<Step> m_ActiveSteps = new List<Step>();
 
+        bool isPause;
+        bool isWaiting;
+
 #if UNITY_EDITOR
         bool m_LevelEditorMode;
 #endif
 
+        public void Initialize()
+        {
+
+        }
         void Awake()
         {
             if (s_Instance != null && s_Instance != this)
@@ -97,9 +107,11 @@ namespace Giro
             //{
             //    CameraManager.Instance.ResetCamera();
             //}
-
+            countdown = maxCountdown;
+            RestartCountdown();
             if (LevelManager.Instance != null)
             {
+                countdown = maxCountdown;
                 LevelManager.Instance.ResetLevel();
             }
         }
@@ -206,6 +218,7 @@ namespace Giro
                 pzppGO.SetActive(false);
                 levelManager.AddStep(pzpp);
             }
+            maxCountdown = levelDefinition.maxCountdown;
         }
 
         public void UnloadCurrentLevel()
@@ -233,7 +246,39 @@ namespace Giro
             ResetLevel();
             m_IsPlaying = true;
         }
+        public void RestartCountdown()
+        {
+            if (isPause)
+            {
+                isPause = false;
+                return;
+            }
+            countdown = maxCountdown;
+            starttime = Time.time;
+        }
 
+        public void PauseCountdown()
+        {
+            isPause = true;
+            Debug.Log("Pause");
+        }
+        public void Waiting()               //waiting和pause的区别在于时间是否被冻结（参考pauseState类），在waiting状态下不会影响其他物体的运动性
+        {
+            isWaiting = true;
+            isPause = false;
+        }
+
+        private void Update()
+        {
+            if (isWaiting) return;
+            countdown = maxCountdown - Time.time + starttime;
+            UIManager.Instance.GetView<HUD>().TimeLeft = countdown;
+            if (countdown <= 0)
+            {
+                Lose();
+                return;
+            }
+        }
         /// <summary>
         /// Creates and instantiates the StartPrefab and EndPrefab defined inside
         /// the levelDefinition.
