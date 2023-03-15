@@ -31,8 +31,6 @@ namespace Giro
         AbstractGameEvent m_LoseEvent;
         [SerializeField]
         AbstractGameEvent m_PauseEvent;
-        [SerializeField]
-        AbstractGameEvent m_WaitingEvent;
 
         [Header("Other")]
         [SerializeField]
@@ -136,7 +134,6 @@ namespace Giro
         {
             //Create states
             m_LevelStates.Add(loadLevelState);
-            var waitingState = new State(() => OnWaiting());
             var allowRotateState = new State(() => OnGamePlayStarted(loadLevelState));
             var winState = new PauseState(() => OnWinScreenDisplayed(loadLevelState));
             var loseState = new PauseState(() => OnLevelWasLoaded());
@@ -150,18 +147,12 @@ namespace Giro
 
             allowRotateState.AddLink(new EventLink(m_LoseEvent, loseState));
             allowRotateState.AddLink(new EventLink(m_PauseEvent, pauseState));
-            allowRotateState.AddLink(new EventLink(m_WaitingEvent, waitingState));
-
-            waitingState.AddLink(new EventLink(m_WinEvent, winState));
-            waitingState.AddLink(new EventLink(m_PauseEvent, pauseState));
-            waitingState.AddLink(new EventLink(m_ContinueEvent, allowRotateState));
 
             loseState.AddLink(new EventLink(m_ContinueEvent, loadLevelState));
             loseState.AddLink(new EventLink(m_BackEvent, unloadLose));
             unloadLose.AddLink(new Link(quitState));
 
             pauseState.AddLink(new EventLink(m_ContinueEvent, allowRotateState));
-            pauseState.AddLink(new EventLink(m_WaitingEvent, waitingState));
             pauseState.AddLink(new EventLink(m_BackEvent, unloadPause));
             unloadPause.AddLink(new Link(m_MainMenuState));
 
@@ -193,7 +184,6 @@ namespace Giro
 
         void OnWinScreenDisplayed(IState currentLevel)
         {
-            GameManager.Instance.PauseCountdown();
             UIManager.Instance.Show<TemplateUI>();
             var currentLevelIndex = m_LevelStates.IndexOf(currentLevel);
 
@@ -211,28 +201,22 @@ namespace Giro
             AudioManager.Instance.PlayMusic(SoundID.None);
         }
 
-        void OnWaiting()
-        {
-            GameManager.Instance.Waiting();
-        }
+
 
         void OnGamePlayStarted(IState current)
         {
             m_CurrentLevel = current;
-            GameManager.Instance.RestartCountdown();
             //ShowUI<Hud>();
             AudioManager.Instance.StopMusic();
         }
 
         private void OnLevelWasLoaded()
         {
-            GameManager.Instance.PauseCountdown();
             ShowUI<TemplateUI>();
         }
 
         void OnGamePause()
         {
-            GameManager.Instance.PauseCountdown();
             ShowUI<TemplateUI>();
         }
     }

@@ -15,7 +15,7 @@ namespace Giro
     /// The GameManager class manages all game-related 
     /// state changes.
     /// </summary>
-    public class GameManager : MonoBehaviour
+    public class GameManager : MonoBehaviour, IGameEventListener
     {
         /// <summary>
         /// Returns the GameManager.
@@ -31,6 +31,8 @@ namespace Giro
         AbstractGameEvent m_WinEvent;
         [SerializeField]
         AbstractGameEvent m_LoseEvent;
+        [SerializeField]
+        AbstractGameEvent CountdownEvent;
 
         LevelDefinition m_CurrentLevel;
 
@@ -49,7 +51,6 @@ namespace Giro
 
         List<Step> m_ActiveSteps = new List<Step>();
 
-        bool isPause;
         bool isWaiting;
 
 #if UNITY_EDITOR
@@ -108,7 +109,6 @@ namespace Giro
             //    CameraManager.Instance.ResetCamera();
             //}
             countdown = maxCountdown;
-            RestartCountdown();
             if (LevelManager.Instance != null)
             {
                 countdown = maxCountdown;
@@ -246,27 +246,18 @@ namespace Giro
             ResetLevel();
             m_IsPlaying = true;
         }
-        public void RestartCountdown()
+
+
+        public void OnEventRaised()
         {
-            if (isPause)
+            if (isWaiting)
             {
-                isPause = false;
-                return;
+                starttime = Time.time;
             }
-            countdown = maxCountdown;
-            starttime = Time.time;
+            isWaiting = !isWaiting;
         }
 
-        public void PauseCountdown()
-        {
-            isPause = true;
-            Debug.Log("Pause");
-        }
-        public void Waiting()               //waiting和pause的区别在于时间是否被冻结（参考pauseState类），在waiting状态下不会影响其他物体的运动性
-        {
-            isWaiting = true;
-            isPause = false;
-        }
+
 
         private void Update()
         {
@@ -319,7 +310,6 @@ namespace Giro
         public void Lose()
         {
             m_LoseEvent.Raise();
-
 #if UNITY_EDITOR
             if (m_LevelEditorMode)
             {
