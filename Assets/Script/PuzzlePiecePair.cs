@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using HyperCasual.Core;
 public class PuzzlePiecePair : MonoBehaviour
 {
     [Header("Basic information about two pieces")]
@@ -38,6 +38,8 @@ public class PuzzlePiecePair : MonoBehaviour
 
     public bool isPlayingCombineAnim = false;
     public float combineAnimationStartTime = 0;
+
+    public AbstractGameEvent CountdownEvent;
 
     Animator animator;
 
@@ -136,8 +138,19 @@ public class PuzzlePiecePair : MonoBehaviour
     {
         float progress = (Time.time - animStartTime);
         if (progress >= animLength)
+        {
             isPlaying = false;
-        Debug.Log(progress);
+            if((leftEndPos - this.leftEndPos).magnitude < 0.01)
+            {
+                CountdownEvent.Raise();
+            }
+            else if((leftEndPos-this.leftDownStartPos).magnitude < 0.01)
+            {
+                CountdownEvent.Raise();
+            }
+        }
+            
+        //Debug.Log(progress);
         float posPercent = Mathf.Clamp(animCurve.Evaluate(progress), 0, 1);
         Vector3 leftNowPos = Vector3.Lerp(leftStartPos, leftEndPos, posPercent);
         Vector3 rightNowPos = Vector3.Lerp(rightStartPos, rightEndPos, posPercent);

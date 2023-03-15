@@ -10,21 +10,26 @@ public class InputManager : MonoBehaviour
     public static InputManager Instance => s_Instance;
     static InputManager s_Instance;
     PuzzlePieceManager puzzlePieceManager;
+
+    public bool receiveInput = false;
     void Awake()
     {
         if (s_Instance != null && s_Instance != this)
         {
             Destroy(gameObject);
+            //puzzlePieceManager = PuzzlePieceManager.Instance;
             return;
         }
-        puzzlePieceManager = PuzzlePieceManager.Instance;
         s_Instance = this;
+        puzzlePieceManager = PuzzlePieceManager.Instance;
     }
 
 
     // Update is called once per frame
     void Update()
     {
+        if (!receiveInput) { return; }
+
         if (!puzzlePieceManager.GetCurrentPuzzlePair().left.IsRotating)
         {
             if (Input.GetKeyDown(KeyCode.Q))
@@ -61,11 +66,13 @@ public class InputManager : MonoBehaviour
         {
             if (puzzlePieceManager.Check())
             {
+                Debug.Log("Yes!");
                 puzzlePieceManager.GetCurrentPuzzlePair().StartPlayingCombineAnimation();
             }
             else if (puzzlePieceManager.GetCurrentPuzzlePair().left.IsLocked 
                 && puzzlePieceManager.GetCurrentPuzzlePair().right.IsLocked)
             {
+                Debug.Log("NOOO!");
                 puzzlePieceManager.GetCurrentPuzzlePair().left.ReleaseLockStatus();
                 puzzlePieceManager.GetCurrentPuzzlePair().right.ReleaseLockStatus();
             }

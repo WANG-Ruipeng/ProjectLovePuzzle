@@ -4,8 +4,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PuzzlePieceManager : AbstractSingleton<PuzzlePieceManager>
+public class PuzzlePieceManager : MonoBehaviour
 {
+    public static PuzzlePieceManager Instance => s_Instance;
+    static PuzzlePieceManager s_Instance;
 
     [Header("Enter scene animation settings")]
     [Tooltip("注意所有坐标都是作用在更改在全局坐标系上，如果要统一全局和局部坐标系，需要PuzzlePiecePair及以上层级的物体均位于原点。")]
@@ -36,7 +38,7 @@ public class PuzzlePieceManager : AbstractSingleton<PuzzlePieceManager>
     {
         foreach (PuzzlePiecePair piecePair in puzzlePiecePairs)
         {
-            piecePair.SetAllAnimationParamters(leftEnterStartPos, rightEnterStartPos, enterAnimationCurve,
+            piecePair.SetAllAnimationParamters(leftEnterStartPos, rightEnterStartPos, enterAnimationCurve,  
                 leftDownStartPos, rightDownStartPos, downAnimationCurve,
                 leftCombineStartPos, rightCombineStartPos,
                 leftEndPos, rightEndPos, combineAnimationCurve);
@@ -75,10 +77,12 @@ public class PuzzlePieceManager : AbstractSingleton<PuzzlePieceManager>
     /// <summary>
     /// 播放下一片拼图的动画，默认拼图数量大于5
     /// </summary>
-    void PlayNextPuzzlePairAnimation() 
-    { 
+    public void PlayNextPuzzlePairAnimation() 
+    {
         if(currentPieceNo == -2)
         {
+            puzzlePiecePairs = new List<PuzzlePiecePair>(LevelManager.Instance.puzzlePieceInScene);
+            InitPuzzles();
             puzzlePiecePairs[0].StartPlayingEnterAnimation();
             currentPieceNo++;
             return;
@@ -109,9 +113,14 @@ public class PuzzlePieceManager : AbstractSingleton<PuzzlePieceManager>
         }
     }
 
-    private void Start()
+    private void Awake()
     {
-        puzzlePiecePairs = new List<PuzzlePiecePair>(LevelManager.Instance.puzzlePieceInScene);
-        InitPuzzles();
+        if (s_Instance != null && s_Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        s_Instance = this;
+        
     }
 }

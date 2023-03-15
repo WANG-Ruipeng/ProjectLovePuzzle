@@ -10,7 +10,7 @@ public class PuzzlePiece : MonoBehaviour
 
     //锁定指示框
     public GameObject LockIndicator;
-    SpriteRenderer indicatorSprite;
+    //SpriteRenderer indicatorSprite;
 
     //旋转状态
     private bool isRotating = false;
@@ -48,17 +48,17 @@ public class PuzzlePiece : MonoBehaviour
     public void ReleaseLockStatus()
     {
         isLocked = false;
-        Color c = indicatorSprite.color;
-        c.a = 0;
-        indicatorSprite.color = c;
+        //Color c = indicatorSprite.color;
+        //c.a = 0;
+        //indicatorSprite.color = c;
     }
 
     public void SetLockStatus()
     {
         isLocked = true;
-        Color c = indicatorSprite.color;
-        c.a = 255;
-        indicatorSprite.color = c;
+        //Color c = indicatorSprite.color;
+        //c.a = 255;
+        //indicatorSprite.color = c;
     }
 
     private void PlayRotateAnimation()
@@ -108,7 +108,7 @@ public class PuzzlePiece : MonoBehaviour
         rotateTimeLength = RotateCurve.keys[RotateCurve.length - 1].time;
         isRotating = false;
         isLocked = false;
-        indicatorSprite = LockIndicator.GetComponent<SpriteRenderer>();
+        //indicatorSprite = LockIndicator.GetComponent<SpriteRenderer>();
         InitEdgeProp();
     }
 
