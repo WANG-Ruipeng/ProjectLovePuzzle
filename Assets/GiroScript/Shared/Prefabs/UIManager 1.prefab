@@ -328,8 +328,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Canvas: {fileID: 1431783131995989396}
   m_Root: {fileID: 1431783133131239453}
-  m_BackgroundLayer: {fileID: 0}
-  m_ViewLayer: {fileID: 0}
+  m_BackgroundLayer: {fileID: 1431783131613887729}
+  m_ViewLayer: {fileID: 1431783131524870996}
 --- !u!1001 &4007036638946993973
 PrefabInstance:
   m_ObjectHideFlags: 0

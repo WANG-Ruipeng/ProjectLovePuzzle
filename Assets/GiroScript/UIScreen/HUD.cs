@@ -19,7 +19,7 @@ namespace Giro
         public HyperCasualButton pauseButton;
         public AbstractGameEvent pauseEvent;
 
-        public bool LeftLocked
+        public bool LeftLocked//调用UIManager.Instance.GetView<HUD>()来获取这个东西的实例
         {
             get => leftLocked;
             set
