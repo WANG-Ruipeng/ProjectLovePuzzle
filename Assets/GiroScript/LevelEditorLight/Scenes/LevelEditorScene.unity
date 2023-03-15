@@ -279,8 +279,11 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   isPlayingEnterAnim: 0
+  enterAnimationStartTime: 0
   isPlayingDownAnim: 0
+  downAnimationStartTime: 0
   isPlayingCombineAnim: 0
+  combineAnimationStartTime: 0
 --- !u!1001 &1349234465
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -424,8 +427,11 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   isPlayingEnterAnim: 0
+  enterAnimationStartTime: 0
   isPlayingDownAnim: 0
+  downAnimationStartTime: 0
   isPlayingCombineAnim: 0
+  combineAnimationStartTime: 0
 --- !u!1001 &1401742114
 PrefabInstance:
   m_ObjectHideFlags: 0

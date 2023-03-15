@@ -1,9 +1,10 @@
 ﻿using Giro;
+using HyperCasual.Core;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PuzzlePieceManager : MonoBehaviour
+public class PuzzlePieceManager : AbstractSingleton<PuzzlePieceManager>
 {
 
     [Header("Enter scene animation settings")]
@@ -40,6 +41,35 @@ public class PuzzlePieceManager : MonoBehaviour
                 leftCombineStartPos, rightCombineStartPos,
                 leftEndPos, rightEndPos, combineAnimationCurve);
         }
+    }
+
+    public PuzzlePiecePair GetCurrentPuzzlePair()
+    {
+        return puzzlePiecePairs[currentPieceNo];
+    }
+
+    /// <summary>
+    /// 目前只考虑每个边有三种情况，当玩家按下Lock的时候调用
+    /// </summary>
+    /// <returns>
+    /// 拼合是否成功
+    /// </returns>
+    public bool Check()
+    {
+        if (puzzlePiecePairs[currentPieceNo].left.IsLocked && puzzlePiecePairs[currentPieceNo].right.IsLocked)
+        {
+            int edgeCnt = PuzzlePiece.edgeCount;
+            PuzzlePiece.edgeProp leftStatus = puzzlePiecePairs[currentPieceNo].left.edgeProps[(puzzlePiecePairs[currentPieceNo].left.state + 1) % edgeCnt];
+            PuzzlePiece.edgeProp rightStatus = puzzlePiecePairs[currentPieceNo].right.edgeProps[(puzzlePiecePairs[currentPieceNo].right.state + edgeCnt - 1) % edgeCnt];
+            //左的拼图需要检测right edge的状态，右的拼图需要检测left edge 的状态
+            if (leftStatus == 0 || rightStatus == 0)
+                return false;
+            if ((int)leftStatus + (int)rightStatus == 0)
+                return true;
+            else
+                return false;
+        }
+        return false;
     }
 
     /// <summary>

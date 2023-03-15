@@ -13,8 +13,16 @@ public class PuzzlePiece : MonoBehaviour
     SpriteRenderer indicatorSprite;
 
     //旋转状态
-    public bool isRotating = false;
-    public bool isLocked = false;
+    private bool isRotating = false;
+    public bool IsRotating
+    {
+        get { return isRotating; }
+    }
+    private bool isLocked = false;
+    public bool IsLocked
+    {
+        get { return isLocked; }
+    }
     float rotateTimeLength = 0;
     float rotateStartTime = 0;
     float rotateStartAngle = 0;

@@ -27,8 +27,8 @@ public class PuzzlePiecePair : MonoBehaviour
     float downAnimationLength = 0;
     float combineAnimationLength = 0;
 
-    PuzzlePiece left;
-    PuzzlePiece right;
+    public PuzzlePiece left;
+    public PuzzlePiece right;
 
     public bool isPlayingEnterAnim = false;
     public float enterAnimationStartTime = 0;
@@ -100,29 +100,7 @@ public class PuzzlePiecePair : MonoBehaviour
         downAnimationLength = downAnimationCurve.keys[downAnimationCurve.length - 1].time;
     }
 
-    /// <summary>
-    /// 目前只考虑每个边有三种情况，当玩家按下Lock的时候调用
-    /// </summary>
-    /// <returns>
-    /// 拼合是否成功
-    /// </returns>
-    public bool Check()
-    {
-        if (left.isLocked && right.isLocked)
-        {
-            int edgeCnt = PuzzlePiece.edgeCount;
-            PuzzlePiece.edgeProp leftStatus = left.edgeProps[(left.state + 1) % edgeCnt];
-            PuzzlePiece.edgeProp rightStatus = right.edgeProps[(right.state + edgeCnt - 1) % edgeCnt];
-            //左的拼图需要检测right edge的状态，右的拼图需要检测left edge 的状态
-            if (leftStatus == 0 || rightStatus == 0)
-                return false;
-            if ((int)leftStatus + (int)rightStatus == 0)
-                return true;
-            else
-                return false;
-        }
-        return false;
-    }
+    
 
     public void StartPlayingEnterAnimation()
     {
@@ -221,51 +199,6 @@ public class PuzzlePiecePair : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
             PlayMinimizeAnimation();
-        }
-
-        if (!left.isRotating)
-        {
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                left.ChangeState();
-            }
-
-            if (Input.GetKeyDown(KeyCode.W))
-            {
-                if (left.isLocked)
-                    left.ReleaseLockStatus();
-                else
-                    left.SetLockStatus();
-            }
-        }
-
-        if (!right.isRotating) 
-        {
-            if (Input.GetKeyDown(KeyCode.O))
-            {
-                right.ChangeState();
-            }
-
-            if (Input.GetKeyDown(KeyCode.P))
-            {
-                if (right.isLocked)
-                    right.ReleaseLockStatus();
-                else
-                    right.SetLockStatus();
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.P))
-        {
-            if (Check())
-            {
-                StartPlayingCombineAnimation();
-            }
-            else if(left.isLocked && right.isLocked)
-            {
-                left.ReleaseLockStatus();
-                right.ReleaseLockStatus();
-            }
         }
 
         if (isPlayingCombineAnim)
