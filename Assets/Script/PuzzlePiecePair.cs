@@ -9,42 +9,39 @@ public class PuzzlePiecePair : MonoBehaviour
     public GameObject leftObj;
     public GameObject rightObj;
 
-    [Header("Enter scene animation settings")]
-    [Tooltip("注意所有坐标都是作用在更改在全局坐标系上，如果要统一全局和局部坐标系，需要PuzzlePiecePair及以上层级的物体均位于原点。")]
     public Vector3 leftEnterStartPos = new Vector3(-1.56f, 10, 0);
     public Vector3 rightEnterStartPos = new Vector3(1.56f, 10, 0);
     public AnimationCurve enterAnimationCurve;
 
-    [Header("Go down animation settings")]
     public Vector3 leftDownStartPos = new Vector3(-1.56f, 4, 0);
     public Vector3 rightDownStartPos = new Vector3(1.56f, 4, 0);
     public AnimationCurve downAnimationCurve;
 
-    [Header("Combine animation settings")]
     public Vector3 leftCombineStartPos = new Vector3(-1.56f, 0, 0);
     public Vector3 rightCombineStartPos = new Vector3(1.56f, 0, 0);
     public Vector3 leftEndPos = new Vector3(-0.56f, 0, 0);
     public Vector3 rightEndPos = new Vector3(0.56f, 0, 0);
     public AnimationCurve combineAnimationCurve;
+    
+    float enterAnimationLength = 0;
+    float downAnimationLength = 0;
+    float combineAnimationLength = 0;
 
     PuzzlePiece left;
     PuzzlePiece right;
 
-    bool isPlayingEnterAnim = false;
-    float enterAnimationLength = 0;
-    float enterAnimationStartTime = 0;
+    public bool isPlayingEnterAnim = false;
+    public float enterAnimationStartTime = 0;
 
-    bool isPlayingDownAnim = false;
-    float downAnimationLength = 0;
-    float downAnimationStartTime = 0;
+    public bool isPlayingDownAnim = false;
+    public float downAnimationStartTime = 0;
 
-    bool isPlayingCombineAnim = false;
-    float combineAnimationLength = 0;
-    float combineAnimationStartTime = 0;
+    public bool isPlayingCombineAnim = false;
+    public float combineAnimationStartTime = 0;
 
     Animator animator;
 
-    bool isMinimized = false;
+    bool doNotUpdate = false;
 
     private void Awake()
     {
@@ -52,16 +49,63 @@ public class PuzzlePiecePair : MonoBehaviour
         right = rightObj.GetComponentInChildren<PuzzlePiece>();
         left.RotateClockWise = true;
         right.RotateClockWise = false;
+        
+        animator = GetComponent<Animator>();
         combineAnimationLength = combineAnimationCurve.keys[combineAnimationCurve.length - 1].time;
         enterAnimationLength = enterAnimationCurve.keys[enterAnimationCurve.length - 1].time;
         downAnimationLength = downAnimationCurve.keys[downAnimationCurve.length - 1].time;
-        animator = GetComponent<Animator>();
+    }
+
+    /// <summary>
+    /// 设置所有动画参数，用于初始化此类的属性。
+    /// </summary>
+    /// <param name="leftEnterStartPos">左边入场起始位置</param>
+    /// <param name="rightEnterStartPos">右边入场起始位置</param>
+    /// <param name="enterAnimationCurve">入场动画曲线</param>
+    /// <param name="leftDownStartPos">左边下落起始位置</param>
+    /// <param name="rightDownStartPos">右边下落起始位置</param>
+    /// <param name="downAnimationCurve">下落动画曲线</param>
+    /// <param name="leftCombineStartPos">左边合并起始位置</param>
+    /// <param name="rightCombineStartPos">右边合并起始位置</param>
+    /// <param name="leftEndPos">左边结束位置</param>
+    /// <param name="rightEndPos">右边结束位置</param>
+    /// <param name="combineAnimationCurve">合并动画曲线</param>
+    /// </summary>
+    public void SetAllAnimationParamters(
+        Vector3 leftEnterStartPos,
+        Vector3 rightEnterStartPos,
+        AnimationCurve enterAnimationCurve,
+        Vector3 leftDownStartPos,
+        Vector3 rightDownStartPos,
+        AnimationCurve downAnimationCurve,
+        Vector3 leftCombineStartPos,
+        Vector3 rightCombineStartPos,
+        Vector3 leftEndPos,
+        Vector3 rightEndPos,
+        AnimationCurve combineAnimationCurve)
+    {
+        this.leftEnterStartPos = leftEnterStartPos;
+        this.rightEnterStartPos = rightEnterStartPos;
+        this.enterAnimationCurve = enterAnimationCurve;
+        this.leftDownStartPos = leftDownStartPos;
+        this.rightDownStartPos = rightDownStartPos;
+        this.downAnimationCurve = downAnimationCurve;
+        this.leftCombineStartPos = leftCombineStartPos;
+        this.rightCombineStartPos = rightCombineStartPos;
+        this.leftEndPos = leftEndPos;
+        this.rightEndPos = rightEndPos;
+
+        combineAnimationLength = combineAnimationCurve.keys[combineAnimationCurve.length - 1].time;
+        enterAnimationLength = enterAnimationCurve.keys[enterAnimationCurve.length - 1].time;
+        downAnimationLength = downAnimationCurve.keys[downAnimationCurve.length - 1].time;
     }
 
     /// <summary>
     /// 目前只考虑每个边有三种情况，当玩家按下Lock的时候调用
     /// </summary>
-    /// <returns></returns>
+    /// <returns>
+    /// 拼合是否成功
+    /// </returns>
     public bool Check()
     {
         if (left.isLocked && right.isLocked)
@@ -80,53 +124,45 @@ public class PuzzlePiecePair : MonoBehaviour
         return false;
     }
 
-    /// <summary>
-    /// 播放拼图从上方落入屏幕的动画
-    /// </summary>
-    private void PlayEnterSceneAnimation()
+    public void StartPlayingEnterAnimation()
     {
-        float progress = (Time.time - enterAnimationStartTime);
-        if (progress >= enterAnimationLength)
-            isPlayingEnterAnim = false;
+        isPlayingEnterAnim = true;
+        enterAnimationStartTime = Time.time;
+    }
 
-        float posPercent = Mathf.Clamp(enterAnimationCurve.Evaluate(progress), 0, 1);
-        Vector3 leftNowPos = Vector3.Lerp(leftEnterStartPos, leftDownStartPos, posPercent);
-        Vector3 rightNowPos = Vector3.Lerp(rightEnterStartPos, rightDownStartPos, posPercent);
-        leftObj.transform.position = leftNowPos;
-        rightObj.transform.position = rightNowPos;
+    public void StartPlayingDownAnimation()
+    {
+        isPlayingDownAnim = true;
+        downAnimationStartTime = Time.time;
+    }
+    public void StartPlayingCombineAnimation()
+    {
+        isPlayingCombineAnim = true;
+        combineAnimationStartTime = Time.time;
     }
 
     /// <summary>
-    /// 播放拼图从上方落入等待区的动画
+    /// Plays a scripted animation by updating the positions of two objects over time, based on an animation curve.
     /// </summary>
-    private void PlayGoDownAnimation()
+    /// <param name="animStartTime">The start time of the animation.</param>
+    /// <param name="animLength">The length of the animation.</param>
+    /// <param name="isPlaying">A bool indicating whether the animation is currently playing.</param>
+    /// <param name="animCurve">The animation curve used to calculate the position of the objects over time.</param>
+    /// <param name="leftStartPos">The starting position of the left object.</param>
+    /// <param name="leftEndPos">The ending position of the left object.</param>
+    /// <param name="rightStartPos">The starting position of the right object.</param>
+    /// <param name="rightEndPos">The ending position of the right object.</param>
+    private void PlayScriptedAnimation(
+        ref float animStartTime, ref float animLength, ref bool isPlaying,ref AnimationCurve animCurve,
+        ref Vector3 leftStartPos, ref Vector3 leftEndPos, ref Vector3 rightStartPos, ref Vector3 rightEndPos) 
     {
-        float progress = (Time.time - downAnimationStartTime);
-        if (progress >= downAnimationLength)
-            isPlayingDownAnim = false;
-
-        float posPercent = Mathf.Clamp(downAnimationCurve.Evaluate(progress), 0, 1);
-        Vector3 leftNowPos = Vector3.Lerp(leftDownStartPos, leftCombineStartPos, posPercent);
-        Vector3 rightNowPos = Vector3.Lerp(rightDownStartPos, rightCombineStartPos, posPercent);
-        leftObj.transform.position = leftNowPos;
-        rightObj.transform.position = rightNowPos;
-    }
-
-    /// <summary>
-    /// 播放拼图合在一起的动画
-    /// </summary>
-    private void PlayPieceCombineAnimation()
-    {
-        float progress = (Time.time - combineAnimationStartTime);
-        if (progress >= combineAnimationLength)
-        {
-            isPlayingCombineAnim = false;
-            PlayMinimizeAnimation();
-        }
-
-        float posPercent = Mathf.Clamp(combineAnimationCurve.Evaluate(progress), 0, 1);
-        Vector3 leftNowPos = Vector3.Lerp(leftCombineStartPos, leftEndPos, posPercent);
-        Vector3 rightNowPos = Vector3.Lerp(rightCombineStartPos, rightEndPos, posPercent);
+        float progress = (Time.time - animStartTime);
+        if (progress >= animLength)
+            isPlaying = false;
+        Debug.Log(progress);
+        float posPercent = Mathf.Clamp(animCurve.Evaluate(progress), 0, 1);
+        Vector3 leftNowPos = Vector3.Lerp(leftStartPos, leftEndPos, posPercent);
+        Vector3 rightNowPos = Vector3.Lerp(rightStartPos, rightEndPos, posPercent);
         leftObj.transform.position = leftNowPos;
         rightObj.transform.position = rightNowPos;
     }
@@ -138,46 +174,51 @@ public class PuzzlePiecePair : MonoBehaviour
     {
         animator.SetBool("StartMinimize", true);
     }
+    
 
     /// <summary>
     /// 缩小动画结束之后回调
     /// </summary>
     private void SetPieceMinimize()
     {
-        isMinimized = true;
+        doNotUpdate = true;
     }
 
     private void Update()
     {
-        if (isMinimized)
+        if (doNotUpdate)
         {
             return;
         }
 
         if (isPlayingEnterAnim)
         {
-            PlayEnterSceneAnimation();
+            PlayScriptedAnimation(ref enterAnimationStartTime, ref enterAnimationLength, ref isPlayingEnterAnim, ref enterAnimationCurve,
+                ref leftEnterStartPos, ref leftDownStartPos, ref rightEnterStartPos, ref rightDownStartPos);
             return;
         }
 
         if (isPlayingDownAnim)
         {
-            PlayGoDownAnimation();
+            PlayScriptedAnimation(ref downAnimationStartTime, ref downAnimationLength, ref isPlayingDownAnim, ref downAnimationCurve,
+                ref leftDownStartPos, ref leftCombineStartPos, ref rightDownStartPos, ref rightCombineStartPos);
             return;
         }
 
         //debug用按键
         if (Input.GetKeyDown(KeyCode.A))
         {
-            isPlayingEnterAnim = true;
-            enterAnimationStartTime = Time.time;
+            StartPlayingEnterAnimation();
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
-            isPlayingDownAnim = true;
-            downAnimationStartTime = Time.time;
+            StartPlayingDownAnimation();
         }
         if (Input.GetKeyDown(KeyCode.D))
+        {
+            StartPlayingCombineAnimation();
+        }
+        if (Input.GetKeyDown(KeyCode.F))
         {
             PlayMinimizeAnimation();
         }
@@ -218,8 +259,7 @@ public class PuzzlePiecePair : MonoBehaviour
         {
             if (Check())
             {
-                isPlayingCombineAnim = true;
-                combineAnimationStartTime = Time.time;
+                StartPlayingCombineAnimation();
             }
             else if(left.isLocked && right.isLocked)
             {
@@ -230,7 +270,8 @@ public class PuzzlePiecePair : MonoBehaviour
 
         if (isPlayingCombineAnim)
         {
-            PlayPieceCombineAnimation();
+            PlayScriptedAnimation(ref combineAnimationStartTime, ref combineAnimationLength, ref isPlayingCombineAnim, ref combineAnimationCurve,
+                ref leftCombineStartPos, ref leftEndPos, ref rightCombineStartPos, ref rightEndPos);
         }
     }
 }
