@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using HyperCasual.Core;
+using UnityEditor;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -32,7 +33,7 @@ namespace Giro
             // Load managers specific to the level
             foreach (var prefab in m_ManagerPrefabs)
             {
-                Object.Instantiate(prefab);
+                PrefabUtility.InstantiatePrefab(prefab);
             }
 
             GameManager.Instance.LoadLevel(m_LevelDefinition);

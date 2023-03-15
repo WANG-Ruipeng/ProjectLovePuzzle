@@ -134,7 +134,7 @@ namespace Giro
         {
             //Create states
             m_LevelStates.Add(loadLevelState);
-            var allowRotateState = new State(() => OnGamePlayStarted(loadLevelState));
+            var GamePlayState = new State(() => OnGamePlayStarted(loadLevelState));
             var winState = new PauseState(() => OnWinScreenDisplayed(loadLevelState));
             var loseState = new PauseState(() => OnLevelWasLoaded());
             var pauseState = new PauseState(() => OnGamePause());
@@ -143,16 +143,16 @@ namespace Giro
 
             //Connect the states
             lastState?.AddLink(new EventLink(m_ContinueEvent, loadLevelState));
-            loadLevelState.AddLink(new Link(allowRotateState));
+            loadLevelState.AddLink(new Link(GamePlayState));
 
-            allowRotateState.AddLink(new EventLink(m_LoseEvent, loseState));
-            allowRotateState.AddLink(new EventLink(m_PauseEvent, pauseState));
+            GamePlayState.AddLink(new EventLink(m_LoseEvent, loseState));
+            GamePlayState.AddLink(new EventLink(m_PauseEvent, pauseState));
 
             loseState.AddLink(new EventLink(m_ContinueEvent, loadLevelState));
             loseState.AddLink(new EventLink(m_BackEvent, unloadLose));
             unloadLose.AddLink(new Link(quitState));
 
-            pauseState.AddLink(new EventLink(m_ContinueEvent, allowRotateState));
+            pauseState.AddLink(new EventLink(m_ContinueEvent, GamePlayState));
             pauseState.AddLink(new EventLink(m_BackEvent, unloadPause));
             unloadPause.AddLink(new Link(m_MainMenuState));
 
@@ -206,7 +206,7 @@ namespace Giro
         void OnGamePlayStarted(IState current)
         {
             m_CurrentLevel = current;
-            //ShowUI<Hud>();
+            ShowUI<HUD>();
             AudioManager.Instance.StopMusic();
         }
 

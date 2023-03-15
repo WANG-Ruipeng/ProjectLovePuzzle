@@ -58,8 +58,9 @@ namespace Giro
             {
                 if (puzzlePieceInScene[i].isActiveAndEnabled)
                 {
-                    puzzlePieceInScene[i].leftObj.GetComponent<PuzzlePiece>().Reset();
-                    puzzlePieceInScene[i].gameObject.SetActive(false);
+                    puzzlePieceInScene[i].leftObj.GetComponentInChildren<PuzzlePiece>().Reset();
+                    puzzlePieceInScene[i].rightObj.GetComponentInChildren<PuzzlePiece>().Reset();
+                    //puzzlePieceInScene[i].gameObject.SetActive(false);
                 }
             }
         }

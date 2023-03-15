@@ -10,7 +10,7 @@ namespace Giro
     public class LevelEditor : EditorWindow
     {
         bool m_AutoSaveShowSettings;
-        bool hasLoadLevel;
+        bool hasLoadLevel;  
         bool currentLevelNotLoaded;
         bool m_AutoSaveLevel;
         bool m_AutoSavePlayer;

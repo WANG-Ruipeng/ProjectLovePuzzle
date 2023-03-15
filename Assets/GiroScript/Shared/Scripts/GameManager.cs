@@ -51,7 +51,7 @@ namespace Giro
 
         List<Step> m_ActiveSteps = new List<Step>();
 
-        bool isWaiting;
+        bool isCountdowning;
 
 #if UNITY_EDITOR
         bool m_LevelEditorMode;
@@ -63,6 +63,7 @@ namespace Giro
         }
         void Awake()
         {
+            CountdownEvent.AddListener(this);
             if (s_Instance != null && s_Instance != this)
             {
                 Destroy(gameObject);
@@ -114,6 +115,7 @@ namespace Giro
                 countdown = maxCountdown;
                 LevelManager.Instance.ResetLevel();
             }
+
         }
 
         /// <summary>
@@ -173,14 +175,7 @@ namespace Giro
             for (int i = 0; i < stepsList.Length; i++)
             {
                 GameObject pzppGO = null;
-                if (Application.isPlaying)
-                {
-                    pzppGO = GameObject.Instantiate(levelDefinition.puzzlePiecePoolPrefab);
-                }
-                else
-                {
-                    pzppGO = (GameObject)PrefabUtility.InstantiatePrefab(levelDefinition.puzzlePiecePoolPrefab);
-                }
+                pzppGO = (GameObject)PrefabUtility.InstantiatePrefab(levelDefinition.puzzlePiecePoolPrefab);
                 PuzzlePiecePair pzpp = pzppGO.GetComponent<PuzzlePiecePair>();
                 pzppGO.transform.SetParent(puzzlePoolGO.transform);
                 pzppGO.name = ("PuzzlePair_" + i);
@@ -188,34 +183,17 @@ namespace Giro
                 if (stepsList[i].lStepPrefab != null)
                 {
                     GameObject go = null;
-                    if (Application.isPlaying)
-                    {
-                        go = GameObject.Instantiate(stepsList[i].lStepPrefab, pzppGO.transform);
-                    }
-                    else
-                    {
-#if UNITY_EDITOR
                         go = (GameObject)PrefabUtility.InstantiatePrefab(stepsList[i].lStepPrefab, pzppGO.transform);
-#endif
-                    }
                     pzpp.leftObj = go;
                 }
                 if (stepsList[i].rStepPrefab != null)
                 {
                     GameObject go = null;
-                    if (Application.isPlaying)
-                    {
-                        go = GameObject.Instantiate(stepsList[i].rStepPrefab, pzppGO.transform);
-                    }
-                    else
-                    {
-#if UNITY_EDITOR
                         go = (GameObject)PrefabUtility.InstantiatePrefab(stepsList[i].rStepPrefab, pzppGO.transform);
-#endif
-                    }
                     pzpp.rightObj = go;
                 }
-                pzppGO.SetActive(false);
+                pzppGO.SetActive(true);
+                //pzppGO.transform.position = new Vector3(100, 100, 100);
                 levelManager.AddStep(pzpp);
             }
             maxCountdown = levelDefinition.maxCountdown;
@@ -245,23 +223,33 @@ namespace Giro
         {
             ResetLevel();
             m_IsPlaying = true;
+            PuzzlePieceManager.Instance.PlayNextPuzzlePairAnimation();
+            StartCoroutine(test());
+        }
+
+        IEnumerator test()
+        {
+            yield return new WaitForSeconds(2);
+            PuzzlePieceManager.Instance.PlayNextPuzzlePairAnimation();
+
         }
 
 
         public void OnEventRaised()
         {
-            if (isWaiting)
+            if (!isCountdowning)
             {
                 starttime = Time.time;
             }
-            isWaiting = !isWaiting;
+            InputManager.Instance.receiveInput = isCountdowning;
+            isCountdowning = !isCountdowning;
         }
 
 
 
         private void Update()
         {
-            if (isWaiting) return;
+            if (!isCountdowning) return;
             countdown = maxCountdown - Time.time + starttime;
             UIManager.Instance.GetView<HUD>().TimeLeft = countdown;
             if (countdown <= 0)

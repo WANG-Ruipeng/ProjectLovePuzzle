@@ -48,14 +48,14 @@ MonoBehaviour:
   - {fileID: 6720992300918251345, guid: f5969163fd24f4df09df4753595040b4, type: 3}
   - {fileID: 1433434366532935785, guid: 48e60f0845bd446d1962e2da252b92ea, type: 3}
   - {fileID: 4966225495976908523, guid: 0abb1ffc0bfbffc4095296800430da31, type: 3}
-  - {fileID: 3910664615441419288, guid: bfcb6162785bdb947a6dbcf82b6fa0fb, type: 3}
   m_Levels:
   - {fileID: 11400000, guid: 21d97e6cfeaf94f4a88f2649e6a2e64b, type: 2}
-  m_LevelManagers: []
+  m_LevelManagers:
+  - {fileID: 4244431434012332691, guid: f126124d771d0fa49ac3c08139ba6beb, type: 3}
+  - {fileID: 2379971290871929536, guid: dac00ee5d2db69440980e0f5a8b87367, type: 3}
   m_ContinueEvent: {fileID: 11400000, guid: b892538bd49f3487bbedf5106c094739, type: 2}
   m_BackEvent: {fileID: 11400000, guid: 58f804667e2cb4eb789b6d2dfb3c4ce3, type: 2}
   m_WinEvent: {fileID: 11400000, guid: 4facc4ba26e884ef88b6c2506fa5ae2c, type: 2}
   m_LoseEvent: {fileID: 11400000, guid: 2b6d3353ba4d84d3ca725ef1835ca96f, type: 2}
   m_PauseEvent: {fileID: 11400000, guid: 4bbf7a853b87f44299489a25eb0d9ce5, type: 2}
-  m_WaitingEvent: {fileID: 11400000, guid: 10dfda478ad8d9340a89750289bb5f92, type: 2}
   m_SplashDelay: 2
