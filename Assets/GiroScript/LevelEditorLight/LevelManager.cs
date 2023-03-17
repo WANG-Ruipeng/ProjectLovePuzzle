@@ -60,6 +60,7 @@ namespace Giro
                     puzzlePieceInScene[i].rightObj.GetComponentInChildren<PuzzlePiece>().Reset();
                     //puzzlePieceInScene[i].gameObject.SetActive(false);
                 }
+                puzzlePieceInScene[i].Reset();
             }
         }
 

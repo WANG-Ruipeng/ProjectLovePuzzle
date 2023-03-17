@@ -11,6 +11,7 @@ public class PuzzlePieceManager : MonoBehaviour
 
     [Header("Enter scene animation settings")]
     [Tooltip("注意所有坐标都是作用在更改在全局坐标系上，如果要统一全局和局部坐标系，需要PuzzlePiecePair及以上层级的物体均位于原点。")]
+    public float seceondEnterDelay = 1.5f;
     public Vector3 leftEnterStartPos = new Vector3(-1.56f, 10, 0);
     public Vector3 rightEnterStartPos = new Vector3(1.56f, 10, 0);
     public AnimationCurve enterAnimationCurve;
@@ -29,8 +30,22 @@ public class PuzzlePieceManager : MonoBehaviour
 
     List<PuzzlePiecePair> puzzlePiecePairs;
 
-    int currentPieceNo = -2;//-1代表是目前关卡刚刚开始，拼图区内部还未有任何拼图
+    int currentPieceNo = -2;//-2代表是目前关卡刚刚开始，拼图区内部还未有任何拼图
 
+    public void Reset()
+    {
+        currentPieceNo = -2;
+        PlayNextPuzzlePairAnimation();
+        StartCoroutine(SecondEnter());
+
+
+    }
+    IEnumerator SecondEnter()
+    {
+        yield return new WaitForSeconds(seceondEnterDelay);
+        PlayNextPuzzlePairAnimation();
+
+    }
     public void SetPuzzlePiecePairList(PuzzlePiecePair[] pzplist)
     {
         puzzlePiecePairs = new List<PuzzlePiecePair>(pzplist);

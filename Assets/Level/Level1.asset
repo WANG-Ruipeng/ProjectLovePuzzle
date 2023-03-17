@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   background: {fileID: 0}
   puzzlePiecePoolPrefab: {fileID: 4092972524480892814, guid: 26113b33063650c48a4888faadbd3222, type: 3}
-  maxCountdown: 3
+  maxCountdown: 4
   puzzleSteps:
   - lPos: 0
     lStepPrefab: {fileID: 5705530688632313731, guid: 9fa4985ab7face0448351225d09578b2, type: 3}

@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using HyperCasual.Core;
+using System;
+
 public class PuzzlePiecePair : MonoBehaviour
 {
     [Header("Basic information about two pieces")]
@@ -22,7 +24,7 @@ public class PuzzlePiecePair : MonoBehaviour
     public Vector3 leftEndPos = new Vector3(-0.56f, 0, 0);
     public Vector3 rightEndPos = new Vector3(0.56f, 0, 0);
     public AnimationCurve combineAnimationCurve;
-    
+
     float enterAnimationLength = 0;
     float downAnimationLength = 0;
     float combineAnimationLength = 0;
@@ -45,13 +47,24 @@ public class PuzzlePiecePair : MonoBehaviour
 
     bool doNotUpdate = false;
 
+    public void Reset()
+    {
+        leftObj.GetComponentInChildren<PuzzlePiece>().Reset();
+        rightObj.GetComponentInChildren<PuzzlePiece>().Reset();
+        isPlayingEnterAnim = false;
+        isPlayingDownAnim = false;
+        isPlayingCombineAnim = false;
+        enterAnimationStartTime = 0;
+        downAnimationStartTime = 0;
+        combineAnimationStartTime = 0;
+    }
     private void Awake()
     {
         left = leftObj.GetComponentInChildren<PuzzlePiece>();
         right = rightObj.GetComponentInChildren<PuzzlePiece>();
         left.RotateClockWise = true;
         right.RotateClockWise = false;
-        
+
         animator = GetComponent<Animator>();
         combineAnimationLength = combineAnimationCurve.keys[combineAnimationCurve.length - 1].time;
         enterAnimationLength = enterAnimationCurve.keys[enterAnimationCurve.length - 1].time;
@@ -102,7 +115,7 @@ public class PuzzlePiecePair : MonoBehaviour
         downAnimationLength = downAnimationCurve.keys[downAnimationCurve.length - 1].time;
     }
 
-    
+
 
     public void StartPlayingEnterAnimation()
     {
@@ -133,23 +146,23 @@ public class PuzzlePiecePair : MonoBehaviour
     /// <param name="rightStartPos">The starting position of the right object.</param>
     /// <param name="rightEndPos">The ending position of the right object.</param>
     private void PlayScriptedAnimation(
-        ref float animStartTime, ref float animLength, ref bool isPlaying,ref AnimationCurve animCurve,
-        ref Vector3 leftStartPos, ref Vector3 leftEndPos, ref Vector3 rightStartPos, ref Vector3 rightEndPos) 
+        ref float animStartTime, ref float animLength, ref bool isPlaying, ref AnimationCurve animCurve,
+        ref Vector3 leftStartPos, ref Vector3 leftEndPos, ref Vector3 rightStartPos, ref Vector3 rightEndPos)
     {
         float progress = (Time.time - animStartTime);
         if (progress >= animLength)
         {
             isPlaying = false;
-            if((leftEndPos - this.leftEndPos).magnitude < 0.01)
+            if ((leftEndPos - this.leftEndPos).magnitude < 0.01)//合并成功触发事件
             {
                 CountdownEvent.Raise();
             }
-            else if((leftEndPos-this.leftDownStartPos).magnitude < 0.01)
+            else if ((leftEndPos - this.leftCombineStartPos).magnitude < 0.01)//到达操作区
             {
                 CountdownEvent.Raise();
             }
         }
-            
+
         //Debug.Log(progress);
         float posPercent = Mathf.Clamp(animCurve.Evaluate(progress), 0, 1);
         Vector3 leftNowPos = Vector3.Lerp(leftStartPos, leftEndPos, posPercent);
@@ -165,7 +178,7 @@ public class PuzzlePiecePair : MonoBehaviour
     {
         animator.SetBool("StartMinimize", true);
     }
-    
+
 
     /// <summary>
     /// 缩小动画结束之后回调
@@ -177,47 +190,56 @@ public class PuzzlePiecePair : MonoBehaviour
 
     private void Update()
     {
-        if (doNotUpdate)
+        try
         {
-            return;
-        }
+            if (doNotUpdate)
+            {
+                return;
+            }
 
-        if (isPlayingEnterAnim)
-        {
-            PlayScriptedAnimation(ref enterAnimationStartTime, ref enterAnimationLength, ref isPlayingEnterAnim, ref enterAnimationCurve,
-                ref leftEnterStartPos, ref leftDownStartPos, ref rightEnterStartPos, ref rightDownStartPos);
-            return;
-        }
+            if (isPlayingEnterAnim)
+            {
 
-        if (isPlayingDownAnim)
-        {
-            PlayScriptedAnimation(ref downAnimationStartTime, ref downAnimationLength, ref isPlayingDownAnim, ref downAnimationCurve,
-                ref leftDownStartPos, ref leftCombineStartPos, ref rightDownStartPos, ref rightCombineStartPos);
-            return;
-        }
+                PlayScriptedAnimation(ref enterAnimationStartTime, ref enterAnimationLength, ref isPlayingEnterAnim, ref enterAnimationCurve,
+                    ref leftEnterStartPos, ref leftDownStartPos, ref rightEnterStartPos, ref rightDownStartPos);
 
-        //debug用按键
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            StartPlayingEnterAnimation();
-        }
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            StartPlayingDownAnimation();
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            StartPlayingCombineAnimation();
-        }
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            PlayMinimizeAnimation();
-        }
+                return;
+            }
 
-        if (isPlayingCombineAnim)
+            if (isPlayingDownAnim)
+            {
+                PlayScriptedAnimation(ref downAnimationStartTime, ref downAnimationLength, ref isPlayingDownAnim, ref downAnimationCurve,
+                    ref leftDownStartPos, ref leftCombineStartPos, ref rightDownStartPos, ref rightCombineStartPos);
+                return;
+            }
+
+            //debug用按键
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                StartPlayingEnterAnimation();
+            }
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                StartPlayingDownAnimation();
+            }
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                StartPlayingCombineAnimation();
+            }
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                PlayMinimizeAnimation();
+            }
+
+            if (isPlayingCombineAnim)
+            {
+                PlayScriptedAnimation(ref combineAnimationStartTime, ref combineAnimationLength, ref isPlayingCombineAnim, ref combineAnimationCurve,
+                    ref leftCombineStartPos, ref leftEndPos, ref rightCombineStartPos, ref rightEndPos);
+            }
+        }
+        catch (Exception a)
         {
-            PlayScriptedAnimation(ref combineAnimationStartTime, ref combineAnimationLength, ref isPlayingCombineAnim, ref combineAnimationCurve,
-                ref leftCombineStartPos, ref leftEndPos, ref rightCombineStartPos, ref rightEndPos);
+            Debug.Log("Input Manager not loaded!!");
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEditor.SceneManagement;
@@ -103,6 +104,7 @@ namespace Giro
                 return;
             }
 
+            GUILayout.Label("在Play之前请手动Reload场景");
 
             Scene scene = SceneManager.GetActiveScene();
             if (!scene.name.Equals(levelEditorSceneName))
@@ -249,9 +251,17 @@ namespace Giro
                 //        Debug.LogError(e.ToString());
                 //    }
                 //}
-
+                try
+                {
+                    GameManager gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+                    lvdef.maxCountdown = gameManager.maxCountdown;
+                }
+                catch (Exception a)
+                {
+                    Debug.Log("GameManager didn't save! If the change need to be save, please check GameManager GameObject Name");
+                }
                 //// Overwrite source level definition with current version
-                //SourceLevelDef.SaveValues(lvdef);
+                SourceLevelDef.SaveValues(lvdef);
             }
 
 
@@ -287,7 +297,7 @@ namespace Giro
                 if (scene.name.Equals(levelEditorSceneName))
                 {
                     // Reload the scene automatically
-                    LoadLevel(SourceLevelDef);
+                    //LoadLevel(SourceLevelDef);
                 }
             }
             else if (state == PlayModeStateChange.ExitingEditMode && SourceLevelDef != null && !LevelNotLoaded())

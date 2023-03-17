@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using HyperCasual.Core;
 using UnityEngine;
+using System;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -17,12 +18,13 @@ namespace Giro
     /// </summary>
     public class GameManager : MonoBehaviour, IGameEventListener
     {
+        const string assetPath = "Assets/GiroScript/Prefab/GameManager.prefab";
         /// <summary>
         /// Returns the GameManager.
         /// </summary>
         public static GameManager Instance => s_Instance;
         static GameManager s_Instance;
-        static float maxCountdown;
+        public float maxCountdown;
         public float Countdown { get => countdown; }
         float countdown;
         float starttime;
@@ -71,8 +73,6 @@ namespace Giro
             // If LevelManager already exists, user is in the LevelEditorWindow
             if (LevelManager.Instance != null)
             {
-                puzzlePoolGO = LevelManager.Instance.transform.Find(puzzlePoolGOName).gameObject;
-                PuzzlePieceManager.Instance.SetPuzzlePiecePairList(puzzlePoolGO.GetComponentsInChildren<PuzzlePiecePair>());
                 StartGame();
                 m_LevelEditorMode = true;
             }
@@ -107,12 +107,25 @@ namespace Giro
             //    CameraManager.Instance.ResetCamera();
             //}
             countdown = maxCountdown;
+            starttime = Time.time;
             if (LevelManager.Instance != null)
             {
                 countdown = maxCountdown;
                 LevelManager.Instance.ResetLevel();
             }
 
+            puzzlePoolGO = LevelManager.Instance.transform.Find(puzzlePoolGOName).gameObject;
+            PuzzlePiecePair[] puzzlePiecePairs = puzzlePoolGO.GetComponentsInChildren<PuzzlePiecePair>();
+            PuzzlePieceManager.Instance.SetPuzzlePiecePairList(puzzlePiecePairs);
+            for (int i = 0; i < puzzlePiecePairs.Length; i++)
+            {
+                puzzlePiecePairs[i].Reset();
+            }
+
+            if (PuzzlePieceManager.Instance != null)//在pairs重置之后manager才能reset
+            {
+                PuzzlePieceManager.Instance.Reset();
+            }
         }
 
         /// <summary>
@@ -190,11 +203,23 @@ namespace Giro
                     pzpp.rightObj = go;
                 }
                 pzppGO.SetActive(true);
-                //pzppGO.transform.position = new Vector3(100, 100, 100);
                 levelManager.AddStep(pzpp);
                 m_ActiveSteps.Add(pzpp);
             }
-            maxCountdown = levelDefinition.maxCountdown;
+#if UNITY_EDITOR
+            try
+            {
+                GameObject go = GameObject.Find("GameManager");
+                GameManager gameManager = go.GetComponent<GameManager>();
+                gameManager.maxCountdown = levelDefinition.maxCountdown;
+                PrefabUtility.SaveAsPrefabAsset(go, assetPath);
+            }
+            catch (Exception a)
+            {
+                Debug.Log(a.ToString());
+                Debug.Log("GameManager didn't save! If the change need to be save, please check GameManager GameObject Name");
+            }
+#endif
         }
 
         public void UnloadCurrentLevel()
@@ -210,16 +235,9 @@ namespace Giro
         {
             ResetLevel();
             m_IsPlaying = true;
-            PuzzlePieceManager.Instance.PlayNextPuzzlePairAnimation();
-            StartCoroutine(test());
         }
 
-        IEnumerator test()
-        {
-            yield return new WaitForSeconds(2);
-            PuzzlePieceManager.Instance.PlayNextPuzzlePairAnimation();
 
-        }
 
 
         public void OnEventRaised()

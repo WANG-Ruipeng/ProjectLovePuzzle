@@ -41,6 +41,9 @@ namespace Giro
         {
             try
             {
+                background = updatedLevel.background;
+                puzzlePiecePoolPrefab = updatedLevel.puzzlePiecePoolPrefab;
+                maxCountdown = updatedLevel.maxCountdown;
                 puzzleSteps = updatedLevel.puzzleSteps;
             }
             catch (Exception e)

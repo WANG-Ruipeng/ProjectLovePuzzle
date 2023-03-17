@@ -39,6 +39,7 @@ public class PuzzlePiece : MonoBehaviour
 
     public void Reset()
     {
+        transform.position = new Vector3(100, 100, 0);
         isRotating = false;
         isLocked = false;
         state = 0;
