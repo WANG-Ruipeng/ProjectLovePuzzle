@@ -31,6 +31,11 @@ public class PuzzlePieceManager : MonoBehaviour
 
     int currentPieceNo = -2;//-1代表是目前关卡刚刚开始，拼图区内部还未有任何拼图
 
+    public void SetPuzzlePiecePairList(PuzzlePiecePair[] pzplist)
+    {
+        puzzlePiecePairs = new List<PuzzlePiecePair>(pzplist);
+    }
+
     /// <summary>
     /// 初始化所有拼图
     /// </summary>
@@ -38,7 +43,7 @@ public class PuzzlePieceManager : MonoBehaviour
     {
         foreach (PuzzlePiecePair piecePair in puzzlePiecePairs)
         {
-            piecePair.SetAllAnimationParamters(leftEnterStartPos, rightEnterStartPos, enterAnimationCurve,  
+            piecePair.SetAllAnimationParamters(leftEnterStartPos, rightEnterStartPos, enterAnimationCurve,
                 leftDownStartPos, rightDownStartPos, downAnimationCurve,
                 leftCombineStartPos, rightCombineStartPos,
                 leftEndPos, rightEndPos, combineAnimationCurve);
@@ -77,11 +82,11 @@ public class PuzzlePieceManager : MonoBehaviour
     /// <summary>
     /// 播放下一片拼图的动画，默认拼图数量大于5
     /// </summary>
-    public void PlayNextPuzzlePairAnimation() 
+    public void PlayNextPuzzlePairAnimation()
     {
-        if(currentPieceNo == -2)
+        if (currentPieceNo == -2)
         {
-            puzzlePiecePairs = new List<PuzzlePiecePair>(LevelManager.Instance.puzzlePieceInScene);
+            //puzzlePiecePairs = new List<PuzzlePiecePair>();
             InitPuzzles();
             puzzlePiecePairs[0].StartPlayingEnterAnimation();
             currentPieceNo++;
@@ -121,6 +126,6 @@ public class PuzzlePieceManager : MonoBehaviour
             return;
         }
         s_Instance = this;
-        
+
     }
 }

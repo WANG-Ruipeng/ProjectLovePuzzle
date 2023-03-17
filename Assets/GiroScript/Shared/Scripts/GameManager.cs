@@ -35,7 +35,7 @@ namespace Giro
         AbstractGameEvent CountdownEvent;
 
         LevelDefinition m_CurrentLevel;
-
+        const string puzzlePoolGOName = "PuzzlePool";
 
         /// <summary>
         /// Returns true if the game is currently active.
@@ -44,12 +44,11 @@ namespace Giro
         /// </summary>
         public bool IsPlaying => m_IsPlaying;
         bool m_IsPlaying;
-        GameObject m_CurrentLevelGO;
-        GameObject m_CurrentTerrainGO;
-        GameObject m_LevelMarkersGO;
-        static GameObject puzzlePoolGO;
 
-        List<Step> m_ActiveSteps = new List<Step>();
+
+        GameObject m_CurrentLevelGO;
+        static GameObject puzzlePoolGO;
+        static List<PuzzlePiecePair> m_ActiveSteps = new List<PuzzlePiecePair>();
 
         bool isCountdowning;
 
@@ -57,10 +56,6 @@ namespace Giro
         bool m_LevelEditorMode;
 #endif
 
-        public void Initialize()
-        {
-
-        }
         void Awake()
         {
             CountdownEvent.AddListener(this);
@@ -76,6 +71,8 @@ namespace Giro
             // If LevelManager already exists, user is in the LevelEditorWindow
             if (LevelManager.Instance != null)
             {
+                puzzlePoolGO = LevelManager.Instance.transform.Find(puzzlePoolGOName).gameObject;
+                PuzzlePieceManager.Instance.SetPuzzlePiecePairList(puzzlePoolGO.GetComponentsInChildren<PuzzlePiecePair>());
                 StartGame();
                 m_LevelEditorMode = true;
             }
@@ -167,7 +164,7 @@ namespace Giro
                 }
             }
 
-            puzzlePoolGO = new GameObject("PuzzlePool");
+            puzzlePoolGO = new GameObject(puzzlePoolGOName);
             puzzlePoolGO.transform.SetParent(levelGameObject.transform);
 
 
@@ -183,18 +180,19 @@ namespace Giro
                 if (stepsList[i].lStepPrefab != null)
                 {
                     GameObject go = null;
-                        go = (GameObject)PrefabUtility.InstantiatePrefab(stepsList[i].lStepPrefab, pzppGO.transform);
+                    go = (GameObject)PrefabUtility.InstantiatePrefab(stepsList[i].lStepPrefab, pzppGO.transform);
                     pzpp.leftObj = go;
                 }
                 if (stepsList[i].rStepPrefab != null)
                 {
                     GameObject go = null;
-                        go = (GameObject)PrefabUtility.InstantiatePrefab(stepsList[i].rStepPrefab, pzppGO.transform);
+                    go = (GameObject)PrefabUtility.InstantiatePrefab(stepsList[i].rStepPrefab, pzppGO.transform);
                     pzpp.rightObj = go;
                 }
                 pzppGO.SetActive(true);
                 //pzppGO.transform.position = new Vector3(100, 100, 100);
                 levelManager.AddStep(pzpp);
+                m_ActiveSteps.Add(pzpp);
             }
             maxCountdown = levelDefinition.maxCountdown;
         }
@@ -205,17 +203,6 @@ namespace Giro
             {
                 GameObject.Destroy(m_CurrentLevelGO);
             }
-
-            if (m_LevelMarkersGO != null)
-            {
-                GameObject.Destroy(m_LevelMarkersGO);
-            }
-
-            if (m_CurrentTerrainGO != null)
-            {
-                GameObject.Destroy(m_CurrentTerrainGO);
-            }
-
             m_CurrentLevel = null;
         }
 

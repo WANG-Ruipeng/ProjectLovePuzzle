@@ -10,7 +10,7 @@ namespace Giro
     public class LevelEditor : EditorWindow
     {
         bool m_AutoSaveShowSettings;
-        bool hasLoadLevel;  
+        bool hasLoadLevel;
         bool currentLevelNotLoaded;
         bool m_AutoSaveLevel;
         bool m_AutoSavePlayer;
@@ -99,6 +99,7 @@ namespace Giro
             if (Application.isPlaying)
             {
                 GUILayout.Label("Exit play mode to continue editing level");
+
                 return;
             }
 
