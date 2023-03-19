@@ -214,6 +214,7 @@ public class PuzzlePiecePair : MonoBehaviour
             }
 
             //debug用按键
+            /*
             if (Input.GetKeyDown(KeyCode.A))
             {
                 StartPlayingEnterAnimation();
@@ -229,7 +230,7 @@ public class PuzzlePiecePair : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.F))
             {
                 PlayMinimizeAnimation();
-            }
+            }*/
 
             if (isPlayingCombineAnim)
             {

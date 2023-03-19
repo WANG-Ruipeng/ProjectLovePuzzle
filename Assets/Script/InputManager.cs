@@ -33,7 +33,7 @@ public class InputManager : MonoBehaviour
 
         if (!puzzlePieceManager.GetCurrentPuzzlePair().left.IsRotating)
         {
-            if (Input.GetKeyDown(KeyCode.Q))
+            if (Input.GetKeyDown(KeyCode.Q) && !puzzlePieceManager.GetCurrentPuzzlePair().right.IsLocked)
             {
                 puzzlePieceManager.GetCurrentPuzzlePair().left.ChangeState();
             }
@@ -55,7 +55,7 @@ public class InputManager : MonoBehaviour
 
         if (!puzzlePieceManager.GetCurrentPuzzlePair().right.IsRotating)
         {
-            if (Input.GetKeyDown(KeyCode.O))
+            if (Input.GetKeyDown(KeyCode.O) && !puzzlePieceManager.GetCurrentPuzzlePair().right.IsLocked)
             {
                 puzzlePieceManager.GetCurrentPuzzlePair().right.ChangeState();
             }
