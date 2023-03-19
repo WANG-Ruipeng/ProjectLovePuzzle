@@ -1,7 +1,8 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using HyperCasual.Core;
+using Giro;
 public class InputManager : MonoBehaviour
 {
     /// <summary>
@@ -40,9 +41,15 @@ public class InputManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.W))
             {
                 if (puzzlePieceManager.GetCurrentPuzzlePair().left.IsLocked)
+                {
                     puzzlePieceManager.GetCurrentPuzzlePair().left.ReleaseLockStatus();
+                    UIManager.Instance.GetView<HUD>().LeftLocked = false;
+                }
                 else
+                {
                     puzzlePieceManager.GetCurrentPuzzlePair().left.SetLockStatus();
+                    UIManager.Instance.GetView<HUD>().LeftLocked = true;
+                }
             }
         }
 
@@ -56,9 +63,15 @@ public class InputManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.P))
             {
                 if (puzzlePieceManager.GetCurrentPuzzlePair().right.IsLocked)
+                {
                     puzzlePieceManager.GetCurrentPuzzlePair().right.ReleaseLockStatus();
+                    UIManager.Instance.GetView<HUD>().RightLocked = false;
+                }
                 else
+                {
                     puzzlePieceManager.GetCurrentPuzzlePair().right.SetLockStatus();
+                    UIManager.Instance.GetView<HUD>().RightLocked = true;
+                }
             }
         }
 
@@ -68,8 +81,11 @@ public class InputManager : MonoBehaviour
             {
                 Debug.Log("Yes!");
                 puzzlePieceManager.GetCurrentPuzzlePair().StartPlayingCombineAnimation();
+                HUD hudWindow = UIManager.Instance.GetView<HUD>();
+                hudWindow.LeftLocked = false;
+                hudWindow.RightLocked = false;
             }
-            else if (puzzlePieceManager.GetCurrentPuzzlePair().left.IsLocked 
+            else if (puzzlePieceManager.GetCurrentPuzzlePair().left.IsLocked
                 && puzzlePieceManager.GetCurrentPuzzlePair().right.IsLocked)
             {
                 Debug.Log("NOOO!");

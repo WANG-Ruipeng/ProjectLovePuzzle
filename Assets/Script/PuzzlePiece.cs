@@ -8,10 +8,6 @@ public class PuzzlePiece : MonoBehaviour
     public AnimationCurve RotateCurve;
     public bool RotateClockWise;
 
-    //锁定指示框
-    public GameObject LockIndicator;
-    //SpriteRenderer indicatorSprite;
-
     //旋转状态
     private bool isRotating = false;
     public bool IsRotating
@@ -49,17 +45,11 @@ public class PuzzlePiece : MonoBehaviour
     public void ReleaseLockStatus()
     {
         isLocked = false;
-        //Color c = indicatorSprite.color;
-        //c.a = 0;
-        //indicatorSprite.color = c;
     }
 
     public void SetLockStatus()
     {
         isLocked = true;
-        //Color c = indicatorSprite.color;
-        //c.a = 255;
-        //indicatorSprite.color = c;
     }
 
     private void PlayRotateAnimation()
