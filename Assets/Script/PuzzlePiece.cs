@@ -90,7 +90,7 @@ public class PuzzlePiece : MonoBehaviour
     /// </summary>
     private void InitEdgeProp()
     {
-        edgeProps = new edgeProp[edgeCount] { edgeProp.concave, edgeProp.concave, edgeProp.concave, edgeProp.concave };
+        //edgeProps = new edgeProp[edgeCount] { edgeProp.concave, edgeProp.concave, edgeProp.concave, edgeProp.concave };
     }
 
     // Start is called before the first frame update

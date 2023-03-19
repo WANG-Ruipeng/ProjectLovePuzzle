@@ -156,6 +156,7 @@ public class PuzzlePiecePair : MonoBehaviour
             if ((leftEndPos - this.leftEndPos).magnitude < 0.01)//合并成功触发事件
             {
                 CountdownEvent.Raise();
+                PlayMinimizeAnimation();
             }
             else if ((leftEndPos - this.leftCombineStartPos).magnitude < 0.01)//到达操作区
             {
@@ -186,6 +187,7 @@ public class PuzzlePiecePair : MonoBehaviour
     private void SetPieceMinimize()
     {
         doNotUpdate = true;
+        PuzzlePieceManager.Instance.PlayNextPuzzlePairAnimation();
     }
 
     private void Update()
