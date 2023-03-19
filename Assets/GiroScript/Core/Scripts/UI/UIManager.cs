@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,13 +24,14 @@ namespace HyperCasual.Core
 
         View m_CurrentView;
 
-        readonly Stack<View> m_History = new ();
+        readonly Stack<View> m_History = new();
 
-        void Start()
+        protected override void Awake()
         {
+            base.Awake();
             m_Views = m_Root.GetComponentsInChildren<View>(true).ToList();
             Init();
-            
+
             m_ViewLayer.ResizeToSafeArea(m_Canvas);
         }
 

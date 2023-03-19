@@ -106,6 +106,8 @@ namespace Giro
             //{
             //    CameraManager.Instance.ResetCamera();
             //}
+            isCountdowning = false;
+            InputManager.Instance.receiveInput = false;
             countdown = maxCountdown;
             starttime = Time.time;
             if (LevelManager.Instance != null)
@@ -113,7 +115,13 @@ namespace Giro
                 countdown = maxCountdown;
                 LevelManager.Instance.ResetLevel();
             }
-
+            if (UIManager.Instance != null)
+            {
+                HUD hudWindow = UIManager.Instance.GetView<HUD>();
+                hudWindow.LeftLocked = false;
+                hudWindow.RightLocked = false;
+                hudWindow.Show();
+            }
             puzzlePoolGO = LevelManager.Instance.transform.Find(puzzlePoolGOName).gameObject;
             PuzzlePiecePair[] puzzlePiecePairs = puzzlePoolGO.GetComponentsInChildren<PuzzlePiecePair>();
             PuzzlePieceManager.Instance.SetPuzzlePiecePairList(puzzlePiecePairs);
@@ -246,8 +254,8 @@ namespace Giro
             {
                 starttime = Time.time;
             }
-            InputManager.Instance.receiveInput = isCountdowning;
             isCountdowning = !isCountdowning;
+            InputManager.Instance.receiveInput = isCountdowning;
         }
 
 

@@ -81,9 +81,12 @@ public class InputManager : MonoBehaviour
             {
                 Debug.Log("Yes!");
                 puzzlePieceManager.GetCurrentPuzzlePair().StartPlayingCombineAnimation();
-                HUD hudWindow = UIManager.Instance.GetView<HUD>();
-                hudWindow.LeftLocked = false;
-                hudWindow.RightLocked = false;
+                if (UIManager.Instance != null)
+                {
+                    HUD hudWindow = UIManager.Instance.GetView<HUD>();
+                    hudWindow.LeftLocked = false;
+                    hudWindow.RightLocked = false;
+                }
             }
             else if (puzzlePieceManager.GetCurrentPuzzlePair().left.IsLocked
                 && puzzlePieceManager.GetCurrentPuzzlePair().right.IsLocked)
@@ -91,6 +94,12 @@ public class InputManager : MonoBehaviour
                 Debug.Log("NOOO!");
                 puzzlePieceManager.GetCurrentPuzzlePair().left.ReleaseLockStatus();
                 puzzlePieceManager.GetCurrentPuzzlePair().right.ReleaseLockStatus();
+                if (UIManager.Instance != null)
+                {
+                    HUD hudWindow = UIManager.Instance.GetView<HUD>();
+                    hudWindow.LeftLocked = false;
+                    hudWindow.RightLocked = false;
+                }
             }
         }
     }
