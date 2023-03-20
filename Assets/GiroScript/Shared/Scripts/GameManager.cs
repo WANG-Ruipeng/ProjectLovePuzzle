@@ -54,9 +54,9 @@ namespace Giro
 
         bool isCountdowning;
 
-#if UNITY_EDITOR
+        //#if UNITY_EDITOR
         bool m_LevelEditorMode;
-#endif
+        //#endif
 
         void Awake()
         {
@@ -69,14 +69,14 @@ namespace Giro
 
             s_Instance = this;
 
-#if UNITY_EDITOR
+            //#if UNITY_EDITOR
             // If LevelManager already exists, user is in the LevelEditorWindow
             if (LevelManager.Instance != null)
             {
                 StartGame();
                 m_LevelEditorMode = true;
             }
-#endif
+            //#endif
         }
 
         /// <summary>
@@ -193,7 +193,7 @@ namespace Giro
             for (int i = 0; i < stepsList.Length; i++)
             {
                 GameObject pzppGO = null;
-                pzppGO = (GameObject)PrefabUtility.InstantiatePrefab(levelDefinition.puzzlePiecePoolPrefab);
+                pzppGO = (GameObject)GameObject.Instantiate(Resources.Load(levelDefinition.puzzlePiecePoolPrefab.name));
                 PuzzlePiecePair pzpp = pzppGO.GetComponent<PuzzlePiecePair>();
                 pzppGO.transform.SetParent(puzzlePoolGO.transform);
                 pzppGO.name = ("PuzzlePair_" + i);
@@ -201,13 +201,13 @@ namespace Giro
                 if (stepsList[i].lStepPrefab != null)
                 {
                     GameObject go = null;
-                    go = (GameObject)PrefabUtility.InstantiatePrefab(stepsList[i].lStepPrefab, pzppGO.transform);
+                    go = (GameObject)GameObject.Instantiate(Resources.Load(stepsList[i].lStepPrefab.name), pzppGO.transform);
                     pzpp.leftObj = go;
                 }
                 if (stepsList[i].rStepPrefab != null)
                 {
                     GameObject go = null;
-                    go = (GameObject)PrefabUtility.InstantiatePrefab(stepsList[i].rStepPrefab, pzppGO.transform);
+                    go = (GameObject)GameObject.Instantiate(Resources.Load(stepsList[i].rStepPrefab.name), pzppGO.transform);
                     pzpp.rightObj = go;
                 }
                 pzppGO.SetActive(true);
@@ -300,23 +300,23 @@ namespace Giro
         {
             m_WinEvent.Raise();
 
-#if UNITY_EDITOR
+            //#if UNITY_EDITOR
             if (m_LevelEditorMode)
             {
                 ResetLevel();
             }
-#endif
+            //#endif
         }
 
         public void Lose()
         {
             m_LoseEvent.Raise();
-#if UNITY_EDITOR
+            //#if UNITY_EDITOR
             if (m_LevelEditorMode)
             {
                 ResetLevel();
             }
-#endif
+            //#endif
         }
     }
 }
