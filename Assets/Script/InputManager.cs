@@ -33,11 +33,6 @@ public class InputManager : MonoBehaviour
 
         if (!puzzlePieceManager.GetCurrentPuzzlePair().left.IsRotating)
         {
-            if (Input.GetKeyDown(KeyCode.Q) && !puzzlePieceManager.GetCurrentPuzzlePair().left.IsLocked)
-            {
-                puzzlePieceManager.GetCurrentPuzzlePair().left.ChangeState();
-            }
-
             if (Input.GetKeyDown(KeyCode.W))
             {
                 if (puzzlePieceManager.GetCurrentPuzzlePair().left.IsLocked)
@@ -51,14 +46,15 @@ public class InputManager : MonoBehaviour
                     UIManager.Instance.GetView<HUD>().LeftLocked = true;
                 }
             }
+            else if (Input.GetKeyDown(KeyCode.Q) && !puzzlePieceManager.GetCurrentPuzzlePair().left.IsLocked)
+            {
+                puzzlePieceManager.GetCurrentPuzzlePair().left.ChangeState();
+            }
+
         }
 
         if (!puzzlePieceManager.GetCurrentPuzzlePair().right.IsRotating)
         {
-            if (Input.GetKeyDown(KeyCode.O) && !puzzlePieceManager.GetCurrentPuzzlePair().right.IsLocked)
-            {
-                puzzlePieceManager.GetCurrentPuzzlePair().right.ChangeState();
-            }
 
             if (Input.GetKeyDown(KeyCode.P))
             {
@@ -72,6 +68,10 @@ public class InputManager : MonoBehaviour
                     puzzlePieceManager.GetCurrentPuzzlePair().right.SetLockStatus();
                     UIManager.Instance.GetView<HUD>().RightLocked = true;
                 }
+            }
+            else if (Input.GetKeyDown(KeyCode.O) && !puzzlePieceManager.GetCurrentPuzzlePair().right.IsLocked)
+            {
+                puzzlePieceManager.GetCurrentPuzzlePair().right.ChangeState();
             }
         }
 
