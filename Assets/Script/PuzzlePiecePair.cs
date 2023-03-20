@@ -132,6 +132,7 @@ public class PuzzlePiecePair : MonoBehaviour
     {
         isPlayingCombineAnim = true;
         combineAnimationStartTime = Time.time;
+        CountdownEvent.Raise();
     }
 
     /// <summary>
@@ -155,7 +156,6 @@ public class PuzzlePiecePair : MonoBehaviour
             isPlaying = false;
             if ((leftEndPos - this.leftEndPos).magnitude < 0.01)//合并成功触发事件
             {
-                CountdownEvent.Raise();
                 PlayMinimizeAnimation();
             }
             else if ((leftEndPos - this.leftCombineStartPos).magnitude < 0.01)//到达操作区
