@@ -114,23 +114,23 @@ public class PuzzlePieceManager : MonoBehaviour
             currentPieceNo++;
             return;
         }
-        puzzlePiecePairs[currentPieceNo + 2].StartPlayingEnterAnimation();
-        puzzlePiecePairs[currentPieceNo + 1].StartPlayingDownAnimation();
-        puzzlePiecePairs[currentPieceNo].StartPlayingCombineAnimation();
-        currentPieceNo++;
         if (currentPieceNo == puzzlePiecePairs.Count - 2)
         {
             puzzlePiecePairs[puzzlePiecePairs.Count - 1].StartPlayingDownAnimation();
-            puzzlePiecePairs[puzzlePiecePairs.Count - 2].StartPlayingCombineAnimation();
+            //puzzlePiecePairs[puzzlePiecePairs.Count - 2].StartPlayingCombineAnimation();
             currentPieceNo++;
             return;
         }
         if (currentPieceNo == puzzlePiecePairs.Count - 1)
         {
-            puzzlePiecePairs[puzzlePiecePairs.Count - 1].StartPlayingCombineAnimation();
+            //puzzlePiecePairs[puzzlePiecePairs.Count - 1].StartPlayingCombineAnimation();
             currentPieceNo++;
             return;
         }
+        puzzlePiecePairs[currentPieceNo + 2].StartPlayingEnterAnimation();
+        puzzlePiecePairs[currentPieceNo + 1].StartPlayingDownAnimation();
+        //puzzlePiecePairs[currentPieceNo].StartPlayingCombineAnimation();
+        currentPieceNo++;
     }
 
     private void Awake()
