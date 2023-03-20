@@ -49,8 +49,11 @@ public class PuzzlePiecePair : MonoBehaviour
 
     public void Reset()
     {
+        animator.SetBool("StartMinimize", false);
+        transform.position = new Vector3(0, 0, 0);
         leftObj.GetComponentInChildren<PuzzlePiece>().Reset();
         rightObj.GetComponentInChildren<PuzzlePiece>().Reset();
+        doNotUpdate = false;
         isPlayingEnterAnim = false;
         isPlayingDownAnim = false;
         isPlayingCombineAnim = false;

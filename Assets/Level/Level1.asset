@@ -14,41 +14,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   background: {fileID: 0}
   puzzlePiecePoolPrefab: {fileID: 4092972524480892814, guid: 26113b33063650c48a4888faadbd3222, type: 3}
-  maxCountdown: 4
+  maxCountdown: 10
   puzzleSteps:
   - lPos: 0
     lStepPrefab: {fileID: 364585177925155994, guid: d2c7894af977fce4f972107d038a1878, type: 3}
-    lEdgeProp: ffffffffffffffffffffffffffffffff
+    lEdgeProp: 00000000010000000000000000000000
     rPos: 0
     rStepPrefab: {fileID: 364585177925155994, guid: 6b6ea730a6fb6ce48b0f8dffb1acc4b4, type: 3}
-    rEdgeProp: ffffffffffffffffffffffffffffffff
+    rEdgeProp: 000000000000000000000000ffffffff
   - lPos: 0
     lStepPrefab: {fileID: 364585177925155994, guid: 6b6ea730a6fb6ce48b0f8dffb1acc4b4, type: 3}
-    lEdgeProp: ffffffffffffffffffffffffffffffff
+    lEdgeProp: 000000000000000000000000ffffffff
     rPos: 0
     rStepPrefab: {fileID: 364585177925155994, guid: d2c7894af977fce4f972107d038a1878, type: 3}
-    rEdgeProp: ffffffffffffffffffffffffffffffff
+    rEdgeProp: 00000000010000000000000000000000
   - lPos: 0
     lStepPrefab: {fileID: 364585177925155994, guid: d2c7894af977fce4f972107d038a1878, type: 3}
-    lEdgeProp: ffffffffffffffffffffffffffffffff
+    lEdgeProp: 00000000010000000000000000000000
     rPos: 0
     rStepPrefab: {fileID: 364585177925155994, guid: 6b6ea730a6fb6ce48b0f8dffb1acc4b4, type: 3}
-    rEdgeProp: ffffffffffffffffffffffffffffffff
+    rEdgeProp: 000000000000000000000000ffffffff
   - lPos: 0
     lStepPrefab: {fileID: 364585177925155994, guid: 6b6ea730a6fb6ce48b0f8dffb1acc4b4, type: 3}
-    lEdgeProp: ffffffffffffffffffffffffffffffff
+    lEdgeProp: 000000000000000000000000ffffffff
     rPos: 0
     rStepPrefab: {fileID: 364585177925155994, guid: d2c7894af977fce4f972107d038a1878, type: 3}
-    rEdgeProp: ffffffffffffffffffffffffffffffff
+    rEdgeProp: 00000000010000000000000000000000
   - lPos: 0
     lStepPrefab: {fileID: 364585177925155994, guid: d2c7894af977fce4f972107d038a1878, type: 3}
-    lEdgeProp: ffffffffffffffffffffffffffffffff
+    lEdgeProp: 00000000010000000000000000000000
     rPos: 0
     rStepPrefab: {fileID: 364585177925155994, guid: 6b6ea730a6fb6ce48b0f8dffb1acc4b4, type: 3}
-    rEdgeProp: ffffffffffffffffffffffffffffffff
+    rEdgeProp: 000000000000000000000000ffffffff
   - lPos: 0
     lStepPrefab: {fileID: 364585177925155994, guid: d2c7894af977fce4f972107d038a1878, type: 3}
-    lEdgeProp: ffffffffffffffffffffffffffffffff
+    lEdgeProp: 00000000010000000000000000000000
     rPos: 0
     rStepPrefab: {fileID: 364585177925155994, guid: 6b6ea730a6fb6ce48b0f8dffb1acc4b4, type: 3}
-    rEdgeProp: ffffffffffffffffffffffffffffffff
+    rEdgeProp: 000000000000000000000000ffffffff

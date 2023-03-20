@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using HyperCasual.Core;
 using Giro;
-using UnityEditor.UI;
+using UnityEngine.UI;
 
 public class MainScreen : View
 {

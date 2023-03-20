@@ -11,4 +11,13 @@ namespace Giro
         {
         }
     }
+
+    [CreateAssetMenu(fileName = nameof(NormalEvent),
+        menuName = "Giro/" + nameof(NormalEvent))]
+    public class BoolEvent : AbstractGameEvent<bool>
+    {
+        public override void Reset()
+        {
+        }
+    }
 }

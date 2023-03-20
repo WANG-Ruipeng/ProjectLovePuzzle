@@ -1,4 +1,4 @@
-namespace HyperCasual.Core
+﻿namespace HyperCasual.Core
 {
     /// <summary>
     /// All classes that want to subscribe to an event must implement this interface   
@@ -9,5 +9,9 @@ namespace HyperCasual.Core
         /// The event handler that is called when the subscribed event is triggered
         /// </summary>
         void OnEventRaised();
+    }
+    public interface IGameEventListener<T>
+    {
+        void OnEventRaised(T arg);
     }
 }

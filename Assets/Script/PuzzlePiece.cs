@@ -35,11 +35,12 @@ public class PuzzlePiece : MonoBehaviour
 
     public void Reset()
     {
-        transform.position = new Vector3(100, 100, 0);
+        transform.localPosition = new Vector3(100, 100, 0);
         isRotating = false;
         isLocked = false;
         state = 0;
-        transform.rotation = Quaternion.Euler(0, 0, 0);
+        transform.localRotation = Quaternion.Euler(0, 0, 0);
+        transform.localScale = new Vector3(1, 1, 1);
     }
 
     public void ReleaseLockStatus()
