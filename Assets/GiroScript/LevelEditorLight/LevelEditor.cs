@@ -23,6 +23,8 @@ namespace Giro
         const string levelEditorSceneName = "LevelEditorScene";
         const string levelEditorScenePath = "Assets/GiroScript/LevelEditorLight/Scenes/LevelEditorScene.unity";
 
+        const string managerPrefabPath = "Assets/Prefab/ManagerPrefab";
+
         const string k_AutoSaveSettingsInitializedKey = "AutoSaveInitialized";
         const string k_AutoSaveLevelKey = "AutoSaveLevel";
         const string k_AutoSavePlayerKey = "AutoSavePlayer";
@@ -182,18 +184,6 @@ namespace Giro
             EditorGUILayout.Space();
 
             //往后保存一些其他东西，比如背景颜色啊什么的，参考源代码350行
-            if (GUILayout.Button("Read Prop From GameObject"))
-            {
-                int len = LoadedLevelDef.puzzleSteps.Length;
-                for (int i = 0; i < len; i++)
-                {
-                    var pzPiece = SourceLevelDef.puzzleSteps[i].lStepPrefab.GetComponentInChildren<PuzzlePiece>();
-                    SourceLevelDef.puzzleSteps[i].lEdgeProp = pzPiece.edgeProps;
-
-                    pzPiece = SourceLevelDef.puzzleSteps[i].rStepPrefab.GetComponentInChildren<PuzzlePiece>();
-                    SourceLevelDef.puzzleSteps[i].rEdgeProp = pzPiece.edgeProps;
-                }
-            }
 
         }
         void UnloadOpenLevels()
@@ -218,17 +208,48 @@ namespace Giro
             levelParentGO = new GameObject("Level Parent");
             levelParentGO.tag = s_LevelParentTag;
 
-            GameManager.LoadLevel(LoadedLevelDef, ref loadedLevelGO);
-
-            loadedLevelGO.transform.SetParent(levelParentGO.transform);
+            SetManager(lvdef);//将LevelDefinition中的设定应用于预设
+            GameManager.LoadLevel(LoadedLevelDef, ref loadedLevelGO);//加载场景内物体
 
             string levelPath = AssetDatabase.GetAssetPath(lvdef);
             EditorPrefs.SetString(k_EditorPrefsPreviouslyLoadedLevelPath, levelPath);
 
             //m_AttemptedToLoadPreviousLevel = false;
 
+            loadedLevelGO.transform.SetParent(levelParentGO.transform);
             Repaint();
 
+        }
+        void SetManager(LevelDefinition lvdef)
+        {
+            GameObject go = MonoBehaviour.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>(managerPrefabPath + "/GameManager.prefab"));
+            GameManager gameManager = go.GetComponent<GameManager>();
+            gameManager.maxCountdown = lvdef.maxCountdown;
+            PrefabUtility.SaveAsPrefabAsset(go, managerPrefabPath + "/GameManager.prefab");
+            MonoBehaviour.DestroyImmediate(go);
+
+            //保存PuzzlePieceManager的设定
+            go = MonoBehaviour.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>(managerPrefabPath + "/PuzzlePieceManager.prefab"));
+            PuzzlePieceManager ppm = go.GetComponent<PuzzlePieceManager>();
+            GameManager.ResetPuzzlePieceManager(ppm, lvdef);
+            PrefabUtility.SaveAsPrefabAsset(go, managerPrefabPath + "/PuzzlePieceManager.prefab");
+            MonoBehaviour.DestroyImmediate(go);
+
+            EnableChangeToScene(lvdef);
+        }
+
+        void EnableChangeToScene(LevelDefinition lvdef)
+        {
+            GameObject go;
+            if (go = GameObject.Find("GameManager"))
+            {
+                go.GetComponent<GameManager>().maxCountdown = lvdef.maxCountdown;
+            }
+            if (go = GameObject.Find("PuzzlePieceManager"))
+            {
+                GameManager.ResetPuzzlePieceManager(go.GetComponent<PuzzlePieceManager>(), lvdef);
+
+            }
         }
         void SaveLevel(LevelDefinition lvdef)
         {
@@ -252,15 +273,8 @@ namespace Giro
                 //        Debug.LogError(e.ToString());
                 //    }
                 //}
-                try
-                {
-                    GameManager gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-                    lvdef.maxCountdown = gameManager.maxCountdown;
-                }
-                catch (Exception a)
-                {
-                    Debug.Log("GameManager didn't save! If the change need to be save, please check GameManager GameObject Name");
-                }
+
+
                 //// Overwrite source level definition with current version
                 SourceLevelDef.SaveValues(lvdef);
             }

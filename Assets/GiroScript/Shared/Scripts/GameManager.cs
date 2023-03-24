@@ -18,7 +18,6 @@ namespace Giro
     /// </summary>
     public class GameManager : MonoBehaviour, IGameEventListener
     {
-        const string assetPath = "Assets/GiroScript/Prefab/GameManager.prefab";
         /// <summary>
         /// Returns the GameManager.
         /// </summary>
@@ -38,6 +37,7 @@ namespace Giro
 
         LevelDefinition m_CurrentLevel;
         const string puzzlePoolGOName = "PuzzlePool";
+        const string managerResourcePath = "Managers/";
 
         /// <summary>
         /// Returns true if the game is currently active.
@@ -54,9 +54,9 @@ namespace Giro
 
         bool isCountdowning;
 
-        //#if UNITY_EDITOR
+#if UNITY_EDITOR
         bool m_LevelEditorMode;
-        //#endif
+#endif
 
         void Awake()
         {
@@ -69,14 +69,14 @@ namespace Giro
 
             s_Instance = this;
 
-            //#if UNITY_EDITOR
-            // If LevelManager already exists, user is in the LevelEditorWindow
+#if UNITY_EDITOR
+            //If LevelManager already exists, user is in the LevelEditorWindow
             if (LevelManager.Instance != null)
             {
                 StartGame();
                 m_LevelEditorMode = true;
             }
-            //#endif
+#endif
         }
 
         /// <summary>
@@ -88,9 +88,35 @@ namespace Giro
             m_CurrentLevel = levelDefinition;
             LoadLevel(m_CurrentLevel, ref m_CurrentLevelGO);
             //PlaceLevelMarkers(m_CurrentLevel, ref m_LevelMarkersGO);
+            SetManagerData(levelDefinition);
             StartGame();
         }
 
+        public void SetManagerData(LevelDefinition lvdef)
+        {
+            maxCountdown = lvdef.maxCountdown;
+
+            //保存PuzzlePieceManager的设定
+            if (PuzzlePieceManager.Instance)
+                ResetPuzzlePieceManager(PuzzlePieceManager.Instance, lvdef);
+        }
+        public static void ResetPuzzlePieceManager(PuzzlePieceManager instance, LevelDefinition m_CurrentLevel)
+        {
+            instance.seceondEnterDelay = m_CurrentLevel.seceondEnterDelay;
+            instance.leftEnterStartPos = m_CurrentLevel.leftEnterStartPos;
+            instance.rightEnterStartPos = m_CurrentLevel.rightEnterStartPos;
+            instance.enterAnimationCurve = m_CurrentLevel.enterAnimationCurve;
+
+            instance.leftDownStartPos = m_CurrentLevel.leftDownStartPos;
+            instance.rightDownStartPos = m_CurrentLevel.rightDownStartPos;
+            instance.downAnimationCurve = m_CurrentLevel.downAnimationCurve;
+
+            instance.leftCombineStartPos = m_CurrentLevel.leftCombineStartPos;
+            instance.rightCombineStartPos = m_CurrentLevel.rightCombineStartPos;
+            instance.leftEndPos = m_CurrentLevel.leftEndPos;
+            instance.rightEndPos = m_CurrentLevel.rightEndPos;
+            instance.combineAnimationCurve = m_CurrentLevel.combineAnimationCurve;
+        }
         /// <summary>
         /// This method calls all methods necessary to restart a level,
         /// including resetting the player to their starting position
@@ -106,13 +132,13 @@ namespace Giro
             //{
             //    CameraManager.Instance.ResetCamera();
             //}
+
             isCountdowning = false;
             InputManager.Instance.receiveInput = false;
             countdown = maxCountdown;
             starttime = Time.time;
             if (LevelManager.Instance != null)
             {
-                countdown = maxCountdown;
                 LevelManager.Instance.ResetLevel();
             }
             if (UIManager.Instance != null)
@@ -135,6 +161,8 @@ namespace Giro
                 PuzzlePieceManager.Instance.Reset();
             }
         }
+
+
 
         /// <summary>
         /// This method loads and instantiates the level defined in levelDefinition,
@@ -202,32 +230,21 @@ namespace Giro
                 {
                     GameObject go = null;
                     go = (GameObject)GameObject.Instantiate(Resources.Load(stepsList[i].lStepPrefab.name), pzppGO.transform);
+                    go.GetComponent<PuzzlePiece>().RotateCurve = levelDefinition.rotateCurve;
                     pzpp.leftObj = go;
                 }
                 if (stepsList[i].rStepPrefab != null)
                 {
                     GameObject go = null;
                     go = (GameObject)GameObject.Instantiate(Resources.Load(stepsList[i].rStepPrefab.name), pzppGO.transform);
+                    go.GetComponent<PuzzlePiece>().RotateCurve = levelDefinition.rotateCurve;
                     pzpp.rightObj = go;
                 }
                 pzppGO.SetActive(true);
                 levelManager.AddStep(pzpp);
                 m_ActiveSteps.Add(pzpp);
             }
-#if UNITY_EDITOR
-            try
-            {
-                GameObject go = GameObject.Find("GameManager");
-                GameManager gameManager = go.GetComponent<GameManager>();
-                gameManager.maxCountdown = levelDefinition.maxCountdown;
-                PrefabUtility.SaveAsPrefabAsset(go, assetPath);
-            }
-            catch (Exception a)
-            {
-                Debug.Log(a.ToString());
-                Debug.Log("GameManager didn't save! If the change need to be save, please check GameManager GameObject Name");
-            }
-#endif
+
         }
 
         public void UnloadCurrentLevel()
@@ -300,23 +317,23 @@ namespace Giro
         {
             m_WinEvent.Raise();
 
-            //#if UNITY_EDITOR
+#if UNITY_EDITOR
             if (m_LevelEditorMode)
             {
                 ResetLevel();
             }
-            //#endif
+#endif
         }
 
         public void Lose()
         {
             m_LoseEvent.Raise();
-            //#if UNITY_EDITOR
+#if UNITY_EDITOR
             if (m_LevelEditorMode)
             {
                 ResetLevel();
             }
-            //#endif
+#endif
         }
     }
 }

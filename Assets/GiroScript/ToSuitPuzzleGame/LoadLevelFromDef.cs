@@ -29,7 +29,6 @@ namespace Giro
                 throw new Exception($"{nameof(m_LevelDefinition)} is null!");
 
             yield return m_SceneController.LoadNewScene(nameof(m_LevelDefinition));
-
             // Load managers specific to the level
             foreach (var prefab in m_ManagerPrefabs)
             {
