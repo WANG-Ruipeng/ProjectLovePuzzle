@@ -117,6 +117,7 @@ public class PuzzlePieceManager : MonoBehaviour
         if (currentPieceNo == puzzlePiecePairs.Count - 2)
         {
             puzzlePiecePairs[puzzlePiecePairs.Count - 1].StartPlayingDownAnimation();
+            puzzlePiecePairs[puzzlePiecePairs.Count - 1].isFinalStep = true;
             //puzzlePiecePairs[puzzlePiecePairs.Count - 2].StartPlayingCombineAnimation();
             currentPieceNo++;
             return;

@@ -19,7 +19,6 @@ public class MainScreen : View
     private void OnDisable()
     {
         startButton.RemoveListener(OnStartButtonClicked);
-
     }
     void OnStartButtonClicked()
     {

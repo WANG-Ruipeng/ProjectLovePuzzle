@@ -32,7 +32,9 @@ namespace Giro
             // Load managers specific to the level
             foreach (var prefab in m_ManagerPrefabs)
             {
-                GameObject.Instantiate(Resources.Load(prefab.name));
+                //GameObject.Instantiate(prefab);
+                GameObject go = (GameObject)Resources.Load("LoadLevelFromDef/" + prefab.name);
+                GameObject.Instantiate(Resources.Load("LoadLevelFromDef/" + prefab.name));
             }
 
             GameManager.Instance.LoadLevel(m_LevelDefinition);

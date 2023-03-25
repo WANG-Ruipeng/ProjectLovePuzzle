@@ -90,6 +90,7 @@ namespace Giro
 
             //Create and connect all level states
             IState lastState = null;
+
             foreach (var level in m_Levels)
             {
                 IState state = null;
@@ -102,12 +103,14 @@ namespace Giro
                     state = CreateLevelState(level);
                 }
                 lastState = AddLevelPeripheralStates(state, m_LevelSelectState, lastState);
+
             }
 
             //Closing the loop: connect the last level to the level-selection state
-            var unloadLastScene = new UnloadLastSceneState(m_SceneController);
-            lastState?.AddLink(new EventLink(m_ContinueEvent, unloadLastScene));
-            unloadLastScene.AddLink(new Link(m_LevelSelectState));
+            //暂时还没有设置最后一关要回到哪里，现在是每过一关都回到一次选关界面
+            //var unloadLastScene = new UnloadLastSceneState(m_SceneController);
+            //lastState?.AddLink(new EventLink(m_ContinueEvent, unloadLastScene));
+            //unloadLastScene.AddLink(new Link(m_LevelSelectState));
         }
 
         /// <summary>
@@ -145,6 +148,7 @@ namespace Giro
             lastState?.AddLink(new EventLink(m_ContinueEvent, loadLevelState));
             loadLevelState.AddLink(new Link(GamePlayState));
 
+            GamePlayState.AddLink(new EventLink(m_WinEvent, winState));
             GamePlayState.AddLink(new EventLink(m_LoseEvent, loseState));
             GamePlayState.AddLink(new EventLink(m_PauseEvent, pauseState));
 
@@ -155,6 +159,9 @@ namespace Giro
             pauseState.AddLink(new EventLink(m_ContinueEvent, GamePlayState));
             pauseState.AddLink(new EventLink(m_BackEvent, unloadPause));
             unloadPause.AddLink(new Link(m_MainMenuState));
+
+            winState.AddLink(new EventLink(m_ContinueEvent, loadLevelState));
+            winState.AddLink(new EventLink(m_BackEvent, unloadLose));
 
             return winState;
         }
@@ -178,13 +185,13 @@ namespace Giro
 
         void OnMainMenuDisplayed()
         {
-            ShowUI<TemplateUI>();
+            ShowUI<MainScreen>();
             AudioManager.Instance.PlayMusic(SoundID.None);
         }
 
         void OnWinScreenDisplayed(IState currentLevel)
         {
-            UIManager.Instance.Show<TemplateUI>();
+            UIManager.Instance.Show<WinOrLoseScreen>();
             var currentLevelIndex = m_LevelStates.IndexOf(currentLevel);
 
             if (currentLevelIndex == -1)
@@ -212,7 +219,7 @@ namespace Giro
 
         private void OnLevelWasLoaded()
         {
-            ShowUI<TemplateUI>();
+            ShowUI<WinOrLoseScreen>();
         }
 
         void OnGamePause()

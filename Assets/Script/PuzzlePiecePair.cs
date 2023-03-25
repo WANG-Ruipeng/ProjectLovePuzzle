@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using HyperCasual.Core;
 using System;
+using Giro;
 
 public class PuzzlePiecePair : MonoBehaviour
 {
@@ -41,6 +42,7 @@ public class PuzzlePiecePair : MonoBehaviour
     public bool isPlayingCombineAnim = false;
     public float combineAnimationStartTime = 0;
 
+    public bool isFinalStep = false;
     public AbstractGameEvent CountdownEvent;
 
     Animator animator;
@@ -49,6 +51,11 @@ public class PuzzlePiecePair : MonoBehaviour
 
     public void Reset()
     {
+        left = leftObj.GetComponentInChildren<PuzzlePiece>();
+        right = rightObj.GetComponentInChildren<PuzzlePiece>();
+        left.RotateClockWise = true;
+        right.RotateClockWise = false;
+
         animator.SetBool("StartMinimize", false);
         transform.position = new Vector3(0, 0, 0);
         leftObj.GetComponentInChildren<PuzzlePiece>().Reset();
@@ -60,13 +67,14 @@ public class PuzzlePiecePair : MonoBehaviour
         enterAnimationStartTime = 0;
         downAnimationStartTime = 0;
         combineAnimationStartTime = 0;
+        isFinalStep = false;
     }
     private void Awake()
     {
-        left = leftObj.GetComponentInChildren<PuzzlePiece>();
-        right = rightObj.GetComponentInChildren<PuzzlePiece>();
-        left.RotateClockWise = true;
-        right.RotateClockWise = false;
+        //left = leftObj.GetComponentInChildren<PuzzlePiece>();
+        //right = rightObj.GetComponentInChildren<PuzzlePiece>();
+        //left.RotateClockWise = true;
+        //right.RotateClockWise = false;
 
         animator = GetComponent<Animator>();
         combineAnimationLength = combineAnimationCurve.keys[combineAnimationCurve.length - 1].time;
@@ -181,8 +189,19 @@ public class PuzzlePiecePair : MonoBehaviour
     private void PlayMinimizeAnimation()
     {
         animator.SetBool("StartMinimize", true);
+        if (isFinalStep)
+            StartCoroutine(waitMinimizeAnimationStop());
     }
 
+    IEnumerator waitMinimizeAnimationStop()
+    {
+        yield return new WaitForEndOfFrame();//等待一帧状态机刷新
+        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+        while (stateInfo.normalizedTime <= 1.0)//等待动画播放结束
+        { }
+        GameManager.Instance.Win();//触发胜利事件，如果还需要先播放别的动画再Win的话写法应该也差不多
+        yield return null;
+    }
 
     /// <summary>
     /// 缩小动画结束之后回调

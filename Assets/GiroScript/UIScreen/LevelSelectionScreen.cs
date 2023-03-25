@@ -12,12 +12,10 @@ namespace Giro
     public class LevelSelectionScreen : View
     {
         [SerializeField]
-        HyperCasualButton m_QuickPlayButton;
-        [SerializeField]
         HyperCasualButton m_BackButton;
         [Space]
         [SerializeField]
-        HyperCasualButton m_LevelButtonPrefab;
+        LevelSelectButton m_LevelButtonPrefab;
         [SerializeField]
         RectTransform m_LevelButtonsRoot;
         [SerializeField]
@@ -29,14 +27,14 @@ namespace Giro
         bool m_UnlockAllLevels;
 #endif
 
-        readonly List<HyperCasualButton> m_Buttons = new();
+        readonly List<LevelSelectButton> m_Buttons = new();
 
         void Start()
         {
             var levels = SequenceManager.Instance.Levels;
             for (int i = 0; i < levels.Length; i++)
             {
-                m_Buttons.Add(Instantiate(m_LevelButtonPrefab, m_LevelButtonsRoot));
+                m_Buttons.Add(Instantiate(m_LevelButtonPrefab, m_LevelButtonsRoot));//修改此处可以定制按钮样式（每个按钮套用一个prefab）
             }
 
             ResetButtonData();
@@ -46,19 +44,17 @@ namespace Giro
         {
             ResetButtonData();
 
-            m_QuickPlayButton.AddListener(OnQuickPlayButtonClicked);
             m_BackButton.AddListener(OnBackButtonClicked);
         }
 
         void OnDisable()
         {
-            m_QuickPlayButton.RemoveListener(OnQuickPlayButtonClicked);
             m_BackButton.RemoveListener(OnBackButtonClicked);
         }
 
         void ResetButtonData()
         {
-            var levelProgress = SaveManager.Instance.LevelProgress;
+            var levelProgress = 0;//SaveManager.Instance.LevelProgress;
             for (int i = 0; i < m_Buttons.Count; i++)
             {
                 var button = m_Buttons[i];
@@ -66,7 +62,7 @@ namespace Giro
 #if UNITY_EDITOR
                 unlocked = unlocked || m_UnlockAllLevels;
 #endif
-                //button.SetData(i, unlocked, OnClick);
+                button.SetData(i, unlocked, OnClick);
             }
         }
 
@@ -77,11 +73,6 @@ namespace Giro
 
             SequenceManager.Instance.SetStartingLevel(startingIndex);
             m_NextLevelEvent.Raise();
-        }
-
-        void OnQuickPlayButtonClicked()
-        {
-            OnClick(SaveManager.Instance.LevelProgress);
         }
 
         void OnBackButtonClicked()
