@@ -230,14 +230,32 @@ namespace Giro
                 {
                     GameObject go = null;
                     go = (GameObject)GameObject.Instantiate(Resources.Load(stepsList[i].lStepPrefab.name), pzppGO.transform);
-                    go.GetComponent<PuzzlePiece>().RotateCurve = levelDefinition.rotateCurve;
+                    PuzzlePiece pz = go.GetComponent<PuzzlePiece>();
+                    pz.RotateCurve = levelDefinition.rotateCurve;
+                    pz.collections = new Collection[stepsList[i].lCollectionPrefabs.Length];
+                    for (int j = 0; j < stepsList[i].lCollectionPrefabs.Length; j++)
+                    {
+                        if (!stepsList[i].lCollectionPrefabs[j])
+                            continue;
+                        GameObject collectionInstance = (GameObject)Instantiate(Resources.Load(stepsList[i].lCollectionPrefabs[j].name), go.transform);
+                        pz.collections[j] = collectionInstance.GetComponent<Collection>();
+                    }
                     pzpp.leftObj = go;
                 }
                 if (stepsList[i].rStepPrefab != null)
                 {
                     GameObject go = null;
                     go = (GameObject)GameObject.Instantiate(Resources.Load(stepsList[i].rStepPrefab.name), pzppGO.transform);
-                    go.GetComponent<PuzzlePiece>().RotateCurve = levelDefinition.rotateCurve;
+                    PuzzlePiece pz = go.GetComponent<PuzzlePiece>();
+                    pz.RotateCurve = levelDefinition.rotateCurve;
+                    pz.collections = new Collection[stepsList[i].rCollectionPrefabs.Length];
+                    for (int j = 0; j < stepsList[i].rCollectionPrefabs.Length; j++)
+                    {
+                        if (!stepsList[i].rCollectionPrefabs[j])
+                            continue;
+                        GameObject collectionInstance = (GameObject)Instantiate(Resources.Load(stepsList[i].rCollectionPrefabs[j].name), go.transform);
+                        pz.collections[j] = collectionInstance.GetComponent<Collection>();
+                    }
                     pzpp.rightObj = go;
                 }
                 pzppGO.SetActive(true);

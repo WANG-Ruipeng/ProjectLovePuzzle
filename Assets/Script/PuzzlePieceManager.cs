@@ -70,19 +70,49 @@ public class PuzzlePieceManager : MonoBehaviour
         return puzzlePiecePairs[currentPieceNo];
     }
 
+    public void Collect()
+    {
+        PuzzlePiecePair nowPair = puzzlePiecePairs[currentPieceNo];
+        PuzzlePiece left = nowPair.left;
+        PuzzlePiece right = nowPair.right;
+        int edgeCnt = PuzzlePiece.edgeCount;
+
+
+        if (left.collections.Length > 0)
+        {
+            Collection nowLeftCollection = left.collections[(left.state + 1) % edgeCnt];
+            Collect(nowLeftCollection.GetComponent<Collection>());
+        }
+        if (right.collections.Length > 0)
+        {
+            Collection nowRightCollection = right.collections[(right.state + edgeCnt - 1) % edgeCnt];
+            Collect(nowRightCollection.GetComponent<Collection>());
+        }
+    }
+
+    /// <summary>
+    /// 触发收藏该物品后会发生的事情
+    /// TODO: 调用存档系统，播放收藏物品的一系列相关动画，根据物品属性修改角色“好感度”
+    /// </summary>
+    /// <param name="collection"></param>
+    void Collect(Collection collection)
+    {
+        collection.Collected();
+    }
+
     /// <summary>
     /// 目前只考虑每个边有三种情况，当玩家按下Lock的时候调用
     /// </summary>
     /// <returns>
     /// 拼合是否成功
     /// </returns>
-    public bool Check()
+    public bool Check()//TODO: 完善Check逻辑
     {
         if (puzzlePiecePairs[currentPieceNo].left.IsLocked && puzzlePiecePairs[currentPieceNo].right.IsLocked)
         {
             int edgeCnt = PuzzlePiece.edgeCount;
-            PuzzlePiece.edgeProp leftStatus = puzzlePiecePairs[currentPieceNo].left.edgeProps[(puzzlePiecePairs[currentPieceNo].left.state + 1) % edgeCnt];
-            PuzzlePiece.edgeProp rightStatus = puzzlePiecePairs[currentPieceNo].right.edgeProps[(puzzlePiecePairs[currentPieceNo].right.state + edgeCnt - 1) % edgeCnt];
+            PuzzlePiece.EdgeProp leftStatus = puzzlePiecePairs[currentPieceNo].left.edgeProps[(puzzlePiecePairs[currentPieceNo].left.state + 1) % edgeCnt];
+            PuzzlePiece.EdgeProp rightStatus = puzzlePiecePairs[currentPieceNo].right.edgeProps[(puzzlePiecePairs[currentPieceNo].right.state + edgeCnt - 1) % edgeCnt];
             //左的拼图需要检测right edge的状态，右的拼图需要检测left edge 的状态
             if (leftStatus == 0 || rightStatus == 0)
                 return false;

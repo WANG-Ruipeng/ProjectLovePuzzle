@@ -25,13 +25,14 @@ public class PuzzlePiece : MonoBehaviour
 
     public int state = 0;//当前在上方的边的序号作为当前状态，序号从上方开始顺时针排序（上0右1下2左3）如何排序可以再规定
     public const int edgeCount = 4;
-    public enum edgeProp
+    public enum EdgeProp
     {
         convex = 1,
         flat = 0,
         concave = -1
     }//用数字直接表示边比较容易误解，这里改成枚举.0表示平，1表示凸，-1表示凹
-    public edgeProp[] edgeProps = new edgeProp[edgeCount];
+    public EdgeProp[] edgeProps = new EdgeProp[edgeCount];
+    public Collection[] collections = new Collection[edgeCount];
 
     public void Reset()
     {

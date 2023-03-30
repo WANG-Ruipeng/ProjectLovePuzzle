@@ -81,6 +81,7 @@ public class InputManager : MonoBehaviour
             {
                 Debug.Log("Yes!");
                 puzzlePieceManager.GetCurrentPuzzlePair().StartPlayingCombineAnimation();
+                puzzlePieceManager.Collect();
                 if (UIManager.Instance != null)
                 {
                     HUD hudWindow = UIManager.Instance.GetView<HUD>();

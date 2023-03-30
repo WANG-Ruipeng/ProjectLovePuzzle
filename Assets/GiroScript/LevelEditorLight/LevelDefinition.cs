@@ -54,9 +54,13 @@ namespace Giro
             [Header("左")]
             public int lPos;
             public GameObject lStepPrefab;
+            [Tooltip("注意：如果需要添加收藏品，请将收藏品的元素个数调整至与边数一样多，然后在需要添加的边上拖入收藏品，其余的设为None")]
+            public GameObject[] lCollectionPrefabs;
             [Header("右")]
             public int rPos;
             public GameObject rStepPrefab;
+            [Tooltip("注意：如果需要添加收藏品，请将收藏品的元素个数调整至与边数一样多，然后在需要添加的边上拖入收藏品，其余的设为None")]
+            public GameObject[] rCollectionPrefabs;
         }
 
         /// <summary>
