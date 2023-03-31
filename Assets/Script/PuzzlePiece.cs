@@ -32,7 +32,7 @@ public class PuzzlePiece : MonoBehaviour
         concave = -1
     }//用数字直接表示边比较容易误解，这里改成枚举.0表示平，1表示凸，-1表示凹
     public EdgeProp[] edgeProps = new EdgeProp[edgeCount];
-    public Collection[] collections = new Collection[edgeCount];
+    public Collectible[] collections = new Collectible[edgeCount];
 
     public void Reset()
     {

@@ -123,45 +123,41 @@ MonoBehaviour:
   puzzleSteps:
   - lPos: 0
     lStepPrefab: {fileID: 364585177925155994, guid: d2c7894af977fce4f972107d038a1878, type: 3}
-    lCollectionPrefabs:
+    lCollectiblePrefabs:
     - {fileID: 0}
-    - {fileID: 8633107720137370035, guid: 26145bbcb0481da428f7bddd9a83d280, type: 3}
+    - {fileID: 8633107720137370035, guid: 17526cdd92c366645955db0120b3694d, type: 3}
     - {fileID: 0}
     - {fileID: 0}
     rPos: 0
     rStepPrefab: {fileID: 364585177925155994, guid: 6b6ea730a6fb6ce48b0f8dffb1acc4b4, type: 3}
-    rCollectionPrefabs: []
+    rCollectiblePrefabs: []
   - lPos: 0
     lStepPrefab: {fileID: 364585177925155994, guid: 6b6ea730a6fb6ce48b0f8dffb1acc4b4, type: 3}
-    lCollectionPrefabs: []
+    lCollectiblePrefabs: []
     rPos: 0
     rStepPrefab: {fileID: 364585177925155994, guid: d2c7894af977fce4f972107d038a1878, type: 3}
-    rCollectionPrefabs: []
+    rCollectiblePrefabs: []
   - lPos: 0
     lStepPrefab: {fileID: 364585177925155994, guid: d2c7894af977fce4f972107d038a1878, type: 3}
-    lCollectionPrefabs:
-    - {fileID: 0}
-    - {fileID: 8633107720137370035, guid: 26145bbcb0481da428f7bddd9a83d280, type: 3}
-    - {fileID: 0}
-    - {fileID: 0}
+    lCollectiblePrefabs: []
     rPos: 0
     rStepPrefab: {fileID: 364585177925155994, guid: 6b6ea730a6fb6ce48b0f8dffb1acc4b4, type: 3}
-    rCollectionPrefabs: []
+    rCollectiblePrefabs: []
   - lPos: 0
     lStepPrefab: {fileID: 364585177925155994, guid: 6b6ea730a6fb6ce48b0f8dffb1acc4b4, type: 3}
-    lCollectionPrefabs: []
+    lCollectiblePrefabs: []
     rPos: 0
     rStepPrefab: {fileID: 364585177925155994, guid: d2c7894af977fce4f972107d038a1878, type: 3}
-    rCollectionPrefabs: []
+    rCollectiblePrefabs: []
   - lPos: 0
     lStepPrefab: {fileID: 364585177925155994, guid: d2c7894af977fce4f972107d038a1878, type: 3}
-    lCollectionPrefabs: []
+    lCollectiblePrefabs: []
     rPos: 0
     rStepPrefab: {fileID: 364585177925155994, guid: 6b6ea730a6fb6ce48b0f8dffb1acc4b4, type: 3}
-    rCollectionPrefabs: []
+    rCollectiblePrefabs: []
   - lPos: 0
     lStepPrefab: {fileID: 364585177925155994, guid: d2c7894af977fce4f972107d038a1878, type: 3}
-    lCollectionPrefabs: []
+    lCollectiblePrefabs: []
     rPos: 0
     rStepPrefab: {fileID: 364585177925155994, guid: 6b6ea730a6fb6ce48b0f8dffb1acc4b4, type: 3}
-    rCollectionPrefabs: []
+    rCollectiblePrefabs: []

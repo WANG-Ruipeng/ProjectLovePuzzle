@@ -80,13 +80,15 @@ public class PuzzlePieceManager : MonoBehaviour
 
         if (left.collections.Length > 0)
         {
-            Collection nowLeftCollection = left.collections[(left.state + 1) % edgeCnt];
-            Collect(nowLeftCollection.GetComponent<Collection>());
+            Collectible nowLeftColletible = left.collections[(left.state + 1) % edgeCnt];
+            if (nowLeftColletible)
+                Collect(nowLeftColletible);
         }
         if (right.collections.Length > 0)
         {
-            Collection nowRightCollection = right.collections[(right.state + edgeCnt - 1) % edgeCnt];
-            Collect(nowRightCollection.GetComponent<Collection>());
+            Collectible nowRightCollectible = right.collections[(right.state + edgeCnt - 1) % edgeCnt];
+            if (nowRightCollectible)
+                Collect(nowRightCollectible);
         }
     }
 
@@ -94,10 +96,14 @@ public class PuzzlePieceManager : MonoBehaviour
     /// 触发收藏该物品后会发生的事情
     /// TODO: 调用存档系统，播放收藏物品的一系列相关动画，根据物品属性修改角色“好感度”
     /// </summary>
-    /// <param name="collection"></param>
-    void Collect(Collection collection)
+    /// <param name="collectible"></param>
+    void Collect(Collectible collectible)
     {
-        collection.Collected();
+        collectible.Collected();
+        if (SaveManager.Instance)//Q:是否需要改为关卡胜利时才保存
+        {
+            SaveManager.Instance.SaveCollectibleInfo(collectible);
+        }
     }
 
     /// <summary>

@@ -16,7 +16,7 @@ namespace Giro
     /// The GameManager class manages all game-related 
     /// state changes.
     /// </summary>
-    public class GameManager : MonoBehaviour, IGameEventListener
+    public class GameManager : MonoBehaviour
     {
         /// <summary>
         /// Returns the GameManager.
@@ -27,6 +27,7 @@ namespace Giro
         public float Countdown { get => countdown; }
         float countdown;
         float starttime;
+        GenericGameEventListener CountdownListener;
 
         [SerializeField]
         AbstractGameEvent m_WinEvent;
@@ -60,7 +61,9 @@ namespace Giro
 
         void Awake()
         {
-            CountdownEvent.AddListener(this);
+            CountdownListener = new GenericGameEventListener();
+            CountdownListener.EventHandler += OnCountdownEventRaised;
+            CountdownEvent.AddListener(CountdownListener);
             if (s_Instance != null && s_Instance != this)
             {
                 Destroy(gameObject);
@@ -232,13 +235,13 @@ namespace Giro
                     go = (GameObject)GameObject.Instantiate(Resources.Load(stepsList[i].lStepPrefab.name), pzppGO.transform);
                     PuzzlePiece pz = go.GetComponent<PuzzlePiece>();
                     pz.RotateCurve = levelDefinition.rotateCurve;
-                    pz.collections = new Collection[stepsList[i].lCollectionPrefabs.Length];
-                    for (int j = 0; j < stepsList[i].lCollectionPrefabs.Length; j++)
+                    pz.collections = new Collectible[stepsList[i].lCollectiblePrefabs.Length];
+                    for (int j = 0; j < stepsList[i].lCollectiblePrefabs.Length; j++)
                     {
-                        if (!stepsList[i].lCollectionPrefabs[j])
+                        if (!stepsList[i].lCollectiblePrefabs[j])
                             continue;
-                        GameObject collectionInstance = (GameObject)Instantiate(Resources.Load(stepsList[i].lCollectionPrefabs[j].name), go.transform);
-                        pz.collections[j] = collectionInstance.GetComponent<Collection>();
+                        GameObject collectibleInstance = (GameObject)Instantiate(Resources.Load(stepsList[i].lCollectiblePrefabs[j].name), go.transform);
+                        pz.collections[j] = collectibleInstance.GetComponent<Collectible>();
                     }
                     pzpp.leftObj = go;
                 }
@@ -248,13 +251,14 @@ namespace Giro
                     go = (GameObject)GameObject.Instantiate(Resources.Load(stepsList[i].rStepPrefab.name), pzppGO.transform);
                     PuzzlePiece pz = go.GetComponent<PuzzlePiece>();
                     pz.RotateCurve = levelDefinition.rotateCurve;
-                    pz.collections = new Collection[stepsList[i].rCollectionPrefabs.Length];
-                    for (int j = 0; j < stepsList[i].rCollectionPrefabs.Length; j++)
+                    pz.collections = new Collectible[stepsList[i].rCollectiblePrefabs.Length];
+                    for (int j = 0; j < stepsList[i].rCollectiblePrefabs.Length; j++)
                     {
-                        if (!stepsList[i].rCollectionPrefabs[j])
+                        if (!stepsList[i].rCollectiblePrefabs[j])
                             continue;
-                        GameObject collectionInstance = (GameObject)Instantiate(Resources.Load(stepsList[i].rCollectionPrefabs[j].name), go.transform);
-                        pz.collections[j] = collectionInstance.GetComponent<Collection>();
+
+                        GameObject collectibleInstance = (GameObject)Instantiate(Resources.Load(stepsList[i].rCollectiblePrefabs[j].name), go.transform);
+                        pz.collections[j] = collectibleInstance.GetComponent<Collectible>();
                     }
                     pzpp.rightObj = go;
                 }
@@ -283,7 +287,7 @@ namespace Giro
 
 
 
-        public void OnEventRaised()
+        public void OnCountdownEventRaised()
         {
             if (!isCountdowning)
             {
