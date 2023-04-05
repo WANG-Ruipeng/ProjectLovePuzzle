@@ -152,11 +152,11 @@ namespace Giro
                 hudWindow.Show();
             }
             puzzlePoolGO = LevelManager.Instance.transform.Find(puzzlePoolGOName).gameObject;
-            PuzzlePiecePair[] puzzlePiecePairs = puzzlePoolGO.GetComponentsInChildren<PuzzlePiecePair>();
-            PuzzlePieceManager.Instance.SetPuzzlePiecePairList(puzzlePiecePairs);
-            for (int i = 0; i < puzzlePiecePairs.Length; i++)
+            Moveable[] moveables = puzzlePoolGO.GetComponentsInChildren<Moveable>();
+            PuzzlePieceManager.Instance.SetMoveableList(moveables);
+            for (int i = 0; i < moveables.Length; i++)
             {
-                puzzlePiecePairs[i].Reset();
+                moveables[i].Reset();
             }
 
             if (PuzzlePieceManager.Instance != null)//在pairs重置之后manager才能reset
@@ -223,50 +223,58 @@ namespace Giro
             var stepsList = levelDefinition.puzzleSteps;
             for (int i = 0; i < stepsList.Length; i++)
             {
-                GameObject pzppGO = null;
-                pzppGO = (GameObject)GameObject.Instantiate(Resources.Load(levelDefinition.puzzlePiecePoolPrefab.name));
-                PuzzlePiecePair pzpp = pzppGO.GetComponent<PuzzlePiecePair>();
-                pzppGO.transform.SetParent(puzzlePoolGO.transform);
-                pzppGO.name = ("PuzzlePair_" + i);
-
-                if (stepsList[i].lStepPrefab != null)
+                GameObject moveableGO = null;
+                moveableGO = (GameObject)GameObject.Instantiate(Resources.Load(levelDefinition.puzzlePiecePairPrefab.name));
+                if (moveableGO.GetComponent<PuzzlePiecePair>())
                 {
-                    GameObject go = null;
-                    go = (GameObject)GameObject.Instantiate(Resources.Load(stepsList[i].lStepPrefab.name), pzppGO.transform);
-                    PuzzlePiece pz = go.GetComponent<PuzzlePiece>();
-                    pz.RotateCurve = levelDefinition.rotateCurve;
-                    pz.collections = new Collectible[stepsList[i].lCollectiblePrefabs.Length];
-                    for (int j = 0; j < stepsList[i].lCollectiblePrefabs.Length; j++)
-                    {
-                        if (!stepsList[i].lCollectiblePrefabs[j])
-                            continue;
-                        GameObject collectibleInstance = (GameObject)Instantiate(Resources.Load(stepsList[i].lCollectiblePrefabs[j].name), go.transform);
-                        pz.collections[j] = collectibleInstance.GetComponent<Collectible>();
-                    }
-                    pzpp.leftObj = go;
-                }
-                if (stepsList[i].rStepPrefab != null)
-                {
-                    GameObject go = null;
-                    go = (GameObject)GameObject.Instantiate(Resources.Load(stepsList[i].rStepPrefab.name), pzppGO.transform);
-                    PuzzlePiece pz = go.GetComponent<PuzzlePiece>();
-                    pz.RotateCurve = levelDefinition.rotateCurve;
-                    pz.collections = new Collectible[stepsList[i].rCollectiblePrefabs.Length];
-                    for (int j = 0; j < stepsList[i].rCollectiblePrefabs.Length; j++)
-                    {
-                        if (!stepsList[i].rCollectiblePrefabs[j])
-                            continue;
+                    PuzzlePiecePair moveable = moveableGO.GetComponent<PuzzlePiecePair>();
+                    moveableGO.transform.SetParent(puzzlePoolGO.transform);
+                    moveableGO.name = ("PuzzlePair_" + i);
 
-                        GameObject collectibleInstance = (GameObject)Instantiate(Resources.Load(stepsList[i].rCollectiblePrefabs[j].name), go.transform);
-                        pz.collections[j] = collectibleInstance.GetComponent<Collectible>();
+                    if (stepsList[i].lStepPrefab != null)
+                    {
+                        GameObject go = null;
+                        go = (GameObject)GameObject.Instantiate(Resources.Load(stepsList[i].lStepPrefab.name), moveableGO.transform);
+                        PuzzlePiece pz = go.GetComponent<PuzzlePiece>();
+                        pz.RotateCurve = levelDefinition.rotateCurve;
+                        pz.collections = new Collectible[stepsList[i].lCollectiblePrefabs.Length];
+                        for (int j = 0; j < stepsList[i].lCollectiblePrefabs.Length; j++)
+                        {
+                            if (!stepsList[i].lCollectiblePrefabs[j])
+                                continue;
+                            GameObject collectibleInstance = (GameObject)Instantiate(Resources.Load(stepsList[i].lCollectiblePrefabs[j].name), go.transform);
+                            pz.collections[j] = collectibleInstance.GetComponent<Collectible>();
+                        }
+                        moveable.leftObj = go;
                     }
-                    pzpp.rightObj = go;
+                    if (stepsList[i].rStepPrefab != null)
+                    {
+                        GameObject go = null;
+                        go = (GameObject)GameObject.Instantiate(Resources.Load(stepsList[i].rStepPrefab.name), moveableGO.transform);
+                        PuzzlePiece pz = go.GetComponent<PuzzlePiece>();
+                        pz.RotateCurve = levelDefinition.rotateCurve;
+                        pz.collections = new Collectible[stepsList[i].rCollectiblePrefabs.Length];
+                        for (int j = 0; j < stepsList[i].rCollectiblePrefabs.Length; j++)
+                        {
+                            if (!stepsList[i].rCollectiblePrefabs[j])
+                                continue;
+
+                            GameObject collectibleInstance = (GameObject)Instantiate(Resources.Load(stepsList[i].rCollectiblePrefabs[j].name), go.transform);
+                            pz.collections[j] = collectibleInstance.GetComponent<Collectible>();
+                        }
+                        moveable.rightObj = go;
+                    }
+                    moveableGO.SetActive(true);
+                    levelManager.AddStep(moveable);
+                    m_ActiveSteps.Add(moveable);
                 }
-                pzppGO.SetActive(true);
-                levelManager.AddStep(pzpp);
-                m_ActiveSteps.Add(pzpp);
+                else if (moveableGO.GetComponent<Platform>())
+                {
+                    //Platform moveable = moveableGO.GetComponent<Platform>();
+                    moveableGO.transform.SetParent(puzzlePoolGO.transform);
+                    moveableGO.name = ("Platform_" + i);
+                }
             }
-
         }
 
         public void UnloadCurrentLevel()

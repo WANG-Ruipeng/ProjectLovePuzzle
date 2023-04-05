@@ -10,7 +10,7 @@ public class PuzzlePieceManager : MonoBehaviour
     static PuzzlePieceManager s_Instance;
 
     [Header("Enter scene animation settings")]
-    [Tooltip("注意所有坐标都是作用在更改在全局坐标系上，如果要统一全局和局部坐标系，需要PuzzlePiecePair及以上层级的物体均位于原点。")]
+    [Tooltip("注意所有坐标都是作用在更改在全局坐标系上，如果要统一全局和局部坐标系，需要Moveable及以上层级的物体均位于原点。")]
     public float seceondEnterDelay = 1.5f;
     public Vector3 leftEnterStartPos = new Vector3(-1.56f, 10, 0);
     public Vector3 rightEnterStartPos = new Vector3(1.56f, 10, 0);
@@ -28,7 +28,11 @@ public class PuzzlePieceManager : MonoBehaviour
     public Vector3 rightEndPos = new Vector3(0.56f, 0, 0);
     public AnimationCurve combineAnimationCurve;
 
-    List<PuzzlePiecePair> puzzlePiecePairs;
+    public Vector3 leftExitPos = new Vector3();
+    public Vector3 rightExitPos = new Vector3();
+    public AnimationCurve exitAnimationCurve;
+
+    List<Moveable> Moveables;
 
     int currentPieceNo = -2;//-2代表是目前关卡刚刚开始，拼图区内部还未有任何拼图
 
@@ -46,9 +50,9 @@ public class PuzzlePieceManager : MonoBehaviour
         PlayNextPuzzlePairAnimation();
 
     }
-    public void SetPuzzlePiecePairList(PuzzlePiecePair[] pzplist)
+    public void SetMoveableList(Moveable[] pzplist)
     {
-        puzzlePiecePairs = new List<PuzzlePiecePair>(pzplist);
+        Moveables = new List<Moveable>(pzplist);
     }
 
     /// <summary>
@@ -56,55 +60,27 @@ public class PuzzlePieceManager : MonoBehaviour
     /// </summary>
     void InitPuzzles()
     {
-        foreach (PuzzlePiecePair piecePair in puzzlePiecePairs)
+        foreach (Moveable piecePair in Moveables)
         {
             piecePair.SetAllAnimationParamters(leftEnterStartPos, rightEnterStartPos, enterAnimationCurve,
                 leftDownStartPos, rightDownStartPos, downAnimationCurve,
                 leftCombineStartPos, rightCombineStartPos,
-                leftEndPos, rightEndPos, combineAnimationCurve);
+                leftEndPos, rightEndPos, combineAnimationCurve,
+                leftExitPos, rightExitPos, exitAnimationCurve);
         }
     }
 
     public PuzzlePiecePair GetCurrentPuzzlePair()
     {
-        return puzzlePiecePairs[currentPieceNo];
+
+        return Moveables[currentPieceNo] as PuzzlePiecePair;
     }
 
     public void Collect()
     {
-        PuzzlePiecePair nowPair = puzzlePiecePairs[currentPieceNo];
-        PuzzlePiece left = nowPair.left;
-        PuzzlePiece right = nowPair.right;
-        int edgeCnt = PuzzlePiece.edgeCount;
-
-
-        if (left.collections.Length > 0)
-        {
-            Collectible nowLeftColletible = left.collections[(left.state + 1) % edgeCnt];
-            if (nowLeftColletible)
-                Collect(nowLeftColletible);
-        }
-        if (right.collections.Length > 0)
-        {
-            Collectible nowRightCollectible = right.collections[(right.state + edgeCnt - 1) % edgeCnt];
-            if (nowRightCollectible)
-                Collect(nowRightCollectible);
-        }
+        Moveables[currentPieceNo].Collect();
     }
 
-    /// <summary>
-    /// 触发收藏该物品后会发生的事情
-    /// TODO: 调用存档系统，播放收藏物品的一系列相关动画，根据物品属性修改角色“好感度”
-    /// </summary>
-    /// <param name="collectible"></param>
-    void Collect(Collectible collectible)
-    {
-        collectible.Collected();
-        if (SaveManager.Instance)//Q:是否需要改为关卡胜利时才保存
-        {
-            SaveManager.Instance.SaveCollectibleInfo(collectible);
-        }
-    }
 
     /// <summary>
     /// 目前只考虑每个边有三种情况，当玩家按下Lock的时候调用
@@ -114,20 +90,7 @@ public class PuzzlePieceManager : MonoBehaviour
     /// </returns>
     public bool Check()//TODO: 完善Check逻辑
     {
-        if (puzzlePiecePairs[currentPieceNo].left.IsLocked && puzzlePiecePairs[currentPieceNo].right.IsLocked)
-        {
-            int edgeCnt = PuzzlePiece.edgeCount;
-            PuzzlePiece.EdgeProp leftStatus = puzzlePiecePairs[currentPieceNo].left.edgeProps[(puzzlePiecePairs[currentPieceNo].left.state + 1) % edgeCnt];
-            PuzzlePiece.EdgeProp rightStatus = puzzlePiecePairs[currentPieceNo].right.edgeProps[(puzzlePiecePairs[currentPieceNo].right.state + edgeCnt - 1) % edgeCnt];
-            //左的拼图需要检测right edge的状态，右的拼图需要检测left edge 的状态
-            if (leftStatus == 0 || rightStatus == 0)
-                return false;
-            if ((int)leftStatus + (int)rightStatus == 0)
-                return true;
-            else
-                return false;
-        }
-        return false;
+        return Moveables[currentPieceNo].Check();
     }
 
     /// <summary>
@@ -137,36 +100,37 @@ public class PuzzlePieceManager : MonoBehaviour
     {
         if (currentPieceNo == -2)
         {
-            //puzzlePiecePairs = new List<PuzzlePiecePair>();
+            //Moveables = new List<Moveable>();
             InitPuzzles();
-            puzzlePiecePairs[0].StartPlayingEnterAnimation();
+            Moveables[0].StartPlayingEnterAnimation();
             currentPieceNo++;
             return;
         }
         if (currentPieceNo == -1)
         {
-            puzzlePiecePairs[1].StartPlayingEnterAnimation();
-            puzzlePiecePairs[0].StartPlayingDownAnimation();
+            Moveables[1].StartPlayingEnterAnimation();
+            Moveables[0].StartPlayingDownAnimation();
             currentPieceNo++;
             return;
         }
-        if (currentPieceNo == puzzlePiecePairs.Count - 2)
+        if (currentPieceNo == Moveables.Count - 2)
         {
-            puzzlePiecePairs[puzzlePiecePairs.Count - 1].StartPlayingDownAnimation();
-            puzzlePiecePairs[puzzlePiecePairs.Count - 1].isFinalStep = true;
-            //puzzlePiecePairs[puzzlePiecePairs.Count - 2].StartPlayingCombineAnimation();
+            Moveables[Moveables.Count - 1].StartPlayingDownAnimation();
+            //Moveables[Moveables.Count - 2].StartPlayingCombineAnimation();
             currentPieceNo++;
             return;
         }
-        if (currentPieceNo == puzzlePiecePairs.Count - 1)
+        if (currentPieceNo == Moveables.Count - 1)
         {
-            //puzzlePiecePairs[puzzlePiecePairs.Count - 1].StartPlayingCombineAnimation();
+            //Moveables[Moveables.Count - 1].StartPlayingCombineAnimation();
+
             currentPieceNo++;
+            GameManager.Instance.Win();
             return;
         }
-        puzzlePiecePairs[currentPieceNo + 2].StartPlayingEnterAnimation();
-        puzzlePiecePairs[currentPieceNo + 1].StartPlayingDownAnimation();
-        //puzzlePiecePairs[currentPieceNo].StartPlayingCombineAnimation();
+        Moveables[currentPieceNo + 2].StartPlayingEnterAnimation();
+        Moveables[currentPieceNo + 1].StartPlayingDownAnimation();
+        //Moveables[currentPieceNo].StartPlayingCombineAnimation();
         currentPieceNo++;
     }
 

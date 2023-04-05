@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Level1
   m_EditorClassIdentifier: 
   background: {fileID: 0}
-  puzzlePiecePoolPrefab: {fileID: 4092972524480892814, guid: 26113b33063650c48a4888faadbd3222, type: 3}
+  puzzlePiecePairPrefab: {fileID: 4092972524480892814, guid: 5ccdfde13e5cbac419f104ff635b7b7a, type: 3}
   maxCountdown: 10
   seceondEnterDelay: 1.5
   leftEnterStartPos: {x: -3, y: 8, z: 0}

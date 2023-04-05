@@ -14,7 +14,7 @@ namespace Giro
     public class LevelDefinition : AbstractLevelData
     {
         public Background background;
-        public GameObject puzzlePiecePoolPrefab;
+        public GameObject puzzlePiecePairPrefab;
         [Header("倒计时长")]
         public float maxCountdown;
 
@@ -74,7 +74,7 @@ namespace Giro
             try
             {
                 background = updatedLevel.background;
-                puzzlePiecePoolPrefab = updatedLevel.puzzlePiecePoolPrefab;
+                puzzlePiecePairPrefab = updatedLevel.puzzlePiecePairPrefab;
                 maxCountdown = updatedLevel.maxCountdown;
                 puzzleSteps = updatedLevel.puzzleSteps;
             }

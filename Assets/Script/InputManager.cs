@@ -30,48 +30,49 @@ public class InputManager : MonoBehaviour
     void Update()
     {
         if (!receiveInput) { return; }
-
-        if (!puzzlePieceManager.GetCurrentPuzzlePair().left.IsRotating)
+        PuzzlePiecePair pair = puzzlePieceManager.GetCurrentPuzzlePair();
+        if (!pair) return;
+        if (!pair.left.IsRotating)
         {
             if (Input.GetKeyDown(KeyCode.W))
             {
-                if (puzzlePieceManager.GetCurrentPuzzlePair().left.IsLocked)
+                if (pair.left.IsLocked)
                 {
-                    puzzlePieceManager.GetCurrentPuzzlePair().left.ReleaseLockStatus();
+                    pair.left.ReleaseLockStatus();
                     UIManager.Instance.GetView<HUD>().LeftLocked = false;
                 }
                 else
                 {
-                    puzzlePieceManager.GetCurrentPuzzlePair().left.SetLockStatus();
+                    pair.left.SetLockStatus();
                     UIManager.Instance.GetView<HUD>().LeftLocked = true;
                 }
             }
-            else if (Input.GetKeyDown(KeyCode.Q) && !puzzlePieceManager.GetCurrentPuzzlePair().left.IsLocked)
+            else if (Input.GetKeyDown(KeyCode.Q) && !pair.left.IsLocked)
             {
-                puzzlePieceManager.GetCurrentPuzzlePair().left.ChangeState();
+                pair.left.ChangeState();
             }
 
         }
 
-        if (!puzzlePieceManager.GetCurrentPuzzlePair().right.IsRotating)
+        if (!pair.right.IsRotating)
         {
 
             if (Input.GetKeyDown(KeyCode.P))
             {
-                if (puzzlePieceManager.GetCurrentPuzzlePair().right.IsLocked)
+                if (pair.right.IsLocked)
                 {
-                    puzzlePieceManager.GetCurrentPuzzlePair().right.ReleaseLockStatus();
+                    pair.right.ReleaseLockStatus();
                     UIManager.Instance.GetView<HUD>().RightLocked = false;
                 }
                 else
                 {
-                    puzzlePieceManager.GetCurrentPuzzlePair().right.SetLockStatus();
+                    pair.right.SetLockStatus();
                     UIManager.Instance.GetView<HUD>().RightLocked = true;
                 }
             }
-            else if (Input.GetKeyDown(KeyCode.O) && !puzzlePieceManager.GetCurrentPuzzlePair().right.IsLocked)
+            else if (Input.GetKeyDown(KeyCode.O) && !pair.right.IsLocked)
             {
-                puzzlePieceManager.GetCurrentPuzzlePair().right.ChangeState();
+                pair.right.ChangeState();
             }
         }
 
@@ -80,7 +81,7 @@ public class InputManager : MonoBehaviour
             if (puzzlePieceManager.Check())
             {
                 Debug.Log("Yes!");
-                puzzlePieceManager.GetCurrentPuzzlePair().StartPlayingCombineAnimation();
+                pair.StartPlayingCombineAnimation();
                 puzzlePieceManager.Collect();
                 if (UIManager.Instance != null)
                 {
@@ -89,12 +90,12 @@ public class InputManager : MonoBehaviour
                     hudWindow.RightLocked = false;
                 }
             }
-            else if (puzzlePieceManager.GetCurrentPuzzlePair().left.IsLocked
-                && puzzlePieceManager.GetCurrentPuzzlePair().right.IsLocked)
+            else if (pair.left.IsLocked
+                && pair.right.IsLocked)
             {
                 Debug.Log("NOOO!");
-                puzzlePieceManager.GetCurrentPuzzlePair().left.ReleaseLockStatus();
-                puzzlePieceManager.GetCurrentPuzzlePair().right.ReleaseLockStatus();
+                pair.left.ReleaseLockStatus();
+                pair.right.ReleaseLockStatus();
                 if (UIManager.Instance != null)
                 {
                     HUD hudWindow = UIManager.Instance.GetView<HUD>();
