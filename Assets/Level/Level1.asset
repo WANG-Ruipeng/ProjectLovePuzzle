@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Level1
   m_EditorClassIdentifier: 
   background: {fileID: 0}
-  puzzlePiecePairPrefab: {fileID: 4092972524480892814, guid: 5ccdfde13e5cbac419f104ff635b7b7a, type: 3}
+  puzzlePiecePairPrefab: {fileID: 4092972524480892814, guid: 26113b33063650c48a4888faadbd3222, type: 3}
   maxCountdown: 10
   seceondEnterDelay: 1.5
   leftEnterStartPos: {x: -3, y: 8, z: 0}
@@ -24,6 +24,8 @@ MonoBehaviour:
   rightCombineStartPos: {x: 1.56, y: 0, z: 0}
   leftEndPos: {x: -0.56, y: 0, z: 0}
   rightEndPos: {x: 0.56, y: 0, z: 0}
+  leftExitPos: {x: -1.56, y: -10, z: 0}
+  rightExitPos: {x: 1.56, y: 10, z: 0}
   enterAnimationCurve:
     serializedVersion: 2
     m_Curve:
@@ -37,8 +39,8 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 1
-      value: 1
+      time: 0.553772
+      value: 0.98586273
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -96,6 +98,30 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  exitAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   rotateCurve:
     serializedVersion: 2
     m_Curve:
@@ -121,7 +147,9 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   puzzleSteps:
-  - lPos: 0
+  - isPlatform: 0
+    platformObj: {fileID: 0}
+    lPos: 0
     lStepPrefab: {fileID: 364585177925155994, guid: d2c7894af977fce4f972107d038a1878, type: 3}
     lCollectiblePrefabs:
     - {fileID: 0}
@@ -131,33 +159,43 @@ MonoBehaviour:
     rPos: 0
     rStepPrefab: {fileID: 364585177925155994, guid: 6b6ea730a6fb6ce48b0f8dffb1acc4b4, type: 3}
     rCollectiblePrefabs: []
-  - lPos: 0
+  - isPlatform: 0
+    platformObj: {fileID: 0}
+    lPos: 0
     lStepPrefab: {fileID: 364585177925155994, guid: 6b6ea730a6fb6ce48b0f8dffb1acc4b4, type: 3}
     lCollectiblePrefabs: []
     rPos: 0
     rStepPrefab: {fileID: 364585177925155994, guid: d2c7894af977fce4f972107d038a1878, type: 3}
     rCollectiblePrefabs: []
-  - lPos: 0
+  - isPlatform: 0
+    platformObj: {fileID: 0}
+    lPos: 0
     lStepPrefab: {fileID: 364585177925155994, guid: d2c7894af977fce4f972107d038a1878, type: 3}
     lCollectiblePrefabs: []
     rPos: 0
     rStepPrefab: {fileID: 364585177925155994, guid: 6b6ea730a6fb6ce48b0f8dffb1acc4b4, type: 3}
     rCollectiblePrefabs: []
-  - lPos: 0
+  - isPlatform: 0
+    platformObj: {fileID: 0}
+    lPos: 0
     lStepPrefab: {fileID: 364585177925155994, guid: 6b6ea730a6fb6ce48b0f8dffb1acc4b4, type: 3}
     lCollectiblePrefabs: []
     rPos: 0
     rStepPrefab: {fileID: 364585177925155994, guid: d2c7894af977fce4f972107d038a1878, type: 3}
     rCollectiblePrefabs: []
-  - lPos: 0
+  - isPlatform: 0
+    platformObj: {fileID: 0}
+    lPos: 0
     lStepPrefab: {fileID: 364585177925155994, guid: d2c7894af977fce4f972107d038a1878, type: 3}
     lCollectiblePrefabs: []
     rPos: 0
     rStepPrefab: {fileID: 364585177925155994, guid: 6b6ea730a6fb6ce48b0f8dffb1acc4b4, type: 3}
     rCollectiblePrefabs: []
-  - lPos: 0
-    lStepPrefab: {fileID: 364585177925155994, guid: d2c7894af977fce4f972107d038a1878, type: 3}
+  - isPlatform: 1
+    platformObj: {fileID: 4092972524480892814, guid: 5ccdfde13e5cbac419f104ff635b7b7a, type: 3}
+    lPos: 0
+    lStepPrefab: {fileID: 0}
     lCollectiblePrefabs: []
     rPos: 0
-    rStepPrefab: {fileID: 364585177925155994, guid: 6b6ea730a6fb6ce48b0f8dffb1acc4b4, type: 3}
+    rStepPrefab: {fileID: 0}
     rCollectiblePrefabs: []
