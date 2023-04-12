@@ -46,12 +46,19 @@ public class Platform : Moveable
 		Vector3 leftNowPos = Vector3.Lerp(leftStartPos, leftEndPos, posPercent);
 		transform.position = leftNowPos;
 	}
-	protected override void OnUpdate()
+
+    public override void StartPlayingDownAnimation()
+    {
+		//TODO:Play cutscene!!!!!!!
+
+        base.StartPlayingDownAnimation();
+		
+    }
+    protected override void OnUpdate()
 	{
 
 		if (isPlayingEnterAnim)
 		{
-
 			PlayScriptedAnimation(ref enterAnimationStartTime, ref enterAnimationLength, ref isPlayingEnterAnim, ref enterAnimationCurve,
 				ref leftEnterStartPos, ref leftDownStartPos);
 
@@ -60,11 +67,18 @@ public class Platform : Moveable
 
 		if (isPlayingDownAnim)
 		{
+			
 			PlayScriptedAnimation(ref downAnimationStartTime, ref downAnimationLength, ref isPlayingDownAnim, ref downAnimationCurve,
 				ref leftDownStartPos, ref leftCombineStartPos);
 			return;
 		}
-	}
+
+        if (isPlayingExitAnim)
+        {
+            PlayScriptedAnimation(ref exitAnimationStartTime, ref exitAnimationLength, ref isPlayingExitAnim, ref exitAnimationCurve,
+               ref leftEndPos, ref rightEndPos);
+        }
+    }
 
 
 }
