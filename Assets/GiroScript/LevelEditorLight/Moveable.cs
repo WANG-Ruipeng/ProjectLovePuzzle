@@ -156,7 +156,7 @@ public class Moveable : MonoBehaviour
 	private void SetPieceMinimize()
 	{
 		doNotUpdate = true;
-		PuzzlePieceManager.Instance.PlayNextPuzzlePairAnimation();
+		MovableManager.Instance.PlayNextPuzzlePairAnimation();
 	}
 
 	virtual protected void OnUpdate()

@@ -230,7 +230,7 @@ namespace Giro
 
             //保存PuzzlePieceManager的设定
             go = MonoBehaviour.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>(managerPrefabPath + "/PuzzlePieceManager.prefab"));
-            PuzzlePieceManager ppm = go.GetComponent<PuzzlePieceManager>();
+            MovableManager ppm = go.GetComponent<MovableManager>();
             GameManager.ResetPuzzlePieceManager(ppm, lvdef);
             PrefabUtility.SaveAsPrefabAsset(go, managerPrefabPath + "/PuzzlePieceManager.prefab");
             MonoBehaviour.DestroyImmediate(go);
@@ -247,7 +247,7 @@ namespace Giro
             }
             if (go = GameObject.Find("PuzzlePieceManager"))
             {
-                GameManager.ResetPuzzlePieceManager(go.GetComponent<PuzzlePieceManager>(), lvdef);
+                GameManager.ResetPuzzlePieceManager(go.GetComponent<MovableManager>(), lvdef);
 
             }
         }

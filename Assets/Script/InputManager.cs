@@ -10,7 +10,7 @@ public class InputManager : MonoBehaviour
     /// </summary>
     public static InputManager Instance => s_Instance;
     static InputManager s_Instance;
-    PuzzlePieceManager puzzlePieceManager;
+    MovableManager puzzlePieceManager;
 
     public bool receiveInput = false;
     void Awake()
@@ -22,7 +22,7 @@ public class InputManager : MonoBehaviour
             return;
         }
         s_Instance = this;
-        puzzlePieceManager = PuzzlePieceManager.Instance;
+        puzzlePieceManager = MovableManager.Instance;
     }
 
 

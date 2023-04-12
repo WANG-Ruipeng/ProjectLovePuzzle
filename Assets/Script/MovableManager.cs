@@ -4,10 +4,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PuzzlePieceManager : MonoBehaviour
+public class MovableManager : MonoBehaviour
 {
-	public static PuzzlePieceManager Instance => s_Instance;
-	static PuzzlePieceManager s_Instance;
+	public static MovableManager Instance => s_Instance;
+	static MovableManager s_Instance;
 
 	[Header("Enter scene animation settings")]
 	[Tooltip("注意所有坐标都是作用在更改在全局坐标系上，如果要统一全局和局部坐标系，需要Moveable及以上层级的物体均位于原点。")]

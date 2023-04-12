@@ -100,10 +100,10 @@ namespace Giro
 			maxCountdown = lvdef.maxCountdown;
 
 			//保存PuzzlePieceManager的设定
-			if (PuzzlePieceManager.Instance)
-				ResetPuzzlePieceManager(PuzzlePieceManager.Instance, lvdef);
+			if (MovableManager.Instance)
+				ResetPuzzlePieceManager(MovableManager.Instance, lvdef);
 		}
-		public static void ResetPuzzlePieceManager(PuzzlePieceManager instance, LevelDefinition m_CurrentLevel)
+		public static void ResetPuzzlePieceManager(MovableManager instance, LevelDefinition m_CurrentLevel)
 		{
 			instance.seceondEnterDelay = m_CurrentLevel.seceondEnterDelay;
 			instance.leftEnterStartPos = m_CurrentLevel.leftEnterStartPos;
@@ -157,16 +157,16 @@ namespace Giro
 			}
 			puzzlePoolGO = LevelManager.Instance.transform.Find(puzzlePoolGOName).gameObject;
 			Moveable[] moveables = puzzlePoolGO.GetComponentsInChildren<Moveable>();
-			PuzzlePieceManager.Instance.SetMoveableList(moveables);
-			PuzzlePieceManager.Instance.InitPuzzles();
+			MovableManager.Instance.SetMoveableList(moveables);
+			MovableManager.Instance.InitPuzzles();
 			for (int i = 0; i < moveables.Length; i++)
 			{
 				moveables[i].Reset();
 			}
 
-			if (PuzzlePieceManager.Instance != null)//在pairs重置之后manager才能reset
+			if (MovableManager.Instance != null)//在pairs重置之后manager才能reset
 			{
-				PuzzlePieceManager.Instance.Reset();
+				MovableManager.Instance.Reset();
 			}
 		}
 

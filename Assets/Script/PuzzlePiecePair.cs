@@ -86,7 +86,7 @@ public class PuzzlePiecePair : Moveable
 			}
 			else if ((leftEndPos - this.leftExitPos).magnitude < 0.01)
 			{
-				PuzzlePieceManager.Instance.PlayNextPuzzlePairAnimation();
+				MovableManager.Instance.PlayNextPuzzlePairAnimation();
 				return;
 			}
 		}
