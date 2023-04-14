@@ -255,13 +255,14 @@ namespace Giro
 							go = (GameObject)GameObject.Instantiate(Resources.Load(stepsList[i].lStepPrefab.name), moveableGO.transform);
 							PuzzlePiece pz = go.GetComponent<PuzzlePiece>();
 							pz.RotateCurve = levelDefinition.rotateCurve;
-							pz.collections = new Collectible[stepsList[i].lCollectiblePrefabs.Length];
+
 							for (int j = 0; j < stepsList[i].lCollectiblePrefabs.Length; j++)
 							{
 								if (!stepsList[i].lCollectiblePrefabs[j])
 									continue;
+
 								GameObject collectibleInstance = (GameObject)Instantiate(Resources.Load(stepsList[i].lCollectiblePrefabs[j].name), go.transform);
-								pz.collections[j] = collectibleInstance.GetComponent<Collectible>();
+								pz.collections.Add(stepsList[i].lCollectiblePrefabs[j].GetComponent<Collectible>());
 							}
 							moveable.leftObj = go;
 						}
@@ -271,14 +272,13 @@ namespace Giro
 							go = (GameObject)GameObject.Instantiate(Resources.Load(stepsList[i].rStepPrefab.name), moveableGO.transform);
 							PuzzlePiece pz = go.GetComponent<PuzzlePiece>();
 							pz.RotateCurve = levelDefinition.rotateCurve;
-							pz.collections = new Collectible[stepsList[i].rCollectiblePrefabs.Length];
 							for (int j = 0; j < stepsList[i].rCollectiblePrefabs.Length; j++)
 							{
 								if (!stepsList[i].rCollectiblePrefabs[j])
 									continue;
 
 								GameObject collectibleInstance = (GameObject)Instantiate(Resources.Load(stepsList[i].rCollectiblePrefabs[j].name), go.transform);
-								pz.collections[j] = collectibleInstance.GetComponent<Collectible>();
+								pz.collections.Add(stepsList[i].lCollectiblePrefabs[j].GetComponent<Collectible>());
 							}
 							moveable.rightObj = go;
 						}

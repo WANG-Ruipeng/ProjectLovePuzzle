@@ -119,19 +119,28 @@ public class PuzzlePiecePair : Moveable
 
 	public override void Collect()
 	{
-		int edgeCnt = PuzzlePiece.edgeCount;
 
-		if (left.collections.Length > 0)
+		if (left.collections.Count > 0)
 		{
-			Collectible nowLeftColletible = left.collections[(left.state + 1) % edgeCnt];
-			if (nowLeftColletible)
-				Collect(nowLeftColletible);
+			var collections = left.collections;
+			for (int i = 0; i < collections.Count; i++)
+			{
+				if (collections[i].Check())
+				{
+					Collect(collections[i]);
+				}
+			}
 		}
-		if (right.collections.Length > 0)
+		if (right.collections.Count > 0)
 		{
-			Collectible nowRightCollectible = right.collections[(right.state + edgeCnt - 1) % edgeCnt];
-			if (nowRightCollectible)
-				Collect(nowRightCollectible);
+			var collections = right.collections;
+			for (int i = 0; i < collections.Count; i++)
+			{
+				if (collections[i].Check())
+				{
+					Collect(collections[i]);
+				}
+			}
 		}
 
 	}
