@@ -52,38 +52,83 @@ public class PlayerManager : MonoBehaviour
 		dropAnimPlayListener.EventHandler += OnDropAnimPlayRaised;
 		idleAnimPlayListener.EventHandler += OnIdleAnimPlayRaised;
 	}
+
+	void ForceToIdle()
+	{
+		boyAnimator.Play("Idle");
+		boyAnimator.Update(0);
+	}
+
 	void ClearState()
 	{
+		boyAnimator.SetBool("Idle", true);
+		boyAnimator.SetBool("WillDrop", false);
 
+		girlAnimator.SetBool("Idle", true);
+		girlAnimator.SetBool("WillDrop", false);
 	}
 
 	void OnWinAnimPlayRaised()
 	{
-
+		if (!boyAnimator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+		{
+			ForceToIdle();
+			ClearState();
+		}
+		boyAnimator.SetTrigger("Win");
+		girlAnimator.SetTrigger("Win");
 	}
 
 	void OnCollectAnimPlayRaised()
 	{
-
+		if (!boyAnimator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+		{
+			ForceToIdle();
+			ClearState();
+		}
+		boyAnimator.SetTrigger("Collect");
+		girlAnimator.SetTrigger("Collect");
 	}
 
 	void OnJumpAnimPlayRaised()
 	{
-
+		if (!boyAnimator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+		{
+			ForceToIdle();
+			ClearState();
+		}
+		boyAnimator.SetTrigger("Jump");
+		girlAnimator.SetTrigger("Jump");
 	}
 
 	void OnWillDropAnimPlayRaised()
 	{
-
+		if (!boyAnimator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+		{
+			ForceToIdle();
+			ClearState();
+		}
+		boyAnimator.SetBool("Idle", false);
+		boyAnimator.SetBool("Idle", false);
+		boyAnimator.SetBool("WillDrop", true);
+		girlAnimator.SetBool("WillDrop", true);
 	}
 
 	void OnDropAnimPlayRaised()
 	{
-
+		if (!boyAnimator.GetCurrentAnimatorStateInfo(0).IsName("WillDrop"))
+		{
+#if UNITY_EDITOR
+			Debug.LogError("还没有进入WillDrop状态，请检查代码");
+#endif
+			return;
+		}
+		boyAnimator.SetTrigger("Drop");
+		girlAnimator.SetTrigger("Drop");
 	}
 
 	void OnIdleAnimPlayRaised()
 	{
-
+		ClearState();
 	}
 }
