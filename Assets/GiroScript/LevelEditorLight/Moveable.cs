@@ -119,7 +119,7 @@ public class Moveable : MonoBehaviour
 		enterAnimationStartTime = Time.time;
 	}
 
-	public void StartPlayingDownAnimation()
+	public virtual void StartPlayingDownAnimation()
 	{
 		isPlayingDownAnim = true;
 		downAnimationStartTime = Time.time;

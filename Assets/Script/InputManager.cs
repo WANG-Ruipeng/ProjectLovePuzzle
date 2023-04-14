@@ -10,7 +10,7 @@ public class InputManager : MonoBehaviour
     /// </summary>
     public static InputManager Instance => s_Instance;
     static InputManager s_Instance;
-    MovableManager puzzlePieceManager;
+    MovableManager movableManager;
 
     public bool receiveInput = false;
     void Awake()
@@ -22,7 +22,7 @@ public class InputManager : MonoBehaviour
             return;
         }
         s_Instance = this;
-        puzzlePieceManager = MovableManager.Instance;
+        movableManager = MovableManager.Instance;
     }
 
 
@@ -30,7 +30,7 @@ public class InputManager : MonoBehaviour
     void Update()
     {
         if (!receiveInput) { return; }
-        PuzzlePiecePair pair = puzzlePieceManager.GetCurrentPuzzlePair();
+        PuzzlePiecePair pair = movableManager.GetCurrentPuzzlePair();
         if (!pair) return;
         if (!pair.left.IsRotating)
         {
@@ -78,11 +78,11 @@ public class InputManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.P))
         {
-            if (puzzlePieceManager.Check())
+            if (movableManager.Check())
             {
                 Debug.Log("Yes!");
                 pair.StartPlayingCombineAnimation();
-                puzzlePieceManager.Collect();
+                movableManager.Collect();
                 if (UIManager.Instance != null)
                 {
                     HUD hudWindow = UIManager.Instance.GetView<HUD>();

@@ -11,8 +11,6 @@ public class PuzzlePiecePair : Moveable
 	public GameObject leftObj;
 	public GameObject rightObj;
 
-
-
 	public PuzzlePiece left;
 	public PuzzlePiece right;
 
