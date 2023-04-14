@@ -36,6 +36,24 @@ public class MovableManager : MonoBehaviour
 
 	int currentPieceNo = -2;//-2代表是目前关卡刚刚开始，拼图区内部还未有任何拼图
 
+	public int totalRotateTime
+	{
+		get
+		{
+			int sum = 0;
+			for (int i = 0; i < Moveables.Count; i++)
+			{
+				PuzzlePiecePair pair = Moveables[i] as PuzzlePiecePair;
+				if (pair)
+				{
+					sum += pair.left.rotateTime;
+					sum += pair.right.rotateTime;
+				}
+			}
+			return sum;
+		}
+	}
+
 	public void Reset()
 	{
 		currentPieceNo = -2;

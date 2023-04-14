@@ -62,13 +62,26 @@ namespace Giro
 			[Header("左")]
 			public int lPos;
 			public GameObject lStepPrefab;
-			[Tooltip("注意：如果需要添加收藏品，请将收藏品的元素个数调整至与边数一样多，然后在需要添加的边上拖入收藏品，其余的设为None")]
-			public GameObject[] lCollectiblePrefabs;
+			[Tooltip("注意：如果需要添加收藏品，请确保收藏品上挂载了对应的脚本")]
+			public CollectibleInfo[] lCollectibleInfos;
 			[Header("右")]
 			public int rPos;
 			public GameObject rStepPrefab;
-			[Tooltip("注意：如果需要添加收藏品，请将收藏品的元素个数调整至与边数一样多，然后在需要添加的边上拖入收藏品，其余的设为None")]
-			public GameObject[] rCollectiblePrefabs;
+			[Tooltip("注意：如果需要添加收藏品，请确保收藏品上挂载了对应的脚本")]
+			public CollectibleInfo[] rCollectibleInfos;
+		}
+
+		[Serializable]
+		public class CollectibleInfo
+		{
+			[Header("不需则不填")]
+			public GameObject prefab;
+			[Header("是否复用（必填）")]
+			public bool reusable;
+			[Header("收集所需旋转次数（边收集物）")]
+			public int rotateTime;
+			[Header("收集至少需要旋转次数（旋转收集物）")]
+			public int minRotateTime;
 		}
 
 		/// <summary>

@@ -256,13 +256,14 @@ namespace Giro
 							PuzzlePiece pz = go.GetComponent<PuzzlePiece>();
 							pz.RotateCurve = levelDefinition.rotateCurve;
 
-							for (int j = 0; j < stepsList[i].lCollectiblePrefabs.Length; j++)
+							for (int j = 0; j < stepsList[i].lCollectibleInfos.Length; j++)
 							{
-								if (!stepsList[i].lCollectiblePrefabs[j])
+								if (!stepsList[i].lCollectibleInfos[j].prefab)
 									continue;
 
-								GameObject collectibleInstance = (GameObject)Instantiate(Resources.Load(stepsList[i].lCollectiblePrefabs[j].name), go.transform);
-								pz.collections.Add(stepsList[i].lCollectiblePrefabs[j].GetComponent<Collectible>());
+								GameObject collectibleInstance = (GameObject)Instantiate(Resources.Load(stepsList[i].lCollectibleInfos[j].prefab.name), go.transform);
+								pz.collections.Add(stepsList[i].lCollectibleInfos[j].prefab.GetComponent<Collectible>());
+								pz.collections[pz.collections.Count - 1].SetData(stepsList[i].lCollectibleInfos[j]);
 							}
 							moveable.leftObj = go;
 						}
@@ -272,13 +273,14 @@ namespace Giro
 							go = (GameObject)GameObject.Instantiate(Resources.Load(stepsList[i].rStepPrefab.name), moveableGO.transform);
 							PuzzlePiece pz = go.GetComponent<PuzzlePiece>();
 							pz.RotateCurve = levelDefinition.rotateCurve;
-							for (int j = 0; j < stepsList[i].rCollectiblePrefabs.Length; j++)
+							for (int j = 0; j < stepsList[i].rCollectibleInfos.Length; j++)
 							{
-								if (!stepsList[i].rCollectiblePrefabs[j])
+								if (!stepsList[i].rCollectibleInfos[j].prefab)
 									continue;
 
-								GameObject collectibleInstance = (GameObject)Instantiate(Resources.Load(stepsList[i].rCollectiblePrefabs[j].name), go.transform);
-								pz.collections.Add(stepsList[i].lCollectiblePrefabs[j].GetComponent<Collectible>());
+								GameObject collectibleInstance = (GameObject)Instantiate(Resources.Load(stepsList[i].rCollectibleInfos[j].prefab.name), go.transform);
+								pz.collections.Add(stepsList[i].rCollectibleInfos[j].prefab.GetComponent<Collectible>());
+								pz.collections[pz.collections.Count - 1].SetData(stepsList[i].rCollectibleInfos[j]);
 							}
 							moveable.rightObj = go;
 						}

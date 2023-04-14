@@ -34,6 +34,8 @@ public class PuzzlePiece : MonoBehaviour
 	public EdgeProp[] edgeProps = new EdgeProp[edgeCount];
 	public List<Collectible> collections = new List<Collectible>();
 
+	public int rotateTime;
+
 	public void Reset()
 	{
 		transform.localPosition = new Vector3(100, 100, 0);
@@ -42,6 +44,7 @@ public class PuzzlePiece : MonoBehaviour
 		state = 0;
 		transform.localRotation = Quaternion.Euler(0, 0, 0);
 		transform.localScale = new Vector3(1, 1, 1);
+		rotateTime = 0;
 	}
 
 	public void ReleaseLockStatus()
@@ -80,10 +83,12 @@ public class PuzzlePiece : MonoBehaviour
 		isRotating = true;
 		rotateStartTime = Time.time;
 		rotateStartAngle = transform.rotation.eulerAngles.z;
+
 		if (RotateClockWise)
 			state = (state + edgeCount - 1) % edgeCount;//顺时针旋转，state--
 		else
 			state = (state + 1) % edgeCount;            //逆时针旋转，state++
+		rotateTime++;
 	}
 
 	/// <summary>

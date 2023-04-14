@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1749920511503282913}
   - component: {fileID: 698617995180714025}
-  - component: {fileID: 2584322124894445671}
+  - component: {fileID: -3852735215222420719}
   m_Layer: 0
   m_Name: Diamond
   m_TagString: Untagged
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2584322124894445671
+--- !u!114 &-3852735215222420719
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,6 +94,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8633107720137370035}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cdcb249bab9e314cb6aaf5c5ccc7d95, type: 3}
+  m_Script: {fileID: 11500000, guid: ebc1281d5b630a04a80d47d53ce3bf2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 0
+  unlocked: 0
+  reusable: 0

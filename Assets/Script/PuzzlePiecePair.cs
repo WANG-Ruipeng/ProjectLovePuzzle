@@ -123,7 +123,7 @@ public class PuzzlePiecePair : Moveable
 			var collections = left.collections;
 			for (int i = 0; i < collections.Count; i++)
 			{
-				if (collections[i].Check())
+				if (collections[i].Check(left))
 				{
 					Collect(collections[i]);
 				}
@@ -134,7 +134,7 @@ public class PuzzlePiecePair : Moveable
 			var collections = right.collections;
 			for (int i = 0; i < collections.Count; i++)
 			{
-				if (collections[i].Check())
+				if (collections[i].Check(right))
 				{
 					Collect(collections[i]);
 				}
