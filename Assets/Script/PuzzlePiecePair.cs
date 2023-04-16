@@ -25,6 +25,7 @@ public class PuzzlePiecePair : Moveable
 	public override void Reset()
 	{
 		base.Reset();
+		screenPos = ScreenPos.unentered;
 		left = leftObj.GetComponentInChildren<PuzzlePiece>();
 		right = rightObj.GetComponentInChildren<PuzzlePiece>();
 		left.RotateClockWise = true;
@@ -76,13 +77,13 @@ public class PuzzlePiecePair : Moveable
 			isPlaying = false;
 			if ((leftEndPos - this.leftEndPos).magnitude < 0.01)//合并成功触发事件
 			{
-				StartPlayExitAnimation();
+				StartPlayingExitAnimation();
 			}
 			else if ((leftEndPos - this.leftCombineStartPos).magnitude < 0.01)//到达操作区
 			{
 				CountdownEvent.Raise();
 			}
-			else if ((leftEndPos - this.leftExitPos).magnitude < 0.01)
+			else if ((leftEndPos - this.leftExitPos).magnitude < 0.01)//退出动画播放结束
 			{
 				MovableManager.Instance.PlayNextPuzzlePairAnimation();
 				return;
@@ -143,13 +144,33 @@ public class PuzzlePiecePair : Moveable
 
 	}
 
+    public override void PlayNextAnimation()
+    {
+		switch(screenPos)
+		{
+			case ScreenPos.unentered:
+				StartPlayingEnterAnimation();
+				screenPos = ScreenPos.upScreen;
+				break;
+            case ScreenPos.upScreen:
+				StartPlayingDownAnimation();
+				screenPos = ScreenPos.downScreen;
+                break;
+            case ScreenPos.downScreen:
+				StartPlayingCombineAnimation();
+				screenPos = ScreenPos.exited;
+                break;
+            default:
 
-	/// <summary>
-	/// 触发收藏该物品后会发生的事情
-	/// TODO: 调用存档系统，播放收藏物品的一系列相关动画，根据物品属性修改角色“好感度”
-	/// </summary>
-	/// <param name="collectible"></param>
-	void Collect(Collectible collectible)
+                break;
+        }
+    }
+    /// <summary>
+    /// 触发收藏该物品后会发生的事情
+    /// TODO: 调用存档系统，播放收藏物品的一系列相关动画，根据物品属性修改角色“好感度”
+    /// </summary>
+    /// <param name="collectible"></param>
+    void Collect(Collectible collectible)
 	{
 		collectible.Collected();
 		if (SaveManager.Instance)//Q:是否需要改为关卡胜利时才保存
