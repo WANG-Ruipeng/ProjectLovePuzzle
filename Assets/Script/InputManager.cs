@@ -80,8 +80,9 @@ public class InputManager : MonoBehaviour
         {
             if (movableManager.Check())
             {
-                Debug.Log("Yes!");
-                pair.StartPlayingCombineAnimation();
+                //Debug.Log("Yes!");
+                //pair.StartPlayingCombineAnimation();
+                pair.PlayNextAnimation();
                 movableManager.Collect();
                 if (UIManager.Instance != null)
                 {
@@ -93,7 +94,7 @@ public class InputManager : MonoBehaviour
             else if (pair.left.IsLocked
                 && pair.right.IsLocked)
             {
-                Debug.Log("NOOO!");
+                //Debug.Log("NOOO!");
                 pair.left.ReleaseLockStatus();
                 pair.right.ReleaseLockStatus();
                 if (UIManager.Instance != null)

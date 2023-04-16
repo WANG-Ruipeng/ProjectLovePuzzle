@@ -117,35 +117,31 @@ public class MovableManager : MonoBehaviour
 		if (currentPieceNo == -2)
 		{
 			//Moveables = new List<Moveable>();
-			Moveables[0].StartPlayingEnterAnimation();
+			Moveables[0].PlayNextAnimation();
 			currentPieceNo++;
 			return;
 		}
 		if (currentPieceNo == -1)
 		{
-			Moveables[1].StartPlayingEnterAnimation();
-			Moveables[0].StartPlayingDownAnimation();
-			currentPieceNo++;
+			Moveables[1].PlayNextAnimation();
+            Moveables[0].PlayNextAnimation();
+            currentPieceNo++;
 			return;
 		}
 		if (currentPieceNo == Moveables.Count - 2)
 		{
-			Moveables[Moveables.Count - 1].StartPlayingDownAnimation();
-			//Moveables[Moveables.Count - 2].StartPlayingCombineAnimation();
-			currentPieceNo++;
+			Moveables[Moveables.Count - 1].PlayNextAnimation();
+            currentPieceNo++;
 			return;
 		}
 		if (currentPieceNo == Moveables.Count - 1)
 		{
-			//Moveables[Moveables.Count - 1].StartPlayingCombineAnimation();
-
 			currentPieceNo++;
 			GameManager.Instance.Win();
 			return;
 		}
-		Moveables[currentPieceNo + 2].StartPlayingEnterAnimation();
-		Moveables[currentPieceNo + 1].StartPlayingDownAnimation();
-		//Moveables[currentPieceNo].StartPlayingCombineAnimation();
+		Moveables[currentPieceNo + 2].PlayNextAnimation();
+        Moveables[currentPieceNo + 1].PlayNextAnimation();
 		currentPieceNo++;
 	}
 

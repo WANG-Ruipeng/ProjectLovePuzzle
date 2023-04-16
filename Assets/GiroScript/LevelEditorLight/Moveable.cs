@@ -5,8 +5,16 @@ using UnityEngine;
 
 public class Moveable : MonoBehaviour
 {
+    public enum ScreenPos
+    {
+        unentered = 0,
+        upScreen = 1,
+        downScreen = 2,
+        exited = 3
+    }
+    public ScreenPos screenPos;
 
-	bool doNotUpdate = false;
+    bool doNotUpdate = false;
 
 	[Header("Basic information about two pieces")]
 	public int ID;
@@ -111,7 +119,7 @@ public class Moveable : MonoBehaviour
 		exitAnimationLength = exitAnimationCurve.keys[exitAnimationCurve.length - 1].time;
 	}
 
-
+	public virtual void PlayNextAnimation() { }
 
 	public void StartPlayingEnterAnimation()
 	{
@@ -119,12 +127,12 @@ public class Moveable : MonoBehaviour
 		enterAnimationStartTime = Time.time;
 	}
 
-	public virtual void StartPlayingDownAnimation()
+	public void StartPlayingDownAnimation()
 	{
 		isPlayingDownAnim = true;
 		downAnimationStartTime = Time.time;
 	}
-	public void StartPlayExitAnimation()
+	public void StartPlayingExitAnimation()
 	{
 		isPlayingExitAnim = true;
 		exitAnimationStartTime = Time.time;
@@ -155,8 +163,8 @@ public class Moveable : MonoBehaviour
 	/// </summary>
 	private void SetPieceMinimize()
 	{
-		doNotUpdate = true;
-		MovableManager.Instance.PlayNextPuzzlePairAnimation();
+		//doNotUpdate = true;
+		//MovableManager.Instance.PlayNextPuzzlePairAnimation();
 	}
 
 	virtual protected void OnUpdate()

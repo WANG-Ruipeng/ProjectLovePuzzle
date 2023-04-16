@@ -7,10 +7,14 @@ using UnityEngine;
 public class Platform : Moveable
 {
 
+	public GameObject leftInteractObj;
+	public GameObject rightInteractObj;
+	public GameObject background;
+	Animator animator;
 	public override void Reset()
 	{
 		base.Reset();
-
+		animator = GetComponent<Animator>();
 		gameObject.transform.position = new Vector3(100, 100, 0);
 		isPlayingEnterAnim = false;
 		isPlayingDownAnim = false;
@@ -39,21 +43,56 @@ public class Platform : Moveable
 		if (progress >= animLength)
 		{
 			isPlaying = false;
-		}
+            if ((leftEndPos - this.leftExitPos).magnitude < 0.01)//退出播放完
+            {
+				MovableManager.Instance.PlayNextPuzzlePairAnimation();
+            }
+        }
 
 		//Debug.Log(progress);
 		float posPercent = Mathf.Clamp(animCurve.Evaluate(progress), 0, 1);
 		Vector3 leftNowPos = Vector3.Lerp(leftStartPos, leftEndPos, posPercent);
 		transform.position = leftNowPos;
-	}
+    }
 
-    public override void StartPlayingDownAnimation()
+
+    public void StartPlayingInteractAnimation()
     {
-		//TODO:Play cutscene!!!!!!!
-
-        base.StartPlayingDownAnimation();
+		///TODO:Play cutscene!!!!!!!动画顺序：
+		///1.玩家向上跳跃进入画面
+		///2.获得收集品的动画
+		animator.SetBool("StartPlayInteractAnim", true);
+		//Debug.Log("Platform down.");
+		///3.播放收集品获得的显示
+		///4.拼图下落到操作区（已经在animator里调用了call back）
 		
     }
+
+    public override void PlayNextAnimation()
+    {
+        switch (screenPos)
+        {
+            case ScreenPos.unentered:
+                StartPlayingEnterAnimation();
+                Debug.Log("Platform enter.");
+                screenPos = ScreenPos.upScreen;
+                break;
+            case ScreenPos.upScreen:
+                StartPlayingInteractAnimation();
+                Debug.Log("Platform interact.");
+                screenPos = ScreenPos.downScreen;
+                break;
+            default:
+
+                break;
+        }
+    }
+
+    void OnInteractAnimEnd()
+	{
+		StartPlayingExitAnimation();
+	}
+
     protected override void OnUpdate()
 	{
 
@@ -65,18 +104,10 @@ public class Platform : Moveable
 			return;
 		}
 
-		if (isPlayingDownAnim)
-		{
-			
-			PlayScriptedAnimation(ref downAnimationStartTime, ref downAnimationLength, ref isPlayingDownAnim, ref downAnimationCurve,
-				ref leftDownStartPos, ref leftCombineStartPos);
-			return;
-		}
-
         if (isPlayingExitAnim)
         {
             PlayScriptedAnimation(ref exitAnimationStartTime, ref exitAnimationLength, ref isPlayingExitAnim, ref exitAnimationCurve,
-               ref leftEndPos, ref rightEndPos);
+               ref leftDownStartPos, ref leftExitPos);
         }
     }
 
