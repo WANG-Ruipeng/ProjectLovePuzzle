@@ -15,6 +15,9 @@ public class Platform : Moveable
 	{
 		base.Reset();
 		animator = GetComponent<Animator>();
+		animator.SetBool("StartPlayInteractAnim", false);
+		animator.Play("PieceDef");
+		screenPos = ScreenPos.unentered;
 		gameObject.transform.position = new Vector3(100, 100, 0);
 		isPlayingEnterAnim = false;
 		isPlayingDownAnim = false;
@@ -43,21 +46,21 @@ public class Platform : Moveable
 		if (progress >= animLength)
 		{
 			isPlaying = false;
-            if ((leftEndPos - this.leftExitPos).magnitude < 0.01)//退出播放完
-            {
+			if ((leftEndPos - this.leftExitPos).magnitude < 0.01)//退出播放完
+			{
 				MovableManager.Instance.PlayNextPuzzlePairAnimation();
-            }
-        }
+			}
+		}
 
 		//Debug.Log(progress);
 		float posPercent = Mathf.Clamp(animCurve.Evaluate(progress), 0, 1);
 		Vector3 leftNowPos = Vector3.Lerp(leftStartPos, leftEndPos, posPercent);
 		transform.position = leftNowPos;
-    }
+	}
 
 
-    public void StartPlayingInteractAnimation()
-    {
+	public void StartPlayingInteractAnimation()
+	{
 		///TODO:Play cutscene!!!!!!!动画顺序：
 		///1.玩家向上跳跃进入画面
 		///2.获得收集品的动画
@@ -65,35 +68,35 @@ public class Platform : Moveable
 		//Debug.Log("Platform down.");
 		///3.播放收集品获得的显示
 		///4.拼图下落到操作区（已经在animator里调用了call back）
-		
-    }
 
-    public override void PlayNextAnimation()
-    {
-        switch (screenPos)
-        {
-            case ScreenPos.unentered:
-                StartPlayingEnterAnimation();
-                Debug.Log("Platform enter.");
-                screenPos = ScreenPos.upScreen;
-                break;
-            case ScreenPos.upScreen:
-                StartPlayingInteractAnimation();
-                Debug.Log("Platform interact.");
-                screenPos = ScreenPos.downScreen;
-                break;
-            default:
+	}
 
-                break;
-        }
-    }
+	public override void PlayNextAnimation()
+	{
+		switch (screenPos)
+		{
+			case ScreenPos.unentered:
+				StartPlayingEnterAnimation();
+				Debug.Log("Platform enter.");
+				screenPos = ScreenPos.upScreen;
+				break;
+			case ScreenPos.upScreen:
+				StartPlayingInteractAnimation();
+				Debug.Log("Platform interact.");
+				screenPos = ScreenPos.downScreen;
+				break;
+			default:
 
-    void OnInteractAnimEnd()
+				break;
+		}
+	}
+
+	void OnInteractAnimEnd()
 	{
 		StartPlayingExitAnimation();
 	}
 
-    protected override void OnUpdate()
+	protected override void OnUpdate()
 	{
 
 		if (isPlayingEnterAnim)
@@ -104,12 +107,12 @@ public class Platform : Moveable
 			return;
 		}
 
-        if (isPlayingExitAnim)
-        {
-            PlayScriptedAnimation(ref exitAnimationStartTime, ref exitAnimationLength, ref isPlayingExitAnim, ref exitAnimationCurve,
-               ref leftDownStartPos, ref leftExitPos);
-        }
-    }
+		if (isPlayingExitAnim)
+		{
+			PlayScriptedAnimation(ref exitAnimationStartTime, ref exitAnimationLength, ref isPlayingExitAnim, ref exitAnimationCurve,
+			   ref leftDownStartPos, ref leftExitPos);
+		}
+	}
 
 
 }

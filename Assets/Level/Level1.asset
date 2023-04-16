@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   background: {fileID: 0}
   puzzlePiecePairPrefab: {fileID: 4092972524480892814, guid: 26113b33063650c48a4888faadbd3222, type: 3}
-  maxCountdown: 10
+  maxCountdown: 5
   seceondEnterDelay: 1.5
   leftEnterStartPos: {x: -3, y: 8, z: 0}
   rightEnterStartPos: {x: 3, y: 8, z: 0}
