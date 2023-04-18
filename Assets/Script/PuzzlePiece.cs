@@ -7,6 +7,7 @@ public class PuzzlePiece : MonoBehaviour
 	//旋转播放动画的曲线
 	public AnimationCurve RotateCurve;
 	public bool RotateClockWise;
+	SpriteRenderer spriteRenderer;
 
 	//旋转状态
 	private bool isRotating = false;
@@ -34,6 +35,11 @@ public class PuzzlePiece : MonoBehaviour
 	public EdgeProp[] edgeProps = new EdgeProp[edgeCount];
 	public List<Collectible> collections = new List<Collectible>();
 
+	public SaturationController saturationController;
+	public float startSaturation = -50;
+	public float endSaturation = 0;
+	public float addSaturation = 10;
+
 	public int rotateTime;
 
 	public void Reset()
@@ -45,6 +51,8 @@ public class PuzzlePiece : MonoBehaviour
 		transform.localRotation = Quaternion.Euler(0, 0, 0);
 		transform.localScale = new Vector3(1, 1, 1);
 		rotateTime = 0;
+		saturationController = GetComponent<SaturationController>();
+		saturationController.SetSaturation(startSaturation);
 	}
 
 	public void ReleaseLockStatus()
@@ -89,11 +97,18 @@ public class PuzzlePiece : MonoBehaviour
 		else
 			state = (state + 1) % edgeCount;            //逆时针旋转，state++
 		rotateTime++;
+		saturationController.SetSaturation(
+			Mathf.Clamp(
+				saturationController.Saturation + addSaturation,
+				startSaturation,
+				endSaturation
+				)
+			);
+
 	}
 
 	/// <summary>
 	/// 初始化边的信息
-	/// TODO:跟策划商量边的信息怎么读取
 	/// </summary>
 	private void InitEdgeProp()
 	{

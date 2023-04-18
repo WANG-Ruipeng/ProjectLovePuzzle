@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8608260292281702694}
   - component: {fileID: -2605220623034555106}
   - component: {fileID: 5632641341889782121}
+  - component: {fileID: 2482690700207463968}
   m_Layer: 0
   m_Name: puzzle_1
   m_TagString: Untagged
@@ -53,7 +54,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 0bab9cad2dcc456429c03c1dbe6995bd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -124,3 +125,22 @@ MonoBehaviour:
   RotateClockWise: 0
   state: 0
   edgeProps: 00000000010000000000000000000000
+  collections: []
+  saturationController: {fileID: 0}
+  startSaturation: 1
+  endSaturation: 0
+  addSaturation: -0.2
+  rotateTime: 0
+--- !u!114 &2482690700207463968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 364585177925155994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91982082005701d49b8943c82aa165ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Saturation: 0
