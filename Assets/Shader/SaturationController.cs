@@ -1,40 +1,40 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
 public class SaturationController : MonoBehaviour
 {
-    public float Saturation = 0f;
-    private Material _originalMaterial;
-    private Material _hsvMaterial;
-    void Start()
-    {
-        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-        _originalMaterial = spriteRenderer.material;
+	public float Saturation = 0f;
+	private Material _originalMaterial;
+	private Material _hsvMaterial;
+	void Start()
+	{
+		SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+		_originalMaterial = spriteRenderer.material;
 
-        // ´´½¨Ò»¸öĞÂ²ÄÖÊÊµÀı£¬ÒÔ±ÜÃâÔÚËùÓĞÊ¹ÓÃ´ËShaderµÄ¶ÔÏóÉÏÓ¦ÓÃ¸ü¸Ä
-        _hsvMaterial = new Material(Shader.Find("Custom/HSVShader"));
-        spriteRenderer.material = _hsvMaterial;
+		// åˆ›å»ºä¸€ä¸ªæ–°æè´¨å®ä¾‹ï¼Œä»¥é¿å…åœ¨æ‰€æœ‰ä½¿ç”¨æ­¤Shaderçš„å¯¹è±¡ä¸Šåº”ç”¨æ›´æ”¹
+		_hsvMaterial = new Material(Shader.Find("Custom/HSVShader"));
+		//spriteRenderer.material = _hsvMaterial;
 
-        // ½«Ô­Ê¼²ÄÖÊµÄÎÆÀí·ÖÅä¸øĞÂµÄHSV²ÄÖÊ
-        _hsvMaterial.SetTexture("_MainTex", _originalMaterial.mainTexture);
-    }
+		// å°†åŸå§‹æè´¨çš„çº¹ç†åˆ†é…ç»™æ–°çš„HSVæè´¨
+		_hsvMaterial.SetTexture("_MainTex", _originalMaterial.mainTexture);
+	}
 
-    void Update()
-    {
-        // ¸üĞÂ²ÄÖÊµÄ±¥ºÍ¶ÈÖµ
-        //_material.SetFloat("_Saturation", Saturation);
-    }
+	void Update()
+	{
+		// æ›´æ–°æè´¨çš„é¥±å’Œåº¦å€¼
+		//_material.SetFloat("_Saturation", Saturation);
+	}
 
-    public void SetSaturation(float saturation)
-    {
-        Saturation = saturation;
-        if (_hsvMaterial != null)
-            _hsvMaterial.SetFloat("Desaturation", Saturation);
-    }
+	public void SetSaturation(float saturation)
+	{
+		Saturation = saturation;
+		if (_hsvMaterial != null)
+			_hsvMaterial.SetFloat("Desaturation", Saturation);
+	}
 
-    private void OnDestroy()
-    {
-        // Ïú»ÙĞÂ´´½¨µÄ²ÄÖÊÊµÀı£¬ÒÔ·ÀÖ¹ÄÚ´æĞ¹Â©
-        Destroy(_hsvMaterial);
-    }
+	private void OnDestroy()
+	{
+		// é”€æ¯æ–°åˆ›å»ºçš„æè´¨å®ä¾‹ï¼Œä»¥é˜²æ­¢å†…å­˜æ³„æ¼
+		Destroy(_hsvMaterial);
+	}
 }
