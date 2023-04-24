@@ -37,14 +37,14 @@ namespace Giro
 		}
 		LevelDefinition m_LevelDefinition;
 
-		List<Moveable> puzzlePieceInScene;
+		List<Movable> puzzlePieceInScene;
 
 		/// <summary>
 		/// Call this method to add a Spawnable to the list of active Spawnables.
 		/// </summary>
-		public void AddStep(Moveable moveable)
+		public void AddStep(Movable movable)
 		{
-			puzzlePieceInScene.Add(moveable);
+			puzzlePieceInScene.Add(movable);
 		}
 
 		/// <summary>
@@ -95,7 +95,7 @@ namespace Giro
 				return;
 			}
 			if (puzzlePieceInScene == null)
-				puzzlePieceInScene = new List<Moveable>();
+				puzzlePieceInScene = new List<Movable>();
 			s_Instance = this;
 		}
 

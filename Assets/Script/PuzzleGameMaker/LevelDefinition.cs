@@ -22,30 +22,54 @@ namespace Giro
 		public float seceondEnterDelay = 1.5f;
 		[Tooltip("注意所有坐标都是作用在更改在全局坐标系上，如果要统一全局和局部坐标系，需要PuzzlePiecePair及以上层级的物体均位于原点。")]
 		[Header("注意调整位置前应该先把会用到的拼图的缩放、轴心等关键信息设置好，以免出现错位")]
+
+
+		[Header("平台(事件点)屏幕位置定位")]
 		[Header("从屏幕外进入预备区的开始位置")]
-		public Vector3 leftEnterStartPos = new Vector3(-1.56f, 10, 0);
-		public Vector3 rightEnterStartPos = new Vector3(1.56f, 10, 0);
+		public Vector3 pos1 = new Vector3(-1.56f, 10, 0);
 
 		[Header("预备区的位置")]
-		public Vector3 leftDownStartPos = new Vector3(-1.56f, 4, 0);
-		public Vector3 rightDownStartPos = new Vector3(1.56f, 4, 0);
+		public Vector3 pos2 = new Vector3(-1.56f, 4, 0);
 
-		[Header("操作区的位置")]
-		public Vector3 leftCombineStartPos = new Vector3(-1.56f, 0, 0);
-		public Vector3 rightCombineStartPos = new Vector3(1.56f, 0, 0);
-		public Vector3 leftEndPos = new Vector3(-0.56f, 0, 0);
-		public Vector3 rightEndPos = new Vector3(0.56f, 0, 0);
-		[Header("离开操作区后的位置")]
-		public Vector3 leftExitPos;
-		public Vector3 rightExitPos;
+		[Header("事件播放区的位置")]
+		public Vector3 pos3 = new Vector3(-1.56f, 0, 0);
+		[Header("离开事件播放区后的位置")]
+		public Vector3 pos4;
 		[Header("从屏幕外到达预备区的曲线")]
-		public AnimationCurve enterAnimationCurve;
-		[Header("从预备区到达操作区的曲线")]
-		public AnimationCurve downAnimationCurve;
-		[Header("合并曲线")]
-		public AnimationCurve combineAnimationCurve;
+		public AnimationCurve platformEnterAnimationCurve;
+		[Header("从预备区到达事件播放区的曲线")]
+		public AnimationCurve platformDownAnimationCurve;
+
 		[Header("离开曲线")]
-		public AnimationCurve exitAnimationCurve;
+		public AnimationCurve platformExitAnimationCurve;
+
+
+		[Header("拼图屏幕位置定位")]
+		[Header("从屏幕外进入预备区的开始位置")]
+		public Vector3 lPos1 = new Vector3(-1.56f, 10, 0);
+		public Vector3 rPos1 = new Vector3(1.56f, 10, 0);
+
+		[Header("预备区的位置")]
+		public Vector3 lPos2 = new Vector3(-1.56f, 4, 0);
+		public Vector3 rPos2 = new Vector3(1.56f, 4, 0);
+
+		[Header("操作区合并前的位置")]
+		public Vector3 lPos3 = new Vector3(-1.56f, 0, 0);
+		public Vector3 rPos3 = new Vector3(1.56f, 0, 0);
+		[Header("操作区合并后的位置")]
+		public Vector3 lPos4 = new Vector3(-0.56f, 0, 0);
+		public Vector3 rPos4 = new Vector3(0.56f, 0, 0);
+		[Header("离开操作区后的位置")]
+		public Vector3 lPos5;
+		public Vector3 rPos5;
+		[Header("从屏幕外到达预备区的曲线")]
+		public AnimationCurve puzzlesEnterAnimationCurve;
+		[Header("从预备区到达操作区的曲线")]
+		public AnimationCurve puzzlesDownAnimationCurve;
+		[Header("合并曲线")]
+		public AnimationCurve puzzlesCombineAnimationCurve;
+		[Header("离开曲线")]
+		public AnimationCurve puzzlesExitAnimationCurve;
 
 		[Header("拼图旋转曲线")]
 		public AnimationCurve rotateCurve;

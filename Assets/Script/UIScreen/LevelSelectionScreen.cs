@@ -6,78 +6,87 @@ using UnityEngine;
 
 namespace Giro
 {
-    /// <summary>
-    /// This View contains level selection screen functionalities
-    /// </summary>
-    public class LevelSelectionScreen : View
-    {
-        [SerializeField]
-        HyperCasualButton m_BackButton;
-        [Space]
-        [SerializeField]
-        LevelSelectButton m_LevelButtonPrefab;
-        [SerializeField]
-        RectTransform m_LevelButtonsRoot;
-        [SerializeField]
-        AbstractGameEvent m_NextLevelEvent;
-        [SerializeField]
-        AbstractGameEvent m_BackEvent;
+	/// <summary>
+	/// This View contains level selection screen functionalities
+	/// </summary>
+	public class LevelSelectionScreen : View
+	{
+		[SerializeField]
+		HyperCasualButton m_BackButton;
+		[Space]
+		[SerializeField]
+		RectTransform m_LevelButtonsRoot;
+		[SerializeField]
+		RectTransform mangaButtonsRoot;
+		[SerializeField]
+		AbstractGameEvent m_NextLevelEvent;
+		[SerializeField]
+		AbstractGameEvent m_BackEvent;
 #if UNITY_EDITOR
-        [SerializeField]
-        bool m_UnlockAllLevels;
+		[SerializeField]
+		bool m_UnlockAllLevels;
 #endif
 
-        readonly List<LevelSelectButton> m_Buttons = new();
+		readonly List<LevelSelectButton> m_Buttons = new();
+		readonly List<MangaButton> m_mangaButtons = new();
 
-        void Start()
-        {
-            var levels = SequenceManager.Instance.Levels;
-            for (int i = 0; i < levels.Length; i++)
-            {
-                m_Buttons.Add(Instantiate(m_LevelButtonPrefab, m_LevelButtonsRoot));//修改此处可以定制按钮样式（每个按钮套用一个prefab）
-            }
+		void Start()
+		{
+			var buttons = m_LevelButtonsRoot.GetComponentsInChildren<LevelSelectButton>();
+			foreach (LevelSelectButton button in buttons)
+			{
+				m_Buttons.Add(button);
+			}
+			var mangaButtons = mangaButtonsRoot.GetComponentsInChildren<MangaButton>();
+			foreach (MangaButton button in mangaButtons)
+			{
+				m_mangaButtons.Add(button);
+			}
+			ResetButtonData();
+		}
 
-            ResetButtonData();
-        }
+		void OnEnable()
+		{
+			ResetButtonData();
 
-        void OnEnable()
-        {
-            ResetButtonData();
+			m_BackButton.AddListener(OnBackButtonClicked);
+		}
 
-            m_BackButton.AddListener(OnBackButtonClicked);
-        }
+		void OnDisable()
+		{
+			m_BackButton.RemoveListener(OnBackButtonClicked);
+		}
 
-        void OnDisable()
-        {
-            m_BackButton.RemoveListener(OnBackButtonClicked);
-        }
-
-        void ResetButtonData()
-        {
-            var levelProgress = 0;//SaveManager.Instance.LevelProgress;
-            for (int i = 0; i < m_Buttons.Count; i++)
-            {
-                var button = m_Buttons[i];
-                var unlocked = i <= levelProgress;
+		void ResetButtonData()
+		{
+			var levelProgress = SaveManager.LevelProgress;
+			for (int i = 0; i < m_Buttons.Count; i++)
+			{
+				var button = m_Buttons[i];
+				var unlocked = i <= levelProgress;
 #if UNITY_EDITOR
-                unlocked = unlocked || m_UnlockAllLevels;
+				unlocked = unlocked || m_UnlockAllLevels;
 #endif
-                button.SetData(i, unlocked, OnClick);
-            }
-        }
+				button.SetData(i, unlocked, OnClick);
+				m_mangaButtons[i].SetData(i, unlocked);
+			}
+		}
+		void OnMangaButtonClicked(int mangaIndex)
+		{
 
-        void OnClick(int startingIndex)
-        {
-            if (startingIndex < 0)
-                throw new Exception("Button is not initialized");
+		}
+		void OnClick(int startingIndex)
+		{
+			if (startingIndex < 0)
+				throw new Exception("Button is not initialized");
 
-            SequenceManager.Instance.SetStartingLevel(startingIndex);
-            m_NextLevelEvent.Raise();
-        }
+			SequenceManager.Instance.SetStartingLevel(startingIndex);
+			m_NextLevelEvent.Raise();
+		}
 
-        void OnBackButtonClicked()
-        {
-            m_BackEvent.Raise();
-        }
-    }
+		void OnBackButtonClicked()
+		{
+			m_BackEvent.Raise();
+		}
+	}
 }

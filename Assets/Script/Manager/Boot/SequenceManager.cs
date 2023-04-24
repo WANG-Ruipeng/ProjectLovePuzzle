@@ -196,9 +196,9 @@ namespace Giro
 			if (currentLevelIndex == -1)
 				throw new Exception($"{nameof(currentLevel)} is invalid!");
 
-			var levelProgress = SaveManager.Instance.LevelProgress;
+			var levelProgress = SaveManager.LevelProgress;
 			if (currentLevelIndex == levelProgress && currentLevelIndex < m_LevelStates.Count - 1)
-				SaveManager.Instance.LevelProgress = levelProgress + 1;
+				SaveManager.LevelProgress = levelProgress + 1;
 		}
 
 		void OnLevelSelectionDisplayed()

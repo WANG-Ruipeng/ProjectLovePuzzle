@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Platform : Moveable
+public class Platform : Movable
 {
 
 	public GameObject leftInteractObj;
@@ -28,6 +28,25 @@ public class Platform : Moveable
 		combineAnimationStartTime = 0;
 		exitAnimationStartTime = 0;
 	}
+
+
+	public void SetParameter(Vector3 EnterStartPos, Vector3 DownStartPos,
+		 Vector3 EndPos, Vector3 ExitPos,
+		AnimationCurve enterCurve, AnimationCurve downCurve, AnimationCurve exitCurve)
+	{
+		this.leftEnterStartPos = EnterStartPos;
+
+		this.leftDownStartPos = DownStartPos;
+
+		this.leftEndPos = EndPos;
+
+		this.leftExitPos = ExitPos;
+
+		enterAnimationCurve = enterCurve;
+		downAnimationCurve = downCurve;
+		exitAnimationCurve = exitCurve;
+	}
+
 
 	/// <summary>
 	/// Plays a scripted animation by updating the positions of two objects over time, based on an animation curve.

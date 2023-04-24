@@ -10,7 +10,7 @@ public class MovableManager : MonoBehaviour
 	static MovableManager s_Instance;
 
 	[Header("Enter scene animation settings")]
-	[Tooltip("注意所有坐标都是作用在更改在全局坐标系上，如果要统一全局和局部坐标系，需要Moveable及以上层级的物体均位于原点。")]
+	[Tooltip("注意所有坐标都是作用在更改在全局坐标系上，如果要统一全局和局部坐标系，需要movable及以上层级的物体均位于原点。")]
 	public float seceondEnterDelay = 1.5f;
 	public Vector3 leftEnterStartPos = new Vector3(-1.56f, 10, 0);
 	public Vector3 rightEnterStartPos = new Vector3(1.56f, 10, 0);
@@ -32,7 +32,7 @@ public class MovableManager : MonoBehaviour
 	public Vector3 rightExitPos = new Vector3();
 	public AnimationCurve exitAnimationCurve;
 
-	List<Moveable> Moveables;
+	List<Movable> movables;
 
 	int currentPieceNo = -2;//-2代表是目前关卡刚刚开始，拼图区内部还未有任何拼图
 
@@ -41,9 +41,9 @@ public class MovableManager : MonoBehaviour
 		get
 		{
 			int sum = 0;
-			for (int i = 0; i < Moveables.Count; i++)
+			for (int i = 0; i < movables.Count; i++)
 			{
-				PuzzlePiecePair pair = Moveables[i] as PuzzlePiecePair;
+				PuzzlePiecePair pair = movables[i] as PuzzlePiecePair;
 				if (pair)
 				{
 					sum += pair.left.rotateTime;
@@ -66,9 +66,9 @@ public class MovableManager : MonoBehaviour
 		PlayNextPuzzlePairAnimation();
 
 	}
-	public void SetMoveableList(Moveable[] pzplist)
+	public void SetmovableList(Movable[] pzplist)
 	{
-		Moveables = new List<Moveable>(pzplist);
+		movables = new List<Movable>(pzplist);
 	}
 
 	/// <summary>
@@ -76,7 +76,7 @@ public class MovableManager : MonoBehaviour
 	/// </summary>
 	public void InitPuzzles()
 	{
-		foreach (Moveable piecePair in Moveables)
+		foreach (Movable piecePair in movables)
 		{
 			piecePair.SetAllAnimationParamters(leftEnterStartPos, rightEnterStartPos, enterAnimationCurve,
 				leftDownStartPos, rightDownStartPos, downAnimationCurve,
@@ -89,12 +89,12 @@ public class MovableManager : MonoBehaviour
 	public PuzzlePiecePair GetCurrentPuzzlePair()
 	{
 
-		return Moveables[currentPieceNo] as PuzzlePiecePair;
+		return movables[currentPieceNo] as PuzzlePiecePair;
 	}
 
 	public void Collect()
 	{
-		Moveables[currentPieceNo].Collect();
+		movables[currentPieceNo].Collect();
 	}
 
 
@@ -106,7 +106,7 @@ public class MovableManager : MonoBehaviour
 	/// </returns>
 	public bool Check()//TODO: 完善Check逻辑
 	{
-		return Moveables[currentPieceNo].Check();
+		return movables[currentPieceNo].Check();
 	}
 
 	/// <summary>
@@ -116,32 +116,32 @@ public class MovableManager : MonoBehaviour
 	{
 		if (currentPieceNo == -2)
 		{
-			//Moveables = new List<Moveable>();
-			Moveables[0].PlayNextAnimation();
+			//movables = new List<movable>();
+			movables[0].PlayNextAnimation();
 			currentPieceNo++;
 			return;
 		}
 		if (currentPieceNo == -1)
 		{
-			Moveables[1].PlayNextAnimation();
-            Moveables[0].PlayNextAnimation();
-            currentPieceNo++;
+			movables[1].PlayNextAnimation();
+			movables[0].PlayNextAnimation();
+			currentPieceNo++;
 			return;
 		}
-		if (currentPieceNo == Moveables.Count - 2)
+		if (currentPieceNo == movables.Count - 2)
 		{
-			Moveables[Moveables.Count - 1].PlayNextAnimation();
-            currentPieceNo++;
+			movables[movables.Count - 1].PlayNextAnimation();
+			currentPieceNo++;
 			return;
 		}
-		if (currentPieceNo == Moveables.Count - 1)
+		if (currentPieceNo == movables.Count - 1)
 		{
 			currentPieceNo++;
 			GameManager.Instance.Win();
 			return;
 		}
-		Moveables[currentPieceNo + 2].PlayNextAnimation();
-        Moveables[currentPieceNo + 1].PlayNextAnimation();
+		movables[currentPieceNo + 2].PlayNextAnimation();
+		movables[currentPieceNo + 1].PlayNextAnimation();
 		currentPieceNo++;
 	}
 

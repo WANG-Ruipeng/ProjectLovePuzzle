@@ -21,7 +21,7 @@ namespace Giro
 			s_Instance = this;
 			Archive.Load();
 		}
-		public int LevelProgress
+		public static int LevelProgress
 		{
 			get => Archive.LevelProgress;
 			set => Archive.WriteLevelProgress(value);

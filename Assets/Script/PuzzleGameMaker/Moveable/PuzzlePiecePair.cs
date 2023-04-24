@@ -5,7 +5,7 @@ using HyperCasual.Core;
 using System;
 using Giro;
 
-public class PuzzlePiecePair : Moveable
+public class PuzzlePiecePair : Movable
 {
 	[Header("Basic information about two pieces")]
 	public GameObject leftObj;
@@ -45,6 +45,33 @@ public class PuzzlePiecePair : Moveable
 
 		combineAnimationLength = combineAnimationCurve.keys[combineAnimationCurve.length - 1].time;
 	}
+
+	public void SetParameter(Vector3 leftEnterStartPos, Vector3 rightEnterStartPos, Vector3 leftDownStartPos, Vector3 rightDownStartPos,
+		Vector3 leftCombineStartPos, Vector3 rightCombineStartPos, Vector3 leftEndPos, Vector3 rightEndPos, Vector3 leftExitPos, Vector3 rightExitPos,
+		AnimationCurve enterCurve, AnimationCurve downCurve, AnimationCurve combineCurve, AnimationCurve exitCurve)
+	{
+		this.leftEnterStartPos = leftEnterStartPos;
+		this.rightEnterStartPos = rightEnterStartPos;
+
+		this.leftDownStartPos = leftDownStartPos;
+		this.rightDownStartPos = rightDownStartPos;
+
+		this.leftCombineStartPos = leftCombineStartPos;
+		this.rightCombineStartPos = rightCombineStartPos;
+
+		this.leftEndPos = leftEndPos;
+		this.rightEndPos = rightEndPos;
+
+		this.leftExitPos = leftExitPos;
+		this.rightExitPos = rightExitPos;
+
+		enterAnimationCurve = enterCurve;
+		downAnimationCurve = downCurve;
+		combineAnimationCurve = combineCurve;
+		exitAnimationCurve = exitCurve;
+	}
+
+
 	private void Awake()
 	{
 	}
@@ -144,33 +171,33 @@ public class PuzzlePiecePair : Moveable
 
 	}
 
-    public override void PlayNextAnimation()
-    {
-		switch(screenPos)
+	public override void PlayNextAnimation()
+	{
+		switch (screenPos)
 		{
 			case ScreenPos.unentered:
 				StartPlayingEnterAnimation();
 				screenPos = ScreenPos.upScreen;
 				break;
-            case ScreenPos.upScreen:
+			case ScreenPos.upScreen:
 				StartPlayingDownAnimation();
 				screenPos = ScreenPos.downScreen;
-                break;
-            case ScreenPos.downScreen:
+				break;
+			case ScreenPos.downScreen:
 				StartPlayingCombineAnimation();
 				screenPos = ScreenPos.exited;
-                break;
-            default:
+				break;
+			default:
 
-                break;
-        }
-    }
-    /// <summary>
-    /// 触发收藏该物品后会发生的事情
-    /// TODO: 调用存档系统，播放收藏物品的一系列相关动画，根据物品属性修改角色“好感度”
-    /// </summary>
-    /// <param name="collectible"></param>
-    void Collect(Collectible collectible)
+				break;
+		}
+	}
+	/// <summary>
+	/// 触发收藏该物品后会发生的事情
+	/// TODO: 调用存档系统，播放收藏物品的一系列相关动画，根据物品属性修改角色“好感度”
+	/// </summary>
+	/// <param name="collectible"></param>
+	void Collect(Collectible collectible)
 	{
 		collectible.Collected();
 		if (SaveManager.Instance)//Q:是否需要改为关卡胜利时才保存

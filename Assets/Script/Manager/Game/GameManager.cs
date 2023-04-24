@@ -51,7 +51,7 @@ namespace Giro
 
 		GameObject m_CurrentLevelGO;
 		static GameObject puzzlePoolGO;
-		static List<Moveable> m_ActiveSteps = new List<Moveable>();
+		static List<Movable> m_ActiveSteps = new List<Movable>();
 
 		bool isCountdowning;
 
@@ -106,23 +106,23 @@ namespace Giro
 		public static void ResetPuzzlePieceManager(MovableManager instance, LevelDefinition m_CurrentLevel)
 		{
 			instance.seceondEnterDelay = m_CurrentLevel.seceondEnterDelay;
-			instance.leftEnterStartPos = m_CurrentLevel.leftEnterStartPos;
-			instance.rightEnterStartPos = m_CurrentLevel.rightEnterStartPos;
-			instance.enterAnimationCurve = m_CurrentLevel.enterAnimationCurve;
+			instance.leftEnterStartPos = m_CurrentLevel.lPos1;
+			instance.rightEnterStartPos = m_CurrentLevel.rPos1;
+			instance.enterAnimationCurve = m_CurrentLevel.puzzlesEnterAnimationCurve;
 
-			instance.leftDownStartPos = m_CurrentLevel.leftDownStartPos;
-			instance.rightDownStartPos = m_CurrentLevel.rightDownStartPos;
-			instance.downAnimationCurve = m_CurrentLevel.downAnimationCurve;
+			instance.leftDownStartPos = m_CurrentLevel.lPos2;
+			instance.rightDownStartPos = m_CurrentLevel.rPos2;
+			instance.downAnimationCurve = m_CurrentLevel.puzzlesDownAnimationCurve;
 
-			instance.leftCombineStartPos = m_CurrentLevel.leftCombineStartPos;
-			instance.rightCombineStartPos = m_CurrentLevel.rightCombineStartPos;
-			instance.leftEndPos = m_CurrentLevel.leftEndPos;
-			instance.rightEndPos = m_CurrentLevel.rightEndPos;
-			instance.combineAnimationCurve = m_CurrentLevel.combineAnimationCurve;
+			instance.leftCombineStartPos = m_CurrentLevel.lPos3;
+			instance.rightCombineStartPos = m_CurrentLevel.rPos3;
+			instance.leftEndPos = m_CurrentLevel.lPos4;
+			instance.rightEndPos = m_CurrentLevel.rPos4;
+			instance.combineAnimationCurve = m_CurrentLevel.puzzlesCombineAnimationCurve;
 
-			instance.leftExitPos = m_CurrentLevel.leftExitPos;
-			instance.rightExitPos = m_CurrentLevel.rightExitPos;
-			instance.exitAnimationCurve = m_CurrentLevel.exitAnimationCurve;
+			instance.leftExitPos = m_CurrentLevel.lPos5;
+			instance.rightExitPos = m_CurrentLevel.rPos5;
+			instance.exitAnimationCurve = m_CurrentLevel.puzzlesExitAnimationCurve;
 		}
 		/// <summary>
 		/// This method calls all methods necessary to restart a level,
@@ -156,12 +156,12 @@ namespace Giro
 				hudWindow.Show();
 			}
 			puzzlePoolGO = LevelManager.Instance.transform.Find(puzzlePoolGOName).gameObject;
-			Moveable[] moveables = puzzlePoolGO.GetComponentsInChildren<Moveable>();
-			MovableManager.Instance.SetMoveableList(moveables);
+			Movable[] movables = puzzlePoolGO.GetComponentsInChildren<Movable>();
+			MovableManager.Instance.SetmovableList(movables);
 			MovableManager.Instance.InitPuzzles();
-			for (int i = 0; i < moveables.Length; i++)
+			for (int i = 0; i < movables.Length; i++)
 			{
-				moveables[i].Reset();
+				movables[i].Reset();
 			}
 
 			if (MovableManager.Instance != null)//在pairs重置之后manager才能reset
@@ -230,30 +230,38 @@ namespace Giro
 			{
 				if (stepsList[i].isPlatform)
 				{
-					GameObject moveableGO = (GameObject)GameObject.Instantiate(Resources.Load(stepsList[i].platformObj.name));
+					GameObject movableGO = (GameObject)GameObject.Instantiate(Resources.Load(stepsList[i].platformObj.name));
 
-					moveableGO.transform.SetParent(puzzlePoolGO.transform);
-					moveableGO.name = ("Platform_" + i);
-					moveableGO.SetActive(true);
-					Moveable moveable = moveableGO.GetComponent<Platform>();
+					movableGO.transform.SetParent(puzzlePoolGO.transform);
+					movableGO.name = ("Platform_" + i);
+					movableGO.SetActive(true);
+					Movable movable = movableGO.GetComponent<Platform>();
+					((Platform)movable).SetParameter(levelDefinition.pos1, levelDefinition.pos2, levelDefinition.pos3, levelDefinition.pos4,
+						levelDefinition.platformEnterAnimationCurve, levelDefinition.platformDownAnimationCurve, levelDefinition.platformExitAnimationCurve);
 
-					levelManager.AddStep(moveable);
-					m_ActiveSteps.Add(moveable);
+					levelManager.AddStep(movable);
+					m_ActiveSteps.Add(movable);
 				}
 				else
 				{
-					GameObject moveableGO = null;
-					moveableGO = (GameObject)GameObject.Instantiate(Resources.Load(levelDefinition.puzzlePiecePairPrefab.name));
-					if (moveableGO.GetComponent<PuzzlePiecePair>())
+					GameObject movableGO = null;
+					movableGO = (GameObject)GameObject.Instantiate(Resources.Load(levelDefinition.puzzlePiecePairPrefab.name));
+					if (movableGO.GetComponent<PuzzlePiecePair>())
 					{
-						PuzzlePiecePair moveable = moveableGO.GetComponent<PuzzlePiecePair>();
-						moveableGO.transform.SetParent(puzzlePoolGO.transform);
-						moveableGO.name = ("PuzzlePair_" + i);
+						PuzzlePiecePair movable = movableGO.GetComponent<PuzzlePiecePair>();
+						((PuzzlePiecePair)movable).SetParameter(levelDefinition.lPos1, levelDefinition.rPos1, levelDefinition.lPos2, levelDefinition.rPos2,
+							levelDefinition.lPos3, levelDefinition.rPos3, levelDefinition.lPos4, levelDefinition.rPos4,
+							levelDefinition.lPos5, levelDefinition.rPos5,
+							levelDefinition.platformEnterAnimationCurve, levelDefinition.platformDownAnimationCurve,
+							levelDefinition.puzzlesCombineAnimationCurve, levelDefinition.platformExitAnimationCurve);
+
+						movableGO.transform.SetParent(puzzlePoolGO.transform);
+						movableGO.name = ("PuzzlePair_" + i);
 
 						if (stepsList[i].lStepPrefab != null)
 						{
 							GameObject go = null;
-							go = (GameObject)GameObject.Instantiate(Resources.Load(stepsList[i].lStepPrefab.name), moveableGO.transform);
+							go = (GameObject)GameObject.Instantiate(Resources.Load(stepsList[i].lStepPrefab.name), movableGO.transform);
 							PuzzlePiece pz = go.GetComponent<PuzzlePiece>();
 							pz.RotateCurve = levelDefinition.rotateCurve;
 
@@ -266,12 +274,12 @@ namespace Giro
 								pz.collections.Add(stepsList[i].lCollectibleInfos[j].prefab.GetComponent<Collectible>());
 								pz.collections[pz.collections.Count - 1].SetData(stepsList[i].lCollectibleInfos[j]);
 							}
-							moveable.leftObj = go;
+							movable.leftObj = go;
 						}
 						if (stepsList[i].rStepPrefab != null)
 						{
 							GameObject go = null;
-							go = (GameObject)GameObject.Instantiate(Resources.Load(stepsList[i].rStepPrefab.name), moveableGO.transform);
+							go = (GameObject)GameObject.Instantiate(Resources.Load(stepsList[i].rStepPrefab.name), movableGO.transform);
 							PuzzlePiece pz = go.GetComponent<PuzzlePiece>();
 							pz.RotateCurve = levelDefinition.rotateCurve;
 							for (int j = 0; j < stepsList[i].rCollectibleInfos.Length; j++)
@@ -283,11 +291,11 @@ namespace Giro
 								pz.collections.Add(stepsList[i].rCollectibleInfos[j].prefab.GetComponent<Collectible>());
 								pz.collections[pz.collections.Count - 1].SetData(stepsList[i].rCollectibleInfos[j]);
 							}
-							moveable.rightObj = go;
+							movable.rightObj = go;
 						}
-						moveableGO.SetActive(true);
-						levelManager.AddStep(moveable);
-						m_ActiveSteps.Add(moveable);
+						movableGO.SetActive(true);
+						levelManager.AddStep(movable);
+						m_ActiveSteps.Add(movable);
 					}
 				}
 			}
