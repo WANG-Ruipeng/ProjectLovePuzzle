@@ -4,12 +4,15 @@ using UnityEngine;
 using Giro;
 using HyperCasual.Core;
 using System;
+using TMPro;
+using UnityEngine.UI;
 
 public class MangaButton : HyperCasualButton
 {
 	int m_Index;
 	bool m_IsUnlocked;
-
+	RectTransform rectTransform;
+	public Sprite sourceImage;
 
 	/// <param name="index">The index of the associated level</param>
 	/// <param name="unlocked">Is the associated level locked?</param>
@@ -18,6 +21,13 @@ public class MangaButton : HyperCasualButton
 		m_Index = index;
 		m_IsUnlocked = unlocked;
 		m_Button.interactable = m_IsUnlocked;
+	}
+
+	private void Awake()
+	{
+		rectTransform = GetComponent<RectTransform>();
+		var t = GetComponent<Image>().sprite;
+		sourceImage = t;
 	}
 
 	protected override void OnEnable()
@@ -35,8 +45,15 @@ public class MangaButton : HyperCasualButton
 	protected override void OnClick()
 	{
 		PlayButtonSound();
-		UIManager.Instance.GetView<MangaScreen>().index = m_Index;
-		UIManager.Instance.Show<MangaScreen>();
+		var mangaScreen = UIManager.Instance.GetView<MangaScreen>();
+		if (mangaScreen)
+		{
+			mangaScreen.index = m_Index;
+			mangaScreen.startTrans = rectTransform;
+			mangaScreen.sourceImage = sourceImage;
+			UIManager.Instance.Show<MangaScreen>();
+
+		}
 	}
 
 }
