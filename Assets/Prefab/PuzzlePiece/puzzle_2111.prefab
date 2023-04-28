@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 8608260292281702694}
   - component: {fileID: -2605220623034555106}
   - component: {fileID: 5632641341889782121}
-  - component: {fileID: 8332020874892972687}
+  - component: {fileID: 8237944431024826049}
   m_Layer: 0
-  m_Name: puzzle_1
+  m_Name: puzzle_2111
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1357cac3bedfab6499bccc89ace1568e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3bece2f8d7686c94da04b2759250ef47, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -104,18 +104,18 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0
@@ -124,14 +124,14 @@ MonoBehaviour:
     m_RotationOrder: 4
   RotateClockWise: 0
   state: 0
-  edgeProps: 00000000010000000000000000000000
+  edgeProps: 01000000000000000000000001000000
   collections: []
   saturationController: {fileID: 0}
   startSaturation: 1
   endSaturation: 0
   addSaturation: -0.2
   rotateTime: 0
---- !u!114 &8332020874892972687
+--- !u!114 &8237944431024826049
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
