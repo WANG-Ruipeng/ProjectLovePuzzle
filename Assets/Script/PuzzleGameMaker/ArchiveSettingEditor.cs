@@ -8,6 +8,7 @@ using Giro;
 public class ArchiveSettingEditor : EditorWindow
 {
 	int levelProgress;
+	bool firstEntry;
 	[MenuItem("Window/Save Setting Editor")]
 	static void Init()
 	{
@@ -19,9 +20,11 @@ public class ArchiveSettingEditor : EditorWindow
 	private void OnGUI()
 	{
 		levelProgress = EditorGUILayout.IntField("Level Progress", levelProgress);
+		firstEntry = EditorGUILayout.Toggle("Is First Entry", firstEntry);
 		if (GUILayout.Button("应用上述存档"))
 		{
 			SaveManager.LevelProgress = levelProgress;
+			SaveManager.FirstEntry = firstEntry;
 		}
 		GUILayout.Label("↓这真的会重置一切存档包括收藏品");
 		if (GUILayout.Button("重建新存档"))

@@ -151,6 +151,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1696911578}
   m_RootOrder: 0
@@ -227,6 +228,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 483728484}
   m_RootOrder: 0
@@ -248,7 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f63ebe912d94eb5807cb89d783f15cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetMode: 2
+  TargetMode: 1
   Target: {fileID: 15161308}
 --- !u!114 &15161308
 MonoBehaviour:
@@ -315,6 +317,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 731807668}
   - {fileID: 453561395}
@@ -383,6 +386,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 708634067}
   m_RootOrder: 1
@@ -406,11 +410,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ProgressTargets:
   - {fileID: 75969250}
+  ProgressorTargets: []
   FromValue: 0
   ToValue: 1
   CurrentValue: 0
   Progress: 0
-  EasedProgress: 0
   CustomResetValue: 0
   Reaction:
     Settings:
@@ -466,7 +470,7 @@ MonoBehaviour:
       Elasticity: 1
       FadeOutShake: 0
     FromValue: 0
-    ToValue: 1
+    ToValue: 0
     CurrentValue: 0
   ResetValueOnEnable: 1
   OnValueChanged:
@@ -475,9 +479,10 @@ MonoBehaviour:
   OnProgressChanged:
     m_PersistentCalls:
       m_Calls: []
-  OnEasedProgressChanged:
-    m_PersistentCalls:
-      m_Calls: []
+  Id:
+    Category: None
+    Name: None
+    Custom: 0
 --- !u!114 &75969250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -490,7 +495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f63ebe912d94eb5807cb89d783f15cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetMode: 2
+  TargetMode: 1
   Target: {fileID: 75969251}
 --- !u!114 &75969251
 MonoBehaviour:
@@ -556,6 +561,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 410172844}
   m_Father: {fileID: 1356478830}
@@ -594,6 +600,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 731807668}
   m_RootOrder: 0
@@ -670,6 +677,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1476931907}
   m_RootOrder: 0
@@ -691,7 +699,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f63ebe912d94eb5807cb89d783f15cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetMode: 2
+  TargetMode: 1
   Target: {fileID: 322941222}
 --- !u!114 &322941222
 MonoBehaviour:
@@ -761,6 +769,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 708634067}
   m_RootOrder: 2
@@ -784,11 +793,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ProgressTargets:
   - {fileID: 386337083}
+  ProgressorTargets: []
   FromValue: 0
   ToValue: 1
   CurrentValue: 0
   Progress: 0
-  EasedProgress: 0
   CustomResetValue: 0
   Reaction:
     Settings:
@@ -844,7 +853,7 @@ MonoBehaviour:
       Elasticity: 1
       FadeOutShake: 0
     FromValue: 0
-    ToValue: 1
+    ToValue: 0
     CurrentValue: 0
   ResetValueOnEnable: 1
   OnValueChanged:
@@ -853,9 +862,10 @@ MonoBehaviour:
   OnProgressChanged:
     m_PersistentCalls:
       m_Calls: []
-  OnEasedProgressChanged:
-    m_PersistentCalls:
-      m_Calls: []
+  Id:
+    Category: None
+    Name: None
+    Custom: 0
 --- !u!114 &386337083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -868,7 +878,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f63ebe912d94eb5807cb89d783f15cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetMode: 2
+  TargetMode: 1
   Target: {fileID: 386337084}
 --- !u!114 &386337084
 MonoBehaviour:
@@ -938,6 +948,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1611185292}
   m_Father: {fileID: 142488648}
@@ -2390,6 +2401,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 542208853}
   - {fileID: 483728484}
@@ -2418,11 +2430,11 @@ MonoBehaviour:
   ProgressTargets:
   - {fileID: 1105807175}
   - {fileID: 15161307}
+  ProgressorTargets: []
   FromValue: 0
   ToValue: 1
   CurrentValue: 0
   Progress: 0
-  EasedProgress: 0
   CustomResetValue: 0
   Reaction:
     Settings:
@@ -2478,7 +2490,7 @@ MonoBehaviour:
       Elasticity: 1
       FadeOutShake: 0
     FromValue: 0
-    ToValue: 1
+    ToValue: 0
     CurrentValue: 0
   ResetValueOnEnable: 1
   OnValueChanged:
@@ -2487,9 +2499,10 @@ MonoBehaviour:
   OnProgressChanged:
     m_PersistentCalls:
       m_Calls: []
-  OnEasedProgressChanged:
-    m_PersistentCalls:
-      m_Calls: []
+  Id:
+    Category: None
+    Name: None
+    Custom: 0
 --- !u!1 &426294664
 GameObject:
   m_ObjectHideFlags: 0
@@ -2519,6 +2532,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 846212667}
   m_RootOrder: 0
@@ -2540,7 +2554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f63ebe912d94eb5807cb89d783f15cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetMode: 2
+  TargetMode: 1
   Target: {fileID: 426294667}
 --- !u!114 &426294667
 MonoBehaviour:
@@ -2608,6 +2622,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1722978875}
   m_RootOrder: 0
@@ -2682,6 +2697,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 852901936}
   - {fileID: 846212667}
@@ -2710,11 +2726,11 @@ MonoBehaviour:
   ProgressTargets:
   - {fileID: 1282863601}
   - {fileID: 426294666}
+  ProgressorTargets: []
   FromValue: 0
   ToValue: 1
   CurrentValue: 0
   Progress: 0
-  EasedProgress: 0
   CustomResetValue: 0
   Reaction:
     Settings:
@@ -2770,7 +2786,7 @@ MonoBehaviour:
       Elasticity: 1
       FadeOutShake: 0
     FromValue: 0
-    ToValue: 1
+    ToValue: 0
     CurrentValue: 0
   ResetValueOnEnable: 1
   OnValueChanged:
@@ -2779,9 +2795,10 @@ MonoBehaviour:
   OnProgressChanged:
     m_PersistentCalls:
       m_Calls: []
-  OnEasedProgressChanged:
-    m_PersistentCalls:
-      m_Calls: []
+  Id:
+    Category: None
+    Name: None
+    Custom: 0
 --- !u!1 &483728483
 GameObject:
   m_ObjectHideFlags: 0
@@ -2811,6 +2828,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 15161306}
   - {fileID: 765151480}
@@ -2903,6 +2921,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 731807668}
   m_RootOrder: 3
@@ -3070,6 +3089,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 413077604}
   m_RootOrder: 0
@@ -3146,6 +3166,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1795572741}
   m_RootOrder: 3
@@ -3167,7 +3188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f63ebe912d94eb5807cb89d783f15cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetMode: 2
+  TargetMode: 1
   Target: {fileID: 587290265}
 --- !u!114 &587290265
 MonoBehaviour:
@@ -3234,6 +3255,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1436366253}
   - {fileID: 74114741}
@@ -3301,6 +3323,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1612182200}
   - {fileID: 75969248}
@@ -3391,6 +3414,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 282730415}
   - {fileID: 1579134305}
@@ -3419,11 +3443,11 @@ MonoBehaviour:
   ProgressTargets:
   - {fileID: 486594772}
   - {fileID: 1693986665}
+  ProgressorTargets: []
   FromValue: 0
   ToValue: 1
   CurrentValue: 0
   Progress: 0
-  EasedProgress: 0
   CustomResetValue: 0
   Reaction:
     Settings:
@@ -3488,9 +3512,10 @@ MonoBehaviour:
   OnProgressChanged:
     m_PersistentCalls:
       m_Calls: []
-  OnEasedProgressChanged:
-    m_PersistentCalls:
-      m_Calls: []
+  Id:
+    Category: None
+    Name: None
+    Custom: 0
 --- !u!1 &765151479
 GameObject:
   m_ObjectHideFlags: 0
@@ -3519,6 +3544,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 483728484}
   m_RootOrder: 1
@@ -3594,6 +3620,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1436366253}
   m_RootOrder: 0
@@ -3669,6 +3696,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 413077604}
   m_RootOrder: 2
@@ -3745,6 +3773,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 426294665}
   - {fileID: 936793726}
@@ -3835,6 +3864,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 453561395}
   m_RootOrder: 0
@@ -3910,6 +3940,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 846212667}
   m_RootOrder: 1
@@ -3985,6 +4016,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 453561395}
   m_RootOrder: 2
@@ -4062,6 +4094,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 413077604}
   m_RootOrder: 3
@@ -4229,6 +4262,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 731807668}
   m_RootOrder: 2
@@ -4306,6 +4340,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 453561395}
   m_RootOrder: 3
@@ -4473,6 +4508,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1356478830}
   m_RootOrder: 0
@@ -4559,6 +4595,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -4590,6 +4627,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1315749289}
   - {fileID: 1696911578}
@@ -4653,9 +4691,7 @@ MonoBehaviour:
   CurrentStateName: Normal
   NormalState:
     StateType: 0
-    StateName: Normal
     StateEvent:
-      Enabled: 1
       EventName: Unnamed
       Runners: []
       Event:
@@ -4663,9 +4699,7 @@ MonoBehaviour:
           m_Calls: []
   HighlightedState:
     StateType: 1
-    StateName: Highlighted
     StateEvent:
-      Enabled: 1
       EventName: Unnamed
       Runners: []
       Event:
@@ -4673,9 +4707,7 @@ MonoBehaviour:
           m_Calls: []
   PressedState:
     StateType: 2
-    StateName: Pressed
     StateEvent:
-      Enabled: 1
       EventName: Unnamed
       Runners: []
       Event:
@@ -4683,9 +4715,7 @@ MonoBehaviour:
           m_Calls: []
   SelectedState:
     StateType: 3
-    StateName: Selected
     StateEvent:
-      Enabled: 1
       EventName: Unnamed
       Runners: []
       Event:
@@ -4693,9 +4723,7 @@ MonoBehaviour:
           m_Calls: []
   DisabledState:
     StateType: 4
-    StateName: Disabled
     StateEvent:
-      Enabled: 1
       EventName: Unnamed
       Runners: []
       Event:
@@ -4831,6 +4859,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1579134305}
   m_RootOrder: 1
@@ -4905,6 +4934,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 772926015}
   - {fileID: 1476931907}
@@ -4930,11 +4960,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ProgressTargets:
   - {fileID: 322941221}
+  ProgressorTargets: []
   FromValue: 0
   ToValue: 1
   CurrentValue: 0
   Progress: 0
-  EasedProgress: 0
   CustomResetValue: 0
   Reaction:
     Settings:
@@ -4999,9 +5029,10 @@ MonoBehaviour:
   OnProgressChanged:
     m_PersistentCalls:
       m_Calls: []
-  OnEasedProgressChanged:
-    m_PersistentCalls:
-      m_Calls: []
+  Id:
+    Category: None
+    Name: None
+    Custom: 0
 --- !u!1 &1476931906
 GameObject:
   m_ObjectHideFlags: 0
@@ -5031,6 +5062,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 322941220}
   m_Father: {fileID: 1436366253}
@@ -5119,6 +5151,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1795572741}
   m_Father: {fileID: 661382050}
@@ -5184,6 +5217,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1693986664}
   - {fileID: 1393276846}
@@ -5276,6 +5310,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 410172844}
   m_RootOrder: 0
@@ -5782,6 +5817,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 708634067}
   m_RootOrder: 0
@@ -5803,7 +5839,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f63ebe912d94eb5807cb89d783f15cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetMode: 2
+  TargetMode: 1
   Target: {fileID: 1612182202}
 --- !u!114 &1612182202
 MonoBehaviour:
@@ -5858,11 +5894,11 @@ MonoBehaviour:
   ProgressTargets:
   - {fileID: 587290264}
   - {fileID: 1612182201}
+  ProgressorTargets: []
   FromValue: 0
   ToValue: 1
   CurrentValue: 0
   Progress: 0
-  EasedProgress: 0
   CustomResetValue: 0
   Reaction:
     Settings:
@@ -5927,9 +5963,10 @@ MonoBehaviour:
   OnProgressChanged:
     m_PersistentCalls:
       m_Calls: []
-  OnEasedProgressChanged:
-    m_PersistentCalls:
-      m_Calls: []
+  Id:
+    Category: None
+    Name: None
+    Custom: 0
 --- !u!1 &1693986663
 GameObject:
   m_ObjectHideFlags: 0
@@ -5959,6 +5996,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1579134305}
   m_RootOrder: 0
@@ -5980,7 +6018,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f63ebe912d94eb5807cb89d783f15cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetMode: 2
+  TargetMode: 1
   Target: {fileID: 1693986666}
 --- !u!114 &1693986666
 MonoBehaviour:
@@ -6046,6 +6084,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9648519}
   m_Father: {fileID: 1356478830}
@@ -6146,6 +6185,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 436742996}
   - {fileID: 1356478830}
@@ -6186,6 +6226,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1795572741}
   m_RootOrder: 0
@@ -6312,6 +6353,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -6342,6 +6384,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1730792192}
   - {fileID: 708634067}
@@ -6383,6 +6426,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1795572741}
   m_RootOrder: 2
@@ -6440,7 +6484,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1997238086}
   - component: {fileID: 1997238085}
-  - component: {fileID: 1997238084}
+  - component: {fileID: 1997238087}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -6448,44 +6492,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1997238084
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1997238083}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MoveRepeatDelay: 0.5
-  m_MoveRepeatRate: 0.1
-  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018,
-    type: 3}
-  m_PointAction: {fileID: 1054132383583890850, guid: ca9f5fa95ffab41fb9a615ab714db018,
-    type: 3}
-  m_MoveAction: {fileID: 3710738434707379630, guid: ca9f5fa95ffab41fb9a615ab714db018,
-    type: 3}
-  m_SubmitAction: {fileID: 2064916234097673511, guid: ca9f5fa95ffab41fb9a615ab714db018,
-    type: 3}
-  m_CancelAction: {fileID: -1967631576421560919, guid: ca9f5fa95ffab41fb9a615ab714db018,
-    type: 3}
-  m_LeftClickAction: {fileID: 8056856818456041789, guid: ca9f5fa95ffab41fb9a615ab714db018,
-    type: 3}
-  m_MiddleClickAction: {fileID: 3279352641294131588, guid: ca9f5fa95ffab41fb9a615ab714db018,
-    type: 3}
-  m_RightClickAction: {fileID: 3837173908680883260, guid: ca9f5fa95ffab41fb9a615ab714db018,
-    type: 3}
-  m_ScrollWheelAction: {fileID: 4502412055082496612, guid: ca9f5fa95ffab41fb9a615ab714db018,
-    type: 3}
-  m_TrackedDevicePositionAction: {fileID: 4754684134866288074, guid: ca9f5fa95ffab41fb9a615ab714db018,
-    type: 3}
-  m_TrackedDeviceOrientationAction: {fileID: 1025543830046995696, guid: ca9f5fa95ffab41fb9a615ab714db018,
-    type: 3}
-  m_DeselectOnBackgroundClick: 1
-  m_PointerBehavior: 0
 --- !u!114 &1997238085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6511,7 +6517,28 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1997238087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1997238083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0

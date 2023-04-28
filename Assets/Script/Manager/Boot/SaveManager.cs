@@ -26,6 +26,11 @@ namespace Giro
 			get => Archive.LevelProgress;
 			set => Archive.WriteLevelProgress(value);
 		}
+		public static bool FirstEntry
+		{
+			get => Archive.FirstEntry;
+			set => Archive.WriteFirstEntry(value);
+		}
 
 		/// <summary>
 		/// 保存收藏品数据调用SaveCollectibleInfo
