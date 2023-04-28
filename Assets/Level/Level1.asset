@@ -16,109 +16,59 @@ MonoBehaviour:
   puzzlePiecePairPrefab: {fileID: 4092972524480892814, guid: 26113b33063650c48a4888faadbd3222, type: 3}
   maxCountdown: 5
   seceondEnterDelay: 1.5
-  leftEnterStartPos: {x: -3, y: 8, z: 0}
-  rightEnterStartPos: {x: 3, y: 8, z: 0}
-  leftDownStartPos: {x: -1.56, y: 4, z: 0}
-  rightDownStartPos: {x: 1.56, y: 4, z: 0}
-  leftCombineStartPos: {x: -1.56, y: 0, z: 0}
-  rightCombineStartPos: {x: 1.56, y: 0, z: 0}
-  leftEndPos: {x: -0.56, y: 0, z: 0}
-  rightEndPos: {x: 0.56, y: 0, z: 0}
-  leftExitPos: {x: -1.56, y: -10, z: 0}
-  rightExitPos: {x: 1.56, y: 10, z: 0}
-  enterAnimationCurve:
+  pos1: {x: -1.56, y: 10, z: 0}
+  pos2: {x: -1.56, y: 4, z: 0}
+  pos3: {x: -1.56, y: 0, z: 0}
+  pos4: {x: 0, y: 0, z: 0}
+  platformEnterAnimationCurve:
     serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.553772
-      value: 0.98586273
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
+    m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  downAnimationCurve:
+  platformDownAnimationCurve:
     serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
+    m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  combineAnimationCurve:
+  platformExitAnimationCurve:
     serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
+    m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  exitAnimationCurve:
+  lPos1: {x: -1.56, y: 10, z: 0}
+  rPos1: {x: 1.56, y: 10, z: 0}
+  lPos2: {x: -1.56, y: 4, z: 0}
+  rPos2: {x: 1.56, y: 4, z: 0}
+  lPos3: {x: -1.56, y: 0, z: 0}
+  rPos3: {x: 1.56, y: 0, z: 0}
+  lPos4: {x: -0.56, y: 0, z: 0}
+  rPos4: {x: 0.56, y: 0, z: 0}
+  lPos5: {x: 0, y: 0, z: 0}
+  rPos5: {x: 0, y: 0, z: 0}
+  puzzlesEnterAnimationCurve:
     serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  puzzlesDownAnimationCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  puzzlesCombineAnimationCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  puzzlesExitAnimationCurve:
+    serializedVersion: 2
+    m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
