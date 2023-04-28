@@ -30,6 +30,7 @@ public class ArchiveSettingEditor : EditorWindow
 		if (GUILayout.Button("重建新存档"))
 		{
 			Archive.Recreate();
+			Archive.Load();
 		}
 	}
 

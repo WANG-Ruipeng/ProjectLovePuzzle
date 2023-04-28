@@ -1,0 +1,7 @@
+﻿[*.cs]
+
+# IDE1006: 命名样式
+dotnet_diagnostic.IDE1006.severity = none
+
+# IDE0090: 使用 "new(...)"
+dotnet_diagnostic.IDE0090.severity = none

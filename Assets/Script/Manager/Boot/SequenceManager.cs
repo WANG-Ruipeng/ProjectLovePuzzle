@@ -184,7 +184,7 @@ namespace Giro
 
 		void OnMainMenuDisplayed()
 		{
-			ShowUI<MainScreen>();
+			//ShowUI<MainScreen>();
 			AudioManager.Instance.PlayMusic(SoundID.None);
 		}
 

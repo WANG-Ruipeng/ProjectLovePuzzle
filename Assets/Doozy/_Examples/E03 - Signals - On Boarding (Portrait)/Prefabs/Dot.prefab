@@ -32,6 +32,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7941867816249328557}
   m_RootOrder: 0
@@ -446,6 +447,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7941867816249328557}
   m_Father: {fileID: 0}
@@ -557,9 +559,7 @@ MonoBehaviour:
   CurrentStateName: Disabled
   NormalState:
     StateType: 0
-    StateName: Normal
     StateEvent:
-      Enabled: 1
       EventName: Unnamed
       Runners: []
       Event:
@@ -567,9 +567,7 @@ MonoBehaviour:
           m_Calls: []
   HighlightedState:
     StateType: 1
-    StateName: Highlighted
     StateEvent:
-      Enabled: 1
       EventName: Unnamed
       Runners: []
       Event:
@@ -577,9 +575,7 @@ MonoBehaviour:
           m_Calls: []
   PressedState:
     StateType: 2
-    StateName: Pressed
     StateEvent:
-      Enabled: 1
       EventName: Unnamed
       Runners: []
       Event:
@@ -587,9 +583,7 @@ MonoBehaviour:
           m_Calls: []
   SelectedState:
     StateType: 3
-    StateName: Selected
     StateEvent:
-      Enabled: 1
       EventName: Unnamed
       Runners: []
       Event:
@@ -597,9 +591,7 @@ MonoBehaviour:
           m_Calls: []
   DisabledState:
     StateType: 4
-    StateName: Disabled
     StateEvent:
-      Enabled: 1
       EventName: Unnamed
       Runners: []
       Event:
@@ -612,9 +604,8 @@ MonoBehaviour:
   Id:
     Category: None
     Name: None
-    Custom: 1
+    Custom: 0
   OnToggleOnCallback:
-    Enabled: 1
     EventName: OnToggleOnCallback
     Runners: []
     Event:
@@ -633,14 +624,12 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
   OnInstantToggleOnCallback:
-    Enabled: 0
     EventName: OnInstantToggleOnCallback
     Runners: []
     Event:
       m_PersistentCalls:
         m_Calls: []
   OnToggleOffCallback:
-    Enabled: 1
     EventName: OnToggleOffCallback
     Runners: []
     Event:
@@ -659,7 +648,6 @@ MonoBehaviour:
             m_BoolArgument: 1
           m_CallState: 2
   OnInstantToggleOffCallback:
-    Enabled: 0
     EventName: OnInstantToggleOffCallback
     Runners: []
     Event:
@@ -702,7 +690,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Callback:
-    Enabled: 1
     EventName: Callback
     Runners: []
     Event:
@@ -755,6 +742,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7197556249633179485}
   m_Father: {fileID: 4567287455804880637}

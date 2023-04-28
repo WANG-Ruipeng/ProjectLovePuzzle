@@ -52,6 +52,8 @@ static public class Archive
 		XmlDocument xmlDoc = new XmlDocument();
 		xmlDoc.Load(xmlFilePath);
 		XmlNode root = xmlDoc.SelectSingleNode("Root");
+		//载入首次进入信息
+		firstEntry = bool.Parse(root[firstEntryName].InnerText);
 		//载入关卡进度
 		levelProgress = int.Parse(root[leveleProgressName].InnerText);
 		//载入收藏品信息
@@ -111,7 +113,7 @@ static public class Archive
 		writer.Formatting = Formatting.Indented;
 		writer.WriteStartDocument();
 		writer.WriteStartElement("Root");
-		writer.WriteElementString(firstEntryName, false.ToString());
+		writer.WriteElementString(firstEntryName, true.ToString());
 		writer.WriteElementString(leveleProgressName, "0");
 		writer.WriteStartElement(collectibleArrayName);
 		for (int i = 0; i < collectibleTypeCount; i++)

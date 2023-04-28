@@ -1,28 +1,61 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using HyperCasual.Core;
-using Giro;
 using UnityEngine.UI;
+using Doozy.Runtime.Signals;
+using Giro;
 
-public class MainScreen : View
+public class MainScreen : MonoBehaviour, ISignalProvider
 {
-    [SerializeField]
-    HyperCasualButton startButton;
+	public void CheckFirstEntry()
+	{
+		Debug.Log(SaveManager.FirstEntry);
+		if (SaveManager.FirstEntry == true)
+		{
+			SendSignal();
+		}
+	}
 
-    [SerializeField]
-    AbstractGameEvent ContinueEvent;
-    void OnEnable()
-    {
-        startButton.AddListener(OnStartButtonClicked);
-    }
-    private void OnDisable()
-    {
-        startButton.RemoveListener(OnStartButtonClicked);
-    }
-    void OnStartButtonClicked()
-    {
-        ContinueEvent.Raise();
-    }
+	#region Signal
+	public ProviderAttributes attributes
+	{
+		get
+		{
+			ProviderAttributes ret = new ProviderAttributes(ProviderType.Global, "MainMenuSignal", "FirstEntry", null);
+			return ret;
+		}
+	}
 
+	public SignalStream stream
+	{
+		get
+		{
+			SignalStream ret = new SignalStream(SignalsService.GetNewStreamKey());
+			return ret;
+		}
+	}
+	public bool isConnected
+	{
+		get => true;
+	}
+	public void OpenStream()
+	{
+	}
+	public void CloseStream()
+	{
+
+	}
+	public bool SendSignal()
+	{
+		Debug.Log("QWQ");
+		return true;
+	}
+	public bool SendSignal<T>(T signalValue)
+	{
+		Debug.Log("QWQ");
+		return true;
+	}
+
+
+	#endregion
 }
