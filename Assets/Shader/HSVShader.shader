@@ -63,7 +63,7 @@ Shader "Custom/HSVShader"
                 float p = value * (1 - saturation);
                 float q = value * (1 - f * saturation);
                 float t = value * (1 - (1 - f) * saturation);
-
+                
                 switch (hi)
                 {
                     case 0: c.r = value; c.g = t; c.b = p; break;
@@ -73,6 +73,7 @@ Shader "Custom/HSVShader"
                     case 4: c.r = t; c.g = p; c.b = value; break;
                     case 5: c.r = value; c.g = p; c.b = q; break;
                 }
+                
 
                 o.Albedo = c.rgb;
                 o.Alpha = c.a;
