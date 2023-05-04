@@ -79,15 +79,15 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 2.6281552
-      outSlope: 2.6281552
+      inSlope: 2.4940133
+      outSlope: 2.4940133
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.285736
-      value: 0.75095856
+      time: 0.3279418
+      value: 0.81789124
       inSlope: 1.641724
       outSlope: 1.641724
       tangentMode: 0
@@ -95,38 +95,47 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.7077337
-      value: 1
-      inSlope: 0.64796686
-      outSlope: 0.64796686
+      time: 0.6317449
+      value: 1.0039368
+      inSlope: 0.10761949
+      outSlope: 0.10761949
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.5279691
+      inWeight: 0.17337842
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   leftCombineStartPos: {x: -3, y: 0, z: 0}
   rightCombineStartPos: {x: 3, y: 0, z: 0}
-  leftEndPos: {x: -1.5, y: 0, z: 0}
-  rightEndPos: {x: 1.5, y: 0, z: 0}
+  leftEndPos: {x: -1.6, y: 0, z: 0}
+  rightEndPos: {x: 1.6, y: 0, z: 0}
   combineAnimationCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 2.4202135
-      outSlope: 2.4202135
+      inSlope: 3.595658
+      outSlope: 3.595658
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.41156006
-      value: 0.99606323
-      inSlope: 2.4202135
-      outSlope: 2.4202135
+      time: 0.21800679
+      value: 0.78387785
+      inSlope: 2.6693377
+      outSlope: 2.6693377
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.34199113
+      value: 0.99998474
+      inSlope: 1.7430177
+      outSlope: 1.7430177
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -134,25 +143,25 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  leftExitPos: {x: -1.5, y: -15, z: 0}
-  rightExitPos: {x: 1.5, y: -15, z: 0}
+  leftExitPos: {x: -1.6, y: -15, z: 0}
+  rightExitPos: {x: 1.6, y: -15, z: 0}
   exitAnimationCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 1.7586948
-      outSlope: 1.7586948
+      inSlope: 3.7483413
+      outSlope: 3.7483413
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.5686035
+      time: 0.26678467
       value: 1
-      inSlope: 1.7586948
-      outSlope: 1.7586948
+      inSlope: 3.7483413
+      outSlope: 3.7483413
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
