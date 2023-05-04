@@ -26,6 +26,7 @@ namespace Doozy.Runtime.UIManager
     {
         public enum View
         {
+            LevelSelect,
             MainMenu
         }    
     }

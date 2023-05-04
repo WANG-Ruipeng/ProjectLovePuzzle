@@ -17,4 +17,6 @@ MonoBehaviour:
     - Category: None
       Name: None
     - Category: View
+      Name: LevelSelect
+    - Category: View
       Name: MainMenu
