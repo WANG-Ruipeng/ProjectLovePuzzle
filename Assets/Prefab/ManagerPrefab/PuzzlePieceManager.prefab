@@ -44,109 +44,118 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd9e1122afd84a548a654f452fe6a115, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seceondEnterDelay: 1.5
-  leftEnterStartPos: {x: -3, y: 8, z: 0}
-  rightEnterStartPos: {x: 3, y: 8, z: 0}
+  seceondEnterDelay: 0.5
+  leftEnterStartPos: {x: -3, y: 15, z: 0}
+  rightEnterStartPos: {x: 3, y: 15, z: 0}
   enterAnimationCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
+      inSlope: 4.065825
+      outSlope: 4.065825
+      tangentMode: 34
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.33333334
     - serializedVersion: 3
       time: 0.553772
       value: 0.98586273
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
+      inSlope: 4.065825
+      outSlope: 4.065825
+      tangentMode: 34
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.33333334
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  leftDownStartPos: {x: -1.56, y: 4, z: 0}
-  rightDownStartPos: {x: 1.56, y: 4, z: 0}
+  leftDownStartPos: {x: -3, y: 6, z: 0}
+  rightDownStartPos: {x: 3, y: 6, z: 0}
   downAnimationCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
+      inSlope: 2.6281552
+      outSlope: 2.6281552
+      tangentMode: 34
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.33333334
     - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 2
-      outSlope: 2
+      time: 0.285736
+      value: 0.75095856
+      inSlope: 1.641724
+      outSlope: 1.641724
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.7077337
+      value: 1
+      inSlope: 0.64796686
+      outSlope: 0.64796686
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.5279691
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  leftCombineStartPos: {x: -1.56, y: 0, z: 0}
-  rightCombineStartPos: {x: 1.56, y: 0, z: 0}
-  leftEndPos: {x: -0.56, y: 0, z: 0}
-  rightEndPos: {x: 0.56, y: 0, z: 0}
+  leftCombineStartPos: {x: -3, y: 0, z: 0}
+  rightCombineStartPos: {x: 3, y: 0, z: 0}
+  leftEndPos: {x: -1.5, y: 0, z: 0}
+  rightEndPos: {x: 1.5, y: 0, z: 0}
   combineAnimationCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
+      inSlope: 2.4202135
+      outSlope: 2.4202135
+      tangentMode: 34
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.33333334
     - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
+      time: 0.41156006
+      value: 0.99606323
+      inSlope: 2.4202135
+      outSlope: 2.4202135
+      tangentMode: 34
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.33333334
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  leftExitPos: {x: -1.56, y: -10, z: 0}
-  rightExitPos: {x: 1.56, y: 10, z: 0}
+  leftExitPos: {x: -1.5, y: -15, z: 0}
+  rightExitPos: {x: 1.5, y: -15, z: 0}
   exitAnimationCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
+      inSlope: 1.7586948
+      outSlope: 1.7586948
+      tangentMode: 34
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.33333334
     - serializedVersion: 3
-      time: 1
+      time: 0.5686035
       value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
+      inSlope: 1.7586948
+      outSlope: 1.7586948
+      tangentMode: 34
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.33333334
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2

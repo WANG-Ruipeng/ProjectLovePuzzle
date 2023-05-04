@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
 public class SaturationController : MonoBehaviour
@@ -8,14 +8,14 @@ public class SaturationController : MonoBehaviour
 
     void Start()
     {
-        // ´´½¨Ò»¸öĞÂ²ÄÖÊÊµÀı£¬ÒÔ±ÜÃâÔÚËùÓĞÊ¹ÓÃ´ËShaderµÄ¶ÔÏóÉÏÓ¦ÓÃ¸ü¸Ä
+        // åˆ›å»ºä¸€ä¸ªæ–°æè´¨å®ä¾‹ï¼Œä»¥é¿å…åœ¨æ‰€æœ‰ä½¿ç”¨æ­¤Shaderçš„å¯¹è±¡ä¸Šåº”ç”¨æ›´æ”¹
         _material = new Material(Shader.Find("Custom/HSVShader"));
         //GetComponent<SpriteRenderer>().material = _material;
     }
 
     void Update()
     {
-        // ¸üĞÂ²ÄÖÊµÄ±¥ºÍ¶ÈÖµ
+        // æ›´æ–°æè´¨çš„é¥±å’Œåº¦å€¼
         //_material.SetFloat("_Saturation", Saturation);
     }
 
@@ -31,7 +31,7 @@ public class SaturationController : MonoBehaviour
 
     private void OnDestroy()
     {
-        // Ïú»ÙĞÂ´´½¨µÄ²ÄÖÊÊµÀı£¬ÒÔ·ÀÖ¹ÄÚ´æĞ¹Â©
+        // é”€æ¯æ–°åˆ›å»ºçš„æè´¨å®ä¾‹ï¼Œä»¥é˜²æ­¢å†…å­˜æ³„æ¼
         Destroy(_material);
     }
 }
