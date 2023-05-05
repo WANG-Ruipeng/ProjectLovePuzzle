@@ -4,58 +4,23 @@ using UnityEngine;
 using UnityEngine.UI;
 using Doozy.Runtime.Signals;
 using Giro;
+using Doozy.Runtime.Nody;
 
-public class MainScreen : MonoBehaviour, ISignalProvider
+public class MainScreen : MonoBehaviour
 {
+	public FlowController flow;
+	public FlowNode firstEntryNode;
+	public FlowNode levelSelectNode;
 	public void CheckFirstEntry()
 	{
-		Debug.Log(SaveManager.FirstEntry);
 		if (SaveManager.FirstEntry == true)
 		{
-			SendSignal();
+			flow.SetActiveNode(firstEntryNode);
+			SaveManager.FirstEntry = false;
 		}
-	}
-
-	#region Signal
-	public ProviderAttributes attributes
-	{
-		get
+		else
 		{
-			ProviderAttributes ret = new ProviderAttributes(ProviderType.Global, "MainMenuSignal", "FirstEntry", null);
-			return ret;
+			flow.SetActiveNode(levelSelectNode);
 		}
 	}
-
-	public SignalStream stream
-	{
-		get
-		{
-			SignalStream ret = new SignalStream(SignalsService.GetNewStreamKey());
-			return ret;
-		}
-	}
-	public bool isConnected
-	{
-		get => true;
-	}
-	public void OpenStream()
-	{
-	}
-	public void CloseStream()
-	{
-
-	}
-	public bool SendSignal()
-	{
-		Debug.Log("QWQ");
-		return true;
-	}
-	public bool SendSignal<T>(T signalValue)
-	{
-		Debug.Log("QWQ");
-		return true;
-	}
-
-
-	#endregion
 }

@@ -14,9 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Database:
     Items:
-    - Category: MainMenuButton
-      Name: LevelSelect
-    - Category: MainMenuButton
-      Name: qwq
     - Category: None
       Name: None
+    - Category: UIView
+      Name: Back
+    - Category: UIView
+      Name: Level1
+    - Category: UIView
+      Name: Level2
+    - Category: UIView
+      Name: Level3
+    - Category: UIView
+      Name: Level4
+    - Category: UIView
+      Name: LevelSelect
+    - Category: UIView
+      Name: Manga1
+    - Category: UIView
+      Name: Manga2
+    - Category: UIView
+      Name: Manga3
+    - Category: UIView
+      Name: Manga4

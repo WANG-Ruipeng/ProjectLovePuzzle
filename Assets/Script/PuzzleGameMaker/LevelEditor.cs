@@ -23,7 +23,7 @@ namespace Giro
 		const string levelEditorSceneName = "LevelEditorScene";
 		const string levelEditorScenePath = "Assets/Scenes/LevelEditorScene.unity";
 
-		const string managerPrefabPath = "Assets/Prefab/ManagerPrefab";
+		const string managerPrefabPath = "Assets/Resources/LoadLevelFromDef";
 
 		const string k_AutoSaveSettingsInitializedKey = "AutoSaveInitialized";
 		const string k_AutoSaveLevelKey = "AutoSaveLevel";
@@ -210,7 +210,7 @@ namespace Giro
 			MonoBehaviour.DestroyImmediate(go);
 
 			//保存PuzzlePieceManager的设定
-			go = MonoBehaviour.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>(managerPrefabPath + "/PuzzlePieceManager.prefab"));
+			go = MonoBehaviour.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>(managerPrefabPath + "/MovableManager.prefab"));
 			MovableManager ppm = go.GetComponent<MovableManager>();
 			GameManager.ResetPuzzlePieceManager(ppm, lvdef);
 			PrefabUtility.SaveAsPrefabAsset(go, managerPrefabPath + "/PuzzlePieceManager.prefab");

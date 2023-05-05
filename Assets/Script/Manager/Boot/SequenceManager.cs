@@ -212,7 +212,6 @@ namespace Giro
 		void OnGamePlayStarted(IState current)
 		{
 			m_CurrentLevel = current;
-			ShowUI<HUD>();
 			AudioManager.Instance.StopMusic();
 		}
 
