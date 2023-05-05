@@ -1,9 +1,9 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using HyperCasual.Core;
 using UnityEngine;
 using System;
-
+using Doozy.Runtime.UIManager.Containers;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -35,6 +35,7 @@ namespace Giro
 		AbstractGameEvent m_LoseEvent;
 		[SerializeField]
 		AbstractGameEvent CountdownEvent;
+		public HUD hud;
 
 		LevelDefinition m_CurrentLevel;
 		const string puzzlePoolGOName = "PuzzlePool";
@@ -49,7 +50,7 @@ namespace Giro
 		bool m_IsPlaying;
 
 
-		GameObject m_CurrentLevelGO;
+		public GameObject m_CurrentLevelGO;
 		static GameObject puzzlePoolGO;
 		static List<Movable> m_ActiveSteps = new List<Movable>();
 
@@ -140,21 +141,11 @@ namespace Giro
 			//    CameraManager.Instance.ResetCamera();
 			//}
 
-			isCountdowning = false;
-			InputManager.Instance.receiveInput = false;
-			countdown = maxCountdown;
-			starttime = Time.time;
 			if (LevelManager.Instance != null)
 			{
 				LevelManager.Instance.ResetLevel();
 			}
-			if (UIManager.Instance != null)
-			{
-				HUD hudWindow = UIManager.Instance.GetView<HUD>();
-				hudWindow.LeftLocked = false;
-				hudWindow.RightLocked = false;
-				hudWindow.Show();
-			}
+
 			puzzlePoolGO = LevelManager.Instance.transform.Find(puzzlePoolGOName).gameObject;
 			Movable[] movables = puzzlePoolGO.GetComponentsInChildren<Movable>();
 			MovableManager.Instance.SetmovableList(movables);
@@ -168,6 +159,13 @@ namespace Giro
 			{
 				MovableManager.Instance.Reset();
 			}
+			hud.LeftLocked = false;
+			hud.RightLocked = false;
+			InputManager.Instance.hud = hud;
+			isCountdowning = false;
+			InputManager.Instance.receiveInput = false;
+			countdown = maxCountdown;
+			starttime = Time.time;
 		}
 
 
@@ -204,8 +202,9 @@ namespace Giro
 			}
 
 			levelGameObject = new GameObject("LevelManager");
-			levelGameObject.AddComponent<LevelManager>().LevelDefinition = levelDefinition;
+			levelGameObject.AddComponent<LevelManager>();
 			LevelManager levelManager = LevelManager.Instance;
+			levelManager.LevelDefinition = levelDefinition;
 
 			//Transform levelParent = levelGameObject.transform;
 			//原代码在这里载入了场景中的所有spawnable，但是拼图游戏或许不需要
@@ -220,7 +219,6 @@ namespace Giro
 					DestroyImmediate(puzzlePoolGO);
 				}
 			}
-
 			puzzlePoolGO = new GameObject(puzzlePoolGOName);
 			puzzlePoolGO.transform.SetParent(levelGameObject.transform);
 
@@ -230,7 +228,7 @@ namespace Giro
 			{
 				if (stepsList[i].isPlatform)
 				{
-					GameObject movableGO = (GameObject)GameObject.Instantiate(Resources.Load("/PuzzlePiece/" + stepsList[i].platformObj.name));
+					GameObject movableGO = (GameObject)GameObject.Instantiate(Resources.Load("PuzzlePiece/" + stepsList[i].platformObj.name));
 
 					movableGO.transform.SetParent(puzzlePoolGO.transform);
 					movableGO.name = ("Platform_" + i);
@@ -261,7 +259,7 @@ namespace Giro
 						if (stepsList[i].lStepPrefab != null)
 						{
 							GameObject go = null;
-							go = (GameObject)GameObject.Instantiate(Resources.Load("/PuzzlePiece/" + stepsList[i].lStepPrefab.name), movableGO.transform);
+							go = (GameObject)GameObject.Instantiate(Resources.Load("PuzzlePiece/" + stepsList[i].lStepPrefab.name), movableGO.transform);
 							PuzzlePiece pz = go.GetComponent<PuzzlePiece>();
 							pz.RotateCurve = levelDefinition.rotateCurve;
 
@@ -270,7 +268,7 @@ namespace Giro
 								if (!stepsList[i].lCollectibleInfos[j].prefab)
 									continue;
 
-								GameObject collectibleInstance = (GameObject)Instantiate(Resources.Load("/Collectible/" + stepsList[i].lCollectibleInfos[j].prefab.name), go.transform);
+								GameObject collectibleInstance = (GameObject)Instantiate(Resources.Load("Collectible/" + stepsList[i].lCollectibleInfos[j].prefab.name), go.transform);
 								pz.collections.Add(stepsList[i].lCollectibleInfos[j].prefab.GetComponent<Collectible>());
 								pz.collections[pz.collections.Count - 1].SetData(stepsList[i].lCollectibleInfos[j]);
 							}
@@ -279,7 +277,7 @@ namespace Giro
 						if (stepsList[i].rStepPrefab != null)
 						{
 							GameObject go = null;
-							go = (GameObject)GameObject.Instantiate(Resources.Load("/PuzzlePiece/" + stepsList[i].rStepPrefab.name), movableGO.transform);
+							go = (GameObject)GameObject.Instantiate(Resources.Load("PuzzlePiece/" + stepsList[i].rStepPrefab.name), movableGO.transform);
 							PuzzlePiece pz = go.GetComponent<PuzzlePiece>();
 							pz.RotateCurve = levelDefinition.rotateCurve;
 							for (int j = 0; j < stepsList[i].rCollectibleInfos.Length; j++)
@@ -287,7 +285,7 @@ namespace Giro
 								if (!stepsList[i].rCollectibleInfos[j].prefab)
 									continue;
 
-								GameObject collectibleInstance = (GameObject)Instantiate(Resources.Load("/Collectible/" + stepsList[i].rCollectibleInfos[j].prefab.name), go.transform);
+								GameObject collectibleInstance = (GameObject)Instantiate(Resources.Load("Collectible/" + stepsList[i].rCollectibleInfos[j].prefab.name), go.transform);
 								pz.collections.Add(stepsList[i].rCollectibleInfos[j].prefab.GetComponent<Collectible>());
 								pz.collections[pz.collections.Count - 1].SetData(stepsList[i].rCollectibleInfos[j]);
 							}
@@ -335,7 +333,7 @@ namespace Giro
 		{
 			if (!isCountdowning) return;
 			countdown = maxCountdown - Time.time + starttime;
-			UIManager.Instance.GetView<HUD>().TimeLeft = countdown;
+			hud.TimeLeft = countdown;
 			if (countdown <= 0)
 			{
 				Lose();

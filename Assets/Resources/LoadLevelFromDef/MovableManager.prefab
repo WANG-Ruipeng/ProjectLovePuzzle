@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1350030531792277192}
   - component: {fileID: 1232426403156206333}
   m_Layer: 0
-  m_Name: PuzzlePieceManager
+  m_Name: MovableManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,80 +44,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd9e1122afd84a548a654f452fe6a115, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seceondEnterDelay: 1.5
-  leftEnterStartPos: {x: -1.56, y: 10, z: 0}
-  rightEnterStartPos: {x: 1.56, y: 10, z: 0}
+  seceondEnterDelay: 0.5
+  leftEnterStartPos: {x: -3, y: 15, z: 0}
+  rightEnterStartPos: {x: 3, y: 15, z: 0}
   enterAnimationCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.553772
-      value: 0.98586273
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  leftDownStartPos: {x: -1.56, y: 4, z: 0}
-  rightDownStartPos: {x: 1.56, y: 4, z: 0}
-  downAnimationCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  leftCombineStartPos: {x: -1.56, y: 0, z: 0}
-  rightCombineStartPos: {x: 1.56, y: 0, z: 0}
-  leftEndPos: {x: -0.56, y: 0, z: 0}
-  rightEndPos: {x: 0.56, y: 0, z: 0}
-  combineAnimationCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 21.140646
-      outSlope: 21.140646
+      inSlope: 4.065825
+      outSlope: 4.065825
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.047302246
-      value: 1
-      inSlope: 21.140646
-      outSlope: 21.140646
+      time: 0.553772
+      value: 0.98586273
+      inSlope: 4.065825
+      outSlope: 4.065825
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -125,28 +71,100 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  leftExitPos: {x: -10, y: 10, z: 0}
-  rightExitPos: {x: 10, y: -10, z: 0}
+  leftDownStartPos: {x: -3, y: 6, z: 0}
+  rightDownStartPos: {x: 3, y: 6, z: 0}
+  downAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2.4940133
+      outSlope: 2.4940133
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.3279418
+      value: 0.81789124
+      inSlope: 1.641724
+      outSlope: 1.641724
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.6317449
+      value: 1.0039368
+      inSlope: 0.10761949
+      outSlope: 0.10761949
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.17337842
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  leftCombineStartPos: {x: -3, y: 0, z: 0}
+  rightCombineStartPos: {x: 3, y: 0, z: 0}
+  leftEndPos: {x: -1.6, y: 0, z: 0}
+  rightEndPos: {x: 1.6, y: 0, z: 0}
+  combineAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 3.595658
+      outSlope: 3.595658
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.21800679
+      value: 0.78387785
+      inSlope: 2.6693377
+      outSlope: 2.6693377
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.34199113
+      value: 0.99998474
+      inSlope: 1.7430177
+      outSlope: 1.7430177
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  leftExitPos: {x: -1.6, y: -15, z: 0}
+  rightExitPos: {x: 1.6, y: -15, z: 0}
   exitAnimationCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 1
-      outSlope: 1
+      inSlope: 3.7483413
+      outSlope: 3.7483413
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.33333334
     - serializedVersion: 3
-      time: 1
+      time: 0.26678467
       value: 1
-      inSlope: 1
-      outSlope: 1
+      inSlope: 3.7483413
+      outSlope: 3.7483413
       tangentMode: 34
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.33333334
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2

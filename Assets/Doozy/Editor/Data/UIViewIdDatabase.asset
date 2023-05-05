@@ -14,9 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Database:
     Items:
+    - Category: Game
+      Name: HUD
+    - Category: Game
+      Name: Pause
     - Category: None
       Name: None
-    - Category: View
+    - Category: UIView
+      Name: HUD
+    - Category: UIView
       Name: LevelSelect
-    - Category: View
+    - Category: UIView
       Name: MainMenu
+    - Category: UIView
+      Name: Pause
