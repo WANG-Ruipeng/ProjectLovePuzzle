@@ -243,7 +243,7 @@ namespace Giro
 				else
 				{
 					GameObject movableGO = null;
-					movableGO = (GameObject)GameObject.Instantiate(Resources.Load(levelDefinition.puzzlePiecePairPrefab.name));
+					movableGO = (GameObject)GameObject.Instantiate(Resources.Load("PuzzleResources/" + levelDefinition.puzzlePiecePairPrefab.name));
 					if (movableGO.GetComponent<PuzzlePiecePair>())
 					{
 						PuzzlePiecePair movable = movableGO.GetComponent<PuzzlePiecePair>();
