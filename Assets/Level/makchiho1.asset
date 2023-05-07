@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: makchiho1
   m_EditorClassIdentifier: 
   background: {fileID: 0}
-  puzzlePiecePairPrefab: {fileID: 4092972524480892814, guid: 26113b33063650c48a4888faadbd3222, type: 3}
+  puzzlePiecePairPrefab: {fileID: 4092972524480892814, guid: 2fc22ac1ca3c1f74aa455dc170021db9, type: 3}
   maxCountdown: 3
   seceondEnterDelay: 0.5
   pos1: {x: 0, y: 15, z: 0}

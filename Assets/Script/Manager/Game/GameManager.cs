@@ -159,6 +159,8 @@ namespace Giro
 			{
 				MovableManager.Instance.Reset();
 			}
+			if (!hud)
+				hud = GameObject.Find("HUD").GetComponent<HUD>();
 			hud.LeftLocked = false;
 			hud.RightLocked = false;
 			InputManager.Instance.hud = hud;

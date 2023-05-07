@@ -135,7 +135,7 @@ namespace Giro
 			if (LoadedLevelDef != null && !SourceLevelDef.name.Equals(LoadedLevelDef.name))
 			{
 				// Automatically load the new source level if it has changed.
-				LoadLevel(LoadedLevelDef);
+				LoadLevel(SourceLevelDef);
 				return;
 			}
 
