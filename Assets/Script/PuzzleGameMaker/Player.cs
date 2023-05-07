@@ -1,84 +1,63 @@
-﻿using System.Collections;
+﻿using Spine.Unity;
+using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-	public string playerName;
-
-	Animator animator;
+    public StateMachine stateMachine;
+    private SkeletonAnimation skeletonAnimation;
+    public string playerName;
 
 	private void Awake()
 	{
-		animator = GetComponent<Animator>();
+		skeletonAnimation = GetComponent<SkeletonAnimation>();
+		stateMachine = GetComponent<StateMachine>();
+	}
+
+	public void PlayIdleAnimation()
+	{
+		
 	}
 	public void ForceToIdle()
 	{
-		animator.Play("Idle");
-		animator.Update(0);
-	}
+        skeletonAnimation.state.SetAnimation(0, "idel", true);
+		Debug.Log("Yes");
+    }
 
 	public void ClearState()
 	{
-		animator.SetBool("Idle", true);
-		animator.SetBool("WillDrop", false);
+
 	}
 
 	public void OnWinAnimPlayRaised()
 	{
-		if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
-		{
-			ForceToIdle();
-			ClearState();
-		}
-		animator.SetTrigger("Win");
+
 	}
 
 	public void OnCollectAnimPlayRaised()
 	{
-		if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
-		{
-			ForceToIdle();
-			ClearState();
-		}
-		animator.SetTrigger("Collect");
+
 	}
 
 	public void OnJumpAnimPlayRaised()
 	{
-		if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
-		{
-			ForceToIdle();
-			ClearState();
-		}
-		animator.SetTrigger("Jump");
+
 	}
 
 	public void OnWillDropAnimPlayRaised()
 	{
-		if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
-		{
-			ForceToIdle();
-			ClearState();
-		}
-		animator.SetBool("Idle", false);
-		animator.SetBool("Idle", false);
+
 	}
 
 	public void OnDropAnimPlayRaised()
 	{
-		if (!animator.GetCurrentAnimatorStateInfo(0).IsName("WillDrop"))
-		{
-#if UNITY_EDITOR
-			Debug.LogError("还没有进入WillDrop状态，请检查代码");
-#endif
-			return;
-		}
-		animator.SetTrigger("Drop");
+
 	}
 
 	public void OnIdleAnimPlayRaised()
 	{
-		ClearState();
+
 	}
 }

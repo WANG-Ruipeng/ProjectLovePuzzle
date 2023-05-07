@@ -37,33 +37,7 @@ public class PlayerManager : MonoBehaviour
 
 		s_Instance = this;
 
-		winAnimPlayListener = new GenericGameEventListener();
-		collectAnimPlayListener = new GenericGameEventListener();
-		jumpAnimPlayListener = new GenericGameEventListener();
-		willDropAnimPlayListener = new GenericGameEventListener();
-		dropAnimPlayListener = new GenericGameEventListener();
-		idleAnimPlayListener = new GenericGameEventListener();
-
-		winAnimPlay.AddListener(winAnimPlayListener);
-		collectAnimPlay.AddListener(collectAnimPlayListener);
-		jumpAnimPlay.AddListener(jumpAnimPlayListener);
-		willDropAnimPlay.AddListener(willDropAnimPlayListener);
-		dropAnimPlay.AddListener(dropAnimPlayListener);
-		idleAnimPlay.AddListener(idleAnimPlayListener);
-
-		winAnimPlayListener.EventHandler += boy.OnWinAnimPlayRaised;
-		collectAnimPlayListener.EventHandler += boy.OnCollectAnimPlayRaised;
-		jumpAnimPlayListener.EventHandler += boy.OnJumpAnimPlayRaised;
-		willDropAnimPlayListener.EventHandler += boy.OnWillDropAnimPlayRaised;
-		dropAnimPlayListener.EventHandler += boy.OnDropAnimPlayRaised;
-		idleAnimPlayListener.EventHandler += boy.OnIdleAnimPlayRaised;
-
-		winAnimPlayListener.EventHandler += girl.OnWinAnimPlayRaised;
-		collectAnimPlayListener.EventHandler += girl.OnCollectAnimPlayRaised;
-		jumpAnimPlayListener.EventHandler += girl.OnJumpAnimPlayRaised;
-		willDropAnimPlayListener.EventHandler += girl.OnWillDropAnimPlayRaised;
-		dropAnimPlayListener.EventHandler += girl.OnDropAnimPlayRaised;
-		idleAnimPlayListener.EventHandler += girl.OnIdleAnimPlayRaised;
+		
 	}
 
 
