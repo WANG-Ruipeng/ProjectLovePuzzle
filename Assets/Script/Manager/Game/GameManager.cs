@@ -4,6 +4,7 @@ using HyperCasual.Core;
 using UnityEngine;
 using System;
 using Doozy.Runtime.UIManager.Containers;
+using UnityEngine.SceneManagement;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -39,7 +40,6 @@ namespace Giro
 
 		LevelDefinition m_CurrentLevel;
 		const string puzzlePoolGOName = "PuzzlePool";
-		const string managerResourcePath = "Managers/";
 
 		/// <summary>
 		/// Returns true if the game is currently active.
@@ -49,7 +49,7 @@ namespace Giro
 		public bool IsPlaying => m_IsPlaying;
 		bool m_IsPlaying;
 
-
+		public Scene gamePlayScene;
 		public GameObject m_CurrentLevelGO;
 		static GameObject puzzlePoolGO;
 		static List<Movable> m_ActiveSteps = new List<Movable>();
@@ -62,6 +62,7 @@ namespace Giro
 
 		void Awake()
 		{
+			gamePlayScene = this.gameObject.scene;
 			CountdownListener = new GenericGameEventListener();
 			CountdownListener.EventHandler += OnCountdownEventRaised;
 			CountdownEvent.AddListener(CountdownListener);
@@ -202,12 +203,12 @@ namespace Giro
 					DestroyImmediate(levelGameObject);
 				}
 			}
-
 			levelGameObject = new GameObject("LevelManager");
+			levelGameObject.SetActive(true);
 			levelGameObject.AddComponent<LevelManager>();
 			LevelManager levelManager = LevelManager.Instance;
 			levelManager.LevelDefinition = levelDefinition;
-
+			SceneManager.MoveGameObjectToScene(levelGameObject, Instance.gamePlayScene);
 			//Transform levelParent = levelGameObject.transform;
 			//原代码在这里载入了场景中的所有spawnable，但是拼图游戏或许不需要
 			if (puzzlePoolGO != null)
@@ -223,6 +224,7 @@ namespace Giro
 			}
 			puzzlePoolGO = new GameObject(puzzlePoolGOName);
 			puzzlePoolGO.transform.SetParent(levelGameObject.transform);
+			Debug.Log(puzzlePoolGO.scene.name);
 
 
 			var stepsList = levelDefinition.puzzleSteps;
