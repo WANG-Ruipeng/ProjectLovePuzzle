@@ -76,10 +76,14 @@ namespace Giro
 
 #if UNITY_EDITOR
 			//If LevelManager already exists, user is in the LevelEditorWindow
-			if (LevelManager.Instance != null)
+			if (SceneManager.GetActiveScene() == gamePlayScene)
 			{
 				StartGame();
 				m_LevelEditorMode = true;
+			}
+			else
+			{
+				Destroy(GameObject.Find("UIManager"));
 			}
 #endif
 		}
@@ -141,7 +145,6 @@ namespace Giro
 			//{
 			//    CameraManager.Instance.ResetCamera();
 			//}
-
 			if (LevelManager.Instance != null)
 			{
 				LevelManager.Instance.ResetLevel();
@@ -192,6 +195,7 @@ namespace Giro
 				return;
 			}
 
+
 			if (levelGameObject != null)
 			{
 				if (Application.isPlaying)
@@ -208,7 +212,12 @@ namespace Giro
 			levelGameObject.AddComponent<LevelManager>();
 			LevelManager levelManager = LevelManager.Instance;
 			levelManager.LevelDefinition = levelDefinition;
-			SceneManager.MoveGameObjectToScene(levelGameObject, Instance.gamePlayScene);
+			try
+			{
+				SceneManager.MoveGameObjectToScene(levelGameObject, Instance.gamePlayScene);
+			}
+			catch (Exception e)
+			{ }
 			//Transform levelParent = levelGameObject.transform;
 			//原代码在这里载入了场景中的所有spawnable，但是拼图游戏或许不需要
 			if (puzzlePoolGO != null)
@@ -224,7 +233,6 @@ namespace Giro
 			}
 			puzzlePoolGO = new GameObject(puzzlePoolGOName);
 			puzzlePoolGO.transform.SetParent(levelGameObject.transform);
-			Debug.Log(puzzlePoolGO.scene.name);
 
 
 			var stepsList = levelDefinition.puzzleSteps;

@@ -19,6 +19,8 @@ MonoBehaviour:
     - Category: UIView
       Name: Back
     - Category: UIView
+      Name: BackAnotherTrace
+    - Category: UIView
       Name: Level1
     - Category: UIView
       Name: Level2
@@ -36,3 +38,7 @@ MonoBehaviour:
       Name: Manga3
     - Category: UIView
       Name: Manga4
+    - Category: UIView
+      Name: Pause
+    - Category: UIView
+      Name: ReturnMenu
