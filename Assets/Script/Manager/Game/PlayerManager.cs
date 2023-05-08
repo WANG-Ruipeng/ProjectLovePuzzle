@@ -36,9 +36,33 @@ public class PlayerManager : MonoBehaviour
 		}
 
 		s_Instance = this;
-
 		
 	}
 
+	public void SetPlayerIdle()
+	{
+		boy.PlayIdleAnimation();
+		girl.PlayIdleAnimation();
+    }
 
+    public void SetPlayerAlmostFall()
+    {
+        boy.PlayAlmostFallAnimation();
+        girl.PlayAlmostFallAnimation();
+    }
+    public void SetPlayerFall()
+    {
+        boy.PlayFallAnimation();
+        girl.PlayFallAnimation();
+    }
+    public void SetPlayerJump()
+    {
+        boy.PlayJumpAnimation();
+        girl.PlayJumpAnimation();
+    }
+    public void SetPlayerVictory()
+    {
+        boy.PlayVictoryAnimation();
+        girl.PlayVictoryAnimation();
+    }
 }

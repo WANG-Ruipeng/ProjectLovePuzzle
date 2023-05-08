@@ -12,8 +12,6 @@ GameObject:
   - component: {fileID: 6861134901270436932}
   - component: {fileID: 7852393529910366801}
   - component: {fileID: 6186023501200688657}
-  - component: {fileID: 5252905187548431630}
-  - component: {fileID: 6554389598182966290}
   - component: {fileID: 5265150139405873906}
   m_Layer: 0
   m_Name: Girl
@@ -116,7 +114,7 @@ MonoBehaviour:
   disableRenderingOnOverride: 1
   updateTiming: 1
   unscaledTime: 0
-  _animationName: 
+  _animationName: idel
   loop: 0
   timeScale: 1
 --- !u!33 &6186023501200688657
@@ -127,37 +125,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3155699438507389046}
   m_Mesh: {fileID: 0}
---- !u!114 &5252905187548431630
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3155699438507389046}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e741851cba3ad425c91ecf922cc6b379, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _data:
-    _json: '{"declarations":{"Kind":"Object","collection":{"$content":[],"$version":"A"},"$version":"A"}}'
-    _objectReferences: []
---- !u!114 &6554389598182966290
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3155699438507389046}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efe58df89b5b74a97a123b5ed2b70422, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _data:
-    _json: '{"nest":{"source":"Macro","macro":0,"embed":null}}'
-    _objectReferences:
-    - {fileID: 11400000, guid: e73226ad829579f47888bf0eb3b9eae4, type: 2}
 --- !u!114 &5265150139405873906
 MonoBehaviour:
   m_ObjectHideFlags: 0
