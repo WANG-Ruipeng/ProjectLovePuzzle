@@ -6,58 +6,32 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public StateMachine stateMachine;
     private SkeletonAnimation skeletonAnimation;
     public string playerName;
 
 	private void Awake()
 	{
 		skeletonAnimation = GetComponent<SkeletonAnimation>();
-		stateMachine = GetComponent<StateMachine>();
 	}
 
 	public void PlayIdleAnimation()
 	{
-		
-	}
-	public void ForceToIdle()
-	{
         skeletonAnimation.state.SetAnimation(0, "idel", true);
-		Debug.Log("Yes");
     }
-
-	public void ClearState()
+	public void PlayAlmostFallAnimation()
 	{
-
-	}
-
-	public void OnWinAnimPlayRaised()
+        skeletonAnimation.state.SetAnimation(0, "aimost fall", true);
+    }
+    public void PlayFallAnimation()
+    {
+        skeletonAnimation.state.SetAnimation(0, "fall", true);
+    }
+    public void PlayJumpAnimation()
 	{
-
-	}
-
-	public void OnCollectAnimPlayRaised()
-	{
-
-	}
-
-	public void OnJumpAnimPlayRaised()
-	{
-
-	}
-
-	public void OnWillDropAnimPlayRaised()
-	{
-
-	}
-
-	public void OnDropAnimPlayRaised()
-	{
-
-	}
-
-	public void OnIdleAnimPlayRaised()
-	{
-
-	}
+        skeletonAnimation.state.SetAnimation(0, "jump", true);
+    }
+    public void PlayVictoryAnimation()
+    {
+        skeletonAnimation.state.SetAnimation(0, "victory", true);
+    }
 }
