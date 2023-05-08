@@ -129,6 +129,7 @@ public class PuzzlePiecePair : Movable
 	{
 		if (left.IsLocked && right.IsLocked)
 		{
+			
 			int edgeCnt = PuzzlePiece.edgeCount;
 			PuzzlePiece.EdgeProp leftStatus = left.edgeProps[(left.state + 1) % edgeCnt];
 			PuzzlePiece.EdgeProp rightStatus = right.edgeProps[(right.state + edgeCnt - 1) % edgeCnt];
