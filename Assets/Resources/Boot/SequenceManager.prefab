@@ -1,0 +1,214 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4239480757495983653
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4239480757495983655}
+  - component: {fileID: 4239480757495983649}
+  - component: {fileID: 4239480757495983648}
+  - component: {fileID: 4239480757495983660}
+  - component: {fileID: 4239480757495983651}
+  - component: {fileID: 4239480757495983650}
+  - component: {fileID: 4239480757495983661}
+  m_Layer: 0
+  m_Name: SequenceManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4239480757495983655
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4239480757495983653}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.3137595, y: -0.34855163, z: 304.8076}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4239480757495983649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4239480757495983653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea3ef60a464678747ab175f8cabd58ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PreloadedAssets: []
+  m_Levels:
+  - {fileID: 11400000, guid: 2bbb648619131c2439b442cad0eb0a10, type: 2}
+  - {fileID: 11400000, guid: acbd37317d2e64668912359658f73959, type: 2}
+  - {fileID: 11400000, guid: 21d97e6cfeaf94f4a88f2649e6a2e64b, type: 2}
+  - {fileID: 11400000, guid: 97bf97a75b664894e96f5a15459ccd03, type: 2}
+  m_LevelManagers:
+  - {fileID: 2379971290871929536, guid: 6566939c3edd67b4ca5ec6b6435b3603, type: 3}
+  - {fileID: 4244431434012332691, guid: 8e362188d44271348aae65b88494560b, type: 3}
+  hud: {fileID: 0}
+--- !u!114 &4239480757495983648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4239480757495983653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ec4976bef1d463b82e8013afa2cb347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Callback:
+    EventName: Callback triggered every time a signal is received
+    Runners: []
+    Event:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4239480757495983649}
+          m_TargetAssemblyTypeName: Giro.SequenceManager1, Assembly-CSharp
+          m_MethodName: OnSceneLoad
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  StreamId:
+    Category: UIView
+    Name: LoadLevel1
+    Custom: 0
+--- !u!114 &4239480757495983660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4239480757495983653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ec4976bef1d463b82e8013afa2cb347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Callback:
+    EventName: Callback triggered every time a signal is received
+    Runners: []
+    Event:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4239480757495983649}
+          m_TargetAssemblyTypeName: Giro.SequenceManager1, Assembly-CSharp
+          m_MethodName: OnSceneLoad
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  StreamId:
+    Category: UIView
+    Name: LoadLevel2
+    Custom: 0
+--- !u!114 &4239480757495983651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4239480757495983653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ec4976bef1d463b82e8013afa2cb347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Callback:
+    EventName: Callback triggered every time a signal is received
+    Runners: []
+    Event:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4239480757495983649}
+          m_TargetAssemblyTypeName: Giro.SequenceManager1, Assembly-CSharp
+          m_MethodName: OnSceneLoad
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 2
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  StreamId:
+    Category: UIView
+    Name: LoadLevel3
+    Custom: 0
+--- !u!114 &4239480757495983650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4239480757495983653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ec4976bef1d463b82e8013afa2cb347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Callback:
+    EventName: Callback triggered every time a signal is received
+    Runners: []
+    Event:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4239480757495983649}
+          m_TargetAssemblyTypeName: Giro.SequenceManager1, Assembly-CSharp
+          m_MethodName: OnSceneLoad
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 3
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  StreamId:
+    Category: UIView
+    Name: LoadLevel4
+    Custom: 0
+--- !u!114 &4239480757495983661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4239480757495983653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8db52855ffb46304f90218d5cc011677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  winEvent: {fileID: 11400000, guid: 4facc4ba26e884ef88b6c2506fa5ae2c, type: 2}
+  loseEvent: {fileID: 11400000, guid: 2b6d3353ba4d84d3ca725ef1835ca96f, type: 2}
+  flowController: {fileID: 0}
+  enterWinScreenNode: {fileID: -5333299325717033333, guid: f43d5ce3440401340af5a13da65d8b14, type: 2}
+  enterLoseScreenNode: {fileID: -5333299325717033333, guid: f43d5ce3440401340af5a13da65d8b14, type: 2}

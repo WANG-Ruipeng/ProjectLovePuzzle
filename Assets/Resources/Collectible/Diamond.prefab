@@ -98,4 +98,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  unlocked: 0
+  unlocked: 1
+  reusable: 0

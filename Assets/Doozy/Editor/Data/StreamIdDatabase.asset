@@ -29,4 +29,12 @@ MonoBehaviour:
     - Category: UIView
       Name: MainMenu
     - Category: UIView
+      Name: Manga1
+    - Category: UIView
+      Name: Manga2
+    - Category: UIView
+      Name: Manga3
+    - Category: UIView
+      Name: Manga4
+    - Category: UIView
       Name: placeholder

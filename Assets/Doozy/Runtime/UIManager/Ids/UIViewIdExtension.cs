@@ -39,7 +39,12 @@ namespace Doozy.Runtime.UIManager
             HUD,
             LevelSelect,
             MainMenu,
-            Pause
+            Manga1,
+            Manga2,
+            Manga3,
+            Manga4,
+            Pause,
+            WIN
         }    
     }
 }
