@@ -34,6 +34,7 @@ public class GameEventListenAndTrigger : MonoBehaviour
 	{
 		//TODO:等待胜利动画播放完毕
 		flowController.SetActiveNode(enterWinScreenNode);
+		Time.timeScale = 0;
 	}
 
 	void OnLoseEventRaised()

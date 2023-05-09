@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1097202963601034098}
   - component: {fileID: 1573154501319032543}
   - component: {fileID: 4929868905665020866}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Boy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27be9a7c26759a8438be51be97d5c57c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: "\u5C0F\u660E"
+  playerName: 
 --- !u!95 &4929868905665020866
 Animator:
   serializedVersion: 5
@@ -77,7 +77,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4208690422843926392}
   - component: {fileID: 6305116724299812223}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: "\u7537\u4E3B"
   m_TagString: Untagged
   m_Icon: {fileID: 0}

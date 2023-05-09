@@ -210,5 +210,5 @@ MonoBehaviour:
   winEvent: {fileID: 11400000, guid: 4facc4ba26e884ef88b6c2506fa5ae2c, type: 2}
   loseEvent: {fileID: 11400000, guid: 2b6d3353ba4d84d3ca725ef1835ca96f, type: 2}
   flowController: {fileID: 0}
-  enterWinScreenNode: {fileID: -5333299325717033333, guid: f43d5ce3440401340af5a13da65d8b14, type: 2}
-  enterLoseScreenNode: {fileID: -5333299325717033333, guid: f43d5ce3440401340af5a13da65d8b14, type: 2}
+  enterWinScreenNode: {fileID: 523725884769487187, guid: f43d5ce3440401340af5a13da65d8b14, type: 2}
+  enterLoseScreenNode: {fileID: 523725884769487187, guid: f43d5ce3440401340af5a13da65d8b14, type: 2}

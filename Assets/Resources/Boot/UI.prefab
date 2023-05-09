@@ -15406,7 +15406,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: 0
+  m_SortingLayerID: 1111317185
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &6468779083990364987
@@ -36575,6 +36575,10 @@ PrefabInstance:
       value: LevelSelect
       objectReference: {fileID: 0}
     - target: {fileID: 6439550316032681915, guid: 963818a8375e39948881282d54a2eb20, type: 3}
+      propertyPath: Id.Custom
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6439550316032681915, guid: 963818a8375e39948881282d54a2eb20, type: 3}
       propertyPath: Id.Category
       value: UIView
       objectReference: {fileID: 0}
@@ -36788,7 +36792,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7556159009682528144, guid: 963818a8375e39948881282d54a2eb20, type: 3}
       propertyPath: Id.Name
-      value: Back
+      value: BackAnotherTrace
       objectReference: {fileID: 0}
     - target: {fileID: 7556159009682528144, guid: 963818a8375e39948881282d54a2eb20, type: 3}
       propertyPath: Id.Custom

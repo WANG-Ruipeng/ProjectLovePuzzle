@@ -29,7 +29,7 @@ public class PuzzlePiece : MonoBehaviour
 	[Header("拼图素材随旋转变化")]
 	public Sprite[] puzzleSprites;
 
-    public int state = 0;//当前在上方的边的序号作为当前状态，序号从上方开始顺时针排序（上0右1下2左3）如何排序可以再规定
+	public int state = 0;//当前在上方的边的序号作为当前状态，序号从上方开始顺时针排序（上0右1下2左3）如何排序可以再规定
 	public const int edgeCount = 4;
 	public enum EdgeProp
 	{
@@ -41,7 +41,15 @@ public class PuzzlePiece : MonoBehaviour
 	public List<Collectible> collections = new List<Collectible>();
 
 	public int rotateTime;
+	private void Awake()
+	{
+		foreach (Transform tran in GetComponentsInChildren<Transform>())
+		{//遍历当前物体及其所有子物体
+			tran.gameObject.layer = LayerMask.NameToLayer("Puzzle");//更改物体的Layer层 NoWrieframeEffect
+			tran.gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "Puzzle";
+		}
 
+	}
 	public void Reset()
 	{
 		transform.localPosition = new Vector3(100, 100, 0);
@@ -98,12 +106,12 @@ public class PuzzlePiece : MonoBehaviour
 		rotateTime++;
 
 		if (puzzleSprites.Length == 0 || spriteRenderer == null)
-        {
-            Debug.LogWarning("No sprites in the puzzleSprites array.");
-            return;
+		{
+			Debug.LogWarning("No sprites in the puzzleSprites array.");
+			return;
 		}
 		spriteRenderer.sprite = puzzleSprites[Mathf.Clamp(rotateTime, 0, puzzleSprites.Length - 1)];
-    }
+	}
 
 	/// <summary>
 	/// 初始化边的信息

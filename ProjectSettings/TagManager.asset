@@ -12,8 +12,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Puzzle
+  - Player
   - 
   - 
   - 
@@ -41,4 +41,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Puzzle
+    uniqueID: 3122847561
+    locked: 0
+  - name: Player
+    uniqueID: 903319475
+    locked: 0
+  - name: UI
+    uniqueID: 1111317185
     locked: 0

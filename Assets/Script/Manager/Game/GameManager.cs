@@ -55,6 +55,7 @@ namespace Giro
 		static List<Movable> m_ActiveSteps = new List<Movable>();
 
 		bool isCountdowning;
+		bool winOrLose;
 
 
 #if UNITY_EDITOR
@@ -173,6 +174,7 @@ namespace Giro
 			InputManager.Instance.receiveInput = false;
 			countdown = maxCountdown;
 			starttime = Time.time;
+			winOrLose = false;
 		}
 
 
@@ -357,7 +359,7 @@ namespace Giro
 				PlayerManager.Instance.firtAlmostDown = false;
 				PlayerManager.Instance.SetPlayerAlmostFall();
 			}
-			if (countdown <= 0)
+			if (countdown <= 0 && !winOrLose)
 			{
 				Lose();
 				return;
@@ -391,6 +393,7 @@ namespace Giro
 		public void Win()
 		{
 			m_WinEvent.Raise();
+			winOrLose = true;
 			PlayerManager.Instance.SetPlayerVictory();
 #if UNITY_EDITOR
 			if (m_LevelEditorMode)
@@ -403,6 +406,7 @@ namespace Giro
 		public void Lose()
 		{
 			m_LoseEvent.Raise();
+			winOrLose = true;
 			PlayerManager.Instance.SetPlayerFall();
 #if UNITY_EDITOR
 			if (m_LevelEditorMode)
