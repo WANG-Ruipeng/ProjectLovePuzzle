@@ -1,8 +1,8 @@
 /******************************************************************************
  * Spine Runtimes License Agreement
- * Last updated September 24, 2021. Replaces all prior versions.
+ * Last updated January 1, 2020. Replaces all prior versions.
  *
- * Copyright (c) 2013-2021, Esoteric Software LLC
+ * Copyright (c) 2013-2020, Esoteric Software LLC
  *
  * Integration of the Spine Runtimes into software or otherwise creating
  * derivative works of the Spine Runtimes is permitted under the terms and
@@ -62,7 +62,7 @@ namespace Spine.Unity.Examples {
 			int vertexCount = buffers.vertexCount; // For efficiency, limit your effect to the actual mesh vertex count using vertexCount
 
 			// Modify vertex positions by accessing Vector3[] vertexBuffer
-			Vector3[] vertices = buffers.vertexBuffer;
+			var vertices = buffers.vertexBuffer;
 			Vector3 transformedPos = default(Vector3);
 			for (int i = 0; i < vertexCount; i++) {
 				Vector3 originalPos = vertices[i];
@@ -89,7 +89,7 @@ public class TwoByTwoTransformEffectExampleEditor : UnityEditor.Editor {
 	Spine.Unity.Examples.TwoByTwoTransformEffectExample Target { get { return target as Spine.Unity.Examples.TwoByTwoTransformEffectExample; } }
 
 	void OnSceneGUI () {
-		Transform transform = Target.transform;
+		var transform = Target.transform;
 		LocalVectorHandle(ref Target.xAxis, transform, Color.red);
 		LocalVectorHandle(ref Target.yAxis, transform, Color.green);
 	}

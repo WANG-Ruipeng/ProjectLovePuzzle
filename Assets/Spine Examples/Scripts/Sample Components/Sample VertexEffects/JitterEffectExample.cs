@@ -1,8 +1,8 @@
 /******************************************************************************
  * Spine Runtimes License Agreement
- * Last updated September 24, 2021. Replaces all prior versions.
+ * Last updated January 1, 2020. Replaces all prior versions.
  *
- * Copyright (c) 2013-2021, Esoteric Software LLC
+ * Copyright (c) 2013-2020, Esoteric Software LLC
  *
  * Integration of the Spine Runtimes into software or otherwise creating
  * derivative works of the Spine Runtimes is permitted under the terms and
@@ -62,13 +62,13 @@ namespace Spine.Unity.Examples {
 			int vertexCount = buffers.vertexCount;
 
 			// Modify vertex positions by accessing Vector3[] vertexBuffer
-			Vector3[] vertices = buffers.vertexBuffer;
+			var vertices = buffers.vertexBuffer;
 			for (int i = 0; i < vertexCount; i++)
 				vertices[i] += (Vector3)(Random.insideUnitCircle * jitterMagnitude);
 
 			// You can also modify uvs and colors.
-			//Vector2[] uvs = buffers.uvBuffer;
-			//Color32[] colors = buffers.colorBuffer;
+			//var uvs = buffers.uvBuffer;
+			//var colors = buffers.colorBuffer;
 
 			//
 		}
