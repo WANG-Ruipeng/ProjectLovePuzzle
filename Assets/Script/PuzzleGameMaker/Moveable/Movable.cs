@@ -183,7 +183,7 @@ public class Movable : MonoBehaviour
 
 
 		}
-		catch (Exception a)
+		catch (Exception)
 		{
 			Debug.Log("Input Manager not loaded!!");
 		}

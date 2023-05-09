@@ -12,12 +12,10 @@ namespace Giro
 	public class LevelEditor : EditorWindow
 	{
 		bool m_AutoSaveShowSettings;
-		bool hasLoadLevel;
 		bool currentLevelNotLoaded;
 		bool m_AutoSaveLevel;
 		bool m_AutoSavePlayer;
 		bool m_AutoSaveCamera;
-		bool m_AutoSaveSettingsLoaded;
 
 		static readonly string s_LevelParentTag = "LevelParent";
 		const string levelEditorSceneName = "LevelEditorScene";
@@ -84,7 +82,6 @@ namespace Giro
 			m_AutoSavePlayer = EditorPrefs.GetBool(k_AutoSavePlayerKey);
 			m_AutoSaveCamera = EditorPrefs.GetBool(k_AutoSaveCameraKey);
 
-			m_AutoSaveSettingsLoaded = true;
 		}
 
 		void SaveSetting()
@@ -128,7 +125,6 @@ namespace Giro
 			if (SourceLevelDef == null)
 			{
 				GUILayout.Label("Select a LevelDefinition ScriptableObject to begin.");
-				hasLoadLevel = false;
 				return;
 			}
 
@@ -209,12 +205,6 @@ namespace Giro
 			PrefabUtility.SaveAsPrefabAsset(go, managerPrefabPath + "/GameManager.prefab");
 			MonoBehaviour.DestroyImmediate(go);
 
-			//保存PuzzlePieceManager的设定
-			go = MonoBehaviour.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>(managerPrefabPath + "/MovableManager.prefab"));
-			MovableManager ppm = go.GetComponent<MovableManager>();
-			GameManager.ResetPuzzlePieceManager(ppm, lvdef);
-			PrefabUtility.SaveAsPrefabAsset(go, managerPrefabPath + "/PuzzlePieceManager.prefab");
-			MonoBehaviour.DestroyImmediate(go);
 
 			EnableChangeToScene(lvdef);
 		}

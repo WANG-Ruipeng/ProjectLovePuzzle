@@ -216,7 +216,7 @@ namespace Giro
 			{
 				SceneManager.MoveGameObjectToScene(levelGameObject, Instance.gamePlayScene);
 			}
-			catch (Exception e)
+			catch (Exception)
 			{ }
 			//Transform levelParent = levelGameObject.transform;
 			//原代码在这里载入了场景中的所有spawnable，但是拼图游戏或许不需要
