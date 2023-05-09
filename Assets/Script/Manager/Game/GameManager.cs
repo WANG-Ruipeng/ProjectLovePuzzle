@@ -212,6 +212,7 @@ namespace Giro
 			levelGameObject.AddComponent<LevelManager>();
 			LevelManager levelManager = LevelManager.Instance;
 			levelManager.LevelDefinition = levelDefinition;
+
 			try
 			{
 				SceneManager.MoveGameObjectToScene(levelGameObject, Instance.gamePlayScene);
