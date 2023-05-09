@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class PuzzlePiece : MonoBehaviour
@@ -24,7 +25,11 @@ public class PuzzlePiece : MonoBehaviour
 	float rotateStartTime = 0;
 	float rotateStartAngle = 0;
 
-	public int state = 0;//当前在上方的边的序号作为当前状态，序号从上方开始顺时针排序（上0右1下2左3）如何排序可以再规定
+	//饱和度的变化选择sprite
+	[Header("拼图素材随旋转变化")]
+	public Sprite[] puzzleSprites;
+
+    public int state = 0;//当前在上方的边的序号作为当前状态，序号从上方开始顺时针排序（上0右1下2左3）如何排序可以再规定
 	public const int edgeCount = 4;
 	public enum EdgeProp
 	{
@@ -34,11 +39,6 @@ public class PuzzlePiece : MonoBehaviour
 	}//用数字直接表示边比较容易误解，这里改成枚举.0表示平，1表示凸，-1表示凹
 	public EdgeProp[] edgeProps = new EdgeProp[edgeCount];
 	public List<Collectible> collections = new List<Collectible>();
-
-	public SaturationController saturationController;
-	public float startSaturation = -50;
-	public float endSaturation = 0;
-	public float addSaturation = 10;
 
 	public int rotateTime;
 
@@ -51,8 +51,7 @@ public class PuzzlePiece : MonoBehaviour
 		transform.localRotation = Quaternion.Euler(0, 0, 0);
 		transform.localScale = new Vector3(1, 1, 1);
 		rotateTime = 0;
-		saturationController = GetComponent<SaturationController>();
-		saturationController.SetSaturation(startSaturation);
+		spriteRenderer = GetComponent<SpriteRenderer>();
 	}
 
 	public void ReleaseLockStatus()
@@ -97,15 +96,14 @@ public class PuzzlePiece : MonoBehaviour
 		else
 			state = (state + 1) % edgeCount;            //逆时针旋转，state++
 		rotateTime++;
-		saturationController.SetSaturation(
-			Mathf.Clamp(
-				saturationController.Saturation + addSaturation,
-				startSaturation,
-				endSaturation
-				)
-			);
 
-	}
+		if (puzzleSprites.Length == 0 || spriteRenderer == null)
+        {
+            Debug.LogWarning("No sprites in the puzzleSprites array.");
+            return;
+		}
+		spriteRenderer.sprite = puzzleSprites[Mathf.Clamp(rotateTime, 0, puzzleSprites.Length - 1)];
+    }
 
 	/// <summary>
 	/// 初始化边的信息

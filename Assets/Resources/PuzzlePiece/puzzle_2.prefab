@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8608260292281702694}
   - component: {fileID: -2605220623034555106}
   - component: {fileID: 5632641341889782121}
-  - component: {fileID: 8187645690585528246}
   m_Layer: 0
   m_Name: puzzle_2
   m_TagString: Untagged
@@ -123,24 +122,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   RotateClockWise: 0
+  puzzleSprites: []
   state: 0
   edgeProps: 000000000000000000000000ffffffff
   collections: []
-  saturationController: {fileID: 0}
-  startSaturation: 1
-  endSaturation: 0
-  addSaturation: -0.2
   rotateTime: 0
---- !u!114 &8187645690585528246
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 364585177925155994}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91982082005701d49b8943c82aa165ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Saturation: 0

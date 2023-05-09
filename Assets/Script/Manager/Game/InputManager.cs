@@ -36,7 +36,7 @@ public class InputManager : MonoBehaviour
 		if (!pair) return;
 		if (!pair.left.IsRotating)
 		{
-			if (Input.GetKeyDown(KeyCode.W))
+			if (Input.GetKeyDown(KeyCode.W) && pair.left.rotateTime >= pair.left.puzzleSprites.Length)
 			{
 				if (pair.left.IsLocked)
 				{
@@ -61,7 +61,7 @@ public class InputManager : MonoBehaviour
 		if (!pair.right.IsRotating)
 		{
 
-			if (Input.GetKeyDown(KeyCode.P))
+			if (Input.GetKeyDown(KeyCode.P) && pair.right.rotateTime >= pair.right.puzzleSprites.Length)
 			{
 				if (pair.right.IsLocked)
 				{
