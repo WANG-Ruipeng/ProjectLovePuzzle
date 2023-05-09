@@ -203,7 +203,6 @@ namespace Giro
 
 		void OnLevelSelectionDisplayed()
 		{
-			ShowUI<LevelSelectionScreen>();
 			AudioManager.Instance.PlayMusic(SoundID.None);
 		}
 

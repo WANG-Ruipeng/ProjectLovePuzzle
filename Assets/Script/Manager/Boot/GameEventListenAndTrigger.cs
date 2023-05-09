@@ -16,6 +16,7 @@ public class GameEventListenAndTrigger : MonoBehaviour
 	GenericGameEventListener winEventListener;
 	GenericGameEventListener loseEventListener;
 
+	GameLoader gameLoader;
 	private void Awake()
 	{
 		winEventListener = new GenericGameEventListener();
@@ -27,12 +28,17 @@ public class GameEventListenAndTrigger : MonoBehaviour
 		winEventListener.EventHandler += OnWinEventRaised;
 		loseEventListener.EventHandler += OnLoseEventRaised;
 
-
+		gameLoader = GetComponent<GameLoader>();
 	}
 
 	void OnWinEventRaised()
 	{
 		//TODO:等待胜利动画播放完毕
+		int nextLevel = gameLoader.currentLevel + 1;
+		if (nextLevel > SaveManager.LevelProgress)
+		{
+			SaveManager.LevelProgress = nextLevel;
+		}
 		flowController.SetActiveNode(enterWinScreenNode);
 		Time.timeScale = 0;
 	}

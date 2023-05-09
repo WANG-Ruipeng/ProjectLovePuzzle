@@ -3,90 +3,30 @@ using System.Collections;
 using System.Collections.Generic;
 using HyperCasual.Core;
 using UnityEngine;
-
+using Doozy.Runtime.UIManager.Components;
 namespace Giro
 {
 	/// <summary>
 	/// This View contains level selection screen functionalities
 	/// </summary>
-	public class LevelSelectionScreen : View
+	public class LevelSelectionScreen : MonoBehaviour
 	{
-		[SerializeField]
-		HyperCasualButton m_BackButton;
-		[Space]
-		[SerializeField]
-		RectTransform m_LevelButtonsRoot;
-		[SerializeField]
-		RectTransform mangaButtonsRoot;
-		[SerializeField]
-		AbstractGameEvent m_NextLevelEvent;
-		[SerializeField]
-		AbstractGameEvent m_BackEvent;
-#if UNITY_EDITOR
-		[SerializeField]
-		bool m_UnlockAllLevels;
-#endif
+		public UIButton[] levelButtons;
+		public UIButton[] mangaButtons;
 
-		readonly List<LevelSelectButton> m_Buttons = new();
-		readonly List<MangaButton> m_mangaButtons = new();
-
-		void Start()
+		public void SetButtonActivated()
 		{
-			var buttons = m_LevelButtonsRoot.GetComponentsInChildren<LevelSelectButton>();
-			foreach (LevelSelectButton button in buttons)
+			int progress = SaveManager.LevelProgress;
+			for (int i = 0; i <= progress; i++)
 			{
-				m_Buttons.Add(button);
+				levelButtons[i].interactable = true;
+				mangaButtons[i].interactable = true;
 			}
-			var mangaButtons = mangaButtonsRoot.GetComponentsInChildren<MangaButton>();
-			foreach (MangaButton button in mangaButtons)
+			for (int i = progress + 1; i < 4; i++)
 			{
-				m_mangaButtons.Add(button);
+				levelButtons[i].interactable = false;
+				mangaButtons[i].interactable = false;
 			}
-			ResetButtonData();
-		}
-
-		void OnEnable()
-		{
-			ResetButtonData();
-
-			m_BackButton.AddListener(OnBackButtonClicked);
-		}
-
-		void OnDisable()
-		{
-			m_BackButton.RemoveListener(OnBackButtonClicked);
-		}
-
-		void ResetButtonData()
-		{
-			var levelProgress = SaveManager.LevelProgress;
-			for (int i = 0; i < m_Buttons.Count; i++)
-			{
-				var button = m_Buttons[i];
-				var unlocked = i <= levelProgress;
-#if UNITY_EDITOR
-				unlocked = unlocked || m_UnlockAllLevels;
-#endif
-				button.SetData(i, unlocked, OnClick);
-				m_mangaButtons[i].SetData(i, unlocked);
-			}
-		}
-		void OnMangaButtonClicked(int mangaIndex)
-		{
-
-		}
-		void OnClick(int startingIndex)
-		{
-			if (startingIndex < 0)
-				throw new Exception("Button is not initialized");
-
-			SequenceManager.Instance.SetStartingLevel(startingIndex);
-			m_NextLevelEvent.Raise();
-		}
-
-		void OnBackButtonClicked()
-		{
-			m_BackEvent.Raise();
 		}
 	}
 }

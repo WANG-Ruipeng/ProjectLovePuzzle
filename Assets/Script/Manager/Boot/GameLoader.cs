@@ -21,6 +21,7 @@ namespace Giro
 		public AbstractLevelData[] Levels => m_Levels;
 
 		public HUD hud;
+		public int currentLevel;
 
 		/// <summary>
 		/// Initializes the SequenceManager
@@ -63,7 +64,7 @@ namespace Giro
 				{
 					Destroy(subCameraGo);
 				}
-
+				currentLevel = ind;
 			}
 		}
 
