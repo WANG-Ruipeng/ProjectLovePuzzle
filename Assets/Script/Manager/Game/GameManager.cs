@@ -56,6 +56,7 @@ namespace Giro
 
 		bool isCountdowning;
 
+
 #if UNITY_EDITOR
 		bool m_LevelEditorMode;
 #endif
@@ -334,8 +335,12 @@ namespace Giro
 		{
 			if (!isCountdowning)
 			{
+				PlayerManager.Instance.SetPlayerIdle();
+				PlayerManager.Instance.firtAlmostDown = true;
 				starttime = Time.time;
 			}
+			else
+				PlayerManager.Instance.SetPlayerJump();
 			isCountdowning = !isCountdowning;
 			InputManager.Instance.receiveInput = isCountdowning;
 		}
@@ -347,6 +352,11 @@ namespace Giro
 			if (!isCountdowning) return;
 			countdown = maxCountdown - Time.time + starttime;
 			hud.TimeLeft = countdown;
+			if (PlayerManager.Instance.firtAlmostDown && countdown <= PlayerManager.Instance.almostFallTime)
+			{
+				PlayerManager.Instance.firtAlmostDown = false;
+				PlayerManager.Instance.SetPlayerAlmostFall();
+			}
 			if (countdown <= 0)
 			{
 				Lose();
@@ -381,7 +391,7 @@ namespace Giro
 		public void Win()
 		{
 			m_WinEvent.Raise();
-
+			PlayerManager.Instance.SetPlayerVictory();
 #if UNITY_EDITOR
 			if (m_LevelEditorMode)
 			{
@@ -393,6 +403,7 @@ namespace Giro
 		public void Lose()
 		{
 			m_LoseEvent.Raise();
+			PlayerManager.Instance.SetPlayerFall();
 #if UNITY_EDITOR
 			if (m_LevelEditorMode)
 			{

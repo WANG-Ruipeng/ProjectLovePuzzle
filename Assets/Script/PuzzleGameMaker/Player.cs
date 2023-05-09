@@ -6,8 +6,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private SkeletonAnimation skeletonAnimation;
-    public string playerName;
+	private SkeletonAnimation skeletonAnimation;
+	public string playerName;
 
 	private void Awake()
 	{
@@ -16,22 +16,22 @@ public class Player : MonoBehaviour
 
 	public void PlayIdleAnimation()
 	{
-        skeletonAnimation.state.SetAnimation(0, "idel", true);
-    }
+		skeletonAnimation.state.SetAnimation(0, "idel", true);
+	}
 	public void PlayAlmostFallAnimation()
 	{
-        skeletonAnimation.state.SetAnimation(0, "aimost fall", true);
-    }
-    public void PlayFallAnimation()
-    {
-        skeletonAnimation.state.SetAnimation(0, "fall", true);
-    }
-    public void PlayJumpAnimation()
+		skeletonAnimation.state.SetAnimation(0, "aimost fall", true);
+	}
+	public void PlayFallAnimation()
 	{
-        skeletonAnimation.state.SetAnimation(0, "jump", true);
-    }
-    public void PlayVictoryAnimation()
-    {
-        skeletonAnimation.state.SetAnimation(0, "victory", true);
-    }
+		skeletonAnimation.state.SetAnimation(0, "fall", true);
+	}
+	public void PlayJumpAnimation()
+	{
+		skeletonAnimation.state.SetAnimation(0, "jump", false);
+	}
+	public void PlayVictoryAnimation()
+	{
+		skeletonAnimation.state.SetAnimation(0, "victory", true);
+	}
 }
