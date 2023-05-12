@@ -205,6 +205,12 @@ namespace Giro
 			PrefabUtility.SaveAsPrefabAsset(go, managerPrefabPath + "/GameManager.prefab");
 			MonoBehaviour.DestroyImmediate(go);
 
+			//保存PuzzlePieceManager的设定
+			go = MonoBehaviour.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>(managerPrefabPath + "/MovableManager.prefab"));
+			MovableManager ppm = go.GetComponent<MovableManager>();
+			GameManager.ResetPuzzlePieceManager(ppm, lvdef);
+			PrefabUtility.SaveAsPrefabAsset(go, managerPrefabPath + "/MovableManager.prefab");
+			MonoBehaviour.DestroyImmediate(go);
 
 			EnableChangeToScene(lvdef);
 		}
@@ -216,10 +222,9 @@ namespace Giro
 			{
 				go.GetComponent<GameManager>().maxCountdown = lvdef.maxCountdown;
 			}
-			if (go = GameObject.Find("PuzzlePieceManager"))
+			if (go = GameObject.Find("MovableManager"))
 			{
 				GameManager.ResetPuzzlePieceManager(go.GetComponent<MovableManager>(), lvdef);
-
 			}
 		}
 		void SaveLevel(LevelDefinition lvdef)

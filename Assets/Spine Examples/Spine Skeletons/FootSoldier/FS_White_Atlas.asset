@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: FS_White_Atlas
   m_EditorClassIdentifier: 
   atlasFile: {fileID: 4900000, guid: 5ca7c05342912804eb0a2fd5bbe85b58, type: 3}
-  materials:
-  - {fileID: 2100000, guid: 5a3598dafa118754db95756064347da7, type: 2}
+  materials: []
