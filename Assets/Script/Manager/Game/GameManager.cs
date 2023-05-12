@@ -343,7 +343,9 @@ namespace Giro
 				hud.UpdateValueBar(MovableManager.Instance.Progress, MovableManager.Instance.StepNum);
 			}
 			else
-				PlayerManager.Instance.SetPlayerJump();
+			{
+
+			}
 			isCountdowning = !isCountdowning;
 			InputManager.Instance.receiveInput = isCountdowning;
 		}

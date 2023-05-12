@@ -1,5 +1,141 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2712893639330020470
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4596839736667745596}
+  - component: {fileID: 4457032518169254324}
+  - component: {fileID: 1761566327653309378}
+  - component: {fileID: 132856819335918436}
+  m_Layer: 5
+  m_Name: Setting
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &4596839736667745596
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2712893639330020470}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6468779084855190462}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1920, y: 1080}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!223 &4457032518169254324
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2712893639330020470}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!114 &1761566327653309378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2712893639330020470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &132856819335918436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2712893639330020470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bdd92761f8f457190f4bab9efcf67bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MultiplayerInfo: {fileID: 0}
+  OnStartBehaviour: 0
+  OnShowCallback:
+    EventName: OnShowCallback
+    Runners: []
+    Event:
+      m_PersistentCalls:
+        m_Calls: []
+  OnVisibleCallback:
+    EventName: OnVisibleCallback
+    Runners: []
+    Event:
+      m_PersistentCalls:
+        m_Calls: []
+  OnHideCallback:
+    EventName: OnHideCallback
+    Runners: []
+    Event:
+      m_PersistentCalls:
+        m_Calls: []
+  OnHiddenCallback:
+    EventName: OnHiddenCallback
+    Runners: []
+    Event:
+      m_PersistentCalls:
+        m_Calls: []
+  OnVisibilityChangedCallback:
+    m_PersistentCalls:
+      m_Calls: []
+  ShowProgressors: []
+  HideProgressors: []
+  ShowHideProgressors: []
+  CustomStartPosition: {x: 0, y: 0, z: 0}
+  UseCustomStartPosition: 1
+  AutoHideAfterShow: 0
+  AutoHideAfterShowDelay: 0
+  DisableGameObjectWhenHidden: 0
+  DisableCanvasWhenHidden: 1
+  DisableGraphicRaycasterWhenHidden: 1
+  ClearSelectedOnShow: 0
+  ClearSelectedOnHide: 0
+  AutoSelectAfterShow: 0
+  AutoSelectTarget: {fileID: 0}
+  Id:
+    Category: UIView
+    Name: Setting
+    Custom: 0
 --- !u!1 &6468779082803250957
 GameObject:
   m_ObjectHideFlags: 0
@@ -30,7 +166,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6468779083545154708}
-  - {fileID: 6468779084053953954}
   m_Father: {fileID: 6468779084595323295}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -760,6 +895,7 @@ RectTransform:
   - {fileID: 6468779084430967985}
   - {fileID: 6468779083748461882}
   - {fileID: 6468779084250221185}
+  - {fileID: 6468779083562277939}
   m_Father: {fileID: 6468779084855190462}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -834,6 +970,18 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: HyperCasual.Core.AudioManager, Assembly-CSharp
+          m_MethodName: PlayMusic
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 2
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -1879,7 +2027,7 @@ GameObject:
   - component: {fileID: 6468779083057962650}
   - component: {fileID: 6468779083057962651}
   m_Layer: 5
-  m_Name: Flex Button
+  m_Name: Button - BackAnotherTrace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1900,8 +2048,8 @@ RectTransform:
   - {fileID: 6468779084151510873}
   - {fileID: 6468779084051921451}
   - {fileID: 6468779083658921176}
-  m_Father: {fileID: 6468779083474250549}
-  m_RootOrder: 1
+  m_Father: {fileID: 6468779083954921094}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2015,7 +2163,7 @@ MonoBehaviour:
     Selectable: {fileID: 6468779083057962652}
   Id:
     Category: UIView
-    Name: Back
+    Name: BackAnotherTrace
     Custom: 0
 --- !u!114 &6468779083057962648
 MonoBehaviour:
@@ -3887,7 +4035,7 @@ GameObject:
   - component: {fileID: 6468779083367238849}
   - component: {fileID: 6468779083367238850}
   m_Layer: 5
-  m_Name: Flex Button
+  m_Name: Button - BackAnotherTrace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3908,8 +4056,8 @@ RectTransform:
   - {fileID: 6468779084390255171}
   - {fileID: 6468779083666512914}
   - {fileID: 6468779083044457160}
-  m_Father: {fileID: 6468779084343437554}
-  m_RootOrder: 1
+  m_Father: {fileID: 6468779084736688140}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4023,7 +4171,7 @@ MonoBehaviour:
     Selectable: {fileID: 6468779083367238851}
   Id:
     Category: UIView
-    Name: Back
+    Name: BackAnotherTrace
     Custom: 0
 --- !u!114 &6468779083367238879
 MonoBehaviour:
@@ -5614,7 +5762,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6468779082988559290}
-  - {fileID: 6468779083057962653}
   m_Father: {fileID: 6468779083954921094}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9295,7 +9442,7 @@ GameObject:
   - component: {fileID: 6468779083562277936}
   - component: {fileID: 6468779083562277937}
   m_Layer: 5
-  m_Name: Flex Button
+  m_Name: Button - BackAnotherTrace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9316,8 +9463,8 @@ RectTransform:
   - {fileID: 6468779084580553817}
   - {fileID: 6468779083387669018}
   - {fileID: 6468779084417428401}
-  m_Father: {fileID: 6468779084250221185}
-  m_RootOrder: 1
+  m_Father: {fileID: 6468779082838933867}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9431,7 +9578,7 @@ MonoBehaviour:
     Selectable: {fileID: 6468779083562277938}
   Id:
     Category: UIView
-    Name: Back
+    Name: BackAnotherTrace
     Custom: 0
 --- !u!114 &6468779083562278862
 MonoBehaviour:
@@ -14814,6 +14961,7 @@ RectTransform:
   - {fileID: 6468779084385639188}
   - {fileID: 6468779084396572447}
   - {fileID: 6468779083474250549}
+  - {fileID: 6468779083057962653}
   m_Father: {fileID: 6468779084855190462}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14888,6 +15036,18 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: HyperCasual.Core.AudioManager, Assembly-CSharp
+          m_MethodName: PlayMusic
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 2
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -15614,7 +15774,7 @@ GameObject:
   - component: {fileID: 6468779084053953983}
   - component: {fileID: 6468779084053953952}
   m_Layer: 5
-  m_Name: Flex Button
+  m_Name: Button - BackAnotherTrace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15635,8 +15795,8 @@ RectTransform:
   - {fileID: 6468779084590875433}
   - {fileID: 6468779083224265628}
   - {fileID: 6468779084064513197}
-  m_Father: {fileID: 6468779082803250956}
-  m_RootOrder: 1
+  m_Father: {fileID: 6468779084595323295}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -15750,7 +15910,7 @@ MonoBehaviour:
     Selectable: {fileID: 6468779084053953953}
   Id:
     Category: UIView
-    Name: Back
+    Name: BackAnotherTrace
     Custom: 0
 --- !u!114 &6468779084053953981
 MonoBehaviour:
@@ -21750,7 +21910,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6468779084368642423}
-  - {fileID: 6468779083562277939}
   m_Father: {fileID: 6468779082838933867}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -22049,7 +22208,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6468779084876478157}
-  - {fileID: 6468779083367238852}
   m_Father: {fileID: 6468779084736688140}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -32639,6 +32797,7 @@ RectTransform:
   - {fileID: 6468779084394424875}
   - {fileID: 6468779083945880781}
   - {fileID: 6468779082803250956}
+  - {fileID: 6468779084053953954}
   m_Father: {fileID: 6468779084855190462}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -32713,6 +32872,18 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: HyperCasual.Core.AudioManager, Assembly-CSharp
+          m_MethodName: PlayMusic
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 2
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -32903,6 +33074,7 @@ RectTransform:
   - {fileID: 6468779082849874016}
   - {fileID: 6468779084523449552}
   - {fileID: 6468779084343437554}
+  - {fileID: 6468779083367238852}
   m_Father: {fileID: 6468779084855190462}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -32977,6 +33149,18 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: HyperCasual.Core.AudioManager, Assembly-CSharp
+          m_MethodName: PlayMusic
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 2
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -33763,6 +33947,7 @@ RectTransform:
   - {fileID: 6468779083954921094}
   - {fileID: 6468779084595323295}
   - {fileID: 6468779082838933867}
+  - {fileID: 4596839736667745596}
   m_Father: {fileID: 6468779083990364985}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -37063,6 +37248,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6468779084855190462}
     m_Modifications:
+    - target: {fileID: 2085049128495572201, guid: 3c7a51309061d411eb5591ed1fd837f3, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2268992269304252217, guid: 3c7a51309061d411eb5591ed1fd837f3, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

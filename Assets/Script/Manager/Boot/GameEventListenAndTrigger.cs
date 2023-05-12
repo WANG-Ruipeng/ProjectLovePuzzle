@@ -16,7 +16,7 @@ public class GameEventListenAndTrigger : MonoBehaviour
 	GenericGameEventListener winEventListener;
 	GenericGameEventListener loseEventListener;
 
-	GameLoader gameLoader;
+	SequenceManager gameLoader;
 	private void Awake()
 	{
 		winEventListener = new GenericGameEventListener();
@@ -28,7 +28,7 @@ public class GameEventListenAndTrigger : MonoBehaviour
 		winEventListener.EventHandler += OnWinEventRaised;
 		loseEventListener.EventHandler += OnLoseEventRaised;
 
-		gameLoader = GetComponent<GameLoader>();
+		gameLoader = GetComponent<SequenceManager>();
 	}
 
 	void OnWinEventRaised()
@@ -45,6 +45,7 @@ public class GameEventListenAndTrigger : MonoBehaviour
 
 	void OnLoseEventRaised()
 	{
+		AudioManager.Instance.PlayEffect(SoundID.lose_and_fall);
 		//TODO:等待失败动画播放完毕
 		flowController.SetActiveNode(enterLoseScreenNode);
 	}

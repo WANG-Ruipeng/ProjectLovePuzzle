@@ -37,4 +37,6 @@ MonoBehaviour:
     - Category: UIView
       Name: Pause
     - Category: UIView
+      Name: Setting
+    - Category: UIView
       Name: WIN

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Root>
   <FirstEntry>False</FirstEntry>
-  <LevelProgress>2</LevelProgress>
+  <LevelProgress>0</LevelProgress>
   <CollectibleArray>
     <Collectible ID="0" Unlocked="False" />
     <Collectible ID="1" Unlocked="False" />

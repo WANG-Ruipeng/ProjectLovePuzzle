@@ -305,4 +305,20 @@ MonoBehaviour:
   m_MusicSource: {fileID: 885773408479466227}
   m_EffectSource: {fileID: 857437054333850566}
   m_MinSoundInterval: 0.075
-  m_Sounds: []
+  m_Sounds:
+  - m_SoundID: 1
+    m_AudioClip: {fileID: 8300000, guid: b0fe6fa7af7647249918620a92fbed3e, type: 3}
+  - m_SoundID: 2
+    m_AudioClip: {fileID: 8300000, guid: c545f39476ff86342b6be498a89928f8, type: 3}
+  - m_SoundID: 3
+    m_AudioClip: {fileID: 8300000, guid: 678f312048c714f44bb56e6c396669c6, type: 3}
+  - m_SoundID: 4
+    m_AudioClip: {fileID: 8300000, guid: 9938518f41298eb40bcf309c16d1c7e9, type: 3}
+  - m_SoundID: 5
+    m_AudioClip: {fileID: 8300000, guid: 9d833e7caa6cee943a7d8a3143197949, type: 3}
+  - m_SoundID: 6
+    m_AudioClip: {fileID: 8300000, guid: c2130aab9f5ee72479ba713c37cc68c2, type: 3}
+  - m_SoundID: 7
+    m_AudioClip: {fileID: 8300000, guid: 37acd636173f21e469d72363d782262b, type: 3}
+  - m_SoundID: 8
+    m_AudioClip: {fileID: 8300000, guid: b1e2a94d1dd763b42b4d04a3cad9951c, type: 3}

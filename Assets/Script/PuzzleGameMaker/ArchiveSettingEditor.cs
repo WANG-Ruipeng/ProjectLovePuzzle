@@ -9,6 +9,9 @@ public class ArchiveSettingEditor : EditorWindow
 {
 	int levelProgress;
 	bool firstEntry;
+	bool enableMusic;
+	bool enableSfx;
+	float masterVolume;
 	[MenuItem("Window/Save Setting Editor")]
 	static void Init()
 	{
@@ -21,10 +24,18 @@ public class ArchiveSettingEditor : EditorWindow
 	{
 		levelProgress = EditorGUILayout.IntField("Level Progress", levelProgress);
 		firstEntry = EditorGUILayout.Toggle("Is First Entry", firstEntry);
+		enableMusic = EditorGUILayout.Toggle("BGM", enableMusic);
+		enableSfx = EditorGUILayout.Toggle("effect sound", enableSfx);
+		masterVolume = EditorGUILayout.FloatField("masterVolume", masterVolume);
 		if (GUILayout.Button("应用上述存档"))
 		{
 			SaveManager.LevelProgress = levelProgress;
 			SaveManager.FirstEntry = firstEntry;
+			HyperCasual.Core.AudioSettings audioSettings = new HyperCasual.Core.AudioSettings();
+			audioSettings.EnableMusic = enableMusic;
+			audioSettings.EnableSfx = enableSfx;
+			audioSettings.MasterVolume = masterVolume;
+			SaveManager.Instance.SaveAudioSettings(audioSettings);
 		}
 		GUILayout.Label("↓这真的会重置一切存档包括收藏品");
 		if (GUILayout.Button("重建新存档"))

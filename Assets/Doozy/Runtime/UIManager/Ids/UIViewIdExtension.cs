@@ -44,6 +44,7 @@ namespace Doozy.Runtime.UIManager
             Manga3,
             Manga4,
             Pause,
+            Setting,
             WIN
         }    
     }

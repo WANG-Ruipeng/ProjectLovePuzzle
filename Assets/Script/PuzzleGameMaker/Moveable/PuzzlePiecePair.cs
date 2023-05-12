@@ -104,6 +104,9 @@ public class PuzzlePiecePair : Movable
 			isPlaying = false;
 			if ((leftEndPos - this.leftEndPos).magnitude < 0.01)//合并成功触发事件
 			{
+				if (AudioManager.Instance)
+					AudioManager.Instance.PlayEffect(SoundID.player_jump1);
+				PlayerManager.Instance.SetPlayerJump();
 				StartPlayingExitAnimation();
 			}
 			else if ((leftEndPos - this.leftCombineStartPos).magnitude < 0.01)//到达操作区
@@ -115,6 +118,7 @@ public class PuzzlePiecePair : Movable
 				MovableManager.Instance.PlayNextPuzzlePairAnimation();
 				return;
 			}
+
 		}
 
 		//Debug.Log(progress);
@@ -129,7 +133,7 @@ public class PuzzlePiecePair : Movable
 	{
 		if (left.IsLocked && right.IsLocked)
 		{
-			
+
 			int edgeCnt = PuzzlePiece.edgeCount;
 			PuzzlePiece.EdgeProp leftStatus = left.edgeProps[(left.state + 1) % edgeCnt];
 			PuzzlePiece.EdgeProp rightStatus = right.edgeProps[(right.state + edgeCnt - 1) % edgeCnt];
@@ -200,6 +204,8 @@ public class PuzzlePiecePair : Movable
 	/// <param name="collectible"></param>
 	void Collect(Collectible collectible)
 	{
+		if (AudioManager.Instance)
+			AudioManager.Instance.PlayEffect(SoundID.get_col);
 		collectible.Collected();
 		if (SaveManager.Instance)//Q:是否需要改为关卡胜利时才保存
 		{
