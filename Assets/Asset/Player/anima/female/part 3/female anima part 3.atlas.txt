@@ -1,0 +1,104 @@
+
+female anima part 3.png
+size: 1798,1549
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+back hair
+  rotate: true
+  xy: 2, 12
+  size: 455, 555
+  orig: 459, 557
+  offset: 2, 1
+  index: -1
+back leg
+  rotate: false
+  xy: 1672, 1071
+  size: 104, 144
+  orig: 106, 150
+  offset: 2, 0
+  index: -1
+body
+  rotate: false
+  xy: 1444, 208
+  size: 269, 259
+  orig: 271, 261
+  offset: 1, 1
+  index: -1
+demo
+  rotate: false
+  xy: 1663, 136
+  size: 44, 70
+  orig: 47, 72
+  offset: 1, 1
+  index: -1
+down hair
+  rotate: true
+  xy: 1672, 1382
+  size: 165, 124
+  orig: 167, 126
+  offset: 1, 1
+  index: -1
+face
+  rotate: true
+  xy: 1050, 27
+  size: 247, 344
+  orig: 251, 348
+  offset: 2, 2
+  index: -1
+front hair
+  rotate: true
+  xy: 559, 2
+  size: 301, 324
+  orig: 305, 327
+  offset: 2, 1
+  index: -1
+front hand
+  rotate: false
+  xy: 885, 32
+  size: 163, 271
+  orig: 166, 271
+  offset: 2, 0
+  index: -1
+front leg
+  rotate: false
+  xy: 1672, 1217
+  size: 104, 163
+  orig: 109, 169
+  offset: 4, 1
+  index: -1
+hand
+  rotate: true
+  xy: 1396, 43
+  size: 163, 265
+  orig: 166, 267
+  offset: 0, 0
+  index: -1
+neck
+  rotate: false
+  xy: 1672, 1017
+  size: 100, 52
+  orig: 102, 55
+  offset: 2, 3
+  index: -1
+side hair
+  rotate: true
+  xy: 559, 305
+  size: 162, 527
+  orig: 164, 531
+  offset: 1, 2
+  index: -1
+sker
+  rotate: false
+  xy: 1088, 276
+  size: 354, 191
+  orig: 357, 193
+  offset: 1, 1
+  index: -1
+背景
+  rotate: true
+  xy: 2, 469
+  size: 1078, 1668
+  orig: 1080, 1670
+  offset: 1, 1
+  index: -1

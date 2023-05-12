@@ -1,0 +1,104 @@
+
+female basic anima.png
+size: 1916,1672
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+back hair
+  rotate: true
+  xy: 1751, 1225
+  size: 445, 140
+  orig: 448, 143
+  offset: 1, 1
+  index: -1
+body
+  rotate: true
+  xy: 1082, 379
+  size: 279, 255
+  orig: 282, 257
+  offset: 2, 1
+  index: -1
+face
+  rotate: false
+  xy: 1082, 660
+  size: 486, 408
+  orig: 488, 411
+  offset: 1, 1
+  index: -1
+front hair
+  rotate: false
+  xy: 1082, 9
+  size: 443, 357
+  orig: 443, 357
+  offset: 0, 0
+  index: -1
+hair
+  rotate: false
+  xy: 1082, 1070
+  size: 667, 600
+  orig: 669, 603
+  offset: 1, 2
+  index: -1
+l side hair
+  rotate: false
+  xy: 1527, 217
+  size: 91, 210
+  orig: 94, 212
+  offset: 1, 1
+  index: -1
+left hand
+  rotate: false
+  xy: 1751, 908
+  size: 163, 315
+  orig: 165, 321
+  offset: 0, 1
+  index: -1
+left leg
+  rotate: false
+  xy: 1570, 617
+  size: 100, 219
+  orig: 102, 227
+  offset: 1, 1
+  index: -1
+r side hair
+  rotate: false
+  xy: 1672, 368
+  size: 237, 538
+  orig: 237, 538
+  offset: 0, 0
+  index: -1
+right hand'
+  rotate: true
+  xy: 1339, 429
+  size: 186, 319
+  orig: 186, 320
+  offset: 0, 0
+  index: -1
+right leg
+  rotate: false
+  xy: 1570, 838
+  size: 100, 230
+  orig: 102, 235
+  offset: 2, 0
+  index: -1
+sker
+  rotate: false
+  xy: 1527, 27
+  size: 373, 188
+  orig: 373, 190
+  offset: 0, 1
+  index: -1
+图层 11
+  rotate: true
+  xy: 1672, 1011
+  size: 57, 76
+  orig: 59, 78
+  offset: 1, 1
+  index: -1
+背景
+  rotate: false
+  xy: 2, 2
+  size: 1078, 1668
+  orig: 1080, 1670
+  offset: 1, 1
+  index: -1

@@ -340,6 +340,7 @@ namespace Giro
 				PlayerManager.Instance.SetPlayerIdle();
 				PlayerManager.Instance.firtAlmostDown = true;
 				starttime = Time.time;
+				hud.UpdateValueBar(MovableManager.Instance.Progress, MovableManager.Instance.StepNum);
 			}
 			else
 				PlayerManager.Instance.SetPlayerJump();
@@ -394,6 +395,8 @@ namespace Giro
 		{
 			m_WinEvent.Raise();
 			winOrLose = true;
+			hud.UpdateValueBar(MovableManager.Instance.Progress, MovableManager.Instance.StepNum);
+
 			PlayerManager.Instance.SetPlayerVictory();
 #if UNITY_EDITOR
 			if (m_LevelEditorMode)

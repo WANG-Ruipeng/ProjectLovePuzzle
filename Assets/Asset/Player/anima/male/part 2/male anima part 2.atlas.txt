@@ -1,0 +1,90 @@
+
+male anima part 2.png
+size: 935,1016
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+back hair
+  rotate: false
+  xy: 2, 563
+  size: 647, 451
+  orig: 647, 451
+  offset: 0, 0
+  index: -1
+body line
+  rotate: true
+  xy: 585, 118
+  size: 443, 342
+  orig: 443, 342
+  offset: 0, 0
+  index: -1
+dai mao
+  rotate: true
+  xy: 2, 2
+  size: 35, 70
+  orig: 37, 73
+  offset: 1, 1
+  index: -1
+eye
+  rotate: true
+  xy: 803, 772
+  size: 242, 109
+  orig: 244, 112
+  offset: 1, 2
+  index: -1
+eye brow
+  rotate: false
+  xy: 2, 39
+  size: 293, 29
+  orig: 295, 32
+  offset: 1, 2
+  index: -1
+face
+  rotate: false
+  xy: 2, 70
+  size: 581, 491
+  orig: 583, 493
+  offset: 1, 1
+  index: -1
+left hand
+  rotate: true
+  xy: 651, 568
+  size: 93, 157
+  orig: 96, 159
+  offset: 1, 1
+  index: -1
+left leg
+  rotate: false
+  xy: 810, 591
+  size: 108, 179
+  orig: 111, 181
+  offset: 1, 1
+  index: -1
+mouth
+  rotate: false
+  xy: 297, 50
+  size: 50, 18
+  orig: 52, 20
+  offset: 1, 1
+  index: -1
+pants
+  rotate: true
+  xy: 651, 663
+  size: 351, 150
+  orig: 351, 153
+  offset: 0, 0
+  index: -1
+right hand
+  rotate: true
+  xy: 779, 29
+  size: 87, 154
+  orig: 89, 156
+  offset: 1, 1
+  index: -1
+right leg
+  rotate: true
+  xy: 585, 7
+  size: 109, 192
+  orig: 112, 195
+  offset: 2, 1
+  index: -1

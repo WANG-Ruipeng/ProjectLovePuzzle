@@ -1,0 +1,111 @@
+
+male basic animation.png
+size: 1231,1023
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+bak hair
+  rotate: true
+  xy: 2, 488
+  size: 533, 576
+  orig: 535, 579
+  offset: 1, 1
+  index: -1
+body
+  rotate: false
+  xy: 572, 140
+  size: 341, 337
+  orig: 343, 341
+  offset: 0, 4
+  index: -1
+crotch
+  rotate: true
+  xy: 915, 111
+  size: 366, 141
+  orig: 366, 142
+  offset: 0, 0
+  index: -1
+eye
+  rotate: false
+  xy: 562, 26
+  size: 238, 112
+  orig: 240, 116
+  offset: 1, 2
+  index: -1
+eye hl
+  rotate: true
+  xy: 533, 4
+  size: 202, 27
+  orig: 204, 29
+  offset: 1, 1
+  index: -1
+eyebrow
+  rotate: true
+  xy: 533, 208
+  size: 278, 37
+  orig: 280, 39
+  offset: 1, 1
+  index: -1
+face
+  rotate: true
+  xy: 580, 479
+  size: 542, 484
+  orig: 545, 487
+  offset: 1, 1
+  index: -1
+front hair
+  rotate: false
+  xy: 2, 25
+  size: 529, 461
+  orig: 529, 463
+  offset: 0, 2
+  index: -1
+l arm
+  rotate: false
+  xy: 1058, 249
+  size: 163, 228
+  orig: 163, 231
+  offset: 0, 1
+  index: -1
+l hand
+  rotate: true
+  xy: 1066, 539
+  size: 95, 163
+  orig: 97, 166
+  offset: 1, 2
+  index: -1
+l leg
+  rotate: true
+  xy: 802, 2
+  size: 107, 196
+  orig: 111, 204
+  offset: 4, 1
+  index: -1
+mouth
+  rotate: false
+  xy: 802, 126
+  size: 24, 12
+  orig: 26, 14
+  offset: 1, 1
+  index: -1
+r arm
+  rotate: false
+  xy: 1058, 30
+  size: 152, 217
+  orig: 153, 219
+  offset: 0, 1
+  index: -1
+r hand
+  rotate: false
+  xy: 1066, 636
+  size: 99, 180
+  orig: 102, 183
+  offset: 2, 1
+  index: -1
+r leg
+  rotate: false
+  xy: 1066, 818
+  size: 105, 203
+  orig: 111, 210
+  offset: 5, 1
+  index: -1

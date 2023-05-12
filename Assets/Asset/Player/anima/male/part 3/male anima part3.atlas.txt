@@ -1,0 +1,104 @@
+
+male anima part3.png
+size: 2000,501
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+back hair
+  rotate: true
+  xy: 2, 6
+  size: 493, 625
+  orig: 496, 627
+  offset: 1, 1
+  index: -1
+body
+  rotate: false
+  xy: 1380, 195
+  size: 303, 304
+  orig: 305, 306
+  offset: 1, 1
+  index: -1
+demo
+  rotate: false
+  xy: 737, 2
+  size: 39, 73
+  orig: 42, 76
+  offset: 1, 1
+  index: -1
+face
+  rotate: false
+  xy: 1005, 118
+  size: 373, 381
+  orig: 376, 383
+  offset: 1, 1
+  index: -1
+front hair
+  rotate: true
+  xy: 629, 77
+  size: 422, 374
+  orig: 425, 376
+  offset: 1, 1
+  index: -1
+hand
+  rotate: true
+  xy: 1685, 304
+  size: 195, 194
+  orig: 198, 196
+  offset: 1, 1
+  index: -1
+hand 2
+  rotate: true
+  xy: 1852, 211
+  size: 91, 145
+  orig: 96, 159
+  offset: 1, 2
+  index: -1
+hand1
+  rotate: true
+  xy: 1637, 3
+  size: 190, 201
+  orig: 193, 204
+  offset: 1, 2
+  index: -1
+left leg
+  rotate: true
+  xy: 1215, 9
+  size: 107, 195
+  orig: 109, 198
+  offset: 1, 1
+  index: -1
+neck
+  rotate: false
+  xy: 629, 22
+  size: 106, 53
+  orig: 109, 53
+  offset: 3, 0
+  index: -1
+right leg
+  rotate: true
+  xy: 1005, 7
+  size: 109, 208
+  orig: 112, 211
+  offset: 1, 1
+  index: -1
+图层 12
+  rotate: true
+  xy: 1840, 46
+  size: 152, 158
+  orig: 152, 158
+  offset: 0, 0
+  index: -1
+图层 13
+  rotate: false
+  xy: 1412, 20
+  size: 223, 173
+  orig: 223, 173
+  offset: 0, 0
+  index: -1
+图层 17
+  rotate: true
+  xy: 1685, 200
+  size: 102, 165
+  orig: 108, 179
+  offset: 4, 2
+  index: -1

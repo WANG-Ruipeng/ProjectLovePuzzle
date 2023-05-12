@@ -1,0 +1,62 @@
+
+female anima part 2.png
+size: 1225,1032
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+body
+  rotate: false
+  xy: 434, 63
+  size: 473, 329
+  orig: 474, 330
+  offset: 0, 0
+  index: -1
+cak hair
+  rotate: false
+  xy: 2, 394
+  size: 670, 636
+  orig: 670, 637
+  offset: 0, 1
+  index: -1
+demon
+  rotate: true
+  xy: 674, 414
+  size: 64, 95
+  orig: 66, 97
+  offset: 1, 1
+  index: -1
+eyeborw
+  rotate: false
+  xy: 2, 2
+  size: 430, 390
+  orig: 432, 395
+  offset: 1, 1
+  index: -1
+hair
+  rotate: false
+  xy: 674, 480
+  size: 549, 550
+  orig: 549, 554
+  offset: 0, 0
+  index: -1
+left leg
+  rotate: false
+  xy: 1100, 259
+  size: 106, 219
+  orig: 106, 220
+  offset: 0, 1
+  index: -1
+right leg
+  rotate: false
+  xy: 1100, 35
+  size: 100, 222
+  orig: 101, 223
+  offset: 0, 0
+  index: -1
+sker
+  rotate: true
+  xy: 909, 109
+  size: 369, 189
+  orig: 371, 192
+  offset: 1, 2
+  index: -1

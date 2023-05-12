@@ -4,6 +4,8 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using Doozy.Runtime.UIManager.Containers;
+using Doozy.Runtime.Reactor;
+
 namespace Giro
 {
 	public class HUD : MonoBehaviour
@@ -12,7 +14,19 @@ namespace Giro
 		public TextMeshProUGUI countdown;
 		public Image leftIndicator;
 		public Image rightIndicator;
+		public Progressor progressor;
 
+
+		public void UpdateValueBar(float progress, float stepNum)
+		{
+			float value = progress / stepNum;
+			if (value < 0 || value > 1)
+			{
+				Debug.LogError("Invalid Progress value!!!!!!!   ----HUD");
+				return;
+			}
+			progressor.SetValueAt(value);
+		}
 		public bool LeftLocked//调用UIManager.Instance.GetView<HUD>()来获取这个东西的实例
 		{
 			get => leftLocked;

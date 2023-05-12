@@ -34,6 +34,15 @@ public class MovableManager : MonoBehaviour
 
 	List<Movable> movables;
 
+	public int StepNum => movables.Count;
+	public int Progress
+	{
+		get
+		{
+			if (currentPieceNo < 0) return 0;
+			return currentPieceNo;
+		}
+	}
 	int currentPieceNo = -2;//-2代表是目前关卡刚刚开始，拼图区内部还未有任何拼图
 
 	public int totalRotateTime
