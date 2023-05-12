@@ -169,5 +169,10 @@ namespace HyperCasual.Core
 
 			PlayEffect(m_Clips[soundID]);
 		}
+		public void PlayEffect(int soundID)
+		{
+			SoundID id = (SoundID)soundID;
+			PlayEffect(id);
+		}
 	}
 }
