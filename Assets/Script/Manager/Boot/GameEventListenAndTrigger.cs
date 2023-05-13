@@ -16,7 +16,10 @@ public class GameEventListenAndTrigger : MonoBehaviour
 	GenericGameEventListener winEventListener;
 	GenericGameEventListener loseEventListener;
 
+	public PagesScreen[] afterWinIllustration;
+
 	SequenceManager gameLoader;
+	int CurrentLevel => gameLoader.currentLevel;
 	private void Awake()
 	{
 		winEventListener = new GenericGameEventListener();
@@ -41,6 +44,10 @@ public class GameEventListenAndTrigger : MonoBehaviour
 		}
 		flowController.SetActiveNode(enterWinScreenNode);
 		Time.timeScale = 0;
+		if (afterWinIllustration[CurrentLevel])
+		{
+			afterWinIllustration[CurrentLevel].ShowNextPage();
+		}
 	}
 
 	void OnLoseEventRaised()

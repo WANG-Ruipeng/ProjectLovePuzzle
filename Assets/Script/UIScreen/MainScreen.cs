@@ -13,10 +13,10 @@ public class MainScreen : MonoBehaviour
 	public FlowNode levelSelectNode;
 	public void CheckFirstEntry()
 	{
-		if (SaveManager.FirstEntry == true)
+		if (SaveManager.LevelProgress == 0)
 		{
 			flow.SetActiveNode(firstEntryNode);
-			SaveManager.FirstEntry = false;
+			SaveManager.LevelProgress = 1;
 		}
 		else
 		{

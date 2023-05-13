@@ -9,7 +9,6 @@ static public class Archive
 	public static bool hasLoad = false;
 	public const int collectibleTypeCount = 5;
 	static string xmlFilePath = Application.streamingAssetsPath + "Archive.xml";
-	const string firstEntryName = "FirstEntry";
 	const string leveleProgressName = "LevelProgress";
 	const string collectibleArrayName = "CollectibleArray";
 	const string collectibleName = "Collectible";
@@ -23,19 +22,6 @@ static public class Archive
 	/// </summary>
 	static public bool Exist { get => File.Exists(xmlFilePath); }
 
-	static public bool FirstEntry
-	{
-		get
-		{
-			if (!Exist)
-			{
-				Debug.LogError("还没有Load过存档！");
-			}
-			return firstEntry;
-		}
-		set => WriteFirstEntry(value);
-	}
-	static bool firstEntry;
 
 	/// <summary>
 	/// 从本地存档中读取存档信息到Archive类中
@@ -52,8 +38,6 @@ static public class Archive
 		XmlDocument xmlDoc = new XmlDocument();
 		xmlDoc.Load(xmlFilePath);
 		XmlNode root = xmlDoc.SelectSingleNode("Root");
-		//载入首次进入信息
-		firstEntry = bool.Parse(root[firstEntryName].InnerText);
 		//载入关卡进度
 		levelProgress = int.Parse(root[leveleProgressName].InnerText);
 		//载入收藏品信息
@@ -66,18 +50,6 @@ static public class Archive
 			collectiblesInfo[i] = new CollectibleSaveInfo(i, unlocked);
 		}
 		hasLoad = true;
-	}
-
-	static public void WriteFirstEntry(bool firstEntry)
-	{
-		//修改已读入的存档信息
-		Archive.firstEntry = firstEntry;
-		//修改本地存档
-		XmlDocument xmlDoc = new XmlDocument();
-		xmlDoc.Load(xmlFilePath);
-		XmlElement xmlElement = (XmlElement)xmlDoc.SelectSingleNode("Root").SelectSingleNode(firstEntryName);
-		xmlElement.InnerText = firstEntry.ToString();
-		xmlDoc.Save(xmlFilePath);
 	}
 
 
@@ -113,7 +85,6 @@ static public class Archive
 		writer.Formatting = Formatting.Indented;
 		writer.WriteStartDocument();
 		writer.WriteStartElement("Root");
-		writer.WriteElementString(firstEntryName, true.ToString());
 		writer.WriteElementString(leveleProgressName, "0");
 		writer.WriteStartElement(collectibleArrayName);
 		for (int i = 0; i < collectibleTypeCount; i++)

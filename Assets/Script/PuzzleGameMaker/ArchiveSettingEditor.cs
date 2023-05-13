@@ -8,7 +8,6 @@ using Giro;
 public class ArchiveSettingEditor : EditorWindow
 {
 	int levelProgress;
-	bool firstEntry;
 	bool enableMusic;
 	bool enableSfx;
 	float masterVolume;
@@ -23,14 +22,12 @@ public class ArchiveSettingEditor : EditorWindow
 	private void OnGUI()
 	{
 		levelProgress = EditorGUILayout.IntField("Level Progress", levelProgress);
-		firstEntry = EditorGUILayout.Toggle("Is First Entry", firstEntry);
 		enableMusic = EditorGUILayout.Toggle("BGM", enableMusic);
 		enableSfx = EditorGUILayout.Toggle("effect sound", enableSfx);
 		masterVolume = EditorGUILayout.FloatField("masterVolume", masterVolume);
 		if (GUILayout.Button("应用上述存档"))
 		{
 			SaveManager.LevelProgress = levelProgress;
-			SaveManager.FirstEntry = firstEntry;
 			HyperCasual.Core.AudioSettings audioSettings = new HyperCasual.Core.AudioSettings();
 			audioSettings.EnableMusic = enableMusic;
 			audioSettings.EnableSfx = enableSfx;

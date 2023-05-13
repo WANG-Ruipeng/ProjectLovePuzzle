@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using Doozy.Runtime.UIManager.Containers;
 using HyperCasual.Core;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using Doozy.Runtime.Nody;
 namespace Giro
 {
 	/// <summary>
@@ -18,6 +19,12 @@ namespace Giro
 		AbstractLevelData[] m_Levels;
 		[SerializeField]
 		GameObject[] m_LevelManagers;
+		[SerializeField]
+		PagesScreen[] beforeLevelIllustrations;
+		[SerializeField]
+		FlowNode[] loadSceneNodes;
+		[SerializeField]
+		FlowController flowController;
 		public AbstractLevelData[] Levels => m_Levels;
 
 		public HUD hud;
@@ -27,7 +34,11 @@ namespace Giro
 		protected override void Awake()
 		{
 			base.Awake();
-
+			for (int i = 0; i < beforeLevelIllustrations.Length; i++)
+			{
+				beforeLevelIllustrations[i].id = i;
+				beforeLevelIllustrations[i].finalHandle += JumpToNode;
+			}
 		}
 		/// <summary>
 		/// Initializes the SequenceManager
@@ -45,6 +56,27 @@ namespace Giro
 			}
 		}
 
+		public void CheckFirstEntryAndLoadLevel(int ind)
+		{
+			int progress = SaveManager.LevelProgress;
+			if (progress == ind)//如果首次进入则show插画
+			{
+				ShowIllustration(ind);
+			}
+			else//否则加载关卡
+			{
+				OnSceneLoad(ind);
+			}
+		}
+
+		private void ShowIllustration(int ind)
+		{
+			beforeLevelIllustrations[ind].ShowNextPage();
+		}
+		private void JumpToNode(int ind)
+		{
+			flowController.SetActiveNode(loadSceneNodes[ind]);
+		}
 		public void OnSceneLoad(int ind)
 		{
 			Debug.Log("Load Level: " + m_Levels[ind].name);
