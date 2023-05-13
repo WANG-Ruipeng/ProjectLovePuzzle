@@ -19,7 +19,7 @@ public class GameEventListenAndTrigger : MonoBehaviour
 	public PagesScreen[] afterWinIllustration;
 
 	SequenceManager gameLoader;
-	int CurrentLevel => gameLoader.currentLevel;
+	int CurrentLevel => gameLoader.CurrentLevel;
 	private void Awake()
 	{
 		winEventListener = new GenericGameEventListener();
@@ -37,7 +37,7 @@ public class GameEventListenAndTrigger : MonoBehaviour
 	void OnWinEventRaised()
 	{
 		//TODO:等待胜利动画播放完毕
-		int nextLevel = gameLoader.currentLevel + 1;
+		int nextLevel = gameLoader.CurrentLevel + 1;
 		if (nextLevel > SaveManager.LevelProgress)
 		{
 			SaveManager.LevelProgress = nextLevel;

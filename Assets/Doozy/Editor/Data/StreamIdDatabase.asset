@@ -27,13 +27,7 @@ MonoBehaviour:
     - Category: UIView
       Name: LevelSelect
     - Category: UIView
-      Name: LoadLevel1
-    - Category: UIView
-      Name: LoadLevel2
-    - Category: UIView
-      Name: LoadLevel3
-    - Category: UIView
-      Name: LoadLevel4
+      Name: LoadLevel
     - Category: UIView
       Name: MainMenu
     - Category: UIView

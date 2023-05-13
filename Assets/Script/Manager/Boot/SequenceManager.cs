@@ -22,13 +22,19 @@ namespace Giro
 		[SerializeField]
 		PagesScreen[] beforeLevelIllustrations;
 		[SerializeField]
-		FlowNode[] loadSceneNodes;
+		FlowNode loadSceneNode;
 		[SerializeField]
 		FlowController flowController;
 		public AbstractLevelData[] Levels => m_Levels;
 
 		public HUD hud;
-		public int currentLevel;
+		public int CurrentLevel
+		{
+			get => currentLevel;
+			set => currentLevel = value;
+		}
+
+		int currentLevel = 0;
 
 
 		protected override void Awake()
@@ -65,24 +71,24 @@ namespace Giro
 			}
 			else//否则加载关卡
 			{
-				OnSceneLoad(ind);
+				JumpToNode(ind);
 			}
 		}
 
-		private void ShowIllustration(int ind)
+		public void ShowIllustration(int ind)
 		{
 			beforeLevelIllustrations[ind].ShowNextPage();
 		}
 		private void JumpToNode(int ind)
 		{
-			flowController.SetActiveNode(loadSceneNodes[ind]);
+			flowController.SetActiveNode(loadSceneNode);
 		}
-		public void OnSceneLoad(int ind)
+		public void OnSceneLoad()
 		{
-			Debug.Log("Load Level: " + m_Levels[ind].name);
-			if (m_Levels[ind] == null)
-				throw new Exception("level " + ind + " is null!");
-			else if (m_Levels[ind] is SceneRef)
+			Debug.Log("Load Level: " + m_Levels[currentLevel].name);
+			if (m_Levels[currentLevel] == null)
+				throw new Exception("level " + currentLevel + " is null!");
+			else if (m_Levels[currentLevel] is SceneRef)
 				return;
 			else
 			{
@@ -96,14 +102,14 @@ namespace Giro
 				}
 
 				GameManager.Instance.hud = hud;
-				GameManager.Instance.LoadLevel(m_Levels[ind] as LevelDefinition);
+				GameManager.Instance.LoadLevel(m_Levels[currentLevel] as LevelDefinition);
 				GameObject subCameraGo = GameObject.Find("Camera");
 				if (subCameraGo)
 				{
 					Destroy(subCameraGo);
 				}
-				currentLevel = ind;
 			}
+			AudioManager.Instance.PlayMusic((int)SoundID.Level1 + currentLevel - 1);
 		}
 
 	}
