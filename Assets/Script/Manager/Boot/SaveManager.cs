@@ -53,11 +53,11 @@ namespace Giro
 			Archive.WriteCollectibleInfo(collectible.id, collectible.unlocked);
 		}
 
-		public AudioSettings LoadAudioSettings()
+		public static AudioSettings LoadAudioSettings()
 		{
 			return PlayerPrefsUtils.Read<AudioSettings>(k_AudioSettings);
 		}
-		public void SaveAudioSettings(AudioSettings audioSettings)
+		public static void SaveAudioSettings(AudioSettings audioSettings)
 		{
 			PlayerPrefsUtils.Write(k_AudioSettings, audioSettings);
 		}

@@ -92,7 +92,7 @@ namespace HyperCasual.Core
 				return;
 			}
 
-			var audioSettings = SaveManager.Instance.LoadAudioSettings();
+			var audioSettings = SaveManager.LoadAudioSettings();
 			EnableMusic = audioSettings.EnableMusic;
 			EnableSfx = audioSettings.EnableSfx;
 			MasterVolume = audioSettings.MasterVolume;
@@ -105,7 +105,7 @@ namespace HyperCasual.Core
 				return;
 			}
 
-			SaveManager.Instance.SaveAudioSettings(m_AudioSettings);
+			SaveManager.SaveAudioSettings(m_AudioSettings);
 		}
 		public void ContinuePlay()
 		{

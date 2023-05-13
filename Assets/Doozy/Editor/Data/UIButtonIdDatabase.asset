@@ -42,3 +42,5 @@ MonoBehaviour:
       Name: Pause
     - Category: UIView
       Name: ReturnMenu
+    - Category: UIView
+      Name: Setting

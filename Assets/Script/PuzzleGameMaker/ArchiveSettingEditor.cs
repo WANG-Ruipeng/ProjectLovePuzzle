@@ -35,7 +35,7 @@ public class ArchiveSettingEditor : EditorWindow
 			audioSettings.EnableMusic = enableMusic;
 			audioSettings.EnableSfx = enableSfx;
 			audioSettings.MasterVolume = masterVolume;
-			SaveManager.Instance.SaveAudioSettings(audioSettings);
+			SaveManager.SaveAudioSettings(audioSettings);
 		}
 		GUILayout.Label("↓这真的会重置一切存档包括收藏品");
 		if (GUILayout.Button("重建新存档"))

@@ -25,7 +25,7 @@ namespace Giro
 				Debug.LogError("Invalid Progress value!!!!!!!   ----HUD");
 				return;
 			}
-			progressor.SetValueAt(value);
+			progressor.PlayToValue(value);
 		}
 		public bool LeftLocked//调用UIManager.Instance.GetView<HUD>()来获取这个东西的实例
 		{
