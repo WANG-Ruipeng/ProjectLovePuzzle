@@ -318,6 +318,8 @@ namespace Giro
 
 		public void UnloadCurrentLevel()
 		{
+			CountdownEvent.RemoveListener(CountdownListener);
+			hud.Reset();
 			if (m_CurrentLevelGO != null)
 			{
 				GameObject.Destroy(m_CurrentLevelGO);
@@ -351,6 +353,10 @@ namespace Giro
 			InputManager.Instance.receiveInput = isCountdowning;
 		}
 
+		private void OnDisable()
+		{
+			UnloadCurrentLevel();
+		}
 
 
 		private void Update()

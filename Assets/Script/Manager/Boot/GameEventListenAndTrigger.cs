@@ -32,21 +32,29 @@ public class GameEventListenAndTrigger : MonoBehaviour
 		loseEventListener.EventHandler += OnLoseEventRaised;
 
 		gameLoader = GetComponent<SequenceManager>();
+
+		for (int i = 0; i < afterWinIllustration.Length; i++)
+		{
+			afterWinIllustration[i].finalHandle += () => flowController.SetActiveNode(enterWinScreenNode);
+		}
 	}
 
 	void OnWinEventRaised()
 	{
 		//TODO:等待胜利动画播放完毕
-		int nextLevel = gameLoader.CurrentLevel + 1;
-		if (nextLevel > SaveManager.LevelProgress)
+		if (CurrentLevel > SaveManager.LevelProgress)
 		{
-			SaveManager.LevelProgress = nextLevel;
+			SaveManager.LevelProgress = CurrentLevel;
 		}
-		flowController.SetActiveNode(enterWinScreenNode);
 		Time.timeScale = 0;
-		if (afterWinIllustration[CurrentLevel])
+		if (CurrentLevel - 1 >= afterWinIllustration.Length)
 		{
-			afterWinIllustration[CurrentLevel].ShowNextPage();
+			flowController.SetActiveNode(enterWinScreenNode);
+			return;
+		}
+		if (afterWinIllustration[CurrentLevel - 1])
+		{
+			afterWinIllustration[CurrentLevel - 1].ShowNextPage();
 		}
 	}
 

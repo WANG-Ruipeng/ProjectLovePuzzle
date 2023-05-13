@@ -16,7 +16,13 @@ namespace Giro
 		public Image rightIndicator;
 		public Progressor progressor;
 
-
+		public void Reset()
+		{
+			countdown.text = "";
+			leftLocked = false;
+			RightLocked = false;
+			progressor.SetValueAt(0);
+		}
 		public void UpdateValueBar(float progress, float stepNum)
 		{
 			float value = progress / stepNum;

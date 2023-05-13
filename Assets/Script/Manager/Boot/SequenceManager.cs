@@ -64,6 +64,11 @@ namespace Giro
 
 		public void CheckFirstEntryAndLoadLevel(int ind)
 		{
+			if (ind >= beforeLevelIllustrations.Length || beforeLevelIllustrations[ind])//如果没有show插画
+			{
+				JumpToNode();
+				return;
+			}
 			int progress = SaveManager.LevelProgress;
 			if (progress == ind)//如果首次进入则show插画
 			{
@@ -71,7 +76,7 @@ namespace Giro
 			}
 			else//否则加载关卡
 			{
-				JumpToNode(ind);
+				JumpToNode();
 			}
 		}
 
@@ -79,7 +84,7 @@ namespace Giro
 		{
 			beforeLevelIllustrations[ind].ShowNextPage();
 		}
-		private void JumpToNode(int ind)
+		private void JumpToNode()
 		{
 			flowController.SetActiveNode(loadSceneNode);
 		}

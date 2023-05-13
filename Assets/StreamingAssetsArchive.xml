@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Root>
-  <FirstEntry>0</FirstEntry>
   <LevelProgress>0</LevelProgress>
   <CollectibleArray>
     <Collectible ID="0" Unlocked="False" />

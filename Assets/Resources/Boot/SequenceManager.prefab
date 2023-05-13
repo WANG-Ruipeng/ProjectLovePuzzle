@@ -59,8 +59,7 @@ MonoBehaviour:
   m_LevelManagers: []
   beforeLevelIllustrations:
   - {fileID: 0}
-  loadSceneNodes:
-  - {fileID: 0}
+  loadSceneNode: {fileID: -5134932047868864922, guid: f43d5ce3440401340af5a13da65d8b14, type: 2}
   flowController: {fileID: 0}
   hud: {fileID: 0}
 --- !u!114 &4239480757495983661

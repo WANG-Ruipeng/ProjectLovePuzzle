@@ -24,7 +24,6 @@ public class InputManager : MonoBehaviour
 		}
 		s_Instance = this;
 		movableManager = MovableManager.Instance;
-
 	}
 
 	void PlayRotateEffectSound()
@@ -55,6 +54,7 @@ public class InputManager : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		if (Time.timeScale == 0) return;
 		if (!receiveInput) { return; }
 		PuzzlePiecePair pair = movableManager.GetCurrentPuzzlePair();
 		if (!pair) return;

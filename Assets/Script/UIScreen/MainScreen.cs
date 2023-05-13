@@ -16,7 +16,7 @@ public class MainScreen : MonoBehaviour
 		if (SaveManager.LevelProgress == 0)
 		{
 			SequenceManager.Instance.ShowIllustration(0);
-			SequenceManager.Instance.CurrentLevel = 1;
+			SequenceManager.Instance.CurrentLevel = 0;
 		}
 		else
 		{
