@@ -38,6 +38,7 @@ namespace Doozy.Runtime.UIManager
         {
             HUD,
             LevelSelect,
+            LOSE,
             MainMenu,
             Manga1,
             Manga2,
