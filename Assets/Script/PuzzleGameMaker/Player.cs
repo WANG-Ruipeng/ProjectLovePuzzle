@@ -14,18 +14,21 @@ public class Player : MonoBehaviour
 		skeletonAnimation = GetComponent<SkeletonAnimation>();
 	}
 
-	public void PlayIdleAnimation()
+	public void PlayIdleAnimation(float playSpeed)
 	{
-		skeletonAnimation.state.SetAnimation(0, "idel", true);
+		var trackEntity = skeletonAnimation.state.SetAnimation(0, "IDEL", true);
+		trackEntity.TimeScale = playSpeed;
 	}
-	public void PlayAlmostFallAnimation()
+	public void PlayAlmostFallAnimation(float playSpeed)
 	{
-		skeletonAnimation.state.SetAnimation(0, "aimost fall", true);
-	}
-	public void PlayFallAnimation(System.Action action = null)
+        var trackEntity = skeletonAnimation.state.SetAnimation(0, "ALMOST FALL", true);
+        trackEntity.TimeScale = playSpeed;
+    }
+	public void PlayFallAnimation(float playSpeed,System.Action action = null)
 	{
-		skeletonAnimation.state.SetAnimation(0, "fall", false);
-		if (action == null)
+        var trackEntity = skeletonAnimation.state.SetAnimation(0, "FALL", false);
+        trackEntity.TimeScale = playSpeed;
+        if (action == null)
 			return;
 		Spine.AnimationState.TrackEntryDelegate cc = delegate
 		{
@@ -35,14 +38,16 @@ public class Player : MonoBehaviour
 
 		skeletonAnimation.AnimationState.Complete += cc;
 	}
-	public void PlayJumpAnimation()
+	public void PlayJumpAnimation(float playSpeed)
 	{
-		skeletonAnimation.state.SetAnimation(0, "jump", false);
-	}
-	public void PlayVictoryAnimation(System.Action action = null)
+        var trackEntity = skeletonAnimation.state.SetAnimation(0, "JUMP", false);
+        trackEntity.TimeScale = playSpeed;
+    }
+	public void PlayVictoryAnimation(float playSpeed,System.Action action = null)
 	{
-		skeletonAnimation.state.SetAnimation(0, "victory", false);
-		if (action == null)
+        var trackEntity = skeletonAnimation.state.SetAnimation(0, "VICTORY", false);
+        trackEntity.TimeScale = playSpeed;
+        if (action == null)
 			return;
 		Spine.AnimationState.TrackEntryDelegate cc = delegate
 		{

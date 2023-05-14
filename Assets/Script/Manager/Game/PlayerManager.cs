@@ -15,7 +15,13 @@ public class PlayerManager : MonoBehaviour
 	public bool firtAlmostDown;
 	public float almostFallTime;
 
-	private void Awake()
+	public float idleAnimationPlaySpeed = 1;
+    public float almostFallAnimationPlaySpeed = 1;
+    public float fallAnimationPlaySpeed = 1;
+	public float jumpAnimationPlaySpeed = 1;
+    public float victoryAnimationPlaySpeed = 1;
+
+    private void Awake()
 	{
 		if (s_Instance != null && s_Instance != this)
 		{
@@ -29,28 +35,28 @@ public class PlayerManager : MonoBehaviour
 
 	public void SetPlayerIdle()
 	{
-		boy.PlayIdleAnimation();
-		girl.PlayIdleAnimation();
+		boy.PlayIdleAnimation(idleAnimationPlaySpeed);
+		girl.PlayIdleAnimation(idleAnimationPlaySpeed);
 	}
 
 	public void SetPlayerAlmostFall()
 	{
-		boy.PlayAlmostFallAnimation();
-		girl.PlayAlmostFallAnimation();
+		boy.PlayAlmostFallAnimation(almostFallAnimationPlaySpeed);
+		girl.PlayAlmostFallAnimation(almostFallAnimationPlaySpeed);
 	}
 	public void SetPlayerFall(System.Action action = null)
 	{
-		boy.PlayFallAnimation(action);
-		girl.PlayFallAnimation();
+		boy.PlayFallAnimation(fallAnimationPlaySpeed,action);
+		girl.PlayFallAnimation(fallAnimationPlaySpeed);
 	}
 	public void SetPlayerJump()
 	{
-		boy.PlayJumpAnimation();
-		girl.PlayJumpAnimation();
+		boy.PlayJumpAnimation(jumpAnimationPlaySpeed);
+		girl.PlayJumpAnimation(jumpAnimationPlaySpeed);
 	}
 	public void SetPlayerVictory(System.Action action = null)
 	{
-		boy.PlayVictoryAnimation(action);
-		girl.PlayVictoryAnimation();
+		boy.PlayVictoryAnimation(victoryAnimationPlaySpeed,action);
+		girl.PlayVictoryAnimation(victoryAnimationPlaySpeed);
 	}
 }
