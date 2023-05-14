@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: hero-pro_Atlas
   m_EditorClassIdentifier: 
   atlasFile: {fileID: 4900000, guid: d7e3bd7e6f971cb428513ebf424e0846, type: 3}
-  materials: []
+  materials:
+  - {fileID: 2100000, guid: 030b4825c2fdb463eac994aeff4d910a, type: 2}

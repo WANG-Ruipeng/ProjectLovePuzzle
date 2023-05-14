@@ -80,6 +80,7 @@ namespace Giro
 			//If LevelManager already exists, user is in the LevelEditorWindow
 			if (SceneManager.GetActiveScene() == gamePlayScene)
 			{
+				gameObject.AddComponent<AudioListener>();
 				StartGame();
 				m_LevelEditorMode = true;
 			}

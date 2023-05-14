@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d0d293d626dbadb4abc8f86d26045e77, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cce3b6e17ae6f4836893daa2591e1562, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -123,13 +123,10 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   RotateClockWise: 0
+  puzzleSprites: []
   state: 0
   edgeProps: ffffffff010000000000000000000000
   collections: []
-  saturationController: {fileID: 0}
-  startSaturation: 1
-  endSaturation: 0
-  addSaturation: -0.2
   rotateTime: 0
 --- !u!114 &8237944431024826049
 MonoBehaviour:

@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Gauge_Atlas
   m_EditorClassIdentifier: 
   atlasFile: {fileID: 4900000, guid: 6afa4952627478a44995c3cdf2e96a24, type: 3}
-  materials: []
+  materials:
+  - {fileID: 2100000, guid: a0a8c4157e76949ca97ad728bcf308be, type: 2}

@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: raptor_Atlas
   m_EditorClassIdentifier: 
   atlasFile: {fileID: 4900000, guid: ddbc971619ecba3499f4bcd61c741053, type: 3}
-  materials: []
+  materials:
+  - {fileID: 2100000, guid: 8251956b74d454f679b30215609920b6, type: 2}

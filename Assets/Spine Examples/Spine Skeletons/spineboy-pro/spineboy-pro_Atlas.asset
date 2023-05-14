@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: spineboy-pro_Atlas
   m_EditorClassIdentifier: 
   atlasFile: {fileID: 4900000, guid: 9b2378ddc54f1c94fb80411958000a8c, type: 3}
-  materials: []
+  materials:
+  - {fileID: 2100000, guid: ea4f206bf09a94adca083fcc2190c62c, type: 2}
