@@ -259,50 +259,34 @@ MonoBehaviour:
       reusable: 0
       onEdge: 0
       minRotateTime: 4
-    rPos: 0
-    rStepPrefab: {fileID: 364585177925155994, guid: aa79b15957865491db205a368ff60428, type: 3}
-    rCollectibleInfos: []
-  - isPlatform: 0
-    platformObj: {fileID: 0}
-    lPos: 0
-    lStepPrefab: {fileID: 364585177925155994, guid: acee62a9f377d48cfb9d460a717427a6, type: 3}
-    lCollectibleInfos:
-    - prefab: {fileID: 8633107720137370035, guid: 26145bbcb0481da428f7bddd9a83d280, type: 3}
+    - prefab: {fileID: 8633107720137370035, guid: d1fff4d9aa0554e81ba17bc1ae8d27af, type: 3}
       reusable: 0
       onEdge: 0
-      minRotateTime: 2
+      minRotateTime: 4
+    - prefab: {fileID: 8633107720137370035, guid: c6ce708e37f16430895a7218c4639928, type: 3}
+      reusable: 0
+      onEdge: 0
+      minRotateTime: 4
+    - prefab: {fileID: 8633107720137370035, guid: 61103a2d45b634f92b23fc28633807ed, type: 3}
+      reusable: 0
+      onEdge: 0
+      minRotateTime: 4
     rPos: 0
-    rStepPrefab: {fileID: 364585177925155994, guid: 234c32704b3a84ab3a6f72caa61d7a47, type: 3}
-    rCollectibleInfos: []
-  - isPlatform: 0
-    platformObj: {fileID: 0}
-    lPos: 0
-    lStepPrefab: {fileID: 364585177925155994, guid: e41a8a8a2e1a7c24f9d89bdd316076e3, type: 3}
-    lCollectibleInfos: []
-    rPos: 0
-    rStepPrefab: {fileID: 364585177925155994, guid: 502d857400b2444bd98fdf131e3f0f48, type: 3}
-    rCollectibleInfos: []
-  - isPlatform: 1
-    platformObj: {fileID: 4092972524480892814, guid: 5ccdfde13e5cbac419f104ff635b7b7a, type: 3}
-    lPos: 0
-    lStepPrefab: {fileID: 364585177925155994, guid: e41a8a8a2e1a7c24f9d89bdd316076e3, type: 3}
-    lCollectibleInfos: []
-    rPos: 0
-    rStepPrefab: {fileID: 364585177925155994, guid: 1b77f4c89fe995841b96e6e8e205b653, type: 3}
-    rCollectibleInfos: []
-  - isPlatform: 1
-    platformObj: {fileID: 4092972524480892814, guid: 5ccdfde13e5cbac419f104ff635b7b7a, type: 3}
-    lPos: 0
-    lStepPrefab: {fileID: 364585177925155994, guid: 502d857400b2444bd98fdf131e3f0f48, type: 3}
-    lCollectibleInfos: []
-    rPos: 0
-    rStepPrefab: {fileID: 364585177925155994, guid: 94f4f89cc3fad4819961f4cdd56ac236, type: 3}
-    rCollectibleInfos: []
-  - isPlatform: 0
-    platformObj: {fileID: 0}
-    lPos: 0
-    lStepPrefab: {fileID: 364585177925155994, guid: e41a8a8a2e1a7c24f9d89bdd316076e3, type: 3}
-    lCollectibleInfos: []
-    rPos: 0
-    rStepPrefab: {fileID: 364585177925155994, guid: 55ec68e5452ed4f13bc2c2a43489a62b, type: 3}
-    rCollectibleInfos: []
+    rStepPrefab: {fileID: 364585177925155994, guid: aa79b15957865491db205a368ff60428, type: 3}
+    rCollectibleInfos:
+    - prefab: {fileID: 8633107720137370035, guid: 8bd2431ca41b84d8492c014942d229c6, type: 3}
+      reusable: 0
+      onEdge: 0
+      minRotateTime: 0
+    - prefab: {fileID: 8633107720137370035, guid: 2ca2ff7ce750b4c0c994712e8b135623, type: 3}
+      reusable: 0
+      onEdge: 0
+      minRotateTime: 0
+    - prefab: {fileID: 8633107720137370035, guid: 294e406724ae54a4c9feac6fd05a53e5, type: 3}
+      reusable: 0
+      onEdge: 0
+      minRotateTime: 0
+    - prefab: {fileID: 8633107720137370035, guid: df5ad56f9ba54468e9c76caf594511fe, type: 3}
+      reusable: 0
+      onEdge: 0
+      minRotateTime: 0

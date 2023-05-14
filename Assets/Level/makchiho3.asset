@@ -419,3 +419,43 @@ MonoBehaviour:
     rPos: 0
     rStepPrefab: {fileID: 364585177925155994, guid: 4b780c2c3502644c9be366bf89fcab6d, type: 3}
     rCollectibleInfos: []
+  - isPlatform: 0
+    platformObj: {fileID: 0}
+    lPos: 0
+    lStepPrefab: {fileID: 364585177925155994, guid: ec7228934062f4a50be9cdbece1b1389, type: 3}
+    lCollectibleInfos: []
+    rPos: 0
+    rStepPrefab: {fileID: 364585177925155994, guid: aa79b15957865491db205a368ff60428, type: 3}
+    rCollectibleInfos: []
+  - isPlatform: 0
+    platformObj: {fileID: 0}
+    lPos: 0
+    lStepPrefab: {fileID: 364585177925155994, guid: 40a04177498a8437a8f3fe77593154d8, type: 3}
+    lCollectibleInfos: []
+    rPos: 0
+    rStepPrefab: {fileID: 364585177925155994, guid: 72c393466b7ff4d8c9b8acd48336836a, type: 3}
+    rCollectibleInfos: []
+  - isPlatform: 0
+    platformObj: {fileID: 0}
+    lPos: 0
+    lStepPrefab: {fileID: 364585177925155994, guid: d149a69f5034f4ffb8379eddf1ffc394, type: 3}
+    lCollectibleInfos: []
+    rPos: 0
+    rStepPrefab: {fileID: 364585177925155994, guid: 732196adb64c44dc7ae8bf30f6eea977, type: 3}
+    rCollectibleInfos: []
+  - isPlatform: 0
+    platformObj: {fileID: 0}
+    lPos: 0
+    lStepPrefab: {fileID: 364585177925155994, guid: 7154d532734ab4322bca464b7561da78, type: 3}
+    lCollectibleInfos: []
+    rPos: 0
+    rStepPrefab: {fileID: 364585177925155994, guid: 497556e337e6045dd8ba25ce74ea6dd5, type: 3}
+    rCollectibleInfos: []
+  - isPlatform: 0
+    platformObj: {fileID: 0}
+    lPos: 0
+    lStepPrefab: {fileID: 364585177925155994, guid: 803b66610f7dd43f28a875dead30099d, type: 3}
+    lCollectibleInfos: []
+    rPos: 0
+    rStepPrefab: {fileID: 364585177925155994, guid: 732196adb64c44dc7ae8bf30f6eea977, type: 3}
+    rCollectibleInfos: []

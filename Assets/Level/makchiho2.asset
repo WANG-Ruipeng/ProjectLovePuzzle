@@ -591,7 +591,11 @@ MonoBehaviour:
     platformObj: {fileID: 0}
     lPos: 0
     lStepPrefab: {fileID: 364585177925155994, guid: d149a69f5034f4ffb8379eddf1ffc394, type: 3}
-    lCollectibleInfos: []
+    lCollectibleInfos:
+    - prefab: {fileID: 8633107720137370035, guid: 074f3324d4e684ca1be50e1100c4a9a7, type: 3}
+      reusable: 0
+      onEdge: 0
+      minRotateTime: 0
     rPos: 0
     rStepPrefab: {fileID: 364585177925155994, guid: d149a69f5034f4ffb8379eddf1ffc394, type: 3}
     rCollectibleInfos: []
