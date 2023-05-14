@@ -1,11 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Root>
-  <LevelProgress>2</LevelProgress>
+  <LevelProgress>0</LevelProgress>
   <CollectibleArray>
     <Collectible ID="0" Unlocked="False" />
     <Collectible ID="1" Unlocked="False" />
     <Collectible ID="2" Unlocked="False" />
     <Collectible ID="3" Unlocked="False" />
     <Collectible ID="4" Unlocked="False" />
+    <Collectible ID="5" Unlocked="False" />
+    <Collectible ID="6" Unlocked="False" />
+    <Collectible ID="7" Unlocked="False" />
+    <Collectible ID="8" Unlocked="False" />
+    <Collectible ID="9" Unlocked="False" />
+    <Collectible ID="10" Unlocked="False" />
+    <Collectible ID="11" Unlocked="False" />
+    <Collectible ID="12" Unlocked="False" />
+    <Collectible ID="13" Unlocked="False" />
   </CollectibleArray>
 </Root>

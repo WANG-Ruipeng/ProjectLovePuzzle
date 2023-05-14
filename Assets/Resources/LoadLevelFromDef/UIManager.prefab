@@ -1016,8 +1016,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: HUD
       objectReference: {fileID: 0}
-    - target: {fileID: 5056459844332044662, guid: 3c7a51309061d411eb5591ed1fd837f3, type: 3}
-      propertyPath: m_IsActive
+    - target: {fileID: 6468779084863111361, guid: 3c7a51309061d411eb5591ed1fd837f3, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6468779084863111361, guid: 3c7a51309061d411eb5591ed1fd837f3, type: 3}
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -41,6 +41,8 @@ MonoBehaviour:
     - Category: UIView
       Name: Pause
     - Category: UIView
+      Name: Quit
+    - Category: UIView
       Name: ReturnMenu
     - Category: UIView
       Name: Setting

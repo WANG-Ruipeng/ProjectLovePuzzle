@@ -330,7 +330,7 @@ MonoBehaviour:
     lCollectibleInfos:
     - prefab: {fileID: 8633107720137370035, guid: 84ca146d45c504ea095072d715044c65, type: 3}
       reusable: 0
-      onEdge: 0
+      onEdge: 3
       minRotateTime: 0
     rPos: 0
     rStepPrefab: {fileID: 364585177925155994, guid: aa79b15957865491db205a368ff60428, type: 3}
@@ -393,7 +393,7 @@ MonoBehaviour:
     rCollectibleInfos:
     - prefab: {fileID: 8633107720137370035, guid: 9ea285322a7f34a5fbfda7103be84086, type: 3}
       reusable: 0
-      onEdge: 0
+      onEdge: 2
       minRotateTime: 0
   - isPlatform: 0
     platformObj: {fileID: 0}
@@ -458,7 +458,7 @@ MonoBehaviour:
     lCollectibleInfos:
     - prefab: {fileID: 8633107720137370035, guid: 939b17ae84b1948f8a86bad43e9506c7, type: 3}
       reusable: 0
-      onEdge: 0
+      onEdge: 1
       minRotateTime: 0
     rPos: 0
     rStepPrefab: {fileID: 364585177925155994, guid: 2b10bfd6cb24a4ef3847218a01c8282c, type: 3}

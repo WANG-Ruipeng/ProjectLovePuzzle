@@ -723,6 +723,43 @@ MonoBehaviour:
   Passthrough: 1
   ClearGraphHistory: 0
   Position: {x: 2537.1792, y: 288.2374}
+--- !u!114 &-1094008797217761564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6ff80fe012271646b465b5bf46787dd, type: 3}
+  m_Name: Application Quit
+  m_EditorClassIdentifier: 
+  FlowGraphId: db2dc57e-ea96-40ee-a199-3162e4395c89
+  NodeId: c7d50fa2-d50e-4733-afa3-fdb734e157f9
+  NodeType: 0
+  NodeName: Application Quit
+  NodeDescription: 
+  InputPorts:
+  - NodeId: c7d50fa2-d50e-4733-afa3-fdb734e157f9
+    PortId: 24a5d6d5-1178-47da-8f02-75eced16e334
+    Direction: 0
+    Capacity: 1
+    Connections:
+    - 96de5369-261a-482c-8c46-dd337289a023
+    Value: 
+    ValueTypeQualifiedName: 
+    CanBeDeleted: 0
+    CanBeReordered: 0
+  OutputPorts: []
+  RunUpdate: 0
+  RunFixedUpdate: 0
+  RunLateUpdate: 0
+  NodeState: 0
+  CanBeDeleted: 1
+  Passthrough: 1
+  ClearGraphHistory: 0
+  Position: {x: 914.15656, y: -196.36871}
 --- !u!114 &-794943746637810878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -838,8 +875,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02761efe598a45c98fa1baf4d446c6a7, type: 3}
   m_Name: Flow Graph
   m_EditorClassIdentifier: 
-  EditorPosition: {x: 268, y: 117.6, z: 0}
-  EditorScale: {x: 0.2471847, y: 0.2471847, z: 1}
+  EditorPosition: {x: -372.8, y: 15.2, z: 0}
+  EditorScale: {x: 0.8695652, y: 0.8695652, z: 1}
   Id: db2dc57e-ea96-40ee-a199-3162e4395c89
   GraphName: Flow Graph
   GraphDescription: 
@@ -879,6 +916,7 @@ MonoBehaviour:
   - {fileID: -2626470523246997756}
   - {fileID: -5333830570424097747}
   - {fileID: -8229216563095731478}
+  - {fileID: -1094008797217761564}
   RootNode: {fileID: 3717452909304699547}
   ActiveNode: {fileID: 0}
 --- !u!114 &523725884769487187
@@ -1133,6 +1171,17 @@ MonoBehaviour:
     Connections:
     - 83557ff0-916d-4fca-833c-6619840ab8e1
     Value: '{"Trigger":1,"TimeDelay":3.0,"SignalPayload":{"StreamId":{"Category":"UIView","Name":"placeholder","Custom":false},"SignalValueType":0,"IntegerValue":0,"BooleanValue":false,"FloatValue":0.0,"StringValue":"","ColorValue":{"r":0.0,"g":0.0,"b":0.0,"a":0.0},"Vector2Value":{"x":0.0,"y":0.0},"Vector3Value":{"x":0.0,"y":0.0,"z":0.0},"Vector4Value":{"x":0.0,"y":0.0,"z":0.0,"w":0.0}},"ButtonId":{"Category":"None","Name":"None","Custom":false},"ToggleId":{"Category":"None","Name":"None","Custom":false},"CommandToggle":2,"ViewId":{"Category":"None","Name":"None","Custom":false},"CommandShowHide":0}'
+    ValueTypeQualifiedName: Doozy.Runtime.UIManager.Nodes.PortData.UIOutputPortData,
+      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    CanBeDeleted: 1
+    CanBeReordered: 1
+  - NodeId: edf5d577-c7ee-4d7e-8019-3bf4654d13ae
+    PortId: 96de5369-261a-482c-8c46-dd337289a023
+    Direction: 1
+    Capacity: 0
+    Connections:
+    - 24a5d6d5-1178-47da-8f02-75eced16e334
+    Value: '{"Trigger":2,"TimeDelay":3.0,"SignalPayload":{"StreamId":{"Category":"None","Name":"None","Custom":false},"SignalValueType":0,"IntegerValue":0,"BooleanValue":false,"FloatValue":0.0,"StringValue":"","ColorValue":{"r":0.0,"g":0.0,"b":0.0,"a":0.0},"Vector2Value":{"x":0.0,"y":0.0},"Vector3Value":{"x":0.0,"y":0.0,"z":0.0},"Vector4Value":{"x":0.0,"y":0.0,"z":0.0,"w":0.0}},"ButtonId":{"Category":"UIView","Name":"Quit","Custom":false},"ToggleId":{"Category":"None","Name":"None","Custom":false},"CommandToggle":2,"ViewId":{"Category":"None","Name":"None","Custom":false},"CommandShowHide":0}'
     ValueTypeQualifiedName: Doozy.Runtime.UIManager.Nodes.PortData.UIOutputPortData,
       Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
     CanBeDeleted: 1

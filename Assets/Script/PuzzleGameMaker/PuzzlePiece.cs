@@ -68,6 +68,10 @@ public class PuzzlePiece : MonoBehaviour
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		foreach (Collectible collectible in collections)
 		{
+			if (!collectible)
+			{
+				continue;
+			}
 			if (collectible is EdgeCollectible c)
 			{
 				c.transform.localPosition = new Vector3(0, collectiblePosOffset, 0);
@@ -110,6 +114,10 @@ public class PuzzlePiece : MonoBehaviour
 		//处理边收藏品
 		foreach (Collectible collectible in collections)
 		{
+			if (!collectible)
+			{
+				continue;
+			}
 			if (collectible is EdgeCollectible c)
 			{
 				c.transform.rotation = Quaternion.Euler(0, 0, 0);

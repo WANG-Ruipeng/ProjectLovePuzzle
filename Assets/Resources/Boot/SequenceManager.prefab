@@ -53,13 +53,20 @@ MonoBehaviour:
   m_PreloadedAssets: []
   m_Levels:
   - {fileID: 11400000, guid: acbd37317d2e64668912359658f73959, type: 2}
-  - {fileID: 11400000, guid: acbd37317d2e64668912359658f73959, type: 2}
-  - {fileID: 11400000, guid: acbd37317d2e64668912359658f73959, type: 2}
-  - {fileID: 11400000, guid: 2bbb648619131c2439b442cad0eb0a10, type: 2}
+  - {fileID: 11400000, guid: 56934fd9a0eea41729b750b521cb758e, type: 2}
+  - {fileID: 11400000, guid: d597460f345b24fd7ac77d15b5c1a2ca, type: 2}
+  - {fileID: 11400000, guid: 9236392a92d6d4320aaee47342abdf04, type: 2}
   m_LevelManagers: []
   beforeLevelIllustrations:
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   loadSceneNode: {fileID: -5134932047868864922, guid: f43d5ce3440401340af5a13da65d8b14, type: 2}
+  mangaNodes:
+  - {fileID: 2187902904943840573, guid: f43d5ce3440401340af5a13da65d8b14, type: 2}
+  - {fileID: 6779343315228120579, guid: f43d5ce3440401340af5a13da65d8b14, type: 2}
+  - {fileID: 2750873889986378122, guid: f43d5ce3440401340af5a13da65d8b14, type: 2}
+  - {fileID: -7896266257926475210, guid: f43d5ce3440401340af5a13da65d8b14, type: 2}
   flowController: {fileID: 0}
   hud: {fileID: 0}
 --- !u!114 &4239480757495983661
@@ -78,8 +85,12 @@ MonoBehaviour:
   loseEvent: {fileID: 11400000, guid: 2b6d3353ba4d84d3ca725ef1835ca96f, type: 2}
   flowController: {fileID: 0}
   enterWinScreenNode: {fileID: 523725884769487187, guid: f43d5ce3440401340af5a13da65d8b14, type: 2}
-  enterLoseScreenNode: {fileID: 523725884769487187, guid: f43d5ce3440401340af5a13da65d8b14, type: 2}
-  afterWinIllustration: []
+  enterLoseScreenNode: {fileID: -8229216563095731478, guid: f43d5ce3440401340af5a13da65d8b14, type: 2}
+  afterWinIllustration:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &8334058400297016994
 MonoBehaviour:
   m_ObjectHideFlags: 0

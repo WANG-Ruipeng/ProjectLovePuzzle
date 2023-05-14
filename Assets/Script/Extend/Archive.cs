@@ -7,7 +7,7 @@ using System.IO;
 static public class Archive
 {
 	public static bool hasLoad = false;
-	public const int collectibleTypeCount = 5;
+	public const int collectibleTypeCount = 14;
 	static string xmlFilePath = Application.streamingAssetsPath + "Archive.xml";
 	const string leveleProgressName = "LevelProgress";
 	const string collectibleArrayName = "CollectibleArray";

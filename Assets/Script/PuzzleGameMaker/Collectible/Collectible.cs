@@ -17,7 +17,7 @@ public class Collectible : MonoBehaviour
 		{
 			CollectibleSaveInfo info = SaveManager.Instance.LoadCollectibleInfo(id);
 			unlocked = info.unlocked;
-			if (!unlocked)
+			if (unlocked)
 			{
 				Destroy(gameObject);
 			}

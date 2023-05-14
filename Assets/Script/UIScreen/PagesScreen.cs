@@ -16,12 +16,11 @@ public class PagesScreen : MonoBehaviour
 	public UIView illustration;
 
 	public Action finalHandle;
-	List<Image> subSpriteRenders = new List<Image>();
+	static List<Image> subSpriteRenders = new List<Image>();
 	public void Awake()
 	{
 		selectable = GetComponent<UISelectable>();
 		selectable.interactable = false;
-		GetEmptySpriteRender();
 		for (int i = 0; i < spriteset.Length; i++)
 		{
 			spriteset[i].currentSubSprite = -1;

@@ -56,5 +56,9 @@ namespace Giro
 		{
 			PlayerPrefsUtils.Write(k_AudioSettings, audioSettings);
 		}
+		public static void RecreateArchive()
+		{
+			Archive.Recreate();
+		}
 	}
 }
