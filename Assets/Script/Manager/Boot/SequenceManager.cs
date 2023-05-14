@@ -90,7 +90,6 @@ namespace Giro
 		public void JumpToNode()
 		{
 			hud.Reset();
-			hud.GetComponent<UIView>().Show();
 			flowController.SetActiveNode(loadSceneNode);
 		}
 

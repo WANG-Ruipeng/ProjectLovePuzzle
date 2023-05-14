@@ -21,7 +21,7 @@ namespace Giro
 		public void Reset()
 		{
 			countdown.text = "";
-			leftLocked = false;
+			LeftLocked = false;
 			RightLocked = false;
 			progressor.SetValueAt(0);
 			background.sprite = backgroundSprites[SequenceManager.Instance.CurrentLevel];

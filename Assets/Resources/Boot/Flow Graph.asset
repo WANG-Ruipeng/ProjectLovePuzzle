@@ -120,7 +120,7 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 0
   ClearGraphHistory: 0
-  Position: {x: 2642.4001, y: -74.40004}
+  Position: {x: 2189.1792, y: -78.962585}
   OnEnterShowViews:
   - Id:
       Category: UIView
@@ -179,7 +179,7 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 0
   ClearGraphHistory: 0
-  Position: {x: 2652.8, y: 217.14322}
+  Position: {x: 2199.5793, y: 213.03738}
   OnEnterShowViews:
   - Id:
       Category: UIView
@@ -238,7 +238,7 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 0
   ClearGraphHistory: 0
-  Position: {x: 1919.5078, y: 827.1702}
+  Position: {x: 1465.9792, y: 822.6374}
   OnEnterShowViews:
   - Id:
       Category: UIView
@@ -296,7 +296,7 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 1
   ClearGraphHistory: 0
-  Position: {x: 2015.2, y: -240.00005}
+  Position: {x: 1561.9792, y: -244.5626}
   PivotOrientation: 2
 --- !u!114 &-7159095504066832955
 MonoBehaviour:
@@ -344,7 +344,7 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 1
   ClearGraphHistory: 0
-  Position: {x: 1782.0238, y: 22.400007}
+  Position: {x: 1329.1793, y: 17.837383}
   Payload:
     StreamId:
       Category: UIView
@@ -406,7 +406,7 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 1
   ClearGraphHistory: 0
-  Position: {x: 2063.2, y: 3.9999886}
+  Position: {x: 1609.9792, y: -0.56261444}
   TargetValue: 1
   AnimateValue: 0
   AnimationDuration: 1
@@ -458,7 +458,7 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 1
   ClearGraphHistory: 0
-  Position: {x: 2485.6, y: -74.40004}
+  Position: {x: 2032.3794, y: -78.962585}
   TargetValue: 0
   AnimateValue: 0
   AnimationDuration: 1
@@ -510,7 +510,7 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 1
   ClearGraphHistory: 0
-  Position: {x: 2364, y: -75.20007}
+  Position: {x: 1910.7793, y: -79.76261}
   Payload:
     StreamId:
       Category: Music
@@ -570,7 +570,7 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 1
   ClearGraphHistory: 0
-  Position: {x: 1528.7999, y: 22.399942}
+  Position: {x: 1075.5793, y: 17.837383}
   GetSceneBy: 0
   LoadSceneMode: 1
   AllowSceneActivation: 1
@@ -681,7 +681,7 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 1
   ClearGraphHistory: 0
-  Position: {x: 2485.6, y: -279.2}
+  Position: {x: 2032.3794, y: -283.7626}
   Payload:
     StreamId:
       Category: Music
@@ -722,7 +722,7 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 1
   ClearGraphHistory: 0
-  Position: {x: 2990.4001, y: 292.79996}
+  Position: {x: 2537.1792, y: 288.2374}
 --- !u!114 &-794943746637810878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -769,7 +769,7 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 1
   ClearGraphHistory: 0
-  Position: {x: 3024.8, y: -240.00005}
+  Position: {x: 2571.5793, y: -244.5626}
   PivotOrientation: 3
 --- !u!114 &-333572328443206698
 MonoBehaviour:
@@ -838,7 +838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02761efe598a45c98fa1baf4d446c6a7, type: 3}
   m_Name: Flow Graph
   m_EditorClassIdentifier: 
-  EditorPosition: {x: 228.8, y: 41.6, z: 0}
+  EditorPosition: {x: 268, y: 117.6, z: 0}
   EditorScale: {x: 0.2471847, y: 0.2471847, z: 1}
   Id: db2dc57e-ea96-40ee-a199-3162e4395c89
   GraphName: Flow Graph
@@ -928,7 +928,7 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 0
   ClearGraphHistory: 1
-  Position: {x: 2652.8, y: 89.59993}
+  Position: {x: 2199.5793, y: 85.03738}
   OnEnterShowViews:
   - Id:
       Category: UIView
@@ -1014,7 +1014,7 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 0
   ClearGraphHistory: 0
-  Position: {x: 1919.5078, y: 514.37024}
+  Position: {x: 1465.9792, y: 509.8374}
   OnEnterShowViews:
   - Id:
       Category: UIView
@@ -1073,7 +1073,7 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 0
   ClearGraphHistory: 0
-  Position: {x: 1919.5078, y: 723.9703}
+  Position: {x: 1465.9792, y: 719.4374}
   OnEnterShowViews:
   - Id:
       Category: UIView
@@ -1182,7 +1182,7 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 1
   ClearGraphHistory: 0
-  Position: {x: 1528.7999, y: -31.200062}
+  Position: {x: 1075.5793, y: -35.762623}
 --- !u!114 &3717452909304699547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1317,7 +1317,7 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 1
   ClearGraphHistory: 0
-  Position: {x: 2915.2, y: 171.19994}
+  Position: {x: 2461.9792, y: 166.63739}
   PivotOrientation: 2
 --- !u!114 &5553326205906523936
 MonoBehaviour:
@@ -1365,7 +1365,7 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 1
   ClearGraphHistory: 0
-  Position: {x: 2997.6, y: 342.39996}
+  Position: {x: 2544.3794, y: 337.8374}
   GetSceneBy: 0
   SceneBuildIndex: 0
   SceneName: Scenes/LevelEditorScene
@@ -1558,7 +1558,7 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 0
   ClearGraphHistory: 0
-  Position: {x: 1919.5078, y: 620.77026}
+  Position: {x: 1465.9792, y: 616.23737}
   OnEnterShowViews:
   - Id:
       Category: UIView
@@ -1628,7 +1628,7 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 0
   ClearGraphHistory: 0
-  Position: {x: 2202.4001, y: 22.400003}
+  Position: {x: 1749.1792, y: 17.837383}
   OnEnterShowViews:
   - Id:
       Category: UIView
@@ -1668,7 +1668,7 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 1
   ClearGraphHistory: 0
-  Position: {x: 2804, y: -309.60004}
+  Position: {x: 2350.7793, y: -314.1626}
 --- !u!114 &8787354595419871114
 MonoBehaviour:
   m_ObjectHideFlags: 0
