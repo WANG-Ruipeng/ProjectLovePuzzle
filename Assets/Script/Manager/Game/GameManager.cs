@@ -166,14 +166,14 @@ namespace Giro
 			}
 			if (!hud)
 				hud = GameObject.Find("HUD").GetComponent<HUD>();
-			hud.LeftLocked = false;
-			hud.RightLocked = false;
 			InputManager.Instance.hud = hud;
 			isCountdowning = false;
 			InputManager.Instance.receiveInput = false;
 			countdown = maxCountdown;
 			starttime = Time.time;
 			winOrLose = false;
+			hud.Reset();
+
 		}
 
 
@@ -315,7 +315,6 @@ namespace Giro
 		public void UnloadCurrentLevel()
 		{
 			CountdownEvent.RemoveListener(CountdownListener);
-			hud.Reset();
 			if (m_CurrentLevelGO != null)
 			{
 				GameObject.Destroy(m_CurrentLevelGO);

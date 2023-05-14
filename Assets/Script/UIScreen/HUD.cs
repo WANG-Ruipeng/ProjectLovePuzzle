@@ -15,6 +15,8 @@ namespace Giro
 		public Image leftIndicator;
 		public Image rightIndicator;
 		public Progressor progressor;
+		public SpriteRenderer background;
+		public Sprite[] backgroundSprites;
 
 		public void Reset()
 		{
@@ -22,6 +24,7 @@ namespace Giro
 			leftLocked = false;
 			RightLocked = false;
 			progressor.SetValueAt(0);
+			background.sprite = backgroundSprites[SequenceManager.Instance.CurrentLevel];
 		}
 		public void UpdateValueBar(float progress, float stepNum)
 		{

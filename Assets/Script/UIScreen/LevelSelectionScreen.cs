@@ -21,11 +21,18 @@ namespace Giro
 				for (int i = 0; i <= progress; i++)
 				{
 					levelButtons[i].interactable = true;
-					mangaButtons[i].interactable = true;
 				}
 			for (int i = progress + 1; i < 4; i++)
 			{
 				levelButtons[i].interactable = false;
+			}
+			if (progress < 4)
+				for (int i = 0; i < progress; i++)
+				{
+					mangaButtons[i].interactable = true;
+				}
+			for (int i = progress; i < 4; i++)
+			{
 				mangaButtons[i].interactable = false;
 			}
 		}

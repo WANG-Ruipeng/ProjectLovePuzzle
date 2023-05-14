@@ -35,7 +35,8 @@ public class GameEventListenAndTrigger : MonoBehaviour
 
 		for (int i = 0; i < afterWinIllustration.Length; i++)
 		{
-			afterWinIllustration[i].finalHandle += () => flowController.SetActiveNode(enterWinScreenNode);
+			if (afterWinIllustration[i])
+				afterWinIllustration[i].finalHandle += () => flowController.SetActiveNode(enterWinScreenNode);
 		}
 	}
 
@@ -47,7 +48,7 @@ public class GameEventListenAndTrigger : MonoBehaviour
 			SaveManager.LevelProgress = CurrentLevel + 1;
 		}
 		Time.timeScale = 0;
-		if (CurrentLevel - 1 >= afterWinIllustration.Length)
+		if (CurrentLevel - 1 >= afterWinIllustration.Length || !afterWinIllustration[CurrentLevel])
 		{
 			flowController.SetActiveNode(enterWinScreenNode);
 			return;
