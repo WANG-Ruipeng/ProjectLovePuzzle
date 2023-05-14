@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: whirlyblendmodes_Atlas
   m_EditorClassIdentifier: 
   atlasFile: {fileID: 4900000, guid: 188756a89517d7649a67fb53606220f5, type: 3}
-  materials: []
+  materials:
+  - {fileID: 2100000, guid: 9922ef3f2f5e24729adf0b6a6d543338, type: 2}

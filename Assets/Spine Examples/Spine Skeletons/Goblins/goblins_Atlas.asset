@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: goblins_Atlas
   m_EditorClassIdentifier: 
   atlasFile: {fileID: 4900000, guid: 179f09b47e5402545a1aa69bf5cb2cba, type: 3}
-  materials: []
+  materials:
+  - {fileID: 2100000, guid: 36ace02bbd02c4b7b9061bb6cf0d451b, type: 2}

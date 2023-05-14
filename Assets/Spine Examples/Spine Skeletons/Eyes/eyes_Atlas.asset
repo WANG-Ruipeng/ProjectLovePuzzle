@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: eyes_Atlas
   m_EditorClassIdentifier: 
   atlasFile: {fileID: 4900000, guid: d2899150110e7384badaef80d9f784ee, type: 3}
-  materials: []
+  materials:
+  - {fileID: 2100000, guid: 56aa8d58e54494d05af90497c27537a9, type: 2}
