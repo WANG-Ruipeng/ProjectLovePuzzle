@@ -13,10 +13,9 @@ GameObject:
   - component: {fileID: 4239480757495983661}
   - component: {fileID: 8334058400297016994}
   - component: {fileID: 1398022176094952592}
-  - component: {fileID: 3310907688615025490}
-  - component: {fileID: 2157093708582068477}
-  - component: {fileID: 3432127332931931021}
   - component: {fileID: 7355864466755114933}
+  - component: {fileID: 340348414}
+  - component: {fileID: 340348415}
   m_Layer: 0
   m_Name: SequenceManager
   m_TagString: Untagged
@@ -58,8 +57,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: acbd37317d2e64668912359658f73959, type: 2}
   - {fileID: 11400000, guid: 2bbb648619131c2439b442cad0eb0a10, type: 2}
   m_LevelManagers: []
+  beforeLevelIllustrations:
+  - {fileID: 0}
+  loadSceneNodes:
+  - {fileID: 0}
+  flowController: {fileID: 0}
   hud: {fileID: 0}
-  currentLevel: 0
 --- !u!114 &4239480757495983661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,6 +80,7 @@ MonoBehaviour:
   flowController: {fileID: 0}
   enterWinScreenNode: {fileID: 523725884769487187, guid: f43d5ce3440401340af5a13da65d8b14, type: 2}
   enterLoseScreenNode: {fileID: 523725884769487187, guid: f43d5ce3440401340af5a13da65d8b14, type: 2}
+  afterWinIllustration: []
 --- !u!114 &8334058400297016994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,144 +149,6 @@ MonoBehaviour:
     Category: Music
     Name: Manga
     Custom: 0
---- !u!114 &3310907688615025490
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4239480757495983653}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ec4976bef1d463b82e8013afa2cb347, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Callback:
-    EventName: Callback triggered every time a signal is received
-    Runners: []
-    Event:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: HyperCasual.Core.AudioManager, Assembly-CSharp
-          m_MethodName: PlayMusic
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 6
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 5748477057393688392}
-          m_TargetAssemblyTypeName: Giro.SequenceManager, Assembly-CSharp
-          m_MethodName: OnSceneLoad
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 3
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  StreamId:
-    Category: UIView
-    Name: LoadLevel4
-    Custom: 0
---- !u!114 &2157093708582068477
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4239480757495983653}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ec4976bef1d463b82e8013afa2cb347, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Callback:
-    EventName: Callback triggered every time a signal is received
-    Runners: []
-    Event:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: HyperCasual.Core.AudioManager, Assembly-CSharp
-          m_MethodName: PlayMusic
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 5
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 5748477057393688392}
-          m_TargetAssemblyTypeName: Giro.SequenceManager, Assembly-CSharp
-          m_MethodName: OnSceneLoad
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 2
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  StreamId:
-    Category: UIView
-    Name: LoadLevel3
-    Custom: 0
---- !u!114 &3432127332931931021
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4239480757495983653}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ec4976bef1d463b82e8013afa2cb347, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Callback:
-    EventName: Callback triggered every time a signal is received
-    Runners: []
-    Event:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: HyperCasual.Core.AudioManager, Assembly-CSharp
-          m_MethodName: PlayMusic
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 4
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 5748477057393688392}
-          m_TargetAssemblyTypeName: Giro.SequenceManager, Assembly-CSharp
-          m_MethodName: OnSceneLoad
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 1
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  StreamId:
-    Category: UIView
-    Name: LoadLevel2
-    Custom: 0
 --- !u!114 &7355864466755114933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,22 +167,10 @@ MonoBehaviour:
     Event:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: HyperCasual.Core.AudioManager, Assembly-CSharp
-          m_MethodName: PlayMusic
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 3
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
         - m_Target: {fileID: 5748477057393688392}
           m_TargetAssemblyTypeName: Giro.SequenceManager, Assembly-CSharp
           m_MethodName: OnSceneLoad
-          m_Mode: 3
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -327,5 +181,73 @@ MonoBehaviour:
           m_CallState: 2
   StreamId:
     Category: UIView
-    Name: LoadLevel1
+    Name: LoadLevel
+    Custom: 0
+--- !u!114 &340348414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4239480757495983653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ec4976bef1d463b82e8013afa2cb347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Callback:
+    EventName: Callback triggered every time a signal is received
+    Runners: []
+    Event:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: HyperCasual.Core.AudioManager, Assembly-CSharp
+          m_MethodName: PauseMusic
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  StreamId:
+    Category: Music
+    Name: Stop
+    Custom: 0
+--- !u!114 &340348415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4239480757495983653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ec4976bef1d463b82e8013afa2cb347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Callback:
+    EventName: Callback triggered every time a signal is received
+    Runners: []
+    Event:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: HyperCasual.Core.AudioManager, Assembly-CSharp
+          m_MethodName: ContinuePlay
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  StreamId:
+    Category: Music
+    Name: Continue
     Custom: 0

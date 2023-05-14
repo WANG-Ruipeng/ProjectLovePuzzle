@@ -274,7 +274,7 @@ MonoBehaviour:
     Direction: 1
     Capacity: 0
     Connections:
-    - a5a11b4b-4914-4195-a881-867bd3db76dc
+    - b3c1f4f5-9d9c-4d74-8eab-f93476409eb5
     Value: 
     ValueTypeQualifiedName: 
     CanBeDeleted: 0
@@ -286,11 +286,11 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 1
   ClearGraphHistory: 0
-  Position: {x: 1824, y: 22.399942}
+  Position: {x: 1782.0238, y: 22.400007}
   Payload:
     StreamId:
       Category: UIView
-      Name: LoadLevel1
+      Name: LoadLevel
       Custom: 0
     SignalValueType: 1
     IntegerValue: 1
@@ -325,7 +325,7 @@ MonoBehaviour:
     Capacity: 1
     Connections:
     - 64578dfb-fb3a-4023-bf2a-73ea122f6a62
-    - fda55e61-419e-415d-a3d8-060dcab2012e
+    - 599d2e5a-45e2-4801-a7b9-aa7284f47c05
     Value: 
     ValueTypeQualifiedName: 
     CanBeDeleted: 0
@@ -467,64 +467,6 @@ MonoBehaviour:
     Vector2Value: {x: 0, y: 0}
     Vector3Value: {x: 0, y: 0, z: 0}
     Vector4Value: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &-5231301561162586647
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fa9fac3374aea542bc6c2ebda1da399, type: 3}
-  m_Name: Load Scene
-  m_EditorClassIdentifier: 
-  FlowGraphId: db2dc57e-ea96-40ee-a199-3162e4395c89
-  NodeId: 0336db68-a327-4d0a-b36a-e897c0844c19
-  NodeType: 0
-  NodeName: Load Scene
-  NodeDescription: 
-  InputPorts:
-  - NodeId: 0336db68-a327-4d0a-b36a-e897c0844c19
-    PortId: b9f0a341-7e08-4617-93b5-969e133c87c8
-    Direction: 0
-    Capacity: 1
-    Connections: []
-    Value: 
-    ValueTypeQualifiedName: 
-    CanBeDeleted: 0
-    CanBeReordered: 0
-  OutputPorts:
-  - NodeId: 0336db68-a327-4d0a-b36a-e897c0844c19
-    PortId: 2d036f62-f396-474b-9ce0-93faa7926cda
-    Direction: 1
-    Capacity: 0
-    Connections:
-    - 99194462-178e-42f6-9b5e-dc79bdce85d6
-    Value: 
-    ValueTypeQualifiedName: 
-    CanBeDeleted: 0
-    CanBeReordered: 0
-  RunUpdate: 0
-  RunFixedUpdate: 0
-  RunLateUpdate: 0
-  NodeState: 0
-  CanBeDeleted: 1
-  Passthrough: 1
-  ClearGraphHistory: 0
-  Position: {x: 1528.8, y: 403.60004}
-  GetSceneBy: 0
-  LoadSceneMode: 1
-  AllowSceneActivation: 1
-  SceneActivationDelay: 0.2
-  SceneBuildIndex: 0
-  SceneName: Scenes/LevelEditorScene
-  WaitForSceneToLoad: 1
-  ConnectProgressor: 0
-  ProgressorId:
-    Category: None
-    Name: None
-    Custom: 0
 --- !u!114 &-5134932047868864922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -571,64 +513,6 @@ MonoBehaviour:
   Passthrough: 1
   ClearGraphHistory: 0
   Position: {x: 1528.7999, y: 22.399942}
-  GetSceneBy: 0
-  LoadSceneMode: 1
-  AllowSceneActivation: 1
-  SceneActivationDelay: 0.2
-  SceneBuildIndex: 0
-  SceneName: Scenes/LevelEditorScene
-  WaitForSceneToLoad: 1
-  ConnectProgressor: 0
-  ProgressorId:
-    Category: None
-    Name: None
-    Custom: 0
---- !u!114 &-5089922348924256219
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fa9fac3374aea542bc6c2ebda1da399, type: 3}
-  m_Name: Load Scene
-  m_EditorClassIdentifier: 
-  FlowGraphId: db2dc57e-ea96-40ee-a199-3162e4395c89
-  NodeId: d036080c-f306-48de-bdff-d791f1d11833
-  NodeType: 0
-  NodeName: Load Scene
-  NodeDescription: 
-  InputPorts:
-  - NodeId: d036080c-f306-48de-bdff-d791f1d11833
-    PortId: 1d3b0c4e-6aa6-4ea5-a38f-8af72d1dd869
-    Direction: 0
-    Capacity: 1
-    Connections: []
-    Value: 
-    ValueTypeQualifiedName: 
-    CanBeDeleted: 0
-    CanBeReordered: 0
-  OutputPorts:
-  - NodeId: d036080c-f306-48de-bdff-d791f1d11833
-    PortId: b40dd0d3-2679-4d33-ba7a-3983ac04e9a8
-    Direction: 1
-    Capacity: 0
-    Connections:
-    - e9194b11-a35e-45ad-8726-110cac4875ec
-    Value: 
-    ValueTypeQualifiedName: 
-    CanBeDeleted: 0
-    CanBeReordered: 0
-  RunUpdate: 0
-  RunFixedUpdate: 0
-  RunLateUpdate: 0
-  NodeState: 0
-  CanBeDeleted: 1
-  Passthrough: 1
-  ClearGraphHistory: 0
-  Position: {x: 1528.8, y: 325.2}
   GetSceneBy: 0
   LoadSceneMode: 1
   AllowSceneActivation: 1
@@ -754,116 +638,6 @@ MonoBehaviour:
     Vector2Value: {x: 0, y: 0}
     Vector3Value: {x: 0, y: 0, z: 0}
     Vector4Value: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &-2432681237837259384
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d26771609544c5348b153b61330ee08f, type: 3}
-  m_Name: Pivot
-  m_EditorClassIdentifier: 
-  FlowGraphId: db2dc57e-ea96-40ee-a199-3162e4395c89
-  NodeId: adea5a69-613d-4e21-8942-51624cc6d61c
-  NodeType: 0
-  NodeName: Pivot
-  NodeDescription: 
-  InputPorts:
-  - NodeId: adea5a69-613d-4e21-8942-51624cc6d61c
-    PortId: f0924d38-27a0-4a13-ab54-2aa363625c02
-    Direction: 0
-    Capacity: 1
-    Connections:
-    - b14a5110-9081-4bda-9254-3bcc51481163
-    - 8d310619-28f9-42ba-a5c9-8bdc65f1f48e
-    - acacb30d-a45d-4da2-a4d9-7bc994d46bb1
-    - 04bd6aff-cc46-4ce6-9085-ff0ce960e4e0
-    Value: 
-    ValueTypeQualifiedName: 
-    CanBeDeleted: 0
-    CanBeReordered: 0
-  OutputPorts:
-  - NodeId: adea5a69-613d-4e21-8942-51624cc6d61c
-    PortId: fda55e61-419e-415d-a3d8-060dcab2012e
-    Direction: 1
-    Capacity: 0
-    Connections:
-    - b3c1f4f5-9d9c-4d74-8eab-f93476409eb5
-    Value: 
-    ValueTypeQualifiedName: 
-    CanBeDeleted: 0
-    CanBeReordered: 0
-  RunUpdate: 0
-  RunFixedUpdate: 0
-  RunLateUpdate: 0
-  NodeState: 0
-  CanBeDeleted: 1
-  Passthrough: 1
-  ClearGraphHistory: 0
-  Position: {x: 2244, y: 155.19994}
-  PivotOrientation: 3
---- !u!114 &-2198311009826775994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fa9fac3374aea542bc6c2ebda1da399, type: 3}
-  m_Name: Load Scene
-  m_EditorClassIdentifier: 
-  FlowGraphId: db2dc57e-ea96-40ee-a199-3162e4395c89
-  NodeId: 8f536ad9-6408-4d8b-bf9c-a6aaaf8adf15
-  NodeType: 0
-  NodeName: Load Scene
-  NodeDescription: 
-  InputPorts:
-  - NodeId: 8f536ad9-6408-4d8b-bf9c-a6aaaf8adf15
-    PortId: 890d9942-bbde-492d-9a80-c5c472cd5798
-    Direction: 0
-    Capacity: 1
-    Connections:
-    - 6478efd5-2166-41b7-93b1-c0ba52f7d625
-    Value: 
-    ValueTypeQualifiedName: 
-    CanBeDeleted: 0
-    CanBeReordered: 0
-  OutputPorts:
-  - NodeId: 8f536ad9-6408-4d8b-bf9c-a6aaaf8adf15
-    PortId: e601c321-a6be-4c2b-b9c6-90091e9e15cd
-    Direction: 1
-    Capacity: 0
-    Connections:
-    - b30102dd-37d3-4823-ab17-c59781c7d2e2
-    Value: 
-    ValueTypeQualifiedName: 
-    CanBeDeleted: 0
-    CanBeReordered: 0
-  RunUpdate: 0
-  RunFixedUpdate: 0
-  RunLateUpdate: 0
-  NodeState: 0
-  CanBeDeleted: 1
-  Passthrough: 1
-  ClearGraphHistory: 0
-  Position: {x: 1528.8, y: 218}
-  GetSceneBy: 0
-  LoadSceneMode: 1
-  AllowSceneActivation: 1
-  SceneActivationDelay: 0.2
-  SceneBuildIndex: 0
-  SceneName: Scenes/LevelEditorScene
-  WaitForSceneToLoad: 1
-  ConnectProgressor: 0
-  ProgressorId:
-    Category: None
-    Name: None
-    Custom: 0
 --- !u!114 &-1915677625945703067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1006,8 +780,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02761efe598a45c98fa1baf4d446c6a7, type: 3}
   m_Name: Flow Graph
   m_EditorClassIdentifier: 
-  EditorPosition: {x: -23.2, y: 102.4, z: 0}
-  EditorScale: {x: 0.21494322, y: 0.21494322, z: 1}
+  EditorPosition: {x: -58.4, y: 404, z: 0}
+  EditorScale: {x: 0.49717674, y: 0.49717674, z: 1}
   Id: db2dc57e-ea96-40ee-a199-3162e4395c89
   GraphName: Flow Graph
   GraphDescription: 
@@ -1026,15 +800,6 @@ MonoBehaviour:
   - {fileID: -7159095504066832955}
   - {fileID: 7111780869447477498}
   - {fileID: 3178664365127688485}
-  - {fileID: -2198311009826775994}
-  - {fileID: -5089922348924256219}
-  - {fileID: -5231301561162586647}
-  - {fileID: 4462526452568266094}
-  - {fileID: 2442139571263102223}
-  - {fileID: 4883991457583654734}
-  - {fileID: 9072739395804722896}
-  - {fileID: 4102958915525789979}
-  - {fileID: -2432681237837259384}
   - {fileID: -6378495875329639787}
   - {fileID: -8567819311272898353}
   - {fileID: 523725884769487187}
@@ -1203,67 +968,6 @@ MonoBehaviour:
   OnExitHideViews: []
   OnEnterHideAllViews: 0
   OnExitHideAllViews: 0
---- !u!114 &2442139571263102223
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87c43f2597bc48340b6a8f2909b66d09, type: 3}
-  m_Name: Signal
-  m_EditorClassIdentifier: 
-  FlowGraphId: db2dc57e-ea96-40ee-a199-3162e4395c89
-  NodeId: c54b5e99-a1ad-48e9-883e-f2595c076119
-  NodeType: 0
-  NodeName: Signal
-  NodeDescription: 
-  InputPorts:
-  - NodeId: c54b5e99-a1ad-48e9-883e-f2595c076119
-    PortId: b30102dd-37d3-4823-ab17-c59781c7d2e2
-    Direction: 0
-    Capacity: 1
-    Connections:
-    - e601c321-a6be-4c2b-b9c6-90091e9e15cd
-    Value: 
-    ValueTypeQualifiedName: 
-    CanBeDeleted: 0
-    CanBeReordered: 0
-  OutputPorts:
-  - NodeId: c54b5e99-a1ad-48e9-883e-f2595c076119
-    PortId: b14a5110-9081-4bda-9254-3bcc51481163
-    Direction: 1
-    Capacity: 0
-    Connections:
-    - f0924d38-27a0-4a13-ab54-2aa363625c02
-    Value: 
-    ValueTypeQualifiedName: 
-    CanBeDeleted: 0
-    CanBeReordered: 0
-  RunUpdate: 0
-  RunFixedUpdate: 0
-  RunLateUpdate: 0
-  NodeState: 0
-  CanBeDeleted: 1
-  Passthrough: 1
-  ClearGraphHistory: 0
-  Position: {x: 2060, y: 219.19995}
-  Payload:
-    StreamId:
-      Category: UIView
-      Name: LoadLevel1
-      Custom: 0
-    SignalValueType: 0
-    IntegerValue: 0
-    BooleanValue: 0
-    FloatValue: 0
-    StringValue: 
-    ColorValue: {r: 0, g: 0, b: 0, a: 0}
-    Vector2Value: {x: 0, y: 0}
-    Vector3Value: {x: 0, y: 0, z: 0}
-    Vector4Value: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &2750873889986378122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1349,6 +1053,7 @@ MonoBehaviour:
     Connections:
     - 30876e69-29a9-4949-a4ab-d0dd8e9cb53a
     - 9ad77057-5992-4a81-ab1f-bb0a6061e28a
+    - 7ecbd251-3f49-466e-9aec-dfed8ce52a46
     Value: '{"CanGoBack":false}'
     ValueTypeQualifiedName: Doozy.Runtime.UIManager.Nodes.PortData.GoBackInputPortData,
       Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -1460,125 +1165,6 @@ MonoBehaviour:
   ClearGraphHistory: 1
   Position: {x: 0, y: 0}
   SystemNodeType: 0
---- !u!114 &4102958915525789979
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87c43f2597bc48340b6a8f2909b66d09, type: 3}
-  m_Name: Signal
-  m_EditorClassIdentifier: 
-  FlowGraphId: db2dc57e-ea96-40ee-a199-3162e4395c89
-  NodeId: 1216438f-d480-4468-9c97-fa2d071e2897
-  NodeType: 0
-  NodeName: Signal
-  NodeDescription: 
-  InputPorts:
-  - NodeId: 1216438f-d480-4468-9c97-fa2d071e2897
-    PortId: c276a25e-7bc6-42a0-9ab5-ca1c5b04dddd
-    Direction: 0
-    Capacity: 1
-    Connections:
-    - 268ef957-7ff4-4107-86c8-685bf2b94dfa
-    Value: 
-    ValueTypeQualifiedName: 
-    CanBeDeleted: 0
-    CanBeReordered: 0
-  OutputPorts:
-  - NodeId: 1216438f-d480-4468-9c97-fa2d071e2897
-    PortId: 04bd6aff-cc46-4ce6-9085-ff0ce960e4e0
-    Direction: 1
-    Capacity: 0
-    Connections:
-    - f0924d38-27a0-4a13-ab54-2aa363625c02
-    Value: 
-    ValueTypeQualifiedName: 
-    CanBeDeleted: 0
-    CanBeReordered: 0
-  RunUpdate: 0
-  RunFixedUpdate: 0
-  RunLateUpdate: 0
-  NodeState: 0
-  CanBeDeleted: 1
-  Passthrough: 1
-  ClearGraphHistory: 0
-  Position: {x: 2060, y: 460.79996}
-  Payload:
-    StreamId:
-      Category: UIView
-      Name: LoadLevel4
-      Custom: 0
-    SignalValueType: 0
-    IntegerValue: 0
-    BooleanValue: 0
-    FloatValue: 0
-    StringValue: 
-    ColorValue: {r: 0, g: 0, b: 0, a: 0}
-    Vector2Value: {x: 0, y: 0}
-    Vector3Value: {x: 0, y: 0, z: 0}
-    Vector4Value: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &4462526452568266094
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fa9fac3374aea542bc6c2ebda1da399, type: 3}
-  m_Name: Load Scene
-  m_EditorClassIdentifier: 
-  FlowGraphId: db2dc57e-ea96-40ee-a199-3162e4395c89
-  NodeId: fdaec676-b0e9-47e6-926e-237654c17673
-  NodeType: 0
-  NodeName: Load Scene
-  NodeDescription: 
-  InputPorts:
-  - NodeId: fdaec676-b0e9-47e6-926e-237654c17673
-    PortId: 56fa473f-a9e5-4e07-9abe-38ec6f96a201
-    Direction: 0
-    Capacity: 1
-    Connections: []
-    Value: 
-    ValueTypeQualifiedName: 
-    CanBeDeleted: 0
-    CanBeReordered: 0
-  OutputPorts:
-  - NodeId: fdaec676-b0e9-47e6-926e-237654c17673
-    PortId: 268ef957-7ff4-4107-86c8-685bf2b94dfa
-    Direction: 1
-    Capacity: 0
-    Connections:
-    - c276a25e-7bc6-42a0-9ab5-ca1c5b04dddd
-    Value: 
-    ValueTypeQualifiedName: 
-    CanBeDeleted: 0
-    CanBeReordered: 0
-  RunUpdate: 0
-  RunFixedUpdate: 0
-  RunLateUpdate: 0
-  NodeState: 0
-  CanBeDeleted: 1
-  Passthrough: 1
-  ClearGraphHistory: 0
-  Position: {x: 1528.8, y: 485.19998}
-  GetSceneBy: 0
-  LoadSceneMode: 1
-  AllowSceneActivation: 1
-  SceneActivationDelay: 0.2
-  SceneBuildIndex: 0
-  SceneName: Scenes/LevelEditorScene
-  WaitForSceneToLoad: 1
-  ConnectProgressor: 0
-  ProgressorId:
-    Category: None
-    Name: None
-    Custom: 0
 --- !u!114 &4734320692734247441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1613,7 +1199,7 @@ MonoBehaviour:
     Direction: 1
     Capacity: 0
     Connections:
-    - 83557ff0-916d-4fca-833c-6619840ab8e1
+    - af83093c-67fe-43fd-807a-98e324098c0e
     Value: 
     ValueTypeQualifiedName: 
     CanBeDeleted: 0
@@ -1625,69 +1211,8 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 1
   ClearGraphHistory: 0
-  Position: {x: 623.935, y: 1030.3474}
+  Position: {x: 593.355, y: 1034.3999}
   PivotOrientation: 1
---- !u!114 &4883991457583654734
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87c43f2597bc48340b6a8f2909b66d09, type: 3}
-  m_Name: Signal
-  m_EditorClassIdentifier: 
-  FlowGraphId: db2dc57e-ea96-40ee-a199-3162e4395c89
-  NodeId: 8853937f-8fae-4923-a056-ed71e31488e1
-  NodeType: 0
-  NodeName: Signal
-  NodeDescription: 
-  InputPorts:
-  - NodeId: 8853937f-8fae-4923-a056-ed71e31488e1
-    PortId: e9194b11-a35e-45ad-8726-110cac4875ec
-    Direction: 0
-    Capacity: 1
-    Connections:
-    - b40dd0d3-2679-4d33-ba7a-3983ac04e9a8
-    Value: 
-    ValueTypeQualifiedName: 
-    CanBeDeleted: 0
-    CanBeReordered: 0
-  OutputPorts:
-  - NodeId: 8853937f-8fae-4923-a056-ed71e31488e1
-    PortId: 8d310619-28f9-42ba-a5c9-8bdc65f1f48e
-    Direction: 1
-    Capacity: 0
-    Connections:
-    - f0924d38-27a0-4a13-ab54-2aa363625c02
-    Value: 
-    ValueTypeQualifiedName: 
-    CanBeDeleted: 0
-    CanBeReordered: 0
-  RunUpdate: 0
-  RunFixedUpdate: 0
-  RunLateUpdate: 0
-  NodeState: 0
-  CanBeDeleted: 1
-  Passthrough: 1
-  ClearGraphHistory: 0
-  Position: {x: 2060, y: 301.6}
-  Payload:
-    StreamId:
-      Category: UIView
-      Name: LoadLevel2
-      Custom: 0
-    SignalValueType: 0
-    IntegerValue: 0
-    BooleanValue: 0
-    FloatValue: 0
-    StringValue: 
-    ColorValue: {r: 0, g: 0, b: 0, a: 0}
-    Vector2Value: {x: 0, y: 0}
-    Vector3Value: {x: 0, y: 0, z: 0}
-    Vector4Value: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &5270970015305817351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1812,7 +1337,6 @@ MonoBehaviour:
     Capacity: 1
     Connections:
     - 45227774-266e-42c2-b69b-efe81c2c4275
-    - 7ecbd251-3f49-466e-9aec-dfed8ce52a46
     Value: '{"CanGoBack":false}'
     ValueTypeQualifiedName: Doozy.Runtime.UIManager.Nodes.PortData.GoBackInputPortData,
       Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -1823,8 +1347,7 @@ MonoBehaviour:
     PortId: 6478efd5-2166-41b7-93b1-c0ba52f7d625
     Direction: 1
     Capacity: 0
-    Connections:
-    - 890d9942-bbde-492d-9a80-c5c472cd5798
+    Connections: []
     Value: '{"Trigger":2,"TimeDelay":3.0,"SignalPayload":{"StreamId":{"Category":"None","Name":"None","Custom":true},"SignalValueType":0,"IntegerValue":0,"BooleanValue":false,"FloatValue":0.0,"StringValue":"","ColorValue":{"r":0.0,"g":0.0,"b":0.0,"a":0.0},"Vector2Value":{"x":0.0,"y":0.0},"Vector3Value":{"x":0.0,"y":0.0,"z":0.0},"Vector4Value":{"x":0.0,"y":0.0,"z":0.0,"w":0.0}},"ButtonId":{"Category":"UIView","Name":"Level1","Custom":false},"ToggleId":{"Category":"None","Name":"None","Custom":false},"CommandToggle":2,"ViewId":{"Category":"None","Name":"None","Custom":true},"CommandShowHide":0}'
     ValueTypeQualifiedName: Doozy.Runtime.UIManager.Nodes.PortData.UIOutputPortData,
       Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -2017,7 +1540,6 @@ MonoBehaviour:
     Direction: 0
     Capacity: 1
     Connections:
-    - 599d2e5a-45e2-4801-a7b9-aa7284f47c05
     - 94ff6d85-55a5-464f-8d2e-c64e58bab874
     Value: '{"CanGoBack":false}'
     ValueTypeQualifiedName: Doozy.Runtime.UIManager.Nodes.PortData.GoBackInputPortData,
@@ -2145,67 +1667,6 @@ MonoBehaviour:
     StreamId:
       Category: Music
       Name: Menu
-      Custom: 0
-    SignalValueType: 0
-    IntegerValue: 0
-    BooleanValue: 0
-    FloatValue: 0
-    StringValue: 
-    ColorValue: {r: 0, g: 0, b: 0, a: 0}
-    Vector2Value: {x: 0, y: 0}
-    Vector3Value: {x: 0, y: 0, z: 0}
-    Vector4Value: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &9072739395804722896
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87c43f2597bc48340b6a8f2909b66d09, type: 3}
-  m_Name: Signal
-  m_EditorClassIdentifier: 
-  FlowGraphId: db2dc57e-ea96-40ee-a199-3162e4395c89
-  NodeId: d1cf0da5-30b2-4e6d-a19f-9a7967a90080
-  NodeType: 0
-  NodeName: Signal
-  NodeDescription: 
-  InputPorts:
-  - NodeId: d1cf0da5-30b2-4e6d-a19f-9a7967a90080
-    PortId: 99194462-178e-42f6-9b5e-dc79bdce85d6
-    Direction: 0
-    Capacity: 1
-    Connections:
-    - 2d036f62-f396-474b-9ce0-93faa7926cda
-    Value: 
-    ValueTypeQualifiedName: 
-    CanBeDeleted: 0
-    CanBeReordered: 0
-  OutputPorts:
-  - NodeId: d1cf0da5-30b2-4e6d-a19f-9a7967a90080
-    PortId: acacb30d-a45d-4da2-a4d9-7bc994d46bb1
-    Direction: 1
-    Capacity: 0
-    Connections:
-    - f0924d38-27a0-4a13-ab54-2aa363625c02
-    Value: 
-    ValueTypeQualifiedName: 
-    CanBeDeleted: 0
-    CanBeReordered: 0
-  RunUpdate: 0
-  RunFixedUpdate: 0
-  RunLateUpdate: 0
-  NodeState: 0
-  CanBeDeleted: 1
-  Passthrough: 1
-  ClearGraphHistory: 0
-  Position: {x: 2060, y: 379.99997}
-  Payload:
-    StreamId:
-      Category: UIView
-      Name: LoadLevel3
       Custom: 0
     SignalValueType: 0
     IntegerValue: 0

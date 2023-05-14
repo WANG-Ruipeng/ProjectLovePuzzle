@@ -15,8 +15,8 @@ public class MainScreen : MonoBehaviour
 	{
 		if (SaveManager.LevelProgress == 0)
 		{
-			flow.SetActiveNode(firstEntryNode);
-			SaveManager.LevelProgress = 1;
+			SequenceManager.Instance.ShowIllustration(0);
+			SequenceManager.Instance.CurrentLevel = 1;
 		}
 		else
 		{
