@@ -35,6 +35,7 @@ public class PagesScreen : MonoBehaviour
 		if (currentPage == spriteset.Length)//最后一个的时候触发
 		{
 			spriteRenderer.sprite = null;
+			spriteRenderer.color = Color.black;
 			selectable.interactable = false;
 			finalHandle?.Invoke();
 			currentPage = 0;
@@ -47,6 +48,7 @@ public class PagesScreen : MonoBehaviour
 		if (currentPage == 0)
 		{
 			illustration.Show();
+			spriteRenderer.color = Color.white;
 			gameObject.SetActive(true);
 			selectable.interactable = true;
 		}

@@ -371,6 +371,7 @@ namespace Giro
 			}
 			if (countdown <= 0 && !winOrLose)
 			{
+				OnCountdownEventRaised();
 				Lose();
 				return;
 			}
@@ -402,11 +403,11 @@ namespace Giro
 
 		public void Win()
 		{
-			m_WinEvent.Raise();
 			winOrLose = true;
 			hud.UpdateValueBar(MovableManager.Instance.Progress, MovableManager.Instance.StepNum);
 
-			PlayerManager.Instance.SetPlayerVictory();
+			PlayerManager.Instance.SetPlayerVictory(m_WinEvent.Raise);
+
 #if UNITY_EDITOR
 			if (m_LevelEditorMode)
 			{
@@ -417,9 +418,9 @@ namespace Giro
 
 		public void Lose()
 		{
-			m_LoseEvent.Raise();
 			winOrLose = true;
-			PlayerManager.Instance.SetPlayerFall();
+			AudioManager.Instance.PlayEffect(SoundID.lose_and_fall);
+			PlayerManager.Instance.SetPlayerFall(m_LoseEvent.Raise);
 #if UNITY_EDITOR
 			if (m_LevelEditorMode)
 			{
