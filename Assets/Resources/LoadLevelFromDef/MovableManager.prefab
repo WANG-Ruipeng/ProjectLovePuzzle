@@ -88,15 +88,15 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 2.3558664
-      outSlope: 2.3558664
+      inSlope: 2.7848017
+      outSlope: 2.7848017
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.3605956
-      value: 0.8495151
+      time: 0.29653922
+      value: 0.8258029
       inSlope: 1.641724
       outSlope: 1.641724
       tangentMode: 0
@@ -104,8 +104,8 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.6317449
-      value: 1.0039368
+      time: 0.5940862
+      value: 0.99998474
       inSlope: 0.10761949
       outSlope: 0.10761949
       tangentMode: 0
@@ -117,23 +117,23 @@ MonoBehaviour:
     m_RotationOrder: 4
   leftCombineStartPos: {x: -3, y: 0, z: 0}
   rightCombineStartPos: {x: 3, y: 0, z: 0}
-  leftEndPos: {x: -1.6, y: 0, z: 0}
-  rightEndPos: {x: 1.6, y: 0, z: 0}
+  leftEndPos: {x: -1.47, y: 0, z: 0}
+  rightEndPos: {x: 1.47, y: 0, z: 0}
   combineAnimationCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 3.9189444
-      outSlope: 3.9189444
+      inSlope: 4.682374
+      outSlope: 4.682374
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.22413231
-      value: 0.87836206
+      time: 0.18674828
+      value: 0.8744253
       inSlope: 1.7739934
       outSlope: 1.7739934
       tangentMode: 0
@@ -141,7 +141,7 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.26311308
     - serializedVersion: 3
-      time: 0.34199113
+      time: 0.32380265
       value: 0.99998474
       inSlope: 0.3474278
       outSlope: 0.3474278
@@ -152,25 +152,25 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  leftExitPos: {x: -1.6, y: -15, z: 0}
-  rightExitPos: {x: 1.6, y: -15, z: 0}
+  leftExitPos: {x: -1.47, y: -15, z: 0}
+  rightExitPos: {x: 1.47, y: -15, z: 0}
   exitAnimationCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 3.7483413
-      outSlope: 3.7483413
+      inSlope: 3.847816
+      outSlope: 3.847816
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.26678467
+      time: 0.2598877
       value: 1
-      inSlope: 3.7483413
-      outSlope: 3.7483413
+      inSlope: 3.847816
+      outSlope: 3.847816
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
