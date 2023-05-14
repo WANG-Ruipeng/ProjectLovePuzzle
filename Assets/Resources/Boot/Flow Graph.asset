@@ -213,8 +213,7 @@ MonoBehaviour:
     PortId: a1576140-1a8e-40f2-87f0-d8de48040ee2
     Direction: 0
     Capacity: 1
-    Connections:
-    - 89fa6704-8ffe-415d-9592-bd3bbd1f46c4
+    Connections: []
     Value: '{"CanGoBack":false}'
     ValueTypeQualifiedName: Doozy.Runtime.UIManager.Nodes.PortData.GoBackInputPortData,
       Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -239,7 +238,7 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 0
   ClearGraphHistory: 0
-  Position: {x: 2429.6, y: 746.4001}
+  Position: {x: 1919.5078, y: 827.1702}
   OnEnterShowViews:
   - Id:
       Category: UIView
@@ -839,8 +838,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02761efe598a45c98fa1baf4d446c6a7, type: 3}
   m_Name: Flow Graph
   m_EditorClassIdentifier: 
-  EditorPosition: {x: -2073.6, y: -92, z: 0}
-  EditorScale: {x: 0.8695652, y: 0.8695652, z: 1}
+  EditorPosition: {x: 228.8, y: 41.6, z: 0}
+  EditorScale: {x: 0.2471847, y: 0.2471847, z: 1}
   Id: db2dc57e-ea96-40ee-a199-3162e4395c89
   GraphName: Flow Graph
   GraphDescription: 
@@ -990,8 +989,7 @@ MonoBehaviour:
     PortId: 64063e09-624d-438a-bd39-d267cf6ab9fd
     Direction: 0
     Capacity: 1
-    Connections:
-    - e122e7fa-169a-4b52-a605-b5181fcb4f03
+    Connections: []
     Value: '{"CanGoBack":false}'
     ValueTypeQualifiedName: Doozy.Runtime.UIManager.Nodes.PortData.GoBackInputPortData,
       Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -1016,7 +1014,7 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 0
   ClearGraphHistory: 0
-  Position: {x: 2429.6, y: 433.59998}
+  Position: {x: 1919.5078, y: 514.37024}
   OnEnterShowViews:
   - Id:
       Category: UIView
@@ -1050,8 +1048,7 @@ MonoBehaviour:
     PortId: 24a23f8a-f077-467f-a4a7-2d6d35a5a87b
     Direction: 0
     Capacity: 1
-    Connections:
-    - 15108f9d-fe5a-4f25-8c3a-2a65b0a6e3e2
+    Connections: []
     Value: '{"CanGoBack":false}'
     ValueTypeQualifiedName: Doozy.Runtime.UIManager.Nodes.PortData.GoBackInputPortData,
       Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -1076,7 +1073,7 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 0
   ClearGraphHistory: 0
-  Position: {x: 2429.6, y: 643.19995}
+  Position: {x: 1919.5078, y: 723.9703}
   OnEnterShowViews:
   - Id:
       Category: UIView
@@ -1459,8 +1456,7 @@ MonoBehaviour:
     PortId: e122e7fa-169a-4b52-a605-b5181fcb4f03
     Direction: 1
     Capacity: 0
-    Connections:
-    - 64063e09-624d-438a-bd39-d267cf6ab9fd
+    Connections: []
     Value: '{"Trigger":2,"TimeDelay":3.0,"SignalPayload":{"StreamId":{"Category":"None","Name":"None","Custom":false},"SignalValueType":0,"IntegerValue":0,"BooleanValue":false,"FloatValue":0.0,"StringValue":"","ColorValue":{"r":0.0,"g":0.0,"b":0.0,"a":0.0},"Vector2Value":{"x":0.0,"y":0.0},"Vector3Value":{"x":0.0,"y":0.0,"z":0.0},"Vector4Value":{"x":0.0,"y":0.0,"z":0.0,"w":0.0}},"ButtonId":{"Category":"UIView","Name":"Manga1","Custom":false},"ToggleId":{"Category":"None","Name":"None","Custom":false},"CommandToggle":2,"ViewId":{"Category":"None","Name":"None","Custom":false},"CommandShowHide":0}'
     ValueTypeQualifiedName: Doozy.Runtime.UIManager.Nodes.PortData.UIOutputPortData,
       Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -1470,8 +1466,7 @@ MonoBehaviour:
     PortId: 7623320a-8f51-4562-884d-31b4da981388
     Direction: 1
     Capacity: 0
-    Connections:
-    - bbbded8c-8751-4302-b589-75448c75c066
+    Connections: []
     Value: '{"Trigger":2,"TimeDelay":3.0,"SignalPayload":{"StreamId":{"Category":"None","Name":"None","Custom":false},"SignalValueType":0,"IntegerValue":0,"BooleanValue":false,"FloatValue":0.0,"StringValue":"","ColorValue":{"r":0.0,"g":0.0,"b":0.0,"a":0.0},"Vector2Value":{"x":0.0,"y":0.0},"Vector3Value":{"x":0.0,"y":0.0,"z":0.0},"Vector4Value":{"x":0.0,"y":0.0,"z":0.0,"w":0.0}},"ButtonId":{"Category":"UIView","Name":"Manga2","Custom":false},"ToggleId":{"Category":"None","Name":"None","Custom":false},"CommandToggle":2,"ViewId":{"Category":"None","Name":"None","Custom":false},"CommandShowHide":0}'
     ValueTypeQualifiedName: Doozy.Runtime.UIManager.Nodes.PortData.UIOutputPortData,
       Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -1481,8 +1476,7 @@ MonoBehaviour:
     PortId: 15108f9d-fe5a-4f25-8c3a-2a65b0a6e3e2
     Direction: 1
     Capacity: 0
-    Connections:
-    - 24a23f8a-f077-467f-a4a7-2d6d35a5a87b
+    Connections: []
     Value: '{"Trigger":2,"TimeDelay":3.0,"SignalPayload":{"StreamId":{"Category":"None","Name":"None","Custom":false},"SignalValueType":0,"IntegerValue":0,"BooleanValue":false,"FloatValue":0.0,"StringValue":"","ColorValue":{"r":0.0,"g":0.0,"b":0.0,"a":0.0},"Vector2Value":{"x":0.0,"y":0.0},"Vector3Value":{"x":0.0,"y":0.0,"z":0.0},"Vector4Value":{"x":0.0,"y":0.0,"z":0.0,"w":0.0}},"ButtonId":{"Category":"UIView","Name":"Manga3","Custom":false},"ToggleId":{"Category":"None","Name":"None","Custom":false},"CommandToggle":2,"ViewId":{"Category":"None","Name":"None","Custom":false},"CommandShowHide":0}'
     ValueTypeQualifiedName: Doozy.Runtime.UIManager.Nodes.PortData.UIOutputPortData,
       Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -1492,8 +1486,7 @@ MonoBehaviour:
     PortId: 89fa6704-8ffe-415d-9592-bd3bbd1f46c4
     Direction: 1
     Capacity: 0
-    Connections:
-    - a1576140-1a8e-40f2-87f0-d8de48040ee2
+    Connections: []
     Value: '{"Trigger":2,"TimeDelay":3.0,"SignalPayload":{"StreamId":{"Category":"None","Name":"None","Custom":false},"SignalValueType":0,"IntegerValue":0,"BooleanValue":false,"FloatValue":0.0,"StringValue":"","ColorValue":{"r":0.0,"g":0.0,"b":0.0,"a":0.0},"Vector2Value":{"x":0.0,"y":0.0},"Vector3Value":{"x":0.0,"y":0.0,"z":0.0},"Vector4Value":{"x":0.0,"y":0.0,"z":0.0,"w":0.0}},"ButtonId":{"Category":"UIView","Name":"Manga4","Custom":false},"ToggleId":{"Category":"None","Name":"None","Custom":false},"CommandToggle":2,"ViewId":{"Category":"None","Name":"None","Custom":false},"CommandShowHide":0}'
     ValueTypeQualifiedName: Doozy.Runtime.UIManager.Nodes.PortData.UIOutputPortData,
       Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -1540,8 +1533,7 @@ MonoBehaviour:
     PortId: bbbded8c-8751-4302-b589-75448c75c066
     Direction: 0
     Capacity: 1
-    Connections:
-    - 7623320a-8f51-4562-884d-31b4da981388
+    Connections: []
     Value: '{"CanGoBack":false}'
     ValueTypeQualifiedName: Doozy.Runtime.UIManager.Nodes.PortData.GoBackInputPortData,
       Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -1566,7 +1558,7 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 0
   ClearGraphHistory: 0
-  Position: {x: 2429.6, y: 539.99994}
+  Position: {x: 1919.5078, y: 620.77026}
   OnEnterShowViews:
   - Id:
       Category: UIView
@@ -1636,7 +1628,7 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 0
   ClearGraphHistory: 0
-  Position: {x: 2194.4001, y: 22.399942}
+  Position: {x: 2202.4001, y: 22.400003}
   OnEnterShowViews:
   - Id:
       Category: UIView

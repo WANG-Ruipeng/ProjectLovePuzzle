@@ -172,7 +172,6 @@ namespace Giro
 			countdown = maxCountdown;
 			starttime = Time.time;
 			winOrLose = false;
-			hud.Reset();
 
 		}
 

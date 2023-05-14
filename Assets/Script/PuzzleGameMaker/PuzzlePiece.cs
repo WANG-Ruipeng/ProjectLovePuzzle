@@ -70,7 +70,6 @@ public class PuzzlePiece : MonoBehaviour
 		{
 			if (collectible is EdgeCollectible c)
 			{
-				c.transform.Rotate(new Vector3(0, 0, 1), -c.onEdge * 90);
 				c.transform.localPosition = new Vector3(0, collectiblePosOffset, 0);
 			}
 		}
@@ -114,7 +113,6 @@ public class PuzzlePiece : MonoBehaviour
 			if (collectible is EdgeCollectible c)
 			{
 				c.transform.rotation = Quaternion.Euler(0, 0, 0);
-				c.transform.Rotate(new Vector3(0, 0, 1), -c.onEdge * 90);
 			}
 		}
 	}
