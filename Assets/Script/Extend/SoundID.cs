@@ -22,7 +22,7 @@
 		puzzle_lock = 15,
 		puzzle_rotate1 = 16,
 		puzzle_rotate2 = 17,
-		puzzle_rotate3 = 18,
+		//puzzle_rotate3 = 18,
 		puzzle_rotate4 = 19,
 		puzzle_rotate5 = 20,
 	}

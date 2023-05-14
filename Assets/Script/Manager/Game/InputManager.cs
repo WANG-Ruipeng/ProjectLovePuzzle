@@ -29,7 +29,7 @@ public class InputManager : MonoBehaviour
 	void PlayRotateEffectSound()
 	{
 		if (!AudioManager.Instance) return;
-		int rand = Random.Range(1, 6);
+		int rand = Random.Range(1, 5);
 		switch (rand)
 		{
 			case 1:
@@ -39,12 +39,9 @@ public class InputManager : MonoBehaviour
 				AudioManager.Instance.PlayEffect(SoundID.puzzle_rotate2);
 				break;
 			case 3:
-				AudioManager.Instance.PlayEffect(SoundID.puzzle_rotate3);
-				break;
-			case 4:
 				AudioManager.Instance.PlayEffect(SoundID.puzzle_rotate4);
 				break;
-			case 5:
+			case 4:
 				AudioManager.Instance.PlayEffect(SoundID.puzzle_rotate5);
 				break;
 
