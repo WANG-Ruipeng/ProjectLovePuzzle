@@ -52,7 +52,7 @@ namespace Giro
 		public Scene gamePlayScene;
 		public GameObject m_CurrentLevelGO;
 		static GameObject puzzlePoolGO;
-		static List<Movable> m_ActiveSteps = new List<Movable>();
+		static List<Movable> m_ActiveSteps;
 
 		bool isCountdowning;
 		bool winOrLose;
@@ -75,7 +75,7 @@ namespace Giro
 			}
 
 			s_Instance = this;
-
+			m_ActiveSteps = new List<Movable>();
 #if UNITY_EDITOR
 			//If LevelManager already exists, user is in the LevelEditorWindow
 			if (SceneManager.GetActiveScene() == gamePlayScene)

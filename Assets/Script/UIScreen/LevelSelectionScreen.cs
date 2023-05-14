@@ -17,11 +17,12 @@ namespace Giro
 		public void SetButtonActivated()
 		{
 			int progress = SaveManager.LevelProgress;
-			for (int i = 0; i <= progress; i++)
-			{
-				levelButtons[i].interactable = true;
-				mangaButtons[i].interactable = true;
-			}
+			if (progress < 4)
+				for (int i = 0; i <= progress; i++)
+				{
+					levelButtons[i].interactable = true;
+					mangaButtons[i].interactable = true;
+				}
 			for (int i = progress + 1; i < 4; i++)
 			{
 				levelButtons[i].interactable = false;
