@@ -262,7 +262,7 @@ MonoBehaviour:
   - isPlatform: 0
     platformObj: {fileID: 0}
     lPos: 0
-    lStepPrefab: {fileID: 364585177925155994, guid: 10227ab6895dc4a8f9a25040ef4e4f5b, type: 3}
+    lStepPrefab: {fileID: 364585177925155994, guid: e41a8a8a2e1a7c24f9d89bdd316076e3, type: 3}
     lCollectibleInfos: []
     rPos: 0
     rStepPrefab: {fileID: 364585177925155994, guid: de830b8bccc024805b2ad0f380d36be3, type: 3}
