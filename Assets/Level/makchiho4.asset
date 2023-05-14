@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   background: {fileID: 0}
   puzzlePiecePairPrefab: {fileID: 4092972524480892814, guid: 2fc22ac1ca3c1f74aa455dc170021db9, type: 3}
-  maxCountdown: 10
+  maxCountdown: 3
   seceondEnterDelay: 0.5
   pos1: {x: 0, y: 15, z: 0}
   pos2: {x: 0, y: 4, z: 0}
@@ -294,10 +294,10 @@ MonoBehaviour:
   - isPlatform: 0
     platformObj: {fileID: 0}
     lPos: 0
-    lStepPrefab: {fileID: 364585177925155994, guid: 2118325540f474b4a816c24b5e5a689e, type: 3}
+    lStepPrefab: {fileID: 364585177925155994, guid: b4b5ea800b4ad49a19c6c368751fd191, type: 3}
     lCollectibleInfos: []
     rPos: 0
-    rStepPrefab: {fileID: 364585177925155994, guid: 56353a5582ad943a99682b6ba87ee7e5, type: 3}
+    rStepPrefab: {fileID: 364585177925155994, guid: 24fa7d9045b224b80a6048ecde6a1d14, type: 3}
     rCollectibleInfos: []
   - isPlatform: 0
     platformObj: {fileID: 0}
@@ -310,10 +310,10 @@ MonoBehaviour:
   - isPlatform: 0
     platformObj: {fileID: 0}
     lPos: 0
-    lStepPrefab: {fileID: 364585177925155994, guid: 53c9c4f9544a34076b399f0020b646ca, type: 3}
+    lStepPrefab: {fileID: 364585177925155994, guid: bd784ddf5701b43eea69959e7bdc006f, type: 3}
     lCollectibleInfos: []
     rPos: 0
-    rStepPrefab: {fileID: 364585177925155994, guid: 5b75702162c9d4fc1adeeadaefe246cf, type: 3}
+    rStepPrefab: {fileID: 364585177925155994, guid: 8315bc0ce625b42fb89efe6ea7330b5e, type: 3}
     rCollectibleInfos: []
   - isPlatform: 0
     platformObj: {fileID: 0}
@@ -321,39 +321,7 @@ MonoBehaviour:
     lStepPrefab: {fileID: 364585177925155994, guid: d80fc305b7a5d4885a9ce2b7e8876a9e, type: 3}
     lCollectibleInfos: []
     rPos: 0
-    rStepPrefab: {fileID: 364585177925155994, guid: ea0a9faa599f040eaba7cc775c361dce, type: 3}
-    rCollectibleInfos: []
-  - isPlatform: 0
-    platformObj: {fileID: 0}
-    lPos: 0
-    lStepPrefab: {fileID: 364585177925155994, guid: 63ee35fa198f04c07ad82fbbdd4caf2d, type: 3}
-    lCollectibleInfos: []
-    rPos: 0
-    rStepPrefab: {fileID: 364585177925155994, guid: f92c4f0d2b6de43228b3ac4400338f5e, type: 3}
-    rCollectibleInfos: []
-  - isPlatform: 0
-    platformObj: {fileID: 0}
-    lPos: 0
-    lStepPrefab: {fileID: 364585177925155994, guid: f92c4f0d2b6de43228b3ac4400338f5e, type: 3}
-    lCollectibleInfos: []
-    rPos: 0
-    rStepPrefab: {fileID: 364585177925155994, guid: 63ee35fa198f04c07ad82fbbdd4caf2d, type: 3}
-    rCollectibleInfos: []
-  - isPlatform: 0
-    platformObj: {fileID: 0}
-    lPos: 0
-    lStepPrefab: {fileID: 364585177925155994, guid: f92c4f0d2b6de43228b3ac4400338f5e, type: 3}
-    lCollectibleInfos: []
-    rPos: 0
-    rStepPrefab: {fileID: 364585177925155994, guid: f92c4f0d2b6de43228b3ac4400338f5e, type: 3}
-    rCollectibleInfos: []
-  - isPlatform: 0
-    platformObj: {fileID: 0}
-    lPos: 0
-    lStepPrefab: {fileID: 364585177925155994, guid: 63ee35fa198f04c07ad82fbbdd4caf2d, type: 3}
-    lCollectibleInfos: []
-    rPos: 0
-    rStepPrefab: {fileID: 364585177925155994, guid: 63ee35fa198f04c07ad82fbbdd4caf2d, type: 3}
+    rStepPrefab: {fileID: 364585177925155994, guid: b4b5ea800b4ad49a19c6c368751fd191, type: 3}
     rCollectibleInfos: []
   - isPlatform: 0
     platformObj: {fileID: 0}
@@ -362,4 +330,196 @@ MonoBehaviour:
     lCollectibleInfos: []
     rPos: 0
     rStepPrefab: {fileID: 364585177925155994, guid: 24fa7d9045b224b80a6048ecde6a1d14, type: 3}
+    rCollectibleInfos: []
+  - isPlatform: 0
+    platformObj: {fileID: 0}
+    lPos: 0
+    lStepPrefab: {fileID: 364585177925155994, guid: bd784ddf5701b43eea69959e7bdc006f, type: 3}
+    lCollectibleInfos: []
+    rPos: 0
+    rStepPrefab: {fileID: 364585177925155994, guid: 24fa7d9045b224b80a6048ecde6a1d14, type: 3}
+    rCollectibleInfos: []
+  - isPlatform: 0
+    platformObj: {fileID: 0}
+    lPos: 0
+    lStepPrefab: {fileID: 364585177925155994, guid: 63ee35fa198f04c07ad82fbbdd4caf2d, type: 3}
+    lCollectibleInfos: []
+    rPos: 0
+    rStepPrefab: {fileID: 364585177925155994, guid: f92c4f0d2b6de43228b3ac4400338f5e, type: 3}
+    rCollectibleInfos: []
+  - isPlatform: 0
+    platformObj: {fileID: 0}
+    lPos: 0
+    lStepPrefab: {fileID: 364585177925155994, guid: f92c4f0d2b6de43228b3ac4400338f5e, type: 3}
+    lCollectibleInfos: []
+    rPos: 0
+    rStepPrefab: {fileID: 364585177925155994, guid: 63ee35fa198f04c07ad82fbbdd4caf2d, type: 3}
+    rCollectibleInfos: []
+  - isPlatform: 0
+    platformObj: {fileID: 0}
+    lPos: 0
+    lStepPrefab: {fileID: 364585177925155994, guid: f92c4f0d2b6de43228b3ac4400338f5e, type: 3}
+    lCollectibleInfos: []
+    rPos: 0
+    rStepPrefab: {fileID: 364585177925155994, guid: f92c4f0d2b6de43228b3ac4400338f5e, type: 3}
+    rCollectibleInfos: []
+  - isPlatform: 0
+    platformObj: {fileID: 0}
+    lPos: 0
+    lStepPrefab: {fileID: 364585177925155994, guid: 63ee35fa198f04c07ad82fbbdd4caf2d, type: 3}
+    lCollectibleInfos: []
+    rPos: 0
+    rStepPrefab: {fileID: 364585177925155994, guid: 63ee35fa198f04c07ad82fbbdd4caf2d, type: 3}
+    rCollectibleInfos: []
+  - isPlatform: 0
+    platformObj: {fileID: 0}
+    lPos: 0
+    lStepPrefab: {fileID: 364585177925155994, guid: f92c4f0d2b6de43228b3ac4400338f5e, type: 3}
+    lCollectibleInfos: []
+    rPos: 0
+    rStepPrefab: {fileID: 364585177925155994, guid: 5b75702162c9d4fc1adeeadaefe246cf, type: 3}
+    rCollectibleInfos: []
+  - isPlatform: 0
+    platformObj: {fileID: 0}
+    lPos: 0
+    lStepPrefab: {fileID: 364585177925155994, guid: 8315bc0ce625b42fb89efe6ea7330b5e, type: 3}
+    lCollectibleInfos: []
+    rPos: 0
+    rStepPrefab: {fileID: 364585177925155994, guid: 5b75702162c9d4fc1adeeadaefe246cf, type: 3}
+    rCollectibleInfos: []
+  - isPlatform: 0
+    platformObj: {fileID: 0}
+    lPos: 0
+    lStepPrefab: {fileID: 364585177925155994, guid: 8315bc0ce625b42fb89efe6ea7330b5e, type: 3}
+    lCollectibleInfos: []
+    rPos: 0
+    rStepPrefab: {fileID: 364585177925155994, guid: 5b75702162c9d4fc1adeeadaefe246cf, type: 3}
+    rCollectibleInfos: []
+  - isPlatform: 0
+    platformObj: {fileID: 0}
+    lPos: 0
+    lStepPrefab: {fileID: 364585177925155994, guid: 5d29132e66c844a76a3c707c80dcf2a3, type: 3}
+    lCollectibleInfos: []
+    rPos: 0
+    rStepPrefab: {fileID: 364585177925155994, guid: 5b75702162c9d4fc1adeeadaefe246cf, type: 3}
+    rCollectibleInfos: []
+  - isPlatform: 0
+    platformObj: {fileID: 0}
+    lPos: 0
+    lStepPrefab: {fileID: 364585177925155994, guid: 803b66610f7dd43f28a875dead30099d, type: 3}
+    lCollectibleInfos: []
+    rPos: 0
+    rStepPrefab: {fileID: 364585177925155994, guid: 5b75702162c9d4fc1adeeadaefe246cf, type: 3}
+    rCollectibleInfos: []
+  - isPlatform: 0
+    platformObj: {fileID: 0}
+    lPos: 0
+    lStepPrefab: {fileID: 364585177925155994, guid: 5d29132e66c844a76a3c707c80dcf2a3, type: 3}
+    lCollectibleInfos: []
+    rPos: 0
+    rStepPrefab: {fileID: 364585177925155994, guid: 803b66610f7dd43f28a875dead30099d, type: 3}
+    rCollectibleInfos: []
+  - isPlatform: 0
+    platformObj: {fileID: 0}
+    lPos: 0
+    lStepPrefab: {fileID: 364585177925155994, guid: aa79b15957865491db205a368ff60428, type: 3}
+    lCollectibleInfos: []
+    rPos: 0
+    rStepPrefab: {fileID: 364585177925155994, guid: 497556e337e6045dd8ba25ce74ea6dd5, type: 3}
+    rCollectibleInfos: []
+  - isPlatform: 0
+    platformObj: {fileID: 0}
+    lPos: 0
+    lStepPrefab: {fileID: 364585177925155994, guid: ec7228934062f4a50be9cdbece1b1389, type: 3}
+    lCollectibleInfos: []
+    rPos: 0
+    rStepPrefab: {fileID: 364585177925155994, guid: de830b8bccc024805b2ad0f380d36be3, type: 3}
+    rCollectibleInfos: []
+  - isPlatform: 0
+    platformObj: {fileID: 0}
+    lPos: 0
+    lStepPrefab: {fileID: 364585177925155994, guid: 3b576bdb83d8145548d1d0567c3a3de3, type: 3}
+    lCollectibleInfos: []
+    rPos: 0
+    rStepPrefab: {fileID: 364585177925155994, guid: 8f58bfab348c14afca9885165623d7f3, type: 3}
+    rCollectibleInfos: []
+  - isPlatform: 0
+    platformObj: {fileID: 0}
+    lPos: 0
+    lStepPrefab: {fileID: 364585177925155994, guid: fd83b24166fbd40b1a29bb0e6afb600c, type: 3}
+    lCollectibleInfos: []
+    rPos: 0
+    rStepPrefab: {fileID: 364585177925155994, guid: 3c30c0829d1534cdfab1ade6c3d658e7, type: 3}
+    rCollectibleInfos: []
+  - isPlatform: 0
+    platformObj: {fileID: 0}
+    lPos: 0
+    lStepPrefab: {fileID: 364585177925155994, guid: 0b29629074042449da1b3b3cb7e8bc66, type: 3}
+    lCollectibleInfos: []
+    rPos: 0
+    rStepPrefab: {fileID: 364585177925155994, guid: 40a04177498a8437a8f3fe77593154d8, type: 3}
+    rCollectibleInfos: []
+  - isPlatform: 0
+    platformObj: {fileID: 0}
+    lPos: 0
+    lStepPrefab: {fileID: 364585177925155994, guid: 5736459adc72d4dd7b02e19961b59f3e, type: 3}
+    lCollectibleInfos: []
+    rPos: 0
+    rStepPrefab: {fileID: 364585177925155994, guid: 335b7c7e5779a46b2aaedc5fe0a70c54, type: 3}
+    rCollectibleInfos: []
+  - isPlatform: 0
+    platformObj: {fileID: 0}
+    lPos: 0
+    lStepPrefab: {fileID: 364585177925155994, guid: 497556e337e6045dd8ba25ce74ea6dd5, type: 3}
+    lCollectibleInfos: []
+    rPos: 0
+    rStepPrefab: {fileID: 364585177925155994, guid: 2a548a44b7d0142f995f19081c288e02, type: 3}
+    rCollectibleInfos: []
+  - isPlatform: 0
+    platformObj: {fileID: 0}
+    lPos: 0
+    lStepPrefab: {fileID: 364585177925155994, guid: 2a548a44b7d0142f995f19081c288e02, type: 3}
+    lCollectibleInfos: []
+    rPos: 0
+    rStepPrefab: {fileID: 364585177925155994, guid: 2118325540f474b4a816c24b5e5a689e, type: 3}
+    rCollectibleInfos: []
+  - isPlatform: 0
+    platformObj: {fileID: 0}
+    lPos: 0
+    lStepPrefab: {fileID: 364585177925155994, guid: 2118325540f474b4a816c24b5e5a689e, type: 3}
+    lCollectibleInfos: []
+    rPos: 0
+    rStepPrefab: {fileID: 364585177925155994, guid: 2a548a44b7d0142f995f19081c288e02, type: 3}
+    rCollectibleInfos: []
+  - isPlatform: 0
+    platformObj: {fileID: 0}
+    lPos: 0
+    lStepPrefab: {fileID: 364585177925155994, guid: 2118325540f474b4a816c24b5e5a689e, type: 3}
+    lCollectibleInfos: []
+    rPos: 0
+    rStepPrefab: {fileID: 364585177925155994, guid: 2a548a44b7d0142f995f19081c288e02, type: 3}
+    rCollectibleInfos: []
+  - isPlatform: 0
+    platformObj: {fileID: 0}
+    lPos: 0
+    lStepPrefab: {fileID: 364585177925155994, guid: 2a548a44b7d0142f995f19081c288e02, type: 3}
+    lCollectibleInfos: []
+    rPos: 0
+    rStepPrefab: {fileID: 364585177925155994, guid: 2118325540f474b4a816c24b5e5a689e, type: 3}
+    rCollectibleInfos: []
+  - isPlatform: 0
+    platformObj: {fileID: 0}
+    lPos: 0
+    lStepPrefab: {fileID: 364585177925155994, guid: 2118325540f474b4a816c24b5e5a689e, type: 3}
+    lCollectibleInfos: []
+    rPos: 0
+    rStepPrefab: {fileID: 364585177925155994, guid: 2a548a44b7d0142f995f19081c288e02, type: 3}
+    rCollectibleInfos: []
+  - isPlatform: 0
+    platformObj: {fileID: 0}
+    lPos: 0
+    lStepPrefab: {fileID: 364585177925155994, guid: 2a548a44b7d0142f995f19081c288e02, type: 3}
+    lCollectibleInfos: []
+    rPos: 0
+    rStepPrefab: {fileID: 364585177925155994, guid: 2118325540f474b4a816c24b5e5a689e, type: 3}
     rCollectibleInfos: []
