@@ -99,6 +99,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   unlocked: 1
-  reusable: 0
+  reusable: 1
   onEdge: 0
   minRotateTime: 0
