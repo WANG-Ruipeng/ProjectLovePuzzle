@@ -25,6 +25,8 @@ MonoBehaviour:
     - Category: UIView
       Name: LevelSelect
     - Category: UIView
+      Name: LOSE
+    - Category: UIView
       Name: MainMenu
     - Category: UIView
       Name: Manga1

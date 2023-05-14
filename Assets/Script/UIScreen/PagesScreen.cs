@@ -8,7 +8,6 @@ using UnityEngine.UI;
 
 public class PagesScreen : MonoBehaviour
 {
-	public int id;
 
 	public UISelectable selectable;
 	public Image spriteRenderer;

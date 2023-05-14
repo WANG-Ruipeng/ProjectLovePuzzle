@@ -12,7 +12,6 @@ namespace Giro
 	public class LevelSelectionScreen : MonoBehaviour
 	{
 		public UIButton[] levelButtons;
-		public UIButton[] mangaButtons;
 
 		public void SetButtonActivated()
 		{
@@ -21,13 +20,12 @@ namespace Giro
 				for (int i = 0; i <= progress; i++)
 				{
 					levelButtons[i].interactable = true;
-					mangaButtons[i].interactable = true;
 				}
 			for (int i = progress + 1; i < 4; i++)
 			{
 				levelButtons[i].interactable = false;
-				mangaButtons[i].interactable = false;
 			}
+			
 		}
 	}
 }

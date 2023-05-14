@@ -24,6 +24,8 @@ namespace Giro
 		[SerializeField]
 		FlowNode loadSceneNode;
 		[SerializeField]
+		FlowNode[] mangaNodes;
+		[SerializeField]
 		FlowController flowController;
 		public AbstractLevelData[] Levels => m_Levels;
 
@@ -42,8 +44,9 @@ namespace Giro
 			base.Awake();
 			for (int i = 0; i < beforeLevelIllustrations.Length; i++)
 			{
-				beforeLevelIllustrations[i].id = i;
-				beforeLevelIllustrations[i].finalHandle += JumpToNode;
+				if (beforeLevelIllustrations[i])
+					beforeLevelIllustrations[i].finalHandle += JumpToNode;
+
 			}
 		}
 		/// <summary>
@@ -64,19 +67,19 @@ namespace Giro
 
 		public void CheckFirstEntryAndLoadLevel(int ind)
 		{
-			if (ind >= beforeLevelIllustrations.Length || beforeLevelIllustrations[ind])//如果没有show插画
-			{
-				JumpToNode();
-				return;
-			}
 			int progress = SaveManager.LevelProgress;
 			if (progress == ind)//如果首次进入则show插画
 			{
+				if (ind >= beforeLevelIllustrations.Length || !beforeLevelIllustrations[ind])//如果没有插画
+				{
+					JumpToNode();
+					return;
+				}
 				ShowIllustration(ind);
 			}
 			else//否则加载关卡
 			{
-				JumpToNode();
+				JumpToMangaNode(ind);
 			}
 		}
 
@@ -84,9 +87,15 @@ namespace Giro
 		{
 			beforeLevelIllustrations[ind].ShowNextPage();
 		}
-		private void JumpToNode()
+		public void JumpToNode()
 		{
+			hud.Reset();
 			flowController.SetActiveNode(loadSceneNode);
+		}
+
+		public void JumpToMangaNode(int ind)
+		{
+			flowController.SetActiveNode(mangaNodes[ind]);
 		}
 		public void OnSceneLoad()
 		{
