@@ -340,8 +340,6 @@ MonoBehaviour:
     m_AudioClip: {fileID: 8300000, guid: ee0c705684334214c808335eb25d6b0b, type: 3}
   - m_SoundID: 17
     m_AudioClip: {fileID: 8300000, guid: 2435b2cde47e8b64eb139deacb5984c6, type: 3}
-  - m_SoundID: 18
-    m_AudioClip: {fileID: 8300000, guid: 8cf19d46109ce37439a6309d7d625ac4, type: 3}
   - m_SoundID: 19
     m_AudioClip: {fileID: 8300000, guid: 8a4c7145cd59e2a4182651ddb6a329b4, type: 3}
   - m_SoundID: 20
