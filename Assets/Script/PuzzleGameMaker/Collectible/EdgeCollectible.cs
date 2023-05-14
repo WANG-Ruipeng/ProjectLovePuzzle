@@ -5,18 +5,24 @@ using UnityEngine;
 
 public class EdgeCollectible : Collectible
 {
-	public int rotateTime;
+	public int onEdge;
 	public override bool Check(PuzzlePiece puzzlePiece)
 	{
-		if (puzzlePiece.state == rotateTime)
+		if (puzzlePiece.RotateClockWise)
 		{
-			return true;
+			if ((puzzlePiece.state + 1) % 4 == onEdge)
+				return true;
+		}
+		else
+		{
+			if ((puzzlePiece.state + 3) % 4 == onEdge)
+				return true;
 		}
 		return false;
 	}
 	public override void SetData(LevelDefinition.CollectibleInfo collectibleInfo)
 	{
 		base.SetData(collectibleInfo);
-		rotateTime = collectibleInfo.rotateTime;
+		onEdge = collectibleInfo.onEdge;
 	}
 }

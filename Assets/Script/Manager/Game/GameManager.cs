@@ -52,7 +52,6 @@ namespace Giro
 		public Scene gamePlayScene;
 		public GameObject m_CurrentLevelGO;
 		static GameObject puzzlePoolGO;
-		static List<Movable> m_ActiveSteps = new List<Movable>();
 
 		bool isCountdowning;
 		bool winOrLose;
@@ -75,7 +74,6 @@ namespace Giro
 			}
 
 			s_Instance = this;
-
 #if UNITY_EDITOR
 			//If LevelManager already exists, user is in the LevelEditorWindow
 			if (SceneManager.GetActiveScene() == gamePlayScene)
@@ -255,7 +253,6 @@ namespace Giro
 						levelDefinition.platformEnterAnimationCurve, levelDefinition.platformDownAnimationCurve, levelDefinition.platformExitAnimationCurve);
 
 					levelManager.AddStep(movable);
-					m_ActiveSteps.Add(movable);
 				}
 				else
 				{
@@ -286,7 +283,7 @@ namespace Giro
 									continue;
 
 								GameObject collectibleInstance = (GameObject)Instantiate(Resources.Load("Collectible/" + stepsList[i].lCollectibleInfos[j].prefab.name), go.transform);
-								pz.collections.Add(stepsList[i].lCollectibleInfos[j].prefab.GetComponent<Collectible>());
+								pz.collections.Add(collectibleInstance.GetComponent<Collectible>());
 								pz.collections[pz.collections.Count - 1].SetData(stepsList[i].lCollectibleInfos[j]);
 							}
 							movable.leftObj = go;
@@ -303,14 +300,13 @@ namespace Giro
 									continue;
 
 								GameObject collectibleInstance = (GameObject)Instantiate(Resources.Load("Collectible/" + stepsList[i].rCollectibleInfos[j].prefab.name), go.transform);
-								pz.collections.Add(stepsList[i].rCollectibleInfos[j].prefab.GetComponent<Collectible>());
+								pz.collections.Add(collectibleInstance.GetComponent<Collectible>());
 								pz.collections[pz.collections.Count - 1].SetData(stepsList[i].rCollectibleInfos[j]);
 							}
 							movable.rightObj = go;
 						}
 						movableGO.SetActive(true);
 						levelManager.AddStep(movable);
-						m_ActiveSteps.Add(movable);
 					}
 				}
 			}
@@ -318,6 +314,8 @@ namespace Giro
 
 		public void UnloadCurrentLevel()
 		{
+			CountdownEvent.RemoveListener(CountdownListener);
+			hud.Reset();
 			if (m_CurrentLevelGO != null)
 			{
 				GameObject.Destroy(m_CurrentLevelGO);
@@ -351,6 +349,10 @@ namespace Giro
 			InputManager.Instance.receiveInput = isCountdowning;
 		}
 
+		private void OnDisable()
+		{
+			UnloadCurrentLevel();
+		}
 
 
 		private void Update()
@@ -365,6 +367,7 @@ namespace Giro
 			}
 			if (countdown <= 0 && !winOrLose)
 			{
+				OnCountdownEventRaised();
 				Lose();
 				return;
 			}
@@ -396,11 +399,11 @@ namespace Giro
 
 		public void Win()
 		{
-			m_WinEvent.Raise();
 			winOrLose = true;
 			hud.UpdateValueBar(MovableManager.Instance.Progress, MovableManager.Instance.StepNum);
 
-			PlayerManager.Instance.SetPlayerVictory();
+			PlayerManager.Instance.SetPlayerVictory(m_WinEvent.Raise);
+
 #if UNITY_EDITOR
 			if (m_LevelEditorMode)
 			{
@@ -411,9 +414,9 @@ namespace Giro
 
 		public void Lose()
 		{
-			m_LoseEvent.Raise();
 			winOrLose = true;
-			PlayerManager.Instance.SetPlayerFall();
+			AudioManager.Instance.PlayEffect(SoundID.lose_and_fall);
+			PlayerManager.Instance.SetPlayerFall(m_LoseEvent.Raise);
 #if UNITY_EDITOR
 			if (m_LevelEditorMode)
 			{

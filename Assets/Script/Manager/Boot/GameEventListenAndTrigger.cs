@@ -32,18 +32,26 @@ public class GameEventListenAndTrigger : MonoBehaviour
 		loseEventListener.EventHandler += OnLoseEventRaised;
 
 		gameLoader = GetComponent<SequenceManager>();
+
+		for (int i = 0; i < afterWinIllustration.Length; i++)
+		{
+			afterWinIllustration[i].finalHandle += () => flowController.SetActiveNode(enterWinScreenNode);
+		}
 	}
 
 	void OnWinEventRaised()
 	{
-		//TODO:等待胜利动画播放完毕
-		int nextLevel = gameLoader.CurrentLevel + 1;
-		if (nextLevel > SaveManager.LevelProgress)
+		//在胜利动画播放完毕调用，实现于Player的胜利播放脚本
+		if (CurrentLevel == SaveManager.LevelProgress)
 		{
-			SaveManager.LevelProgress = nextLevel;
+			SaveManager.LevelProgress = CurrentLevel + 1;
 		}
-		flowController.SetActiveNode(enterWinScreenNode);
 		Time.timeScale = 0;
+		if (CurrentLevel - 1 >= afterWinIllustration.Length)
+		{
+			flowController.SetActiveNode(enterWinScreenNode);
+			return;
+		}
 		if (afterWinIllustration[CurrentLevel])
 		{
 			afterWinIllustration[CurrentLevel].ShowNextPage();
@@ -52,7 +60,6 @@ public class GameEventListenAndTrigger : MonoBehaviour
 
 	void OnLoseEventRaised()
 	{
-		AudioManager.Instance.PlayEffect(SoundID.lose_and_fall);
 		//TODO:等待失败动画播放完毕
 		flowController.SetActiveNode(enterLoseScreenNode);
 	}

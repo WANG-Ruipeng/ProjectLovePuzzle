@@ -38,9 +38,9 @@ public class PlayerManager : MonoBehaviour
 		boy.PlayAlmostFallAnimation();
 		girl.PlayAlmostFallAnimation();
 	}
-	public void SetPlayerFall()
+	public void SetPlayerFall(System.Action action = null)
 	{
-		boy.PlayFallAnimation();
+		boy.PlayFallAnimation(action);
 		girl.PlayFallAnimation();
 	}
 	public void SetPlayerJump()
@@ -48,9 +48,9 @@ public class PlayerManager : MonoBehaviour
 		boy.PlayJumpAnimation();
 		girl.PlayJumpAnimation();
 	}
-	public void SetPlayerVictory()
+	public void SetPlayerVictory(System.Action action = null)
 	{
-		boy.PlayVictoryAnimation();
+		boy.PlayVictoryAnimation(action);
 		girl.PlayVictoryAnimation();
 	}
 }

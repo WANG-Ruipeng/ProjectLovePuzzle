@@ -103,7 +103,7 @@ namespace Giro
 			[Header("是否复用（必填）")]
 			public bool reusable;
 			[Header("收集所需旋转次数（边收集物）")]
-			public int rotateTime;
+			public int onEdge;
 			[Header("收集至少需要旋转次数（旋转收集物）")]
 			public int minRotateTime;
 		}

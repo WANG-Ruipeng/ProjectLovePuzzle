@@ -22,16 +22,35 @@ public class Player : MonoBehaviour
 	{
 		skeletonAnimation.state.SetAnimation(0, "aimost fall", true);
 	}
-	public void PlayFallAnimation()
+	public void PlayFallAnimation(System.Action action = null)
 	{
-		skeletonAnimation.state.SetAnimation(0, "fall", true);
+		skeletonAnimation.state.SetAnimation(0, "fall", false);
+		if (action == null)
+			return;
+		Spine.AnimationState.TrackEntryDelegate cc = delegate
+		{
+			action();
+		};
+		cc += delegate { skeletonAnimation.AnimationState.Complete -= cc; };
+
+		skeletonAnimation.AnimationState.Complete += cc;
 	}
 	public void PlayJumpAnimation()
 	{
 		skeletonAnimation.state.SetAnimation(0, "jump", false);
 	}
-	public void PlayVictoryAnimation()
+	public void PlayVictoryAnimation(System.Action action = null)
 	{
-		skeletonAnimation.state.SetAnimation(0, "victory", true);
+		skeletonAnimation.state.SetAnimation(0, "victory", false);
+		if (action == null)
+			return;
+		Spine.AnimationState.TrackEntryDelegate cc = delegate
+		{
+			action();
+		};
+		cc += delegate { skeletonAnimation.AnimationState.Complete -= cc; };
+
+		skeletonAnimation.AnimationState.Complete += cc;
+
 	}
 }

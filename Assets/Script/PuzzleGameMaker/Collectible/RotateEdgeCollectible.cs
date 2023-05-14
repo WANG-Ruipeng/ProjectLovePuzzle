@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class RotateEdgeCollectible : EdgeCollectible
 {
-	int minRotateTime;
+	public int minRotateTime;
 	public override bool Check(PuzzlePiece puzzlePiece)
 	{
 		if (puzzlePiece.rotateTime < minRotateTime)
