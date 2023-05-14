@@ -528,6 +528,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1272795162}
     - target: {fileID: 5748477057393688392, guid: b15b537d1e54e734e87ff89e53369dd3, type: 3}
+      propertyPath: loadSceneNode
+      value: 
+      objectReference: {fileID: -5134932047868864922, guid: f43d5ce3440401340af5a13da65d8b14, type: 2}
+    - target: {fileID: 5748477057393688392, guid: b15b537d1e54e734e87ff89e53369dd3, type: 3}
       propertyPath: flowController
       value: 
       objectReference: {fileID: 877655273}

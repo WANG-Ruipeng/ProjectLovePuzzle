@@ -108,20 +108,29 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 1
-      outSlope: 1
+      inSlope: 3.2672777
+      outSlope: 3.2672777
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.33333334
     - serializedVersion: 3
       time: 0.553772
       value: 0.98586273
-      inSlope: 1
-      outSlope: 1
+      inSlope: 1.9832523
+      outSlope: 1.9832523
       tangentMode: 34
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.553772
+      value: 0.98586273
+      inSlope: -0.2660739
+      outSlope: -0.2660739
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.18196917
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -132,20 +141,29 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 1
-      outSlope: 1
+      inSlope: 2.7848017
+      outSlope: 2.7848017
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.33333334
     - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
+      time: 0.29653922
+      value: 0.8258029
+      inSlope: 1.641724
+      outSlope: 1.641724
+      tangentMode: 0
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5940862
+      value: 0.99998474
+      inSlope: 0.10761949
+      outSlope: 0.10761949
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.17337842
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -156,20 +174,29 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 21.140646
-      outSlope: 21.140646
+      inSlope: 4.682374
+      outSlope: 4.682374
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.047302246
-      value: 1
-      inSlope: 21.140646
-      outSlope: 21.140646
-      tangentMode: 34
+      time: 0.18674828
+      value: 0.8744253
+      inSlope: 1.7739934
+      outSlope: 1.7739934
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
+      outWeight: 0.26311308
+    - serializedVersion: 3
+      time: 0.32380265
+      value: 0.99998474
+      inSlope: 0.3474278
+      outSlope: 0.3474278
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.28843912
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -180,20 +207,20 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 1
-      outSlope: 1
+      inSlope: 3.847816
+      outSlope: 3.847816
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.33333334
     - serializedVersion: 3
-      time: 1
+      time: 0.2598877
       value: 1
-      inSlope: 1
-      outSlope: 1
+      inSlope: 3.847816
+      outSlope: 3.847816
       tangentMode: 34
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.33333334
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -226,12 +253,24 @@ MonoBehaviour:
   - isPlatform: 0
     platformObj: {fileID: 0}
     lPos: 0
+    lStepPrefab: {fileID: 364585177925155994, guid: e41a8a8a2e1a7c24f9d89bdd316076e3, type: 3}
+    lCollectibleInfos:
+    - prefab: {fileID: 8633107720137370035, guid: 26145bbcb0481da428f7bddd9a83d280, type: 3}
+      reusable: 0
+      onEdge: 0
+      minRotateTime: 4
+    rPos: 0
+    rStepPrefab: {fileID: 364585177925155994, guid: aa79b15957865491db205a368ff60428, type: 3}
+    rCollectibleInfos: []
+  - isPlatform: 0
+    platformObj: {fileID: 0}
+    lPos: 0
     lStepPrefab: {fileID: 364585177925155994, guid: acee62a9f377d48cfb9d460a717427a6, type: 3}
     lCollectibleInfos:
     - prefab: {fileID: 8633107720137370035, guid: 26145bbcb0481da428f7bddd9a83d280, type: 3}
       reusable: 0
-      rotateTime: 0
-      minRotateTime: 0
+      onEdge: 0
+      minRotateTime: 2
     rPos: 0
     rStepPrefab: {fileID: 364585177925155994, guid: 234c32704b3a84ab3a6f72caa61d7a47, type: 3}
     rCollectibleInfos: []
@@ -242,18 +281,6 @@ MonoBehaviour:
     lCollectibleInfos: []
     rPos: 0
     rStepPrefab: {fileID: 364585177925155994, guid: 502d857400b2444bd98fdf131e3f0f48, type: 3}
-    rCollectibleInfos: []
-  - isPlatform: 0
-    platformObj: {fileID: 0}
-    lPos: 0
-    lStepPrefab: {fileID: 364585177925155994, guid: e41a8a8a2e1a7c24f9d89bdd316076e3, type: 3}
-    lCollectibleInfos:
-    - prefab: {fileID: 8633107720137370035, guid: 26145bbcb0481da428f7bddd9a83d280, type: 3}
-      reusable: 0
-      rotateTime: 0
-      minRotateTime: 0
-    rPos: 0
-    rStepPrefab: {fileID: 364585177925155994, guid: aa79b15957865491db205a368ff60428, type: 3}
     rCollectibleInfos: []
   - isPlatform: 1
     platformObj: {fileID: 4092972524480892814, guid: 5ccdfde13e5cbac419f104ff635b7b7a, type: 3}

@@ -49,6 +49,11 @@ public class PuzzlePiece : MonoBehaviour
 			tran.gameObject.layer = LayerMask.NameToLayer("Puzzle");//更改物体的Layer层 NoWrieframeEffect
 			tran.gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "Puzzle";
 		}
+		foreach (Collectible collectible in collections)
+		{
+			collectible.gameObject.layer = LayerMask.NameToLayer("Collectible");
+			collectible.gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "Collectible";
+		}
 
 	}
 	public void Reset()
@@ -65,9 +70,8 @@ public class PuzzlePiece : MonoBehaviour
 		{
 			if (collectible is EdgeCollectible c)
 			{
-				c.transform.Rotate(new Vector3(0, 0, 1), -c.rotateTime * 90);
-				c.transform.Translate(new Vector3(0, collectiblePosOffset, 0));
-				c.transform.Rotate(new Vector3(0, 0, 1), c.rotateTime * 90);
+				c.transform.Rotate(new Vector3(0, 0, 1), -c.onEdge * 90);
+				c.transform.localPosition = new Vector3(0, collectiblePosOffset, 0);
 			}
 		}
 	}
@@ -100,6 +104,8 @@ public class PuzzlePiece : MonoBehaviour
 			rot.z = (rotateStartAngle + rotateZ) % 360;
 		}
 		Quaternion rotQuat = Quaternion.Euler(rot.x, rot.y, rot.z);
+
+
 		transform.rotation = rotQuat;
 
 		//处理边收藏品
@@ -107,10 +113,8 @@ public class PuzzlePiece : MonoBehaviour
 		{
 			if (collectible is EdgeCollectible c)
 			{
-				Vector3 to = c.transform.position;
-				c.transform.position = Vector3.zero;
-				c.transform.rotation = Quaternion.Euler(rot.x, rot.y, -rot.z);
-				c.transform.position = to;
+				c.transform.rotation = Quaternion.Euler(0, 0, 0);
+				c.transform.Rotate(new Vector3(0, 0, 1), -c.onEdge * 90);
 			}
 		}
 	}

@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1749920511503282913}
   - component: {fileID: 698617995180714025}
-  - component: {fileID: 2584322124894445671}
-  m_Layer: 0
+  - component: {fileID: 4760309324308862464}
+  m_Layer: 8
   m_Name: Diamond
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,7 +25,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8633107720137370035}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -71,8 +71,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1588441165
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 3625043607559282579, guid: 19fb86013d8c24d6cb8410c0aadf30fa, type: 3}
   m_Color: {r: 0.9907868, g: 1, b: 0, a: 1}
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2584322124894445671
+--- !u!114 &4760309324308862464
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,9 +94,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8633107720137370035}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cdcb249bab9e314cb6aaf5c5ccc7d95, type: 3}
+  m_Script: {fileID: 11500000, guid: 449b4a651c59cc944ae04b7b2393c47a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
   unlocked: 1
   reusable: 0
+  onEdge: 0
+  minRotateTime: 2

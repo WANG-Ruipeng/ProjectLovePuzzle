@@ -14,7 +14,7 @@ TagManager:
   - UI
   - Puzzle
   - Player
-  - 
+  - Collectible
   - 
   - 
   - 
@@ -44,6 +44,9 @@ TagManager:
     locked: 0
   - name: Puzzle
     uniqueID: 3122847561
+    locked: 0
+  - name: Collectible
+    uniqueID: 2706526131
     locked: 0
   - name: Player
     uniqueID: 903319475

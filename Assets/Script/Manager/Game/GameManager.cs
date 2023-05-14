@@ -52,7 +52,6 @@ namespace Giro
 		public Scene gamePlayScene;
 		public GameObject m_CurrentLevelGO;
 		static GameObject puzzlePoolGO;
-		static List<Movable> m_ActiveSteps;
 
 		bool isCountdowning;
 		bool winOrLose;
@@ -75,7 +74,6 @@ namespace Giro
 			}
 
 			s_Instance = this;
-			m_ActiveSteps = new List<Movable>();
 #if UNITY_EDITOR
 			//If LevelManager already exists, user is in the LevelEditorWindow
 			if (SceneManager.GetActiveScene() == gamePlayScene)
@@ -255,7 +253,6 @@ namespace Giro
 						levelDefinition.platformEnterAnimationCurve, levelDefinition.platformDownAnimationCurve, levelDefinition.platformExitAnimationCurve);
 
 					levelManager.AddStep(movable);
-					m_ActiveSteps.Add(movable);
 				}
 				else
 				{
@@ -286,7 +283,7 @@ namespace Giro
 									continue;
 
 								GameObject collectibleInstance = (GameObject)Instantiate(Resources.Load("Collectible/" + stepsList[i].lCollectibleInfos[j].prefab.name), go.transform);
-								pz.collections.Add(stepsList[i].lCollectibleInfos[j].prefab.GetComponent<Collectible>());
+								pz.collections.Add(collectibleInstance.GetComponent<Collectible>());
 								pz.collections[pz.collections.Count - 1].SetData(stepsList[i].lCollectibleInfos[j]);
 							}
 							movable.leftObj = go;
@@ -303,14 +300,13 @@ namespace Giro
 									continue;
 
 								GameObject collectibleInstance = (GameObject)Instantiate(Resources.Load("Collectible/" + stepsList[i].rCollectibleInfos[j].prefab.name), go.transform);
-								pz.collections.Add(stepsList[i].rCollectibleInfos[j].prefab.GetComponent<Collectible>());
+								pz.collections.Add(collectibleInstance.GetComponent<Collectible>());
 								pz.collections[pz.collections.Count - 1].SetData(stepsList[i].rCollectibleInfos[j]);
 							}
 							movable.rightObj = go;
 						}
 						movableGO.SetActive(true);
 						levelManager.AddStep(movable);
-						m_ActiveSteps.Add(movable);
 					}
 				}
 			}
