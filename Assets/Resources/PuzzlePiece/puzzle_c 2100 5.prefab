@@ -123,6 +123,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   RotateClockWise: 0
+  collectiblePosOffset: 3
   puzzleSprites:
   - {fileID: 21300000, guid: cb1a7a6a5b250422d92d8ae3fe0f601c, type: 3}
   - {fileID: 21300000, guid: 41962ae242e674f34a3dde1f127e4b1a, type: 3}

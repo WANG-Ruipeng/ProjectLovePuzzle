@@ -164,8 +164,7 @@ namespace Giro
 			{
 				MovableManager.Instance.Reset();
 			}
-			if (!hud)
-				hud = GameObject.Find("HUD").GetComponent<HUD>();
+
 			InputManager.Instance.hud = hud;
 			isCountdowning = false;
 			InputManager.Instance.receiveInput = false;

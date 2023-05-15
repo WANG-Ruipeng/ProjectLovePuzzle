@@ -123,7 +123,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   RotateClockWise: 0
-  collectiblePosOffset: 0
+  collectiblePosOffset: 3
   puzzleSprites: []
   state: 0
   edgeProps: 01000000ffffffff01000000ffffffff

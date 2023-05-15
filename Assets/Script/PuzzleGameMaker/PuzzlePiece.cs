@@ -74,7 +74,22 @@ public class PuzzlePiece : MonoBehaviour
 			}
 			if (collectible is EdgeCollectible c)
 			{
-				c.transform.localPosition = new Vector3(0, collectiblePosOffset, 0);
+				switch (c.onEdge)
+				{
+					case 0:
+						c.transform.localPosition = new Vector3(0, collectiblePosOffset, 0);
+						break;
+					case 1:
+						c.transform.localPosition = new Vector3(collectiblePosOffset, 0, 0);
+						break;
+					case 2:
+						c.transform.localPosition = new Vector3(0, -collectiblePosOffset, 0);
+						break;
+					case 3:
+						c.transform.localPosition = new Vector3(-collectiblePosOffset, 0, 0);
+						break;
+				}
+
 			}
 		}
 	}
