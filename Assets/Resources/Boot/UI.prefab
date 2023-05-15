@@ -1934,7 +1934,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5304449318936442757}
   m_HandleRect: {fileID: 5517909232353680973}
   m_Direction: 2
-  m_Value: 0.99999654
+  m_Value: 1.0000012
   m_Size: 0.79731596
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -5555,7 +5555,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -343, y: 415.2029}
+  m_AnchoredPosition: {x: -343, y: 415.20212}
   m_SizeDelta: {x: 686, y: 1180.5}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1396779771255108725
@@ -8563,7 +8563,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -343, y: 415.20294}
+  m_AnchoredPosition: {x: -343, y: 415.20212}
   m_SizeDelta: {x: 686, y: 1041.5}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1938493844905023875
@@ -13592,7 +13592,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 320695444443957480}
   m_HandleRect: {fileID: 3725053311935513989}
   m_Direction: 2
-  m_Value: 0.99999976
+  m_Value: 1.0000001
   m_Size: 0.27643293
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -14548,7 +14548,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8315436745952155960}
   m_HandleRect: {fileID: 19728703364939797}
   m_Direction: 2
-  m_Value: 0.9999979
+  m_Value: 1.0000007
   m_Size: 0.7034346
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -27011,7 +27011,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -343, y: 415.20282}
+  m_AnchoredPosition: {x: -343, y: 415.20212}
   m_SizeDelta: {x: 686, y: 3004}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &5841503369932121614
@@ -27680,7 +27680,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -343, y: 415.34546}
+  m_AnchoredPosition: {x: -343, y: 415.20212}
   m_SizeDelta: {x: 686, y: 3448.5}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &6468779082849874017
@@ -31550,7 +31550,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6468779083452219714}
   m_HandleRect: {fileID: 6468779083452219715}
   m_Direction: 2
-  m_Value: 0.99994534
+  m_Value: 1.0000001
   m_Size: 0.24080166
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -48466,6 +48466,14 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 332147628071283769, guid: 319dfd0a4ab3eeb48a0ed15425991bff, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 332147628071283769, guid: 319dfd0a4ab3eeb48a0ed15425991bff, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 332147628483965053, guid: 319dfd0a4ab3eeb48a0ed15425991bff, type: 3}
       propertyPath: NormalAnimation.Fade.Enabled
       value: 0
